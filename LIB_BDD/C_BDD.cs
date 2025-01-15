@@ -18,7 +18,6 @@ public class C_BDD {
             try {
                 Connection.Open();
                 Console.WriteLine("Connexion réussie !");
-                // Exécutez vos requêtes SQL ici
             } catch(Exception ex) {
                 Console.WriteLine($"Erreur : {ex.Message}");
             }
@@ -39,7 +38,7 @@ public class C_BDD {
         Connexion.Query<C_ESPECE>("delete from Especes where idEspece = @IDESPECE",new { IDESPECE = P_Espece.idEspece });
     }
 
-    public void Add_Espece(C_ESPECE P_Espece) {
+    public void Add_Espece(C_ESPECE P_Espece, List<string> P_ImgPath) {
 
         try {
             using MySqlConnection Connexion = new MySqlConnection(Chaine_Connexion);
@@ -62,11 +61,23 @@ public class C_BDD {
                     DESCPRES = P_Espece.descPres,
                     NUMINVENTAIRE = P_Espece.numInventaire
                 });
+            int ID = Connexion.QuerySingle<int>("SELECT LAST_INSERT_ID();");
+            Add_Image(ID,P_ImgPath);
         } catch(Exception) {
             throw;
         }
 
     }
+
+    public void Add_Image(int P_idEspece,List<string> P_ListPath) {
+        using(MySqlConnection connexion = new MySqlConnection(Chaine_Connexion)) {
+            foreach(var Path in P_ListPath) {
+                connexion.Execute("INSERT INTO images (idEspece, imgPath) VALUES (@IDESPECE, @IMGPATH)",
+                new { IDESPECE = P_idEspece,IMGPATH = Path });
+            }       
+        }
+    }
+
 
     public void Edit_Espece(C_ESPECE P_Espece) {
         using MySqlConnection Connexion = new MySqlConnection(Chaine_Connexion);

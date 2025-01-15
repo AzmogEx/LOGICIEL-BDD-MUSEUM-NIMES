@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IHM_AJOUT"
         mc:Ignorable="d"
-        Title="Ajout d'espèces" Height="600" Width="1000">
+        Title="Ajout d'espèces" Height="600" Width="1000"
+        ResizeMode="NoResize">
     <Grid>
         <Label Content="Nom commun" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="10,10,0,0" VerticalAlignment="Top" Width="110"/>
         <TextBox x:Name="TB_Nom" HorizontalAlignment="Left" Margin="140,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
@@ -79,6 +80,14 @@
 
 
         <Button x:Name="BTN_Add" Content="Ajouter" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" Height="41" Width="80" Click="BTN_Add_Click"/>
+
+        <StackPanel Orientation="Vertical" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Top" Width="500">
+            <Label Content="Ajouter une image :" />
+            <Border BorderBrush="Gray" BorderThickness="1" Width="200" Height="200" AllowDrop="True" Drop="Image_Drop">
+                <Image x:Name="ImagePreview" Stretch="Uniform" />
+            </Border>
+            <Button Content="Importer une image" Click="ImportImage_Click" Margin="5" Width="130" Height="38" />
+        </StackPanel>
 
     </Grid>
 </Window>

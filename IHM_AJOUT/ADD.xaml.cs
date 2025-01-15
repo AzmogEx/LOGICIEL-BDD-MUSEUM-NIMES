@@ -9,14 +9,44 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
+using System.IO;
 
 namespace IHM_AJOUT {
     public partial class ADD:Window {
-        C_BDD BDD = null;
+        private C_BDD BDD = null;
+        private string imagePath;
+        private List<string> ListPath = new();
 
         public ADD() {
             BDD = new();
             InitializeComponent();
+        }
+
+        private void ImportImage_Click(object sender,RoutedEventArgs e) {
+            try {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Image files (*.png;*.jpg;*.jpeg)|*.png;*.jpg;*.jpeg";
+
+                if(openFileDialog.ShowDialog() == true) {
+                    imagePath = openFileDialog.FileName;
+                    ImagePreview.Source = new BitmapImage(new Uri(imagePath));
+                    ListPath.Add(imagePath);
+                }
+            } catch(Exception ex) {
+                MessageBox.Show($"Une erreur est survenue : {ex.Message}\n{ex.StackTrace}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
+            }
+
+        }
+
+        private void Image_Drop(object sender,DragEventArgs e) {
+            if(e.Data.GetDataPresent(DataFormats.FileDrop)) {
+                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+                if(files.Length > 0) {
+                    imagePath = files[0];
+                    ImagePreview.Source = new BitmapImage(new Uri(imagePath));
+                }
+            }
         }
 
         private void BTN_Add_Click(object sender,RoutedEventArgs e) {
@@ -59,7 +89,7 @@ namespace IHM_AJOUT {
                     numInventaire = TB_NumInv.Text
                 };
 
-                BDD.Add_Espece(Espece);
+                BDD.Add_Espece(Espece, ListPath);
 
                 MessageBox.Show("L'espèce a été ajoutée avec succès.","Succès",MessageBoxButton.OK,MessageBoxImage.Information);
             } catch(Exception ex) {

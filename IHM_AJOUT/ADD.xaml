@@ -1,0 +1,84 @@
+﻿<Window x:Class="IHM_AJOUT.ADD"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IHM_AJOUT"
+        mc:Ignorable="d"
+        Title="Ajout d'espèces" Height="600" Width="1000">
+    <Grid>
+        <Label Content="Nom commun" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="10,10,0,0" VerticalAlignment="Top" Width="110"/>
+        <TextBox x:Name="TB_Nom" HorizontalAlignment="Left" Margin="140,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+        <Label Content="Nom scientifique" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_NomScient" HorizontalAlignment="Left" Margin="140,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+        <Label Content="Statut (UICN)" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
+        <ComboBox x:Name="CB_Statut" HorizontalAlignment="Left" Margin="140,72,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem>Eteinte (EX)</ComboBoxItem>
+            <ComboBoxItem>Eteinte à l’état sauvage (EW)</ComboBoxItem>
+            <ComboBoxItem>En danger critique (CR)</ComboBoxItem>
+            <ComboBoxItem>En danger (EN)</ComboBoxItem>
+            <ComboBoxItem>Vulnérable (VU)</ComboBoxItem>
+            <ComboBoxItem>Quasi menacée (NT)</ComboBoxItem>
+            <ComboBoxItem>Préoccupation mineure (LC)</ComboBoxItem>
+            <ComboBoxItem>Données insuffisantes (DD)</ComboBoxItem>
+            <ComboBoxItem>Non évaluée (NE)</ComboBoxItem>
+        </ComboBox>
+
+        <Label Content="Taille entre" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_TailleMin" HorizontalAlignment="Left" Margin="140,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
+        <Label Content="et" HorizontalAlignment="Left" Margin="180,100,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_TailleMax" HorizontalAlignment="Left" Margin="212,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
+        <ComboBox x:Name="CB_Unite_Taille" HorizontalAlignment="Left" Margin="247,102,0,0" VerticalAlignment="Top" Width="53">
+            <ComboBoxItem>cm</ComboBoxItem>
+            <ComboBoxItem>m</ComboBoxItem>
+        </ComboBox>
+
+        <Label Content="Poids entre" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_PoidsMin" HorizontalAlignment="Left" Margin="140,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
+        <Label Content="et" HorizontalAlignment="Left" Margin="180,130,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_PoidsMax" HorizontalAlignment="Left" Margin="212,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
+        <ComboBox x:Name="CB_Unite_Poids" HorizontalAlignment="Left" Margin="247,132,0,0" VerticalAlignment="Top" Width="53">
+            <ComboBoxItem>g</ComboBoxItem>
+            <ComboBoxItem>kg</ComboBoxItem>
+        </ComboBox>
+
+        <Label Content="Durée de vie entre" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_AgeMin" HorizontalAlignment="Left" Margin="140,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
+        <Label Content="et" HorizontalAlignment="Left" Margin="180,160,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_AgeMax" HorizontalAlignment="Left" Margin="212,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
+        <Label Content="ans" HorizontalAlignment="Left" Margin="245,160,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
+
+        <Label Content="Habitat" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_Habitat" HorizontalAlignment="Left" Margin="140,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+        <Label Content="Embranchement" HorizontalAlignment="Left" Margin="10,220,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_Embranchement" HorizontalAlignment="Left" Margin="140,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+        <Label Content="Classe" HorizontalAlignment="Left" Margin="10,250,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_Classe" HorizontalAlignment="Left" Margin="140,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+        <Label Content="Ordre" HorizontalAlignment="Left" Margin="10,280,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_Ordre" HorizontalAlignment="Left" Margin="140,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+        <Label Content="Famille" HorizontalAlignment="Left" Margin="10,310,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_Famille" HorizontalAlignment="Left" Margin="140,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+        <Label Content="Description" HorizontalAlignment="Left" Margin="10,340,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_Desc" HorizontalAlignment="Left" Margin="140,344,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="500" Height="40"/>
+
+        <Label Content="Description (UICN)" HorizontalAlignment="Left" Margin="10,400,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_DescUICN" HorizontalAlignment="Left" Margin="140,404,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="500" Height="40"/>
+
+        <Label Content="Info présentation" HorizontalAlignment="Left" Margin="10,460,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_DescPres" HorizontalAlignment="Left" Margin="140,464,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="500" Height="40"/>
+
+        <Label Content="Num d'inventaire" HorizontalAlignment="Left" Margin="10,520,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_NumInv" HorizontalAlignment="Left" Margin="140,524,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+
+        <Button x:Name="BTN_Add" Content="Ajouter" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" Height="41" Width="80" Click="BTN_Add_Click"/>
+
+    </Grid>
+</Window>

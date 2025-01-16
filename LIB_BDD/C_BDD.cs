@@ -74,7 +74,7 @@ public class C_BDD {
             foreach(var Path in P_ListPath) {
                 connexion.Execute("INSERT INTO images (idEspece, imgPath) VALUES (@IDESPECE, @IMGPATH)",
                 new { IDESPECE = P_idEspece,IMGPATH = Path });
-            }       
+            }
         }
     }
 

@@ -16,6 +16,9 @@ namespace IHM_AJOUT {
     public partial class ADD:Window {
         private C_BDD BDD = null;
         private string imagePath;
+        private string Path;
+        private string Path1;
+        private string Path2;
         private List<string> ListPath = new();
 
         public ADD() {
@@ -30,22 +33,24 @@ namespace IHM_AJOUT {
 
                 if(openFileDialog.ShowDialog() == true) {
                     imagePath = openFileDialog.FileName;
-                    ImagePreview.Source = new BitmapImage(new Uri(imagePath));
-                    ListPath.Add(imagePath);
+                    if(ImagePreview.Source == null) {
+                        ImagePreview.Source = new BitmapImage(new Uri(imagePath));
+                        BTN_DeleteImg.IsEnabled = true;
+                        Path = imagePath;
+                    } else {
+                        if(ImagePreview1.Source == null) {
+                            ImagePreview1.Source = new BitmapImage(new Uri(imagePath));
+                            BTN_DeleteImg1.IsEnabled = true;
+                            Path1 = imagePath;
+                        } else {
+                            ImagePreview2.Source = new BitmapImage(new Uri(imagePath));
+                            BTN_DeleteImg2.IsEnabled = true;
+                            Path2 = imagePath;
+                        }
+                    }
                 }
             } catch(Exception ex) {
                 MessageBox.Show($"Une erreur est survenue : {ex.Message}\n{ex.StackTrace}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
-            }
-
-        }
-
-        private void Image_Drop(object sender,DragEventArgs e) {
-            if(e.Data.GetDataPresent(DataFormats.FileDrop)) {
-                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-                if(files.Length > 0) {
-                    imagePath = files[0];
-                    ImagePreview.Source = new BitmapImage(new Uri(imagePath));
-                }
             }
         }
 
@@ -71,6 +76,18 @@ namespace IHM_AJOUT {
                     return;
                 }
 
+                if(Path != null) { 
+                    ListPath.Add(Path);
+                }
+
+                if(Path1 != null) {
+                    ListPath.Add(Path1);
+                }
+
+                if(Path2 != null) {
+                    ListPath.Add(Path2);
+                }
+
                 C_ESPECE Espece = new C_ESPECE() {
                     nomCommun = TB_Nom.Text,
                     nomScient = TB_NomScient.Text,
@@ -90,12 +107,29 @@ namespace IHM_AJOUT {
                 };
 
                 BDD.Add_Espece(Espece, ListPath);
-
+                ListPath = new();
                 MessageBox.Show("L'espèce a été ajoutée avec succès.","Succès",MessageBoxButton.OK,MessageBoxImage.Information);
             } catch(Exception ex) {
                 MessageBox.Show($"Une erreur est survenue : {ex.Message}\n{ex.StackTrace}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
             }
         }
 
+        private void BTN_DeleteImg_Click(object sender,RoutedEventArgs e) {
+            ImagePreview.Source = null;
+            BTN_DeleteImg.IsEnabled = false;
+            Path = null;
+        }
+
+        private void BTN_DeleteImg1_Click(object sender,RoutedEventArgs e) {
+            ImagePreview1.Source = null;
+            BTN_DeleteImg1.IsEnabled = false;
+            Path1 = null;
+        }
+
+        private void BTN_DeleteImg2_Click(object sender,RoutedEventArgs e) {
+            ImagePreview2.Source = null;
+            BTN_DeleteImg2.IsEnabled = false;
+            Path2 = null;
+        }
     }
 }

@@ -9,13 +9,13 @@
         ResizeMode="NoResize">
     <Grid>
         <Label Content="Nom commun" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="10,10,0,0" VerticalAlignment="Top" Width="110"/>
-        <TextBox x:Name="TB_Nom" HorizontalAlignment="Left" Margin="140,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TB_Nom" MaxLength="32" HorizontalAlignment="Left" Margin="140,14,0,0" VerticalAlignment="Top" Width="120"/>
 
         <Label Content="Nom scientifique" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_NomScient" HorizontalAlignment="Left" Margin="140,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TB_NomScient" MaxLength="64" HorizontalAlignment="Left" Margin="140,44,0,0" VerticalAlignment="Top" Width="120"/>
 
         <Label Content="Statut (UICN)" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
-        <ComboBox x:Name="CB_Statut" HorizontalAlignment="Left" Margin="140,72,0,0" VerticalAlignment="Top" Width="120">
+        <ComboBox x:Name="CB_Statut" SelectedIndex="0" HorizontalAlignment="Left" Margin="140,72,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem>Eteinte (EX)</ComboBoxItem>
             <ComboBoxItem>Eteinte à l’état sauvage (EW)</ComboBoxItem>
             <ComboBoxItem>En danger critique (CR)</ComboBoxItem>
@@ -28,66 +28,89 @@
         </ComboBox>
 
         <Label Content="Taille entre" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_TailleMin" HorizontalAlignment="Left" Margin="140,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
+        <TextBox x:Name="TB_TailleMin" MaxLength="16" HorizontalAlignment="Left" Margin="140,104,0,0" VerticalAlignment="Top" Width="30"/>
         <Label Content="et" HorizontalAlignment="Left" Margin="180,100,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_TailleMax" HorizontalAlignment="Left" Margin="212,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
-        <ComboBox x:Name="CB_Unite_Taille" HorizontalAlignment="Left" Margin="247,102,0,0" VerticalAlignment="Top" Width="53">
+        <TextBox x:Name="TB_TailleMax" MaxLength="16" HorizontalAlignment="Left" Margin="212,104,0,0" VerticalAlignment="Top" Width="30"/>
+        <ComboBox x:Name="CB_Unite_Taille" SelectedIndex="0" HorizontalAlignment="Left" Margin="247,102,0,0" VerticalAlignment="Top" Width="53">
             <ComboBoxItem>cm</ComboBoxItem>
             <ComboBoxItem>m</ComboBoxItem>
         </ComboBox>
 
         <Label Content="Poids entre" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_PoidsMin" HorizontalAlignment="Left" Margin="140,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
+        <TextBox x:Name="TB_PoidsMin" MaxLength="16" HorizontalAlignment="Left" Margin="140,134,0,0" VerticalAlignment="Top" Width="30"/>
         <Label Content="et" HorizontalAlignment="Left" Margin="180,130,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_PoidsMax" HorizontalAlignment="Left" Margin="212,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
-        <ComboBox x:Name="CB_Unite_Poids" HorizontalAlignment="Left" Margin="247,132,0,0" VerticalAlignment="Top" Width="53">
+        <TextBox x:Name="TB_PoidsMax" MaxLength="16" HorizontalAlignment="Left" Margin="212,134,0,0" VerticalAlignment="Top" Width="30"/>
+        <ComboBox x:Name="CB_Unite_Poids" SelectedIndex="0" HorizontalAlignment="Left" Margin="247,132,0,0" VerticalAlignment="Top" Width="53">
             <ComboBoxItem>g</ComboBoxItem>
             <ComboBoxItem>kg</ComboBoxItem>
         </ComboBox>
 
         <Label Content="Durée de vie entre" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_AgeMin" HorizontalAlignment="Left" Margin="140,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
+        <TextBox x:Name="TB_AgeMin" MaxLength="16" HorizontalAlignment="Left" Margin="140,164,0,0" VerticalAlignment="Top" Width="30"/>
         <Label Content="et" HorizontalAlignment="Left" Margin="180,160,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_AgeMax" HorizontalAlignment="Left" Margin="212,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
+        <TextBox x:Name="TB_AgeMax" MaxLength="16" HorizontalAlignment="Left" Margin="212,164,0,0" VerticalAlignment="Top" Width="30"/>
         <Label Content="ans" HorizontalAlignment="Left" Margin="245,160,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
 
         <Label Content="Habitat" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_Habitat" HorizontalAlignment="Left" Margin="140,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TB_Habitat" MaxLength="64" HorizontalAlignment="Left" Margin="140,194,0,0" VerticalAlignment="Top" Width="120"/>
 
         <Label Content="Embranchement" HorizontalAlignment="Left" Margin="10,220,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_Embranchement" HorizontalAlignment="Left" Margin="140,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TB_Embranchement" MaxLength="32" HorizontalAlignment="Left" Margin="140,224,0,0" VerticalAlignment="Top" Width="120"/>
 
         <Label Content="Classe" HorizontalAlignment="Left" Margin="10,250,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_Classe" HorizontalAlignment="Left" Margin="140,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TB_Classe" MaxLength="32" HorizontalAlignment="Left" Margin="140,254,0,0" VerticalAlignment="Top" Width="120"/>
 
         <Label Content="Ordre" HorizontalAlignment="Left" Margin="10,280,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_Ordre" HorizontalAlignment="Left" Margin="140,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TB_Ordre" MaxLength="32" HorizontalAlignment="Left" Margin="140,284,0,0" VerticalAlignment="Top" Width="120"/>
 
         <Label Content="Famille" HorizontalAlignment="Left" Margin="10,310,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_Famille" HorizontalAlignment="Left" Margin="140,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TB_Famille" MaxLength="32" HorizontalAlignment="Left" Margin="140,314,0,0" VerticalAlignment="Top" Width="120"/>
 
-        <Label Content="Description" HorizontalAlignment="Left" Margin="10,340,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_Desc" HorizontalAlignment="Left" Margin="140,344,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="500" Height="40"/>
+        <Label Content="Num d'inventaire" HorizontalAlignment="Left" Margin="10,340,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_NumInv" MaxLength="16" HorizontalAlignment="Left" Margin="140,344,0,0" VerticalAlignment="Top" Width="120"/>
 
-        <Label Content="Description (UICN)" HorizontalAlignment="Left" Margin="10,400,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_DescUICN" HorizontalAlignment="Left" Margin="140,404,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="500" Height="40"/>
+        <Label Content="Info présentation" HorizontalAlignment="Left" Margin="10,370,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_DescPres" TextWrapping="Wrap" MaxLength="512" HorizontalAlignment="Left" Margin="140,374,0,0" VerticalAlignment="Top" Width="225" Height="80"/>
 
-        <Label Content="Info présentation" HorizontalAlignment="Left" Margin="10,460,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_DescPres" HorizontalAlignment="Left" Margin="140,464,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="500" Height="40"/>
+        <Label Content="Description (UICN)" HorizontalAlignment="Left" Margin="10,463,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_DescUICN" TextWrapping="Wrap" MaxLength="512" HorizontalAlignment="Left" Margin="140,467,0,0" VerticalAlignment="Top" Width="225" Height="80"/>
 
-        <Label Content="Num d'inventaire" HorizontalAlignment="Left" Margin="10,520,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_NumInv" HorizontalAlignment="Left" Margin="140,524,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Description" HorizontalAlignment="Left" Margin="339,318,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_Desc" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"  MaxLength="4096" HorizontalAlignment="Left" Margin="469,322,0,0" VerticalAlignment="Top" Width="398" Height="232"/>
 
+        <StackPanel Orientation="Vertical" Margin="0,10,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="600">
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="BTN_Import" Content="Importer une image" Click="ImportImage_Click" Width="130" Height="38" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Border BorderBrush="Gray" BorderThickness="1" Width="200" Height="200" AllowDrop="True">
+                        <Image x:Name="ImagePreview" Stretch="Uniform" />
+                    </Border>
+                    <Button x:Name="BTN_DeleteImg" IsEnabled="False" Width="38" Height="38" HorizontalAlignment="Right" Click="BTN_DeleteImg_Click">
+                        <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text="&#xE74D;" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </Button>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Border BorderBrush="Gray" BorderThickness="1" Width="200" Height="200" AllowDrop="True">
+                        <Image x:Name="ImagePreview1" Stretch="Uniform" />
+                    </Border>
+                    <Button x:Name="BTN_DeleteImg1" IsEnabled="False" Width="38" Height="38" HorizontalAlignment="Right" Click="BTN_DeleteImg1_Click">
+                        <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text="&#xE74D;" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </Button>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Border BorderBrush="Gray" BorderThickness="1" Width="200" Height="200" AllowDrop="True">
+                        <Image x:Name="ImagePreview2" Stretch="Uniform" />
+                    </Border>
+                    <Button x:Name="BTN_DeleteImg2" IsEnabled="False" Width="38" Height="38" HorizontalAlignment="Right" Click="BTN_DeleteImg2_Click">
+                        <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text="&#xE74D;" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
 
         <Button x:Name="BTN_Add" Content="Ajouter" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" Height="41" Width="80" Click="BTN_Add_Click"/>
-
-        <StackPanel Orientation="Vertical" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Top" Width="500">
-            <Label Content="Ajouter une image :" />
-            <Border BorderBrush="Gray" BorderThickness="1" Width="200" Height="200" AllowDrop="True" Drop="Image_Drop">
-                <Image x:Name="ImagePreview" Stretch="Uniform" />
-            </Border>
-            <Button Content="Importer une image" Click="ImportImage_Click" Margin="5" Width="130" Height="38" />
-        </StackPanel>
 
     </Grid>
 </Window>

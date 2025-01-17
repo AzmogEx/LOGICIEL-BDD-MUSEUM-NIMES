@@ -9,9 +9,10 @@
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button x:Name="BTN_ADD" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" Content="Ajouter une espèce" Padding="10" Click="BTN_ADD_Click" Margin="205,439,0,0"/>
-        <Button x:Name="BTN_EDIT" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" Content="Modifier l'espèce sélectionnée" Padding="10" Margin="205,493,0,0" Click="BTN_EDIT_Click"/>
-        <Button x:Name="BTN_REFRESH" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" Content="Refresh" Padding="10" Margin="209,10,0,0" Click="BTN_REFRESH_Click"/>
+        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="200,216,544,10">
+            <Button x:Name="BTN_ADD" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Ajouter" Padding="10" Click="BTN_ADD_Click" Width="70"/>
+            <Button x:Name="BTN_EDIT" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Modifier" Padding="10" Click="BTN_EDIT_Click" Width="70" />
+        </StackPanel>
         <ListBox Width="200" HorizontalAlignment="Left" x:Name="LB_Especes" SelectionChanged="LB_Especes_SelectionChanged"/>
     </Grid>
 </Window>

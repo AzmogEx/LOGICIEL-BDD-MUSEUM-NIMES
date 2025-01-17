@@ -30,8 +30,14 @@ namespace IHM_BASE {
             ListPath = new();
             List_Especes = new();
             InitializeComponent();
+            var Etat_Connexion = BDD.Test_Connexion();
 
-            List_Especes = BDD.Get_All_Especes();
+            if(Etat_Connexion == null) {
+                List_Especes = BDD.Get_All_Especes();
+            } else {
+                MessageBox.Show($"La connexion à la base de données a échoué : {Etat_Connexion}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
+            }
+
             LB_Especes.ItemsSource = List_Especes;
             LB_Especes.DisplayMemberPath = nameof(C_ESPECE.nomCommun);
             LB_Especes.SelectedIndex = 0;
@@ -39,22 +45,25 @@ namespace IHM_BASE {
 
         private void BTN_ADD_Click(object sender,RoutedEventArgs e) {
             var addWindow = new ADD();
-            addWindow.ShowDialog();
+            bool? result = addWindow.ShowDialog();
+            if(result == true) {
+                List_Especes = BDD.Get_All_Especes();
+                LB_Especes.ItemsSource = List_Especes;
+            }
         }
 
         private void BTN_EDIT_Click(object sender,RoutedEventArgs e) {
             C_ESPECE Espece_Select = LB_Especes.SelectedItem as C_ESPECE;
             var addWindow = new EDIT(Espece_Select);
-            addWindow.ShowDialog();
+            bool? result = addWindow.ShowDialog();
+            if(result == true) {
+                List_Especes = BDD.Get_All_Especes();
+                LB_Especes.ItemsSource = List_Especes;
+            }
         }
 
         private void LB_Especes_SelectionChanged(object sender,SelectionChangedEventArgs e) {
             C_ESPECE Espece_Select = LB_Especes.SelectedItem as C_ESPECE;
-        }
-
-        private void BTN_REFRESH_Click(object sender,RoutedEventArgs e) {
-            List_Especes = BDD.Get_All_Especes();
-            LB_Especes.ItemsSource = List_Especes;
         }
     }
 }

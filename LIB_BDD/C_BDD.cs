@@ -13,21 +13,24 @@ public class C_BDD {
 
     const string Chaine_Connexion = "SERVER=localhost;DATABASE=animaux;UserID=admin;PASSWORD=admin;";
 
-    public void Test() {
+    public Exception Test_Connexion() {
+        Exception ok = null;
         using(MySqlConnection Connection = new MySqlConnection(Chaine_Connexion)) {
             try {
                 Connection.Open();
-                Console.WriteLine("Connexion réussie !");
+                return ok;
             } catch(Exception ex) {
-                Console.WriteLine($"Erreur : {ex.Message}");
+                return ex;
             }
         }
     }
 
     public List<C_ESPECE> Get_All_Especes() {
+
         using MySqlConnection Connexion = new MySqlConnection(Chaine_Connexion);
 
         return Connexion.Query<C_ESPECE>("select * from especes").ToList();
+
     }
 
     public string[] Get_Img_By_ID(int P_ID) {

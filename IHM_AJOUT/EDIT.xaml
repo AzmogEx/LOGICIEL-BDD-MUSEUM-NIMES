@@ -1,11 +1,11 @@
-﻿<Window x:Class="IHM_AJOUT.ADD"
+﻿<Window x:Class="IHM_BASE.EDIT"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:IHM_AJOUT"
+        xmlns:local="clr-namespace:IHM_BASE"
         mc:Ignorable="d"
-        Title="Ajout d'espèces" Height="600" Width="1000"
+        Title="Modification" Height="600" Width="1000"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
     <Grid>
@@ -16,7 +16,7 @@
         <TextBox x:Name="TB_NomScient" MaxLength="64" HorizontalAlignment="Left" Margin="140,44,0,0" VerticalAlignment="Top" Width="120"/>
 
         <Label Content="Statut (UICN)" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
-        <ComboBox x:Name="CB_Statut" SelectedIndex="0" HorizontalAlignment="Left" Margin="140,72,0,0" VerticalAlignment="Top" Width="120">
+        <ComboBox x:Name="CB_Statut" HorizontalAlignment="Left" Margin="140,72,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem>Eteinte (EX)</ComboBoxItem>
             <ComboBoxItem>Eteinte à l’état sauvage (EW)</ComboBoxItem>
             <ComboBoxItem>En danger critique (CR)</ComboBoxItem>
@@ -29,28 +29,13 @@
         </ComboBox>
 
         <Label Content="Taille entre" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_TailleMin" MaxLength="16" HorizontalAlignment="Left" Margin="140,104,0,0" VerticalAlignment="Top" Width="30"/>
-        <Label Content="et" HorizontalAlignment="Left" Margin="180,100,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_TailleMax" MaxLength="16" HorizontalAlignment="Left" Margin="212,104,0,0" VerticalAlignment="Top" Width="30"/>
-        <ComboBox x:Name="CB_Unite_Taille" SelectedIndex="0" HorizontalAlignment="Left" Margin="247,102,0,0" VerticalAlignment="Top" Width="53">
-            <ComboBoxItem>cm</ComboBoxItem>
-            <ComboBoxItem>m</ComboBoxItem>
-        </ComboBox>
+        <TextBox x:Name="TB_Taille" MaxLength="16" HorizontalAlignment="Left" Margin="140,104,0,0" VerticalAlignment="Top" Width="120"/>
 
         <Label Content="Poids entre" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_PoidsMin" MaxLength="16" HorizontalAlignment="Left" Margin="140,134,0,0" VerticalAlignment="Top" Width="30"/>
-        <Label Content="et" HorizontalAlignment="Left" Margin="180,130,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_PoidsMax" MaxLength="16" HorizontalAlignment="Left" Margin="212,134,0,0" VerticalAlignment="Top" Width="30"/>
-        <ComboBox x:Name="CB_Unite_Poids" SelectedIndex="0" HorizontalAlignment="Left" Margin="247,132,0,0" VerticalAlignment="Top" Width="53">
-            <ComboBoxItem>g</ComboBoxItem>
-            <ComboBoxItem>kg</ComboBoxItem>
-        </ComboBox>
+        <TextBox x:Name="TB_Poids" MaxLength="16" HorizontalAlignment="Left" Margin="140,134,0,0" VerticalAlignment="Top" Width="120"/>
 
         <Label Content="Durée de vie entre" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_AgeMin" MaxLength="16" HorizontalAlignment="Left" Margin="140,164,0,0" VerticalAlignment="Top" Width="30"/>
-        <Label Content="et" HorizontalAlignment="Left" Margin="180,160,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_AgeMax" MaxLength="16" HorizontalAlignment="Left" Margin="212,164,0,0" VerticalAlignment="Top" Width="30"/>
-        <Label Content="ans" HorizontalAlignment="Left" Margin="245,160,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_DureeVie" MaxLength="16" HorizontalAlignment="Left" Margin="140,164,0,0" VerticalAlignment="Top" Width="120"/>
 
         <Label Content="Habitat" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
         <TextBox x:Name="TB_Habitat" MaxLength="64" HorizontalAlignment="Left" Margin="140,194,0,0" VerticalAlignment="Top" Width="120"/>
@@ -81,7 +66,7 @@
 
         <StackPanel Orientation="Vertical" Margin="0,10,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="600">
             <StackPanel Orientation="Horizontal">
-                <Button x:Name="BTN_Import" Content="Importer une image" Click="ImportImage_Click" Width="130" Height="38" />
+                <Button x:Name="BTN_Import" Click="ImportImage_Click" Content="Importer une image" Width="130" Height="38" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
@@ -111,7 +96,7 @@
             </StackPanel>
         </StackPanel>
 
-        <Button x:Name="BTN_Add" Content="Ajouter" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" Height="41" Width="80" Click="BTN_Add_Click"/>
+        <Button x:Name="BTN_Edit" Content="Modifier" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" Height="41" Width="80" Click="BTN_Edit_Click"/>
 
     </Grid>
 </Window>

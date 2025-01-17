@@ -27,8 +27,17 @@ public class C_BDD {
     public List<C_ESPECE> Get_All_Especes() {
         using MySqlConnection Connexion = new MySqlConnection(Chaine_Connexion);
 
-        return Connexion.Query<C_ESPECE>("select * from Especes").ToList();
+        return Connexion.Query<C_ESPECE>("select * from especes").ToList();
     }
+
+    public string[] Get_Img_By_ID(int P_ID) {
+        using MySqlConnection connexion = new MySqlConnection(Chaine_Connexion);
+
+        string query = "SELECT imgPath FROM images WHERE idEspece = @ID";
+
+        return connexion.Query<string>(query,new { ID = P_ID }).ToArray();
+    }
+
 
     public void Delete_Espece(C_ESPECE P_Espece) {
 
@@ -46,7 +55,7 @@ public class C_BDD {
                 $"VALUES (@NOMCOMMUN, @NOMSCIENT, @STATUTESPECE, @TAILLE, @POIDS, @DUREEVIE, @HABITAT, @EMBRANCHEMENT, @CLASSE, @ORDRE, @FAMILLE, @DESCRIPTION, @DESCUICN, @DESCPRES, @NUMINVENTAIRE);",
                 new {
                     NOMCOMMUN = P_Espece.nomCommun,
-                    NOMSCIENT = P_Espece.nomScient,
+                    NOMSCIENT = P_Espece.nomScientifique,
                     STATUTESPECE = P_Espece.statutEspece,
                     TAILLE = P_Espece.taille,
                     POIDS = P_Espece.poids,
@@ -79,13 +88,14 @@ public class C_BDD {
     }
 
 
-    public void Edit_Espece(C_ESPECE P_Espece) {
+    public void Edit_Espece(C_ESPECE P_Espece,List<string> P_ImgPaths) {
         using MySqlConnection Connexion = new MySqlConnection(Chaine_Connexion);
+        string[] OldImgPaths = Get_Img_By_ID(P_Espece.idEspece); 
 
         Connexion.Query<C_ESPECE>("update Especes set nomCommun = @NOMCOMMUN, nomScientifique = @NOMSCIENT, statutEspece = @STATUTESPECE, taille = @TAILLE, poids = @POIDS, dureeVie = @DUREEVIE, habitat = @HABITAT, embranchement = @EMBRANCHEMENT, classe = @CLASSE, ordre = @ORDRE, famille = @FAMILLE, description = @DESCRIPTION, descUicn = @DESCUICN, descPres = @DESCPRES, numInventaire = @NUMINVENTAIRE where idEspece = @IDESPECE",
             new {
                 NOMCOMMUN = P_Espece.nomCommun,
-                NOMSCIENT = P_Espece.nomScient,
+                NOMSCIENT = P_Espece.nomScientifique,
                 STATUTESPECE = P_Espece.statutEspece,
                 TAILLE = P_Espece.taille,
                 POIDS = P_Espece.poids,
@@ -101,6 +111,11 @@ public class C_BDD {
                 NUMINVENTAIRE = P_Espece.numInventaire,
                 IDESPECE = P_Espece.idEspece
             });
+        
+        if (OldImgPaths != P_ImgPaths.ToArray()) {
+            Connexion.Execute("delete from images where images.idEspece = @IDESPECE",new { IDESPECE = P_Espece.idEspece });
+            Add_Image(P_Espece.idEspece, P_ImgPaths);
+        }
     }
 
 

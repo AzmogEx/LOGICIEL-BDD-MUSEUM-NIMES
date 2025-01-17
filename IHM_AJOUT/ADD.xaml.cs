@@ -15,39 +15,43 @@ using System.IO;
 namespace IHM_AJOUT {
     public partial class ADD:Window {
         private C_BDD BDD = null;
-        private string imagePath;
+        private string[] imagePaths;
         private string Path;
         private string Path1;
         private string Path2;
-        private List<string> ListPath = new();
+        private List<string> ListPath;
 
         public ADD() {
             BDD = new();
+            ListPath = new();
             InitializeComponent();
         }
 
         private void ImportImage_Click(object sender,RoutedEventArgs e) {
             try {
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.Filter = "Image files (*.png;*.jpg;*.jpeg)|*.png;*.jpg;*.jpeg";
-
+                OpenFileDialog openFileDialog = new OpenFileDialog {
+                    Filter = "Image files (*.png;*.jpg;*.jpeg)|*.png;*.jpg;*.jpeg",
+                    Multiselect = true
+                };
                 if(openFileDialog.ShowDialog() == true) {
-                    imagePath = openFileDialog.FileName;
-                    if(ImagePreview.Source == null) {
-                        ImagePreview.Source = new BitmapImage(new Uri(imagePath));
-                        BTN_DeleteImg.IsEnabled = true;
-                        Path = imagePath;
-                    } else {
-                        if(ImagePreview1.Source == null) {
-                            ImagePreview1.Source = new BitmapImage(new Uri(imagePath));
-                            BTN_DeleteImg1.IsEnabled = true;
-                            Path1 = imagePath;
+                    imagePaths = openFileDialog.FileNames;
+                    foreach(var imagePath in imagePaths) {
+                        if(ImagePreview.Source == null) {
+                            ImagePreview.Source = new BitmapImage(new Uri(imagePath));
+                            BTN_DeleteImg.IsEnabled = true;
+                            Path = imagePath;
                         } else {
-                            ImagePreview2.Source = new BitmapImage(new Uri(imagePath));
-                            BTN_DeleteImg2.IsEnabled = true;
-                            Path2 = imagePath;
+                            if(ImagePreview1.Source == null) {
+                                ImagePreview1.Source = new BitmapImage(new Uri(imagePath));
+                                BTN_DeleteImg1.IsEnabled = true;
+                                Path1 = imagePath;
+                            } else {
+                                ImagePreview2.Source = new BitmapImage(new Uri(imagePath));
+                                BTN_DeleteImg2.IsEnabled = true;
+                                Path2 = imagePath;
+                            }
                         }
-                    }
+                    }       
                 }
             } catch(Exception ex) {
                 MessageBox.Show($"Une erreur est survenue : {ex.Message}\n{ex.StackTrace}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
@@ -76,7 +80,19 @@ namespace IHM_AJOUT {
                     return;
                 }
 
-                if(Path != null) { 
+                var result = MessageBox.Show(
+                    "Veuillez vérifier toutes les informations avant de continuer.\n\n" +
+                    "Souhaitez-vous ajouter cette espèce ?",
+                    "Confirmation",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question
+                );
+
+                if(result == MessageBoxResult.No) {
+                    return;
+                }
+
+                if(Path != null) {
                     ListPath.Add(Path);
                 }
 
@@ -90,7 +106,7 @@ namespace IHM_AJOUT {
 
                 C_ESPECE Espece = new C_ESPECE() {
                     nomCommun = TB_Nom.Text,
-                    nomScient = TB_NomScient.Text,
+                    nomScientifique = TB_NomScient.Text,
                     statutEspece = CB_Statut.Text,
                     taille = $"De {TB_TailleMin.Text} à {TB_TailleMax.Text} {CB_Unite_Taille.Text}",
                     poids = $"De {TB_PoidsMin.Text} à {TB_PoidsMax.Text} {CB_Unite_Poids.Text}",
@@ -106,7 +122,7 @@ namespace IHM_AJOUT {
                     numInventaire = TB_NumInv.Text
                 };
 
-                BDD.Add_Espece(Espece, ListPath);
+                BDD.Add_Espece(Espece,ListPath);
                 ListPath = new();
                 MessageBox.Show("L'espèce a été ajoutée avec succès.","Succès",MessageBoxButton.OK,MessageBoxImage.Information);
             } catch(Exception ex) {

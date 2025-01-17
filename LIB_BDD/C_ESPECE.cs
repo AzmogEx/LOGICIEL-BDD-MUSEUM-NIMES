@@ -9,7 +9,7 @@ namespace LIB_BDD;
 public class C_ESPECE {
     public int idEspece { get; set; }
     public string nomCommun { get; set; }
-    public string nomScient { get; set; }
+    public string nomScientifique { get; set; }
     public string statutEspece { get; set; }
     public string taille { get; set; }
     public string poids { get; set; }

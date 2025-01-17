@@ -75,7 +75,8 @@ public class C_BDD {
                     DESCPRES = P_Espece.descPres,
                     NUMINVENTAIRE = P_Espece.numInventaire
                 });
-            int ID = Connexion.QuerySingle<int>("SELECT LAST_INSERT_ID();");
+            int ID = Connexion.QuerySingle<int>("SELECT TOP 1 idEspece FROM especes ORDER BY idEspece DESC;");
+
             Add_Image(ID,P_ImgPath);
         }
         catch(Exception) {

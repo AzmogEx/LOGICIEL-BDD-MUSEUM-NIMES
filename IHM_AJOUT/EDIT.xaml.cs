@@ -155,7 +155,7 @@ namespace IHM_BASE {
             };
 
             BDD.Edit_Espece(Espece,ListPath);
-            MessageBox.Show("L'espèce a été ajoutée avec succès.","Succès",MessageBoxButton.OK,MessageBoxImage.Information);
+            MessageBox.Show("L'espèce a été modifiée avec succès.","Succès",MessageBoxButton.OK,MessageBoxImage.Information);
 
             Close();
         }

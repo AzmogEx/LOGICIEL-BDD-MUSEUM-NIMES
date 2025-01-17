@@ -9,9 +9,10 @@
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="200,216,544,10">
-            <Button x:Name="BTN_ADD" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Ajouter" Padding="10" Click="BTN_ADD_Click" Width="70"/>
-            <Button x:Name="BTN_EDIT" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Modifier" Padding="10" Click="BTN_EDIT_Click" Width="70" />
+        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="200,10">
+            <Button x:Name="BTN_ADD" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Ajouter" Padding="10" Click="BTN_ADD_Click" Width="80"/>
+            <Button x:Name="BTN_EDIT" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Modifier" Padding="10" Click="BTN_EDIT_Click" Width="80" />
+            <Button x:Name="BTN_SUPPR" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Supprimer" Padding="10" Width="80" Click="BTN_SUPPR_Click" />
         </StackPanel>
         <ListBox Width="200" HorizontalAlignment="Left" x:Name="LB_Especes" SelectionChanged="LB_Especes_SelectionChanged"/>
     </Grid>

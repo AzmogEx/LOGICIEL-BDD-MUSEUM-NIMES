@@ -4,17 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dapper;
-using MySql.Data.MySqlClient;
-
+using Microsoft.Data.SqlClient;
 
 namespace LIB_BDD;
 
 public class C_BDD {
 
-    const string Chaine_Connexion = "SERVER=localhost;DATABASE=animaux;UserID=admin;PASSWORD=admin;";
+    const string Chaine_Connexion = "Server=tcp:service.adam-marzuk.fr;Initial Catalog=animaux;Persist Security Info=False;User ID=stage;Password=Museum123.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;";
     public Exception Test_Connexion() {
         Exception ok = null;
-        using(MySqlConnection Connection = new MySqlConnection(Chaine_Connexion)) {
+        using(SqlConnection Connection = new SqlConnection(Chaine_Connexion)) {
             try {
                 Connection.Open();
                 return ok;
@@ -26,14 +25,14 @@ public class C_BDD {
 
     public List<C_ESPECE> Get_All_Especes() {
 
-        using MySqlConnection Connexion = new MySqlConnection(Chaine_Connexion);
+        using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
 
         return Connexion.Query<C_ESPECE>("select * from especes").ToList();
 
     }
 
     public string[] Get_Img_By_ID(int P_ID) {
-        using MySqlConnection connexion = new MySqlConnection(Chaine_Connexion);
+        using SqlConnection connexion = new SqlConnection(Chaine_Connexion);
 
         string query = "SELECT imgPath FROM images WHERE idEspece = @ID";
 
@@ -44,7 +43,7 @@ public class C_BDD {
     public void Delete_Espece(int P_Espece) {
 
         try {
-            using MySqlConnection Connexion = new MySqlConnection(Chaine_Connexion);
+            using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
             Connexion.Execute("delete from images where images.idEspece = @IDESPECE",new { IDESPECE = P_Espece });
             Connexion.Execute("delete from especes where idEspece = @IDESPECE",new { IDESPECE = P_Espece });
         } catch(Exception) {
@@ -56,7 +55,7 @@ public class C_BDD {
     public void Add_Espece(C_ESPECE P_Espece,List<string> P_ImgPath) {
 
         try {
-            using MySqlConnection Connexion = new MySqlConnection(Chaine_Connexion);
+            using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
             Connexion.Execute($"insert into especes(nomCommun, nomScientifique, statutEspece, taille, poids, dureeVie, habitat, embranchement, classe, ordre, famille, description, descUicn, descPres, numInventaire) " +
                 $"VALUES (@NOMCOMMUN, @NOMSCIENT, @STATUTESPECE, @TAILLE, @POIDS, @DUREEVIE, @HABITAT, @EMBRANCHEMENT, @CLASSE, @ORDRE, @FAMILLE, @DESCRIPTION, @DESCUICN, @DESCPRES, @NUMINVENTAIRE);",
                 new {
@@ -86,7 +85,7 @@ public class C_BDD {
     }
 
     public void Add_Image(int P_idEspece,List<string> P_ListPath) {
-        using(MySqlConnection connexion = new MySqlConnection(Chaine_Connexion)) {
+        using(SqlConnection connexion = new SqlConnection(Chaine_Connexion)) {
             foreach(var Path in P_ListPath) {
                 connexion.Execute("INSERT INTO images (idEspece, imgPath) VALUES (@IDESPECE, @IMGPATH)",
                 new { IDESPECE = P_idEspece,IMGPATH = Path });
@@ -96,7 +95,7 @@ public class C_BDD {
 
 
     public void Edit_Espece(C_ESPECE P_Espece,List<string> P_ImgPaths) {
-        using MySqlConnection Connexion = new MySqlConnection(Chaine_Connexion);
+        using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
         string[] OldImgPaths = Get_Img_By_ID(P_Espece.idEspece);
 
         Connexion.Execute("update Especes set nomCommun = @NOMCOMMUN, nomScientifique = @NOMSCIENT, statutEspece = @STATUTESPECE, taille = @TAILLE, poids = @POIDS, dureeVie = @DUREEVIE, habitat = @HABITAT, embranchement = @EMBRANCHEMENT, classe = @CLASSE, ordre = @ORDRE, famille = @FAMILLE, description = @DESCRIPTION, descUicn = @DESCUICN, descPres = @DESCPRES, numInventaire = @NUMINVENTAIRE where idEspece = @IDESPECE",

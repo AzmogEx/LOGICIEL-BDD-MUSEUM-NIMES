@@ -11,14 +11,15 @@ namespace LIB_BDD;
 
 public class C_BDD {
 
-    const string Chaine_Connexion = "SERVER=localhost;DATABASE=animaux;UserID=admin;PASSWORD=admin;";
+    const string Chaine_Connexion = "SERVER=localhost;DATABASE=animaux;UserID=root;PASSWORD=root;";
 
     public void Test() {
         using(MySqlConnection Connection = new MySqlConnection(Chaine_Connexion)) {
             try {
                 Connection.Open();
                 Console.WriteLine("Connexion réussie !");
-            } catch(Exception ex) {
+            }
+            catch(Exception ex) {
                 Console.WriteLine($"Erreur : {ex.Message}");
             }
         }
@@ -28,6 +29,7 @@ public class C_BDD {
         using MySqlConnection Connexion = new MySqlConnection(Chaine_Connexion);
 
         return Connexion.Query<C_ESPECE>("select * from especes").ToList();
+
     }
 
     public string[] Get_Img_By_ID(int P_ID) {
@@ -47,7 +49,7 @@ public class C_BDD {
         Connexion.Query<C_ESPECE>("delete from Especes where idEspece = @IDESPECE",new { IDESPECE = P_Espece.idEspece });
     }
 
-    public void Add_Espece(C_ESPECE P_Espece, List<string> P_ImgPath) {
+    public void Add_Espece(C_ESPECE P_Espece,List<string> P_ImgPath) {
 
         try {
             using MySqlConnection Connexion = new MySqlConnection(Chaine_Connexion);
@@ -72,7 +74,8 @@ public class C_BDD {
                 });
             int ID = Connexion.QuerySingle<int>("SELECT LAST_INSERT_ID();");
             Add_Image(ID,P_ImgPath);
-        } catch(Exception) {
+        }
+        catch(Exception) {
             throw;
         }
 
@@ -90,7 +93,7 @@ public class C_BDD {
 
     public void Edit_Espece(C_ESPECE P_Espece,List<string> P_ImgPaths) {
         using MySqlConnection Connexion = new MySqlConnection(Chaine_Connexion);
-        string[] OldImgPaths = Get_Img_By_ID(P_Espece.idEspece); 
+        string[] OldImgPaths = Get_Img_By_ID(P_Espece.idEspece);
 
         Connexion.Query<C_ESPECE>("update Especes set nomCommun = @NOMCOMMUN, nomScientifique = @NOMSCIENT, statutEspece = @STATUTESPECE, taille = @TAILLE, poids = @POIDS, dureeVie = @DUREEVIE, habitat = @HABITAT, embranchement = @EMBRANCHEMENT, classe = @CLASSE, ordre = @ORDRE, famille = @FAMILLE, description = @DESCRIPTION, descUicn = @DESCUICN, descPres = @DESCPRES, numInventaire = @NUMINVENTAIRE where idEspece = @IDESPECE",
             new {
@@ -111,10 +114,10 @@ public class C_BDD {
                 NUMINVENTAIRE = P_Espece.numInventaire,
                 IDESPECE = P_Espece.idEspece
             });
-        
-        if (OldImgPaths != P_ImgPaths.ToArray()) {
+
+        if(OldImgPaths != P_ImgPaths.ToArray()) {
             Connexion.Execute("delete from images where images.idEspece = @IDESPECE",new { IDESPECE = P_Espece.idEspece });
-            Add_Image(P_Espece.idEspece, P_ImgPaths);
+            Add_Image(P_Espece.idEspece,P_ImgPaths);
         }
     }
 

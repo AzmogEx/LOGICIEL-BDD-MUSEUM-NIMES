@@ -46,24 +46,38 @@ namespace IHM_BASE {
         private void BTN_ADD_Click(object sender,RoutedEventArgs e) {
             var addWindow = new ADD();
             bool? result = addWindow.ShowDialog();
-            if(result == true) {
-                List_Especes = BDD.Get_All_Especes();
-                LB_Especes.ItemsSource = List_Especes;
-            }
+            List_Especes = BDD.Get_All_Especes();
+            LB_Especes.ItemsSource = List_Especes;
         }
 
         private void BTN_EDIT_Click(object sender,RoutedEventArgs e) {
             C_ESPECE Espece_Select = LB_Especes.SelectedItem as C_ESPECE;
             var addWindow = new EDIT(Espece_Select);
             bool? result = addWindow.ShowDialog();
-            if(result == true) {
-                List_Especes = BDD.Get_All_Especes();
-                LB_Especes.ItemsSource = List_Especes;
-            }
+            List_Especes = BDD.Get_All_Especes();
+            LB_Especes.ItemsSource = List_Especes;
         }
 
         private void LB_Especes_SelectionChanged(object sender,SelectionChangedEventArgs e) {
             C_ESPECE Espece_Select = LB_Especes.SelectedItem as C_ESPECE;
+        }
+
+        private void BTN_SUPPR_Click(object sender,RoutedEventArgs e) {
+            C_ESPECE Espece_Select = LB_Especes.SelectedItem as C_ESPECE;
+            var result = MessageBox.Show(
+                    $"Voulez vous vraiment supprimer {Espece_Select.nomCommun}? Cette action est irréversible.",
+                    "Confirmation",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question
+                );
+
+            if(result == MessageBoxResult.No) {
+                return;
+            }
+
+            BDD.Delete_Espece( Espece_Select.idEspece );
+            List_Especes = BDD.Get_All_Especes();
+            LB_Especes.ItemsSource = List_Especes;
         }
     }
 }

@@ -41,12 +41,16 @@ public class C_BDD {
     }
 
 
-    public void Delete_Espece(C_ESPECE P_Espece) {
+    public void Delete_Espece(int P_Espece) {
 
-        using MySqlConnection Connexion = new MySqlConnection(Chaine_Connexion);
+        try {
+            using MySqlConnection Connexion = new MySqlConnection(Chaine_Connexion);
+            Connexion.Execute("delete from images where images.idEspece = @IDESPECE",new { IDESPECE = P_Espece });
+            Connexion.Execute("delete from especes where idEspece = @IDESPECE",new { IDESPECE = P_Espece });
+        } catch(Exception) {
+            throw;
+        }
 
-
-        Connexion.Query<C_ESPECE>("delete from Especes where idEspece = @IDESPECE",new { IDESPECE = P_Espece.idEspece });
     }
 
     public void Add_Espece(C_ESPECE P_Espece,List<string> P_ImgPath) {
@@ -95,7 +99,7 @@ public class C_BDD {
         using MySqlConnection Connexion = new MySqlConnection(Chaine_Connexion);
         string[] OldImgPaths = Get_Img_By_ID(P_Espece.idEspece);
 
-        Connexion.Query<C_ESPECE>("update Especes set nomCommun = @NOMCOMMUN, nomScientifique = @NOMSCIENT, statutEspece = @STATUTESPECE, taille = @TAILLE, poids = @POIDS, dureeVie = @DUREEVIE, habitat = @HABITAT, embranchement = @EMBRANCHEMENT, classe = @CLASSE, ordre = @ORDRE, famille = @FAMILLE, description = @DESCRIPTION, descUicn = @DESCUICN, descPres = @DESCPRES, numInventaire = @NUMINVENTAIRE where idEspece = @IDESPECE",
+        Connexion.Execute("update Especes set nomCommun = @NOMCOMMUN, nomScientifique = @NOMSCIENT, statutEspece = @STATUTESPECE, taille = @TAILLE, poids = @POIDS, dureeVie = @DUREEVIE, habitat = @HABITAT, embranchement = @EMBRANCHEMENT, classe = @CLASSE, ordre = @ORDRE, famille = @FAMILLE, description = @DESCRIPTION, descUicn = @DESCUICN, descPres = @DESCPRES, numInventaire = @NUMINVENTAIRE where idEspece = @IDESPECE",
             new {
                 NOMCOMMUN = P_Espece.nomCommun,
                 NOMSCIENT = P_Espece.nomScientifique,

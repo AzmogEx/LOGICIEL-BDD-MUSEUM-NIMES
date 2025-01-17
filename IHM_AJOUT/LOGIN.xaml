@@ -7,15 +7,15 @@
         mc:Ignorable="d"
         Title="LOGIN" Height="450" Width="800">
     <Grid>
-        <Label Content="Utilisateur:" HorizontalAlignment="Left" Margin="96,0,0,0" VerticalAlignment="Center" Height="48" Width="123" FontSize="20"/>
-        <Label Content="Mots de passe:" HorizontalAlignment="Left" Margin="72,276,0,0" VerticalAlignment="Top" Height="48" Width="147" FontSize="20"/>
-        <Label Content="Identifiant de connexion: " HorizontalAlignment="Center" Margin="0,39,0,0" VerticalAlignment="Top" Height="79" Width="548" FontSize="48"/>
+        <Label x:Name="Label_User" Content="Utilisateur:" HorizontalAlignment="Left" Margin="96,0,0,0" VerticalAlignment="Center" Height="48" Width="123" FontSize="20"/>
+        <Label x:Name="Label_Password" Content="Mots de passe:" HorizontalAlignment="Left" Margin="72,276,0,0" VerticalAlignment="Top" Height="48" Width="147" FontSize="20"/>
+        <Label x:Name="Label_Titre" Content="Identifiant de connexion: " HorizontalAlignment="Center" Margin="0,39,0,0" VerticalAlignment="Top" Height="79" Width="548" FontSize="48"/>
 
         
-        <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="320" Height="48" FontSize="26"/>
-        <PasswordBox Height="48" Margin="240,276,240,0" Name="Password" VerticalAlignment="Top" Background="White" FontSize="26"/>
+        <TextBox x:Name="Tbx_User" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="320" Height="48" FontSize="26"/>
+        <PasswordBox Height="48" Margin="240,276,240,0" x:Name="Tbx_Password" VerticalAlignment="Top" Background="White" FontSize="26"/>
 
-        <Button Content="Se connecter:" HorizontalAlignment="Center" Margin="0,355,0,0" VerticalAlignment="Top" Height="50" Width="130" FontSize="20"/>
+        <Button x:Name="Button_Connect" Content="Se connecter:" HorizontalAlignment="Center" Margin="0,355,0,0" VerticalAlignment="Top" Height="50" Width="130" FontSize="20" Click="Button_Connect_Click"/>
 
     </Grid>
 </Window>

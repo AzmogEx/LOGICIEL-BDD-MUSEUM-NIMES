@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Dapper;
 using Microsoft.Data.SqlClient;
+using BCrypt.Net;
+
 
 namespace LIB_BDD;
 
@@ -17,10 +19,43 @@ public class C_BDD {
             try {
                 Connection.Open();
                 return ok;
-            } catch(Exception ex) {
+            }
+            catch(Exception ex) {
                 return ex;
             }
         }
+    }
+    public bool Connexion(string nomUtilisateur,string motDePasse) {
+        using(SqlConnection connexion = new SqlConnection(Chaine_Connexion)) {
+            try {
+                connexion.Open();
+                // Requête pour récupérer le hash du mot de passe correspondant
+                string hashPassword = connexion.QuerySingleOrDefault<string>("SELECT MotDePasse FROM Utilisateurs WHERE NomUtilisateur = @NomUtilisateur",new { NomUtilisateur = nomUtilisateur });
+
+                if(hashPassword != null && BCrypt.Net.BCrypt.Verify(motDePasse,hashPassword)) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            catch(Exception) {
+                return false;
+            }
+        }
+    }
+
+    public void Add_User(string nomUtilisateur,string motDePasse) {
+        using SqlConnection connexion = new SqlConnection(Chaine_Connexion);
+
+        // Hacher le mot de passe avec BCrypt.Net
+        string motDePasseHache = BCrypt.Net.BCrypt.HashPassword(motDePasse);
+
+        // Insérer dans la base de données
+        connexion.Execute(
+            "INSERT INTO Utilisateurs (NomUtilisateur, MotDePasse) VALUES (@NomUtilisateur, @MotDePasse)",
+            new { NomUtilisateur = nomUtilisateur,MotDePasse = motDePasseHache }
+        );
     }
 
     public List<C_ESPECE> Get_All_Especes() {
@@ -46,7 +81,8 @@ public class C_BDD {
             using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
             Connexion.Execute("delete from images where images.idEspece = @IDESPECE",new { IDESPECE = P_Espece });
             Connexion.Execute("delete from especes where idEspece = @IDESPECE",new { IDESPECE = P_Espece });
-        } catch(Exception) {
+        }
+        catch(Exception) {
             throw;
         }
 

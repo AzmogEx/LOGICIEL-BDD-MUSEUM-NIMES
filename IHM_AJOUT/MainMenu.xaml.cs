@@ -79,5 +79,10 @@ namespace IHM_BASE {
             List_Especes = BDD.Get_All_Especes();
             LB_Especes.ItemsSource = List_Especes;
         }
+
+        private void BTN_CREATE_USER_Click(object sender,RoutedEventArgs e) {
+            var Deplace = new INSCRIPTION();
+            Deplace.Show();
+        }
     }
 }

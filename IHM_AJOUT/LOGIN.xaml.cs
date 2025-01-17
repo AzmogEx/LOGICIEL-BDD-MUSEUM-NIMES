@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LIB_BDD;
+using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,5 +22,28 @@ namespace IHM_BASE {
         public LOGIN() {
             InitializeComponent();
         }
+
+        private void Button_Connect_Click(object sender,RoutedEventArgs e) {
+            C_BDD La_Base = new C_BDD();
+            
+            try {
+                var Ok = La_Base.Connexion(Tbx_User.Text,Tbx_Password.Password);
+                if(Ok == true) {
+                    MessageBox.Show("Vous êtes connecté");
+                    var deplace = new  MainMenu();
+                    deplace.Show();
+                    this.Close();
+                }
+                else {
+                    MessageBox.Show("Le mots de passe ou le nom d'utilisateur est incorrecte !");
+                }
+
+            }
+            catch(Exception ex) {
+                MessageBox.Show($"Une erreur est survenue: {ex}");
+            }
+        }
+
+
     }
 }

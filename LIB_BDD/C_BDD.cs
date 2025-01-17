@@ -11,7 +11,7 @@ namespace LIB_BDD;
 
 public class C_BDD {
 
-    const string Chaine_Connexion = "SERVER=localhost;DATABASE=animaux;UserID=root;PASSWORD=root;";
+    const string Chaine_Connexion = "SERVER=nc231.myd.infomaniak.com;DATABASE=nc231_stage;UserID=nc231_test;PASSWORD=Test123.;PORT=3306;SslMode=None;";
 
     public Exception Test_Connexion() {
         Exception ok = null;

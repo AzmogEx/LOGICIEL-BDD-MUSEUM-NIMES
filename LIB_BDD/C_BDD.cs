@@ -13,6 +13,8 @@ namespace LIB_BDD;
 public class C_BDD {
 
     const string Chaine_Connexion = "Server=tcp:service.adam-marzuk.fr;Initial Catalog=animaux;Persist Security Info=False;User ID=stage;Password=Museum123.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;";
+    List<C_ESPECE> Les_Especes = new List<C_ESPECE>();
+    
     public Exception Test_Connexion() {
         Exception ok = null;
         using(SqlConnection Connection = new SqlConnection(Chaine_Connexion)) {
@@ -25,6 +27,7 @@ public class C_BDD {
             }
         }
     }
+
     public bool Connexion(string nomUtilisateur,string motDePasse) {
         using(SqlConnection connexion = new SqlConnection(Chaine_Connexion)) {
             try {
@@ -61,9 +64,18 @@ public class C_BDD {
     public List<C_ESPECE> Get_All_Especes() {
 
         using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
+        Les_Especes = Connexion.Query<C_ESPECE>("select * from especes").ToList();
+        return Les_Especes;
 
-        return Connexion.Query<C_ESPECE>("select * from especes").ToList();
+    }
 
+    public List<C_ESPECE> Get_Espece_By_Name(string P_Nom) {
+        P_Nom = P_Nom.ToLower();
+        var Especes_Found = new List<C_ESPECE>();
+        foreach(var Espece in Les_Especes) {
+            if(Espece.nomCommun.ToLower().StartsWith(P_Nom)) Especes_Found.Add(Espece); 
+        }
+        return Especes_Found;
     }
 
     public string[] Get_Img_By_ID(int P_ID) {
@@ -175,6 +187,7 @@ public class C_BDD {
             Add_Image(P_Espece.idEspece,P_ImgPaths);
         }
     }
+
 
 
 }

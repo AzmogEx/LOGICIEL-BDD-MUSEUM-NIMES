@@ -21,6 +21,7 @@ namespace IHM_BASE {
                 MessageBox.Show($"La connexion à la base de données a échoué : {Etat_Connexion}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
             }
 
+            //Recuperation des especes de la base dans la listbox
             LB_Especes.ItemsSource = List_Especes;
             LB_Especes.DisplayMemberPath = nameof(C_ESPECE.nomCommun);
             LB_Especes.SelectedIndex = 0;

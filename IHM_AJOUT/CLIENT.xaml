@@ -9,14 +9,13 @@
     <Grid>
         
         <!--Grille de recherche d'animal-->
-        <Grid x:Name="Grid_Recherche">
+        <Grid x:Name="Grid_Recherche" Visibility="Hidden">
 
             <!-- Barre de recherche -->
             <DockPanel DockPanel.Dock="Top" Margin="10" VerticalAlignment="Top">
                 <TextBox x:Name="SearchBox" Width="400" Height="30" Margin="5" 
-     HorizontalAlignment="Left" VerticalAlignment="Center" />
-                <Button x:Name="SearchButton" Content="Rechercher" Width="100" Height="30" 
-    Margin="5" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+     HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="SearchBox_TextChanged" />
+                
             </DockPanel>
 
             <!-- Grille principale -->
@@ -35,9 +34,7 @@
 
                 <!-- Résultats -->
                 <Border Grid.Column="1" Background="#F5F5F5" Margin="5">
-                    <ListBox x:Name="Lstbx_Animaux">
-                        
-                    </ListBox>                    
+                    <ListBox x:Name="Lstbx_Animaux" MouseDoubleClick="Lstbx_Animaux_MouseDoubleClick"/>
                 </Border>
             </Grid>
         </Grid>
@@ -45,11 +42,11 @@
         <!--============================================================================-->
             
         <!--Grille d'affichage de l'animal recherché-->
-        <Grid x:Name="Grid_Info" Visibility="Hidden">
+        <Grid x:Name="Grid_Info">
             
             <!--Label Titre-->
             <Label x:Name="Label_Titre_Animal" Content="Le titre" HorizontalAlignment="Left" Margin="452,32,0,0" VerticalAlignment="Top" Width="192" Height="46" FontSize="30" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-            <Label x:Name="Label_Titre_Scientifique_Animal" Content="Scientifique" HorizontalAlignment="Left" Margin="452,84,0,0" VerticalAlignment="Top" Width="192" Height="48" FontSize="30" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+            <Label x:Name="Label_Titre_Scientifique_Animal" Content="Scientifique" HorizontalAlignment="Left" Margin="452,84,0,0" VerticalAlignment="Top" Width="192" Height="48" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center"/>
             
             <!--Image-->
             <Image x:Name="Img_Animal_1" HorizontalAlignment="Left" Height="126" Margin="190,21,0,0" VerticalAlignment="Top" Width="192" Source="/Capture d’écran 2025-01-20 à 11.01.50.png"/>
@@ -58,8 +55,8 @@
 
             <!--Description-->
             <TextBlock x:Name="Tbx_Description_Global" HorizontalAlignment="Left" Margin="10,227,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="338" Width="228" Background="#FFFFEA00"/>
-            <TextBlock HorizontalAlignment="Left" Margin="40,33,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="89" Width="104" Foreground="Black" Background="#FFFFEA00"/>
-            <TextBlock x:Name="Text_description_Menace" HorizontalAlignment="Left" Margin="404,490,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="76" Width="96" Background="Red"/>
+            <TextBlock x:Name="Text_Info_Pratique" HorizontalAlignment="Left" Margin="40,33,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="89" Width="104" Foreground="Black" Background="#FFFFEA00"/>
+            <TextBlock x:Name="Text_UICN" HorizontalAlignment="Left" Margin="404,490,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="76" Width="96" Background="Red"/>
             <TextBlock x:Name="Text_Critere_Menace" HorizontalAlignment="Left" Margin="557,490,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="76" Width="96" Background="Red"/>
             
             <!--Label Information-->

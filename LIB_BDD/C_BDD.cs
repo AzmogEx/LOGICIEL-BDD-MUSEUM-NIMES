@@ -5,8 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Dapper;
 using Microsoft.Data.SqlClient;
-using BCrypt.Net;
-
 
 namespace LIB_BDD;
 

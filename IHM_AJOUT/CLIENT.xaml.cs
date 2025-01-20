@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LIB_BDD;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,8 +18,27 @@ namespace IHM_BASE {
     /// Logique d'interaction pour CLIENT.xaml
     /// </summary>
     public partial class CLIENT :Window {
+        private C_BDD BDD = null;
         public CLIENT() {
+            BDD = new();
+            
+            List<C_ESPECE> List_Especes = new();
+
+            var Etat_Connexion = BDD.Test_Connexion();
+
+            if(Etat_Connexion == null) {
+                List_Especes = BDD.Get_All_Especes();
+            }
+            else {
+                MessageBox.Show($"La connexion à la base de données a échoué : {Etat_Connexion}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
+            }
+
+
             InitializeComponent();
+        }
+
+        private void Button_Close_Click(object sender,RoutedEventArgs e) {
+            Close();
         }
     }
 }

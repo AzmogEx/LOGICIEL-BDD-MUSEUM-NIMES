@@ -24,13 +24,13 @@ namespace IHM_BASE {
         private string Path;
         private string Path1;
         private string Path2;
-        private int IdEspece;
-        private C_ESPECE Espece;
+        private int IDEspece;
+        private C_ESPECE P_Espece;
 
         public EDIT(C_ESPECE Espece) {
             BDD = new();
             ListPath = new();
-            IdEspece = Espece.idEspece;
+            IDEspece = Espece.idEspece;
             InitializeComponent();
             imagePaths = BDD.Get_Img_By_ID(Espece.idEspece);
             
@@ -152,7 +152,7 @@ namespace IHM_BASE {
                         int.TryParse(TB_AgeMin.Text,out int DureeVieMin);
                         int.TryParse(TB_AgeMax.Text,out int DureeVieMax);
 
-                        Espece = new C_ESPECE() {
+                        P_Espece = new C_ESPECE() {
                             nomCommun = TB_Nom.Text,
                             nomScientifique = TB_NomScient.Text,
                             statutEspece = CB_Statut.Text,
@@ -172,7 +172,8 @@ namespace IHM_BASE {
                             description = TB_Desc.Text,
                             descUicn = TB_DescUICN.Text,
                             descPres = TB_DescPres.Text,
-                            numInventaire = TB_NumInv.Text
+                            numInventaire = TB_NumInv.Text,
+                            idEspece = IDEspece
                         };
 
                     } catch(Exception) {
@@ -185,7 +186,12 @@ namespace IHM_BASE {
                 MessageBox.Show("Erreur : Veuillez vérifier les données entrées sur la taille");
             }
 
-            BDD.Edit_Espece(Espece,ListPath);
+            try {
+                BDD.Edit_Espece(P_Espece,ListPath);
+            } catch(Exception ex) {
+                MessageBox.Show($"Erreur lors de la modification de l'espèce : {ex.Message}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
+                return;
+            }
             MessageBox.Show("L'espèce a été modifiée avec succès.","Succès",MessageBoxButton.OK,MessageBoxImage.Information);
 
             Close();

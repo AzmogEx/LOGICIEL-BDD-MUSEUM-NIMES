@@ -140,7 +140,12 @@ public class C_BDD {
         using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
         string[] OldImgPaths = Get_Img_By_ID(P_Espece.idEspece);
 
-        Connexion.Execute("update especes set nomCommun = @NOMCOMMUN, nomScientifique = @NOMSCIENT, statutEspece = @STATUTESPECE, tailleMin = @TAILLEMIN, tailleMax = @TAILLEMAX, uniteTaille = @UNITETAILLE, poidsMin = @POIDSMIN, poidsMax = @POIDSMAX, unitePoids = @UNITEPOIDS, dureeVieMin = @DUREEVIEMIN, dureeVieMax = @DUREEVIEMAX, habitat = @HABITAT, embranchement = @EMBRANCHEMENT, classe = @CLASSE, ordre = @ORDRE, famille = @FAMILLE, description = @DESCRIPTION, descUicn = @DESCUICN, descPres = @DESCPRES, numInventaire = @NUMINVENTAIRE where idEspece = @IDESPECE",
+        Connexion.Execute("update especes set nomCommun = @NOMCOMMUN, nomScientifique = @NOMSCIENT, statutEspece = @STATUTESPECE, " +
+            "tailleMin = @TAILLEMIN, tailleMax = @TAILLEMAX, uniteTaille = @UNITETAILLE, " +
+            "poidsMin = @POIDSMIN, poidsMax = @POIDSMAX, unitePoids = @UNITEPOIDS, dureeVieMin = @DUREEVIEMIN, " +
+            "dureeVieMax = @DUREEVIEMAX, habitat = @HABITAT, embranchement = @EMBRANCHEMENT, classe = @CLASSE, " +
+            "ordre = @ORDRE, famille = @FAMILLE, description = @DESCRIPTION, descUicn = @DESCUICN, descPres = @DESCPRES, " +
+            "numInventaire = @NUMINVENTAIRE where idEspece = @IDESPECE",
             new {
                 NOMCOMMUN = P_Espece.nomCommun,
                 NOMSCIENT = P_Espece.nomScientifique,

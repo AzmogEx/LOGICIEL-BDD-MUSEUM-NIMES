@@ -11,9 +11,14 @@ public class C_ESPECE {
     public string nomCommun { get; set; }
     public string nomScientifique { get; set; }
     public string statutEspece { get; set; }
-    public string taille { get; set; }
-    public string poids { get; set; }
-    public string dureeVie { get; set; }
+    public int tailleMin { get; set; }
+    public int tailleMax { get; set; }
+    public string uniteTaille { get; set; }
+    public int poidsMin { get; set; }
+    public int poidsMax { get; set; }
+    public string unitePoids { get; set; }
+    public int dureeVieMin { get; set; }
+    public int dureeVieMax { get; set; }
     public string habitat { get; set; }
     public string embranchement { get; set; }
     public string classe { get; set; }

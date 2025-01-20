@@ -20,6 +20,7 @@ namespace IHM_AJOUT {
         private string Path1;
         private string Path2;
         private List<string> ListPath;
+        private C_ESPECE Espece;
 
         public ADD() {
             BDD = new();
@@ -104,23 +105,49 @@ namespace IHM_AJOUT {
                     ListPath.Add(Path2);
                 }
 
-                C_ESPECE Espece = new C_ESPECE() {
-                    nomCommun = TB_Nom.Text,
-                    nomScientifique = TB_NomScient.Text,
-                    statutEspece = CB_Statut.Text,
-                    taille = $"De {TB_TailleMin.Text} à {TB_TailleMax.Text} {CB_Unite_Taille.Text}",
-                    poids = $"De {TB_PoidsMin.Text} à {TB_PoidsMax.Text} {CB_Unite_Poids.Text}",
-                    dureeVie = $"De {TB_AgeMin.Text} à {TB_AgeMax.Text} ans",
-                    habitat = TB_Habitat.Text,
-                    embranchement = TB_Embranchement.Text,
-                    classe = TB_Classe.Text,
-                    ordre = TB_Ordre.Text,
-                    famille = TB_Famille.Text,
-                    description = TB_Desc.Text,
-                    descUicn = TB_DescUICN.Text,
-                    descPres = TB_DescPres.Text,
-                    numInventaire = TB_NumInv.Text
-                };
+                try {
+                    int.TryParse(TB_TailleMin.Text,out int TailleMin);
+                    int.TryParse(TB_TailleMax.Text,out int TailleMax);
+                    try {
+                        int.TryParse(TB_PoidsMin.Text,out int PoidsMin);
+                        int.TryParse(TB_PoidsMax.Text,out int PoidsMax);
+                        try {
+                            int.TryParse(TB_AgeMin.Text,out int DureeVieMin);
+                            int.TryParse(TB_AgeMax.Text,out int DureeVieMax);
+
+                            Espece = new C_ESPECE() {
+                                nomCommun = TB_Nom.Text,
+                                nomScientifique = TB_NomScient.Text,
+                                statutEspece = CB_Statut.Text,
+                                tailleMin = TailleMin,
+                                tailleMax = TailleMax,
+                                uniteTaille = CB_Unite_Taille.Text,
+                                poidsMin = PoidsMin,
+                                poidsMax = PoidsMax,
+                                unitePoids = CB_Unite_Poids.Text,
+                                dureeVieMin = DureeVieMin,
+                                dureeVieMax = DureeVieMax,
+                                habitat = TB_Habitat.Text,
+                                embranchement = TB_Embranchement.Text,
+                                classe = TB_Classe.Text,
+                                ordre = TB_Ordre.Text,
+                                famille = TB_Famille.Text,
+                                description = TB_Desc.Text,
+                                descUicn = TB_DescUICN.Text,
+                                descPres = TB_DescPres.Text,
+                                numInventaire = TB_NumInv.Text
+                            };
+
+                        } catch(Exception) {
+                            MessageBox.Show("Erreur : Veuillez vérifier les données entrées sur la longévité");
+                        }
+                    } catch(Exception) {
+                        MessageBox.Show("Erreur : Veuillez vérifier les données entrées sur le poids");
+                    }
+                } catch(Exception) {
+                    MessageBox.Show("Erreur : Veuillez vérifier les données entrées sur la taille");
+                }
+
 
                 BDD.Add_Espece(Espece,ListPath);
                 ListPath = new();

@@ -29,13 +29,28 @@
         </ComboBox>
 
         <Label Content="Taille entre" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_Taille" MaxLength="16" HorizontalAlignment="Left" Margin="140,104,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TB_TailleMin" MaxLength="16" HorizontalAlignment="Left" Margin="140,104,0,0" VerticalAlignment="Top" Width="30"/>
+        <Label Content="et" HorizontalAlignment="Left" Margin="180,100,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_TailleMax" MaxLength="16" HorizontalAlignment="Left" Margin="212,104,0,0" VerticalAlignment="Top" Width="30"/>
+        <ComboBox x:Name="CB_Unite_Taille" SelectedIndex="0" HorizontalAlignment="Left" Margin="247,102,0,0" VerticalAlignment="Top" Width="53">
+            <ComboBoxItem>cm</ComboBoxItem>
+            <ComboBoxItem>m</ComboBoxItem>
+        </ComboBox>
 
         <Label Content="Poids entre" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_Poids" MaxLength="16" HorizontalAlignment="Left" Margin="140,134,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TB_PoidsMin" MaxLength="16" HorizontalAlignment="Left" Margin="140,134,0,0" VerticalAlignment="Top" Width="30"/>
+        <Label Content="et" HorizontalAlignment="Left" Margin="180,130,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_PoidsMax" MaxLength="16" HorizontalAlignment="Left" Margin="212,134,0,0" VerticalAlignment="Top" Width="30"/>
+        <ComboBox x:Name="CB_Unite_Poids" SelectedIndex="0" HorizontalAlignment="Left" Margin="247,132,0,0" VerticalAlignment="Top" Width="53">
+            <ComboBoxItem>g</ComboBoxItem>
+            <ComboBoxItem>kg</ComboBoxItem>
+        </ComboBox>
 
         <Label Content="Durée de vie entre" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_DureeVie" MaxLength="16" HorizontalAlignment="Left" Margin="140,164,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TB_AgeMin" MaxLength="16" HorizontalAlignment="Left" Margin="140,164,0,0" VerticalAlignment="Top" Width="30"/>
+        <Label Content="et" HorizontalAlignment="Left" Margin="180,160,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_AgeMax" MaxLength="16" HorizontalAlignment="Left" Margin="212,164,0,0" VerticalAlignment="Top" Width="30"/>
+        <Label Content="ans" HorizontalAlignment="Left" Margin="245,160,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
 
         <Label Content="Habitat" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
         <TextBox x:Name="TB_Habitat" MaxLength="64" HorizontalAlignment="Left" Margin="140,194,0,0" VerticalAlignment="Top" Width="120"/>

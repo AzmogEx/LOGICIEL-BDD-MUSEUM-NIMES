@@ -25,6 +25,7 @@ namespace IHM_BASE {
         private string Path1;
         private string Path2;
         private int IdEspece;
+        private C_ESPECE Espece;
 
         public EDIT(C_ESPECE Espece) {
             BDD = new();
@@ -36,9 +37,14 @@ namespace IHM_BASE {
             TB_Nom.Text = Espece.nomCommun;
             TB_NomScient.Text = Espece.nomScientifique;
             CB_Statut.Text = Espece.statutEspece;
-            TB_Taille.Text = Espece.taille;
-            TB_Poids.Text = Espece.poids;
-            TB_DureeVie.Text = Espece.dureeVie;
+            TB_TailleMin.Text = Espece.tailleMin.ToString();
+            TB_TailleMax.Text = Espece.tailleMax.ToString();
+            CB_Unite_Taille.Text = Espece.uniteTaille;
+            TB_PoidsMin.Text = Espece.poidsMin.ToString();
+            TB_PoidsMax.Text = Espece.poidsMax.ToString();
+            CB_Unite_Poids.Text = Espece.unitePoids;
+            TB_AgeMin.Text = Espece.dureeVieMin.ToString();
+            TB_AgeMax.Text = Espece.dureeVieMax.ToString();
             TB_Habitat.Text = Espece.habitat;
             TB_Embranchement.Text = Espece.embranchement;
             TB_Classe.Text = Espece.classe;
@@ -47,6 +53,7 @@ namespace IHM_BASE {
             TB_Desc.Text = Espece.description;
             TB_DescUICN.Text = Espece.descUicn;
             TB_DescPres.Text = Espece.descPres;
+            TB_NumInv.Text = Espece.numInventaire;
 
             try {
                 foreach(var imagePath in imagePaths) {
@@ -135,24 +142,48 @@ namespace IHM_BASE {
                 ListPath.Add(Path2);
             }
 
-            C_ESPECE Espece = new C_ESPECE() {
-                idEspece = IdEspece,
-                nomCommun = TB_Nom.Text,
-                nomScientifique = TB_NomScient.Text,
-                statutEspece = CB_Statut.Text,
-                taille = TB_Taille.Text,
-                poids = TB_Poids.Text,
-                dureeVie = TB_DureeVie.Text,
-                habitat = TB_Habitat.Text,
-                embranchement = TB_Embranchement.Text,
-                classe = TB_Classe.Text,
-                ordre = TB_Ordre.Text,
-                famille = TB_Famille.Text,
-                description = TB_Desc.Text,
-                descUicn = TB_DescUICN.Text,
-                descPres = TB_DescPres.Text,
-                numInventaire = TB_NumInv.Text
-            };
+            try {
+                int.TryParse(TB_TailleMin.Text,out int TailleMin);
+                int.TryParse(TB_TailleMax.Text,out int TailleMax);
+                try {
+                    int.TryParse(TB_PoidsMin.Text,out int PoidsMin);
+                    int.TryParse(TB_PoidsMax.Text,out int PoidsMax);
+                    try {
+                        int.TryParse(TB_AgeMin.Text,out int DureeVieMin);
+                        int.TryParse(TB_AgeMax.Text,out int DureeVieMax);
+
+                        Espece = new C_ESPECE() {
+                            nomCommun = TB_Nom.Text,
+                            nomScientifique = TB_NomScient.Text,
+                            statutEspece = CB_Statut.Text,
+                            tailleMin = TailleMin,
+                            tailleMax = TailleMax,
+                            uniteTaille = CB_Unite_Taille.Text,
+                            poidsMin = PoidsMin,
+                            poidsMax = PoidsMax,
+                            unitePoids = CB_Unite_Poids.Text,
+                            dureeVieMin = DureeVieMin,
+                            dureeVieMax = DureeVieMax,
+                            habitat = TB_Habitat.Text,
+                            embranchement = TB_Embranchement.Text,
+                            classe = TB_Classe.Text,
+                            ordre = TB_Ordre.Text,
+                            famille = TB_Famille.Text,
+                            description = TB_Desc.Text,
+                            descUicn = TB_DescUICN.Text,
+                            descPres = TB_DescPres.Text,
+                            numInventaire = TB_NumInv.Text
+                        };
+
+                    } catch(Exception) {
+                        MessageBox.Show("Erreur : Veuillez vérifier les données entrées sur la longévité");
+                    }
+                } catch(Exception) {
+                    MessageBox.Show("Erreur : Veuillez vérifier les données entrées sur le poids");
+                }
+            } catch(Exception) {
+                MessageBox.Show("Erreur : Veuillez vérifier les données entrées sur la taille");
+            }
 
             BDD.Edit_Espece(Espece,ListPath);
             MessageBox.Show("L'espèce a été modifiée avec succès.","Succès",MessageBoxButton.OK,MessageBoxImage.Information);

@@ -6,10 +6,9 @@
         xmlns:local="clr-namespace:IHM_BASE"
         mc:Ignorable="d"
         Title="Menu" Height="600" Width="1000"
-        ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
+
     <Grid>
-        <Button x:Name="BTN_CREATE_USER" FontSize="12" Content="Creer User" Padding="10" Width="80" Margin="886,33,34,497" Click="BTN_CREATE_USER_Click" />
 
         <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="200,10">
             <Button x:Name="BTN_ADD" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Ajouter" Padding="10" Click="BTN_ADD_Click" Width="80"/>
@@ -17,5 +16,7 @@
             <Button x:Name="BTN_SUPPR" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Supprimer" Padding="10" Width="80" Click="BTN_SUPPR_Click" />
         </StackPanel>
         <ListBox Width="200" HorizontalAlignment="Left" x:Name="LB_Especes" SelectionChanged="LB_Especes_SelectionChanged"/>
+        <Button x:Name="BTN_CREATE_USER" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" FontSize="12" Content="Créer un compte" Padding="10" Width="auto" Click="BTN_CREATE_USER_Click" />
+
     </Grid>
 </Window>

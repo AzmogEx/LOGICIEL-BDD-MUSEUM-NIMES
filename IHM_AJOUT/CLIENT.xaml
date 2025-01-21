@@ -97,7 +97,7 @@
                    FontWeight="Bold" 
                    Foreground="Black" 
                    Padding="0,0,0,50"
-                   TextAlignment="Center" Width="230" Height="62"/>
+                   TextAlignment="Center" Width="230" Height="62" Margin="0,0,0,50"/>
                 </Grid>
 
                 <!-- Deuxième image avec masque -->

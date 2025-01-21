@@ -128,7 +128,7 @@
 
                     <!-- Labels superposés -->
                     <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,20,0,0">
-                        <Label x:Name="Label_Habitat" Width="167" Content="Habitat" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Center" Margin="100,-20,0,10" Height="55"  FontSize="20"/>
+                        <TextBlock x:Name="Label_Habitat" Width="167" Text="Habitat" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Center" Margin="100,-20,0,10" Height="55" TextWrapping="Wrap" FontSize="20"/>
                         <Label x:Name="Label_Taille" Width="171" Content="Taille" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Center" Margin="100,5,0,10" FontSize="20"/>
                         <Label x:Name="Label_Poids" Width="160" Content="Poids" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Center" Margin="100,15,0,10" FontSize="20"/>
                         <Label x:Name="Label_Duree_Vie" Width="169" Content="Durée de vie" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Center" Margin="100,25,0,10" FontSize="20"/>

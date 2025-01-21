@@ -102,8 +102,8 @@
                    FontSize="13" 
                    FontWeight="Bold" 
                    Foreground="Black" 
-                   Margin="24,12,0,0"
-                   TextAlignment="Center" Width="152" Height="69"/>
+                   Margin="10,12,0,0"
+                   TextAlignment="Center" Width="187" Height="69"/>
                 </Grid>
 
                 <!-- Deuxième image avec masque -->

@@ -20,6 +20,7 @@
     <None Remove="critere.png" />
     <None Remove="haut-droite.png" />
     <None Remove="haut-gauche.png" />
+    <None Remove="rond-blanc.png" />
     <None Remove="rond.png" />
     <None Remove="truc.png" />
     <None Remove="world-map-xaml-high-res2.png" />
@@ -40,6 +41,7 @@
     <Resource Include="critere.png" />
     <Resource Include="haut-droite.png" />
     <Resource Include="haut-gauche.png" />
+    <Resource Include="rond-blanc.png" />
     <Resource Include="rond.png" />
     <Resource Include="truc.png" />
     <Resource Include="world-map-xaml-high-res2.png" />

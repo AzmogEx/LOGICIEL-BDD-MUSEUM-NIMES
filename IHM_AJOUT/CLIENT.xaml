@@ -48,7 +48,7 @@
         <!--Grille d'affichage de l'animal recherché-->
         <Grid x:Name="Grid_Info" Background="#FF009EE4">
 
-            <Image Margin="-71,397,1273,-50" Source="/rond-blanc.png" Stretch="Fill"/>
+            <Image Margin="-71,392,1221,-50" Source="/rond-blanc.png" Stretch="Fill"/>
 
             <Image Margin="0,800,1657,0" Source="/bas-gauche.png" Stretch="Fill"/>
 
@@ -64,7 +64,7 @@
 
 
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="70,0,0,0">
-                <StackPanel Margin="40,0,0,50">
+                <StackPanel Margin="40,0,0,100">
                     <Grid Margin="20" Width="300">
                         <Image Source="/arbre.png" Stretch="Fill" Height="250" Width="300"/>
 
@@ -77,10 +77,13 @@
                     </Grid>
 
                 </StackPanel>
-                <TextBlock x:Name="Tbx_Description_Global" TextAlignment="Center" Margin="0,0,0,0" HorizontalAlignment="Left" TextWrapping="Wrap" Height="450" Width="450" Text="TextBlock" VerticalAlignment="Bottom"  FontSize="15"/>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock x:Name="Text_UICN" TextAlignment="Center" HorizontalAlignment="Right" TextWrapping="Wrap" Text="TextBlock" Height="200" Width="300" VerticalAlignment="Top" Foreground="Red" Margin="130,0,0,0" FontSize="15"/>
-                    <Image Source="/critere.png" Margin="30,0,0,0" Stretch="Fill" Height="148" Width="148"/>
+                    <TextBlock x:Name="Tbx_Description_Global" TextAlignment="Left" Margin="10,0,20,0" HorizontalAlignment="Left" TextWrapping="Wrap" Height="440" Width="225" Text="TextBlock" VerticalAlignment="Bottom"  FontSize="15"/>
+                    <TextBlock x:Name="Tbx_Description_Global1" TextAlignment="Left" Margin="0,0,0,0" HorizontalAlignment="Left" TextWrapping="Wrap" Height="440" Width="225" Text="TextBlock" VerticalAlignment="Bottom"  FontSize="15"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="Text_UICN" TextAlignment="Center" HorizontalAlignment="Right" TextWrapping="Wrap" Text="TextBlock" Height="160" Width="300" VerticalAlignment="Top" Foreground="Red" Margin="160,10,0,0" FontSize="15"/>
+                    <Image Source="/critere.png" Margin="10,0,0,0" Stretch="Fill" Height="148" Width="148"/>
                     <TextBlock x:Name="Text_Critere_Menace" TextAlignment="Center" Margin="-150,0,0,-70" TextWrapping="Wrap" Text="TextBlock" Height="38" Width="101" FontSize="13" FontWeight="Bold" FontFamily="Trebuchet MS" Foreground="White"/>
                 </StackPanel>
             </StackPanel>

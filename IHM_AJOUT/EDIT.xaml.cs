@@ -20,11 +20,7 @@ namespace IHM_BASE {
     public partial class EDIT:Window {
         C_BDD BDD = null;
         List<string> ListPath = null;
-        private List<C_IMAGE> images;
         private string[] imagePaths;
-        private byte[] Image;
-        private byte[] Image1;
-        private byte[] Image2;
         private string Path;
         private string Path1;
         private string Path2;
@@ -36,8 +32,8 @@ namespace IHM_BASE {
             ListPath = new();
             IDEspece = Espece.idEspece;
             InitializeComponent();
-            images = BDD.Get_Img_By_ID(Espece.idEspece);
-            
+            imagePaths = BDD.Get_Img_By_ID(Espece.idEspece);
+
             TB_Nom.Text = Espece.nomCommun;
             TB_NomScient.Text = Espece.nomScientifique;
             CB_Statut.Text = Espece.statutEspece;
@@ -60,43 +56,32 @@ namespace IHM_BASE {
             TB_NumInv.Text = Espece.numInventaire;
 
             try {
-                foreach(var image in images) // imagePaths est maintenant un byte[][]
-                {
-                    if(image.ImgData != null && image.ImgData.Length > 0) {
-                        // Convertir les données binaires en image
-                        using(var ms = new MemoryStream(image.ImgData)) {
-                            var bitmapImage = new BitmapImage();
-                            bitmapImage.BeginInit();
-                            bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
-                            bitmapImage.StreamSource = ms;
-                            bitmapImage.EndInit();
+                foreach(var imagePath in imagePaths) {
+                    if(!string.IsNullOrWhiteSpace(imagePath) && File.Exists(imagePath)) {
+                        var uri = new Uri(imagePath,UriKind.Absolute);
 
-                            // Affecter l'image au premier contrôle disponible
-                            if(ImagePreview.Source == null) {
-                                ImagePreview.Source = bitmapImage;
-                                BTN_DeleteImg.IsEnabled = true;
-                                Path = image.ImgPath;
-                                ListPath.Add(Path);
-                            } else if(ImagePreview1.Source == null) {
-                                ImagePreview1.Source = bitmapImage;
-                                BTN_DeleteImg1.IsEnabled = true;
-                                Path1 = image.ImgPath;
-                                ListPath.Add(Path1);
-                            } else if(ImagePreview2.Source == null) {
-                                ImagePreview2.Source = bitmapImage;
-                                BTN_DeleteImg2.IsEnabled = true;
-                                Path2 = image.ImgPath;
-                                ListPath.Add(Path2);
-                            }
+                        if(ImagePreview.Source == null) {
+                            ImagePreview.Source = new BitmapImage(uri);
+                            BTN_DeleteImg.IsEnabled = true;
+                            Path = imagePath;
+                        } else if(ImagePreview1.Source == null) {
+                            ImagePreview1.Source = new BitmapImage(uri);
+                            BTN_DeleteImg1.IsEnabled = true;
+                            Path1 = imagePath;
+                        } else if(ImagePreview2.Source == null) {
+                            ImagePreview2.Source = new BitmapImage(uri);
+                            BTN_DeleteImg2.IsEnabled = true;
+                            Path2 = imagePath;
                         }
                     } else {
                         MessageBox.Show($"Une ou plusieurs images n'ont pas pu être chargées correctement","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
                     }
                 }
             } catch(Exception ex) {
-                MessageBox.Show($"Une erreur est survenue : {ex.Message}\n{ex.StackTrace}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
-            }
 
+                MessageBox.Show($"Une erreur est survenue : {ex.Message}\n{ex.StackTrace}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
+
+            }
 
         }
 
@@ -143,6 +128,18 @@ namespace IHM_BASE {
 
             if(result == MessageBoxResult.No) {
                 return;
+            }
+
+            if(Path != null) {
+                ListPath.Add(Path);
+            }
+
+            if(Path1 != null) {
+                ListPath.Add(Path1);
+            }
+
+            if(Path2 != null) {
+                ListPath.Add(Path2);
             }
 
             try {
@@ -203,21 +200,18 @@ namespace IHM_BASE {
         private void BTN_DeleteImg_Click(object sender,RoutedEventArgs e) {
             ImagePreview.Source = null;
             BTN_DeleteImg.IsEnabled = false;
-            ListPath.Remove(Path);
             Path = null;
         }
 
         private void BTN_DeleteImg1_Click(object sender,RoutedEventArgs e) {
             ImagePreview1.Source = null;
             BTN_DeleteImg1.IsEnabled = false;
-            ListPath.Remove(Path1);
             Path1 = null;
         }
 
         private void BTN_DeleteImg2_Click(object sender,RoutedEventArgs e) {
             ImagePreview2.Source = null;
             BTN_DeleteImg2.IsEnabled = false;
-            ListPath.Remove(Path2);
             Path2 = null;
         }
     }

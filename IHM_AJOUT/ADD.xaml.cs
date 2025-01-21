@@ -52,7 +52,7 @@ namespace IHM_AJOUT {
                                 Path2 = imagePath;
                             }
                         }
-                    }       
+                    }
                 }
             } catch(Exception ex) {
                 MessageBox.Show($"Une erreur est survenue : {ex.Message}\n{ex.StackTrace}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);

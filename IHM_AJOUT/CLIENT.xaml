@@ -44,6 +44,8 @@
         <!--Grille d'affichage de l'animal recherché-->
         <Grid x:Name="Grid_Info" Background="#FF009EE4">
 
+            <Image Margin="-28,700,1587,0" Source="/bas-gauche.png" Stretch="Fill"/>
+
             <Image Margin="0,0,1587,647" Source="/haut-gauche.png" Stretch="Fill"/>
 
             <Image Source="/critere.png" Stretch="Fill" Height="148" Width="148" Margin="468,844,1304,72"/>
@@ -89,7 +91,6 @@
                     <!-- Image en arrière-plan -->
                     <Image Source="/chat.png" Stretch="Fill" />
 
-                    <!-- Texte superposé -->
                     <TextBlock x:Name="Text_Info_Pratique" Text="Chat" 
                    HorizontalAlignment="Center" 
                    VerticalAlignment="Center" TextWrapping="Wrap"
@@ -118,7 +119,7 @@
             <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,100,100,0">
                 <Image x:Name="Img_Animal_2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Source="/axolotl.jpeg">
                     <Image.OpacityMask>
-                        <ImageBrush ImageSource="/rond.png" Stretch="Uniform"/>
+                        <ImageBrush ImageSource="/rond.png" Stretch="Fill"/>
                     </Image.OpacityMask>
                 </Image>
                 <Grid Width="300" Height="250" Margin="10">
@@ -127,10 +128,10 @@
 
                     <!-- Labels superposés -->
                     <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,20,0,0">
-                        <Label x:Name="Label_Habitat" Width="93" Content="Habitat" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Center" Margin="100,-10,0,10" FontSize="25"/>
-                        <Label x:Name="Label_Taille" Width="59" Content="Taille" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Center" Margin="100,5,0,10" FontSize="20"/>
-                        <Label x:Name="Label_Poids" Width="62" Content="Poids" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Center" Margin="100,15,0,10" FontSize="20"/>
-                        <Label x:Name="Label_Duree_Vie" Width="127" Content="Durée de vie" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Center" Margin="100,25,0,10" FontSize="20"/>
+                        <Label x:Name="Label_Habitat" Width="167" Content="Habitat" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Center" Margin="100,-20,0,10" Height="55"  FontSize="20"/>
+                        <Label x:Name="Label_Taille" Width="171" Content="Taille" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Center" Margin="100,5,0,10" FontSize="20"/>
+                        <Label x:Name="Label_Poids" Width="160" Content="Poids" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Center" Margin="100,15,0,10" FontSize="20"/>
+                        <Label x:Name="Label_Duree_Vie" Width="169" Content="Durée de vie" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Center" Margin="100,25,0,10" FontSize="20"/>
                     </StackPanel>
                 </Grid>
                 <Image x:Name="Img_Animal_3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,150" Width="300" Source="/axolotl.jpeg">
@@ -140,7 +141,6 @@
                 </Image>
             </StackPanel>
             <Image Margin="1595,743,0,0" Source="/bas-droite.png" Stretch="Fill"/>
-            <Image Margin="-28,700,1587,0" Source="/bas-gauche.png" Stretch="Fill"/>
         </Grid>
     </Grid>
 </Window>

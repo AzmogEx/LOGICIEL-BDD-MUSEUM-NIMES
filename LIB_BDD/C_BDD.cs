@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Dapper;
 using Microsoft.Data.SqlClient;
+using BCrypt.Net;
+
 
 namespace LIB_BDD;
 
@@ -12,15 +14,14 @@ public class C_BDD {
 
     const string Chaine_Connexion = "Server=tcp:service.adam-marzuk.fr;Initial Catalog=animaux;Persist Security Info=False;User ID=stage;Password=Museum123.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;";
     List<C_ESPECE> Les_Especes = new List<C_ESPECE>();
-    
+
     public Exception Test_Connexion() {
         Exception ok = null;
         using(SqlConnection Connection = new SqlConnection(Chaine_Connexion)) {
             try {
                 Connection.Open();
                 return ok;
-            }
-            catch(Exception ex) {
+            } catch(Exception ex) {
                 return ex;
             }
         }
@@ -35,12 +36,10 @@ public class C_BDD {
 
                 if(hashPassword != null && BCrypt.Net.BCrypt.Verify(motDePasse,hashPassword)) {
                     return true;
-                }
-                else {
+                } else {
                     return false;
                 }
-            }
-            catch(Exception) {
+            } catch(Exception) {
                 return false;
             }
         }
@@ -71,17 +70,17 @@ public class C_BDD {
         P_Nom = P_Nom.ToLower();
         var Especes_Found = new List<C_ESPECE>();
         foreach(var Espece in Les_Especes) {
-            if(Espece.nomCommun.ToLower().StartsWith(P_Nom)) Especes_Found.Add(Espece); 
+            if(Espece.nomCommun.ToLower().StartsWith(P_Nom)) Especes_Found.Add(Espece);
         }
         return Especes_Found;
     }
 
-    public List<C_IMAGE> Get_Img_By_ID(int P_ID) {
+    public string[] Get_Img_By_ID(int P_ID) {
         using SqlConnection connexion = new SqlConnection(Chaine_Connexion);
 
-        string query = "SELECT imgData FROM images WHERE idEspece = @ID";
+        string query = "SELECT imgPath FROM images WHERE idEspece = @ID";
 
-        return connexion.Query<C_IMAGE>(query,new { ID = P_ID }).ToList();
+        return connexion.Query<string>(query,new { ID = P_ID }).ToArray();
     }
 
 
@@ -91,14 +90,13 @@ public class C_BDD {
             using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
             Connexion.Execute("delete from images where images.idEspece = @IDESPECE",new { IDESPECE = P_Espece });
             Connexion.Execute("delete from especes where idEspece = @IDESPECE",new { IDESPECE = P_Espece });
-        }
-        catch(Exception) {
+        } catch(Exception) {
             throw;
         }
 
     }
 
-    public void Add_Espece(C_ESPECE P_Espece) {
+    public void Add_Espece(C_ESPECE P_Espece,List<string> P_ImgPath) {
 
         try {
             using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
@@ -126,36 +124,28 @@ public class C_BDD {
                     DESCPRES = P_Espece.descPres,
                     NUMINVENTAIRE = P_Espece.numInventaire
                 });
-        }
-        catch(Exception) {
+            int ID = Connexion.QuerySingle<int>("SELECT TOP 1 idEspece FROM especes ORDER BY idEspece DESC;");
+
+            Add_Image(ID,P_ImgPath);
+        } catch(Exception) {
             throw;
         }
 
     }
 
-    public int Get_Last_ID() {
-        using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
-        int ID = Connexion.QuerySingle<int>("SELECT TOP 1 idEspece FROM especes ORDER BY idEspece DESC;");
-        return ID;
-    }
-
-    public void Add_Image(List<C_IMAGE> P_ListImg) {
+    public void Add_Image(int P_idEspece,List<string> P_ListPath) {
         using(SqlConnection connexion = new SqlConnection(Chaine_Connexion)) {
-            connexion.Open();
-
-            foreach(var Image in P_ListImg) {
-                byte[] imageData = File.ReadAllBytes(Image.ImgPath);
-                connexion.Execute(
-                    "INSERT INTO images (idEspece, imgPath, imgData) VALUES (@IDESPECE, @IMGPATH, @IMGDATA)",
-                    new { IDESPECE = Image.IdEspece,IMGPATH = Image.ImgPath,IMGDATA = imageData });
+            foreach(var Path in P_ListPath) {
+                connexion.Execute("INSERT INTO images (idEspece, imgPath) VALUES (@IDESPECE, @IMGPATH)",
+                new { IDESPECE = P_idEspece,IMGPATH = Path });
             }
         }
     }
 
 
-
-    public void Edit_Espece(C_ESPECE P_Espece,List<C_IMAGE> P_Img) {
+    public void Edit_Espece(C_ESPECE P_Espece,List<string> P_ImgPaths) {
         using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
+        string[] OldImgPaths = Get_Img_By_ID(P_Espece.idEspece);
 
         Connexion.Execute("update especes set nomCommun = @NOMCOMMUN, nomScientifique = @NOMSCIENT, statutEspece = @STATUTESPECE, " +
             "tailleMin = @TAILLEMIN, tailleMax = @TAILLEMAX, uniteTaille = @UNITETAILLE, " +
@@ -187,8 +177,10 @@ public class C_BDD {
                 IDESPECE = P_Espece.idEspece
             });
 
-        Connexion.Execute("delete from images where images.idEspece = @IDESPECE",new { IDESPECE = P_Espece.idEspece });
-        Add_Image(P_Img);
+        if(OldImgPaths != P_ImgPaths.ToArray()) {
+            Connexion.Execute("delete from images where images.idEspece = @IDESPECE",new { IDESPECE = P_Espece.idEspece });
+            Add_Image(P_Espece.idEspece,P_ImgPaths);
+        }
     }
 
 

@@ -75,8 +75,8 @@
                 </StackPanel>
                 <TextBlock x:Name="Tbx_Description_Global" TextAlignment="Center" Margin="0,0,0,0" HorizontalAlignment="Left" TextWrapping="Wrap" Height="450" Width="450" Text="TextBlock" VerticalAlignment="Bottom"  FontSize="15"/>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock x:Name="Text_UICN" TextAlignment="Center" HorizontalAlignment="Right" TextWrapping="Wrap" Text="TextBlock" Height="200" Width="300" VerticalAlignment="Top" Foreground="Red" Margin="150,0,0,0" FontSize="15"/>
-                    <Image Source="/critere.png" Stretch="Fill" Height="148" Width="148"/>
+                    <TextBlock x:Name="Text_UICN" TextAlignment="Center" HorizontalAlignment="Right" TextWrapping="Wrap" Text="TextBlock" Height="200" Width="300" VerticalAlignment="Top" Foreground="Red" Margin="130,0,0,0" FontSize="15"/>
+                    <Image Source="/critere.png" Margin="30,0,0,0" Stretch="Fill" Height="148" Width="148"/>
                     <TextBlock x:Name="Text_Critere_Menace" TextAlignment="Center" Margin="-150,0,0,-70" TextWrapping="Wrap" Text="TextBlock" Height="38" Width="101" FontSize="13" FontWeight="Bold" FontFamily="Trebuchet MS" Foreground="White"/>
                 </StackPanel>
             </StackPanel>

@@ -98,12 +98,12 @@
 
                     <TextBlock x:Name="Text_Info_Pratique" Text="Chat" 
                    HorizontalAlignment="Center" 
-                   VerticalAlignment="Top" TextWrapping="Wrap"
+                   VerticalAlignment="Center" TextWrapping="Wrap"
                    FontSize="13" 
                    FontWeight="Bold" 
                    Foreground="Black" 
-                   Margin="0,18,0,0"
-                   TextAlignment="Center" Width="308" Height="62"/>
+                   Margin="0,-19,0,0"
+                   TextAlignment="Center" Width="350" Height="118"/>
                 </Grid>
 
                 <!-- Deuxième image avec masque -->

@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <None Remove="Capture d’écran 2025-01-20 à 11.01.50.png" />
+    <None Remove="rond.png" />
     <None Remove="world-map-xaml-high-res2.png" />
   </ItemGroup>
 
@@ -19,6 +20,7 @@
 
   <ItemGroup>
     <Resource Include="Capture d’écran 2025-01-20 à 11.01.50.png" />
+    <Resource Include="rond.png" />
     <Resource Include="world-map-xaml-high-res2.png" />
   </ItemGroup>
 

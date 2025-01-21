@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Musée des Animaux" Height="1080" Width="1920">
     <Grid>
-        
+
         <!--Grille de recherche d'animal-->
         <Grid x:Name="Grid_Recherche" Visibility="Hidden">
 
@@ -15,7 +15,7 @@
             <DockPanel DockPanel.Dock="Top" Margin="10" VerticalAlignment="Top">
                 <TextBox x:Name="SearchBox" Width="400" Height="30" Margin="5" 
      HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="SearchBox_TextChanged" />
-                
+
             </DockPanel>
 
             <!-- Grille principale -->
@@ -38,31 +38,45 @@
                 </Border>
             </Grid>
         </Grid>
-        
+
         <!--============================================================================-->
-            
+
         <!--Grille d'affichage de l'animal recherché-->
-        <Grid x:Name="Grid_Info">
+        <Grid x:Name="Grid_Info" Background="#FF009EE4">
+
+            <Image Margin="0,0,1587,647" Source="/haut-gauche.png" Stretch="Fill"/>
+
+            <Image Source="/critere.png" Stretch="Fill" Height="148" Width="148" Margin="468,844,1304,72"/>
+
+
+            <Image Margin="726,330,730,269" Source="/rond.png" Stretch="Fill"/>
+
+            <Image Margin="1529,0,0,647" Source="/haut-droite.png" Stretch="Fill"/>
 
             <Button x:Name="Button_Close" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Height="60" Width="60" Background="Red" FontSize="30" Click="Button_Close_Click"/>
 
 
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom">
                 <StackPanel Margin="40">
-                    <StackPanel Margin="20" Width="300">
-                        <Label x:Name="Label_Famille" Content="Famille" Width="150" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="#FF00FF15" Margin="0,0,0,20"/>
-                        <Label x:Name="Label_Ordre" Content="Ordre" Width="150" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="#FF02FF00" Margin="0,0,0,20"/>
-                        <Label x:Name="Label_Classe" Content="Classe" Width="150" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="#FF1FFF00" Margin="0,0,0,20"/>
-                        <Label x:Name="Label_Embranchement" Width="150" Content="Embranchement" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="#FF08FF00" Margin="0"/>
-                    </StackPanel>
+                    <Grid Margin="20" Width="300">
+                        <Image Source="/arbre.png" Stretch="Fill" Height="250" Width="300"/>
+
+                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,5">
+                            <Label x:Name="Label_Famille" Margin="0,0,0,0"   Content="Famille"  Width="150" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+                            <Label x:Name="Label_Ordre" Margin="0,0,0,0"   Content="Ordre" Width="150" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+                            <Label x:Name="Label_Classe" Margin="0,0,0,0"   Content="Classe" Width="150" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+                            <Label x:Name="Label_Embranchement" Margin="0,0,0,0"   Content="Embranchement" Width="150" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+                        </StackPanel>
+                    </Grid>
 
                 </StackPanel>
                 <TextBlock x:Name="Tbx_Description_Global" HorizontalAlignment="Left" TextWrapping="Wrap" Height="450" Width="450" Text="TextBlock" VerticalAlignment="Bottom" Background="#FFFFEA00"/>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock x:Name="Text_UICN" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" Height="200" Width="450" VerticalAlignment="Top" Background="Red"/>
-                    <TextBlock x:Name="Text_Critere_Menace" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" Margin="20" VerticalAlignment="Top" Background="Red"/>
+                    <TextBlock x:Name="Text_Critere_Menace" Margin="45,0,0,15" TextWrapping="Wrap" Text="TextBlock" Height="28" Width="93" FontSize="20" FontWeight="Bold" FontFamily="Trebuchet MS"/>
                 </StackPanel>
             </StackPanel>
+
 
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0">
                 <Label x:Name="Label_Titre_Animal" Content="Le titre" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="70" FontWeight="Bold" HorizontalContentAlignment="Center"/>
@@ -70,35 +84,55 @@
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock x:Name="Text_Info_Pratique" HorizontalAlignment="Left" Margin="0,10,0,30" TextWrapping="Wrap" Text="TextBlock" FontSize="20" Width="100" VerticalAlignment="Top" Foreground="Black" Background="#FFFFEA00"/>
-                <Image x:Name="Img_Animal_1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="550" Source="/Capture d’écran 2025-01-20 à 11.01.50.png"/>
+                <!-- Superposition avec Grid -->
+                <Grid Width="250" Height="150">
+                    <!-- Image en arrière-plan -->
+                    <Image Source="/chat.png" Stretch="Fill" />
+
+                    <!-- Texte superposé -->
+                    <TextBlock x:Name="Text_Info_Pratique" Text="Texte info pratique" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center" 
+                   FontSize="24" 
+                   FontWeight="Bold" 
+                   Foreground="Black" 
+                   Padding="0,0,0,50"
+                   TextAlignment="Center"/>
+                </Grid>
+
+                <!-- Deuxième image avec masque -->
+                <Image x:Name="Img_Animal_1" 
+           Width="441" 
+           Source="/Capture d’écran 2025-01-20 à 11.01.50.png" 
+           Margin="0,0,0,85" 
+           Height="368" 
+           Stretch="Fill">
+                    <Image.OpacityMask>
+                        <ImageBrush ImageSource="/rond.png" Stretch="Uniform" TileMode="None" />
+                    </Image.OpacityMask>
+                </Image>
             </StackPanel>
 
             <Label x:Name="Label_Localisation" Content="Pays" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="#FF1300FF"/>
 
             <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,100,100,0">
                 <Image x:Name="Img_Animal_2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Source="/Capture d’écran 2025-01-20 à 11.01.50.png"/>
-                <StackPanel>
-                    <Label x:Name="Label_Habitat" Width="100" Content="Habitat" HorizontalAlignment="Center" Margin="0,70,0,20" VerticalAlignment="Top" Background="#FFE600FF"/>
-                    <Label x:Name="Label_Taille" Width="100" Content="Taille" HorizontalAlignment="Center" Margin="0,0,0,20" VerticalAlignment="Top" Background="#FFE600FF"/>
-                    <Label x:Name="Label_Poids" Width="100" Content="Poids" HorizontalAlignment="Center" Margin="0,0,0,20" VerticalAlignment="Top" Background="#FFE600FF"/>
-                    <Label x:Name="Label_Duree_Vie" Width="100" Content="Duree de vie" HorizontalAlignment="Center" Margin="0,0,0,20" VerticalAlignment="Top" Background="#FFE600FF"/>
-                </StackPanel>
+                <Grid Width="300" Height="250" Margin="10">
+                    <!-- Image en arrière-plan -->
+                    <Image Source="/truc.png" Stretch="Fill"/>
+
+                    <!-- Labels superposés -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,20,0,0">
+                        <Label x:Name="Label_Habitat" Width="93" Content="Habitat" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Center" Margin="100,-10,0,10" FontSize="25"/>
+                        <Label x:Name="Label_Taille" Width="59" Content="Taille" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Center" Margin="100,5,0,10" FontSize="20"/>
+                        <Label x:Name="Label_Poids" Width="62" Content="Poids" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Center" Margin="100,15,0,10" FontSize="20"/>
+                        <Label x:Name="Label_Duree_Vie" Width="127" Content="Durée de vie" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Center" Margin="100,25,0,10" FontSize="20"/>
+                    </StackPanel>
+                </Grid>
                 <Image x:Name="Img_Animal_3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,150" Width="300" Source="/Capture d’écran 2025-01-20 à 11.01.50.png"/>
-
             </StackPanel>
-
-
-            <!--Label Titre--><!--
-             
-            --><!--Image--><!--
-
-            --><!--Description--><!--
-            
-            --><!--Label Information--><!--
-            
-            --><!--Button close-->
-            
+            <Image Margin="1595,743,0,0" Source="/bas-droite.png" Stretch="Fill"/>
+            <Image Margin="-28,700,1587,0" Source="/bas-gauche.png" Stretch="Fill"/>
         </Grid>
     </Grid>
 </Window>

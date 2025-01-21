@@ -7,6 +7,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IHM_BASE", "IHM_AJOUT\IHM_B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LIB_BDD", "LIB_BDD\LIB_BDD.csproj", "{5221DDC5-B4DC-4C6E-9F61-F97F5A57D437}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RESSOURCES", "RESSOURCES", "{E6B500AA-40AF-4E96-838B-5939AE468B01}"
+	ProjectSection(SolutionItems) = preProject
+		RESSOURCES\arbre.png = RESSOURCES\arbre.png
+		RESSOURCES\axolotl.jpeg = RESSOURCES\axolotl.jpeg
+		RESSOURCES\axolotl2.jpg = RESSOURCES\axolotl2.jpg
+		RESSOURCES\axolotl3.jpg = RESSOURCES\axolotl3.jpg
+		RESSOURCES\bas-droite.png = RESSOURCES\bas-droite.png
+		RESSOURCES\bas-gauche.png = RESSOURCES\bas-gauche.png
+		RESSOURCES\chat.png = RESSOURCES\chat.png
+		RESSOURCES\contour-gauche.png = RESSOURCES\contour-gauche.png
+		RESSOURCES\critere.png = RESSOURCES\critere.png
+		RESSOURCES\haut-droite.png = RESSOURCES\haut-droite.png
+		RESSOURCES\haut-gauche.png = RESSOURCES\haut-gauche.png
+		RESSOURCES\rond.png = RESSOURCES\rond.png
+		RESSOURCES\truc.png = RESSOURCES\truc.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

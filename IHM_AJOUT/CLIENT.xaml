@@ -97,7 +97,7 @@
                     <TextBlock x:Name="Text_Info_Pratique" Text="Chat" 
                    HorizontalAlignment="Center" 
                    VerticalAlignment="Center" TextWrapping="Wrap"
-                   FontSize="10" 
+                   FontSize="13" 
                    FontWeight="Bold" 
                    Foreground="Black" 
                    Padding="0,0,0,50"

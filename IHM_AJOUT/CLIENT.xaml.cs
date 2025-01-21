@@ -76,8 +76,8 @@ namespace IHM_BASE {
             Desc2 = Espece_Select.description.Substring(splitPoint).Trim();
 
             //Titre de l'animal
-            Label_Titre_Animal.Content = Espece_Select.nomCommun;
-            Label_Titre_Scientifique_Animal.Content = Espece_Select.nomScientifique;
+            Label_Nom_Animal.Content = Espece_Select.nomCommun;
+            Label_Nom_Scientifique_Animal.Content = Espece_Select.nomScientifique;
 
             //Affichage des informations de l'animal
             Label_Taille.Content = $"{Espece_Select.tailleMin} - {Espece_Select.tailleMax} {Espece_Select.uniteTaille}";

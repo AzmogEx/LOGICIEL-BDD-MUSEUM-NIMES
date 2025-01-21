@@ -19,12 +19,15 @@ namespace IHM_AJOUT {
         private string Path;
         private string Path1;
         private string Path2;
-        private List<string> ListPath;
+        private C_IMAGE Image;
+        private C_IMAGE Image1;
+        private C_IMAGE Image2;
+        private List<C_IMAGE> ListImg;
         private C_ESPECE Espece;
 
         public ADD() {
             BDD = new();
-            ListPath = new();
+            ListImg = new();
             InitializeComponent();
         }
 
@@ -93,18 +96,6 @@ namespace IHM_AJOUT {
                     return;
                 }
 
-                if(Path != null) {
-                    ListPath.Add(Path);
-                }
-
-                if(Path1 != null) {
-                    ListPath.Add(Path1);
-                }
-
-                if(Path2 != null) {
-                    ListPath.Add(Path2);
-                }
-
                 try {
                     int.TryParse(TB_TailleMin.Text,out int TailleMin);
                     int.TryParse(TB_TailleMax.Text,out int TailleMax);
@@ -149,8 +140,16 @@ namespace IHM_AJOUT {
                 }
 
 
-                BDD.Add_Espece(Espece,ListPath);
-                ListPath = new();
+                BDD.Add_Espece(Espece);
+                var ID = BDD.Get_Last_ID();
+
+                Image = new C_IMAGE() { IdEspece = ID,ImgPath = Path};
+                Image1 = new C_IMAGE() { IdEspece = ID,ImgPath = Path1};
+                Image2 = new C_IMAGE() { IdEspece = ID,ImgPath = Path2};
+
+                BDD.Add_Image(ListImg);
+
+                ListImg = new();
                 MessageBox.Show("L'espèce a été ajoutée avec succès.","Succès",MessageBoxButton.OK,MessageBoxImage.Information);
             } catch(Exception ex) {
                 MessageBox.Show($"Une erreur est survenue : {ex.Message}\n{ex.StackTrace}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);

@@ -98,7 +98,7 @@ public class C_BDD {
 
     }
 
-    public void Add_Espece(C_ESPECE P_Espece,List<string> P_ImgPath) {
+    public void Add_Espece(C_ESPECE P_Espece) {
 
         try {
             using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
@@ -126,9 +126,6 @@ public class C_BDD {
                     DESCPRES = P_Espece.descPres,
                     NUMINVENTAIRE = P_Espece.numInventaire
                 });
-            int ID = Connexion.QuerySingle<int>("SELECT TOP 1 idEspece FROM especes ORDER BY idEspece DESC;");
-
-            Add_Image(ID,P_ImgPath);
         }
         catch(Exception) {
             throw;
@@ -136,22 +133,28 @@ public class C_BDD {
 
     }
 
-    public void Add_Image(int P_idEspece,List<string> P_ListPath) {
+    public int Get_Last_ID() {
+        using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
+        int ID = Connexion.QuerySingle<int>("SELECT TOP 1 idEspece FROM especes ORDER BY idEspece DESC;");
+        return ID;
+    }
+
+    public void Add_Image(List<C_IMAGE> P_ListImg) {
         using(SqlConnection connexion = new SqlConnection(Chaine_Connexion)) {
             connexion.Open();
 
-            foreach(var path in P_ListPath) {
-                byte[] imageData = File.ReadAllBytes(path);
+            foreach(var Image in P_ListImg) {
+                byte[] imageData = File.ReadAllBytes(Image.ImgPath);
                 connexion.Execute(
                     "INSERT INTO images (idEspece, imgPath, imgData) VALUES (@IDESPECE, @IMGPATH, @IMGDATA)",
-                    new { IDESPECE = P_idEspece,IMGPATH = path,IMGDATA = imageData });
+                    new { IDESPECE = Image.IdEspece,IMGPATH = Image.ImgPath,IMGDATA = imageData });
             }
         }
     }
 
 
 
-    public void Edit_Espece(C_ESPECE P_Espece,List<string> P_ImgPaths) {
+    public void Edit_Espece(C_ESPECE P_Espece,List<C_IMAGE> P_Img) {
         using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
 
         Connexion.Execute("update especes set nomCommun = @NOMCOMMUN, nomScientifique = @NOMSCIENT, statutEspece = @STATUTESPECE, " +
@@ -185,7 +188,7 @@ public class C_BDD {
             });
 
         Connexion.Execute("delete from images where images.idEspece = @IDESPECE",new { IDESPECE = P_Espece.idEspece });
-        Add_Image(P_Espece.idEspece,P_ImgPaths);
+        Add_Image(P_Img);
     }
 
 

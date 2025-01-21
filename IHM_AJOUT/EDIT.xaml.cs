@@ -22,12 +22,15 @@ namespace IHM_BASE {
         List<string> ListPath = null;
         private List<C_IMAGE> images;
         private string[] imagePaths;
-        private byte[] Image;
-        private byte[] Image1;
-        private byte[] Image2;
+        private C_IMAGE Image;
+        private C_IMAGE Image1;
+        private C_IMAGE Image2;
         private string Path;
         private string Path1;
         private string Path2;
+        private byte[] imageData;
+        private byte[] imageData1;
+        private byte[] imageData2;
         private int IDEspece;
         private C_ESPECE P_Espece;
 
@@ -60,10 +63,9 @@ namespace IHM_BASE {
             TB_NumInv.Text = Espece.numInventaire;
 
             try {
-                foreach(var image in images) // imagePaths est maintenant un byte[][]
+                foreach(var image in images)
                 {
                     if(image.ImgData != null && image.ImgData.Length > 0) {
-                        // Convertir les données binaires en image
                         using(var ms = new MemoryStream(image.ImgData)) {
                             var bitmapImage = new BitmapImage();
                             bitmapImage.BeginInit();
@@ -71,21 +73,23 @@ namespace IHM_BASE {
                             bitmapImage.StreamSource = ms;
                             bitmapImage.EndInit();
 
-                            // Affecter l'image au premier contrôle disponible
                             if(ImagePreview.Source == null) {
                                 ImagePreview.Source = bitmapImage;
                                 BTN_DeleteImg.IsEnabled = true;
                                 Path = image.ImgPath;
+                                imageData = image.ImgData;
                                 ListPath.Add(Path);
                             } else if(ImagePreview1.Source == null) {
                                 ImagePreview1.Source = bitmapImage;
                                 BTN_DeleteImg1.IsEnabled = true;
                                 Path1 = image.ImgPath;
+                                imageData1 = image.ImgData;
                                 ListPath.Add(Path1);
                             } else if(ImagePreview2.Source == null) {
                                 ImagePreview2.Source = bitmapImage;
                                 BTN_DeleteImg2.IsEnabled = true;
                                 Path2 = image.ImgPath;
+                                imageData2 = image.ImgData;
                                 ListPath.Add(Path2);
                             }
                         }
@@ -189,8 +193,14 @@ namespace IHM_BASE {
                 MessageBox.Show("Erreur : Veuillez vérifier les données entrées sur la taille");
             }
 
+
+            Image = new C_IMAGE() { IdEspece = IDEspece, ImgPath = Path, ImgData = imageData };
+            Image1 = new C_IMAGE() { IdEspece = IDEspece, ImgPath = Path1, ImgData = imageData1 };
+            Image2 = new C_IMAGE() { IdEspece = IDEspece, ImgPath = Path2, ImgData = imageData2 };
+
+
             try {
-                BDD.Edit_Espece(P_Espece,ListPath);
+                BDD.Edit_Espece(P_Espece,images);
             } catch(Exception ex) {
                 MessageBox.Show($"Erreur lors de la modification de l'espèce : {ex.Message}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
                 return;

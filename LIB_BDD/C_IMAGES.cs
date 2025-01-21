@@ -8,6 +8,7 @@ namespace LIB_BDD;
 
 
 public class C_IMAGE {
+    public int idImage {  get; set; }
     public int IdEspece { get; set; }  
     public string ImgPath { get; set; }  
     public byte[] ImgData { get; set; }  

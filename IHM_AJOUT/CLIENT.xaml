@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IHM_BASE"
         mc:Ignorable="d"
-        Title="Musée des Animaux" Height="600" Width="1000">
+        Title="Musée des Animaux" Height="1080" Width="1920">
     <Grid>
 
         <!--Grille de recherche d'animal-->
@@ -43,39 +43,62 @@
 
         <!--Grille d'affichage de l'animal recherché-->
         <Grid x:Name="Grid_Info">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="255*"/>
-                <RowDefinition Height="37*"/>
-            </Grid.RowDefinitions>
 
-            <!--Label Titre-->
-            <Label x:Name="Label_Titre_Animal" Content="Le titre" HorizontalAlignment="Left" Margin="452,32,0,0" VerticalAlignment="Top" Width="192" Height="46" FontSize="30" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-            <Label x:Name="Label_Titre_Scientifique_Animal" Content="Scientifique" HorizontalAlignment="Left" Margin="452,84,0,0" VerticalAlignment="Top" Width="192" Height="48" FontSize="30" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+            <Button x:Name="Button_Close" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Height="60" Width="60" Background="Red" FontSize="30" Click="Button_Close_Click"/>
 
-            <!--Image-->
-            <Image x:Name="Img_Animal_1" HorizontalAlignment="Left" Height="126" Margin="190,21,0,0" VerticalAlignment="Top" Width="192" Source="/Capture d’écran 2025-01-20 à 11.01.50.png"/>
-            <Image x:Name="Img_Animal_2" HorizontalAlignment="Left" Height="121" Margin="481,333,0,0" VerticalAlignment="Top" Width="192" Source="/Capture d’écran 2025-01-20 à 11.01.50.png"/>
-            <Image x:Name="Img_Animal_3" HorizontalAlignment="Left" Height="127" Margin="716,84,0,0" VerticalAlignment="Top" Width="192" Source="/Capture d’écran 2025-01-20 à 11.01.50.png"/>
 
-            <!--Description-->
-            <TextBlock x:Name="Tbx_Description_Global" HorizontalAlignment="Left" Margin="10,227,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="338" Width="228" Background="#FFFFEA00" Grid.RowSpan="2"/>
-            <TextBlock HorizontalAlignment="Left" Margin="40,33,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="89" Width="104" Foreground="Black" Background="#FFFFEA00"/>
-            <TextBlock x:Name="Text_UICN" HorizontalAlignment="Left" Margin="404,490,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="76" Width="96" Background="Red" Grid.RowSpan="2"/>
-            <TextBlock x:Name="Text_Critere_Menace" HorizontalAlignment="Left" Margin="557,490,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="76" Width="96" Background="Red" Grid.RowSpan="2"/>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                <StackPanel Margin="40">
+                    <StackPanel Margin="20" Width="300">
+                        <Label x:Name="Label_Famille" Content="Famille" Width="150" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="#FF00FF15" Margin="0,0,0,20"/>
+                        <Label x:Name="Label_Ordre" Content="Ordre" Width="150" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="#FF02FF00" Margin="0,0,0,20"/>
+                        <Label x:Name="Label_Classe" Content="Classe" Width="150" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="#FF1FFF00" Margin="0,0,0,20"/>
+                        <Label x:Name="Label_Embranchement" Width="150" Content="Embranchement" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="#FF08FF00" Margin="0"/>
+                    </StackPanel>
 
-            <!--Label Information-->
-            <Label x:Name="Label_Localisation" Content="Pays" HorizontalAlignment="Left" Margin="788,328,0,0" VerticalAlignment="Top" Height="32" Width="120" Background="#FF1300FF"/>
-            <Label x:Name="Label_Embranchement" Content="Embranchement" HorizontalAlignment="Left" Margin="262,393,0,0" VerticalAlignment="Top" Height="32" Width="120" Background="#FF08FF00"/>
-            <Label x:Name="Label_Classe" Content="Classe" HorizontalAlignment="Left" Margin="262,333,0,0" VerticalAlignment="Top" Height="32" Width="120" Background="#FF1FFF00"/>
-            <Label x:Name="Label_Ordre" Content="Ordre" HorizontalAlignment="Left" Margin="262,276,0,0" VerticalAlignment="Top" Height="32" Width="120" Background="#FF02FF00"/>
-            <Label x:Name="Label_Famille" Content="Famille" HorizontalAlignment="Left" Margin="262,209,0,0" VerticalAlignment="Top" Height="32" Width="120" Background="#FF00FF15"/>
-            <Label x:Name="Label_Habitat" Content="Habitat" HorizontalAlignment="Left" Margin="788,400,0,0" VerticalAlignment="Top" Height="32" Width="120" Background="#FFE600FF"/>
-            <Label x:Name="Label_Taille" Content="Taille" HorizontalAlignment="Left" Margin="788,437,0,0" VerticalAlignment="Top" Height="32" Width="120" Background="#FFE600FF"/>
-            <Label x:Name="Label_Poids" Content="Poids" HorizontalAlignment="Left" Margin="788,474,0,0" VerticalAlignment="Top" Height="32" Width="120" Background="#FFFF00EA"/>
-            <Label x:Name="Label_Duree_Vie" Content="Duree de vie" HorizontalAlignment="Left" Margin="788,1,0,0" VerticalAlignment="Top" Height="32" Width="120" Background="#FFFF00FB" Grid.Row="1"/>
+                </StackPanel>
+                <TextBlock x:Name="Tbx_Description_Global" HorizontalAlignment="Left" TextWrapping="Wrap" Height="450" Width="450" Text="TextBlock" VerticalAlignment="Bottom" Background="#FFFFEA00"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="Text_UICN" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" Height="200" Width="450" VerticalAlignment="Top" Background="Red"/>
+                    <TextBlock x:Name="Text_Critere_Menace" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" Margin="20" VerticalAlignment="Top" Background="Red"/>
+                </StackPanel>
+            </StackPanel>
 
-            <!--Button close-->
-            <Button x:Name="Button_Close" Content="X" HorizontalAlignment="Left" Margin="943,10,0,0" VerticalAlignment="Top" Height="67" Width="47" Background="Red" FontSize="50" Click="Button_Close_Click"/>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0">
+                <Label x:Name="Label_Titre_Animal" Content="Le titre" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="70" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+                <Label x:Name="Label_Titre_Scientifique_Animal" Content="Scientifique" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock x:Name="Text_Info_Pratique" HorizontalAlignment="Left" Margin="0,10,0,30" TextWrapping="Wrap" Text="TextBlock" FontSize="20" Width="100" VerticalAlignment="Top" Foreground="Black" Background="#FFFFEA00"/>
+                <Image x:Name="Img_Animal_1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="550" Source="/Capture d’écran 2025-01-20 à 11.01.50.png"/>
+            </StackPanel>
+
+            <Label x:Name="Label_Localisation" Content="Pays" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="#FF1300FF"/>
+
+            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,100,100,0">
+                <Image x:Name="Img_Animal_2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Source="/Capture d’écran 2025-01-20 à 11.01.50.png"/>
+                <StackPanel>
+                    <Label x:Name="Label_Habitat" Width="100" Content="Habitat" HorizontalAlignment="Center" Margin="0,70,0,20" VerticalAlignment="Top" Background="#FFE600FF"/>
+                    <Label x:Name="Label_Taille" Width="100" Content="Taille" HorizontalAlignment="Center" Margin="0,0,0,20" VerticalAlignment="Top" Background="#FFE600FF"/>
+                    <Label x:Name="Label_Poids" Width="100" Content="Poids" HorizontalAlignment="Center" Margin="0,0,0,20" VerticalAlignment="Top" Background="#FFE600FF"/>
+                    <Label x:Name="Label_Duree_Vie" Width="100" Content="Duree de vie" HorizontalAlignment="Center" Margin="0,0,0,20" VerticalAlignment="Top" Background="#FFE600FF"/>
+                </StackPanel>
+                <Image x:Name="Img_Animal_3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,150" Width="300" Source="/Capture d’écran 2025-01-20 à 11.01.50.png"/>
+
+            </StackPanel>
+
+
+            <!--Label Titre--><!--
+             
+            --><!--Image--><!--
+
+            --><!--Description--><!--
+            
+            --><!--Label Information--><!--
+            
+            --><!--Button close-->
+            
         </Grid>
     </Grid>
 </Window>

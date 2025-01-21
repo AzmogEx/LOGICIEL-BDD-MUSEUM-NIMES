@@ -70,9 +70,9 @@
                     </Grid>
 
                 </StackPanel>
-                <TextBlock x:Name="Tbx_Description_Global" HorizontalAlignment="Left" TextWrapping="Wrap" Height="450" Width="450" Text="TextBlock" VerticalAlignment="Bottom" Background="#FFFFEA00"/>
+                <TextBlock x:Name="Tbx_Description_Global" HorizontalAlignment="Left" TextWrapping="Wrap" Height="450" Width="450" Text="TextBlock" VerticalAlignment="Bottom" Background="White" FontSize="15"/>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock x:Name="Text_UICN" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" Height="200" Width="450" VerticalAlignment="Top" Background="Red"/>
+                    <TextBlock x:Name="Text_UICN" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" Height="200" Width="450" VerticalAlignment="Top" Background="White" Foreground="Red" FontSize="15"/>
                     <TextBlock x:Name="Text_Critere_Menace" TextAlignment="Center" Margin="42,0,0,25" TextWrapping="Wrap" Text="TextBlock" Height="38" Width="101" FontSize="13" FontWeight="Bold" FontFamily="Trebuchet MS"/>
                 </StackPanel>
             </StackPanel>
@@ -116,7 +116,11 @@
             <Label x:Name="Label_Localisation" Content="Pays" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="#FF1300FF"/>
 
             <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,100,100,0">
-                <Image x:Name="Img_Animal_2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Source="/axolotl.jpeg"/>
+                <Image x:Name="Img_Animal_2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Source="/axolotl.jpeg">
+                    <Image.OpacityMask>
+                        <ImageBrush ImageSource="/rond.png" Stretch="Uniform"/>
+                    </Image.OpacityMask>
+                </Image>
                 <Grid Width="300" Height="250" Margin="10">
                     <!-- Image en arrière-plan -->
                     <Image Source="/truc.png" Stretch="Fill"/>
@@ -129,7 +133,11 @@
                         <Label x:Name="Label_Duree_Vie" Width="127" Content="Durée de vie" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Center" Margin="100,25,0,10" FontSize="20"/>
                     </StackPanel>
                 </Grid>
-                <Image x:Name="Img_Animal_3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,150" Width="300" Source="/axolotl.jpeg"/>
+                <Image x:Name="Img_Animal_3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,150" Width="300" Source="/axolotl.jpeg">
+                    <Image.OpacityMask>
+                        <ImageBrush ImageSource="/rond.png" Stretch="Uniform" TileMode="None"/>
+                    </Image.OpacityMask>
+                </Image>
             </StackPanel>
             <Image Margin="1595,743,0,0" Source="/bas-droite.png" Stretch="Fill"/>
             <Image Margin="-28,700,1587,0" Source="/bas-gauche.png" Stretch="Fill"/>

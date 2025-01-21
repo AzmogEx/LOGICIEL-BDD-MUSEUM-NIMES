@@ -9,8 +9,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="arbre.png" />
+    <None Remove="axolotl.jpeg" />
+    <None Remove="bas-droite.png" />
+    <None Remove="bas-gauche.png" />
     <None Remove="Capture d’écran 2025-01-20 à 11.01.50.png" />
+    <None Remove="chat.png" />
+    <None Remove="contour-gauche.png" />
+    <None Remove="critere.png" />
+    <None Remove="haut-droite.png" />
+    <None Remove="haut-gauche.png" />
     <None Remove="rond.png" />
+    <None Remove="truc.png" />
     <None Remove="world-map-xaml-high-res2.png" />
   </ItemGroup>
 
@@ -19,8 +29,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Capture d’écran 2025-01-20 à 11.01.50.png" />
+    <Resource Include="arbre.png" />
+    <Resource Include="axolotl.jpeg" />
+    <Resource Include="bas-droite.png" />
+    <Resource Include="bas-gauche.png" />
+    <Resource Include="chat.png" />
+    <Resource Include="contour-gauche.png" />
+    <Resource Include="critere.png" />
+    <Resource Include="haut-droite.png" />
+    <Resource Include="haut-gauche.png" />
     <Resource Include="rond.png" />
+    <Resource Include="truc.png" />
     <Resource Include="world-map-xaml-high-res2.png" />
   </ItemGroup>
 

@@ -73,7 +73,7 @@
                     </Grid>
 
                 </StackPanel>
-                <TextBlock x:Name="Tbx_Description_Global" HorizontalAlignment="Left" TextWrapping="Wrap" Height="450" Width="450" Text="TextBlock" VerticalAlignment="Bottom" FontSize="15"/>
+                <TextBlock x:Name="Tbx_Description_Global" TextAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" Height="450" Width="450" Text="TextBlock" VerticalAlignment="Bottom" FontSize="15"/>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock x:Name="Text_UICN" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" Height="200" Width="450" VerticalAlignment="Top" Foreground="Red" FontSize="15"/>
                     <Image Source="/critere.png" Stretch="Fill" Height="148" Width="148"/>

@@ -73,9 +73,9 @@
                     </Grid>
 
                 </StackPanel>
-                <TextBlock x:Name="Tbx_Description_Global" TextAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" Height="450" Width="450" Text="TextBlock" VerticalAlignment="Bottom" FontSize="15"/>
+                <TextBlock x:Name="Tbx_Description_Global" TextAlignment="Center" Margin="0,0,0,0" HorizontalAlignment="Left" TextWrapping="Wrap" Height="450" Width="450" Text="TextBlock" VerticalAlignment="Bottom"  FontSize="15"/>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock x:Name="Text_UICN" TextAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" Height="200" Width="450" VerticalAlignment="Top" Foreground="Red" FontSize="15"/>
+                    <TextBlock x:Name="Text_UICN" TextAlignment="Right" HorizontalAlignment="Right" TextWrapping="Wrap" Text="TextBlock" Height="200" Width="450" VerticalAlignment="Top" Foreground="Red" FontSize="15"/>
                     <Image Source="/critere.png" Stretch="Fill" Height="148" Width="148"/>
                     <TextBlock x:Name="Text_Critere_Menace" TextAlignment="Center" Margin="-150,0,0,-70" TextWrapping="Wrap" Text="TextBlock" Height="38" Width="101" FontSize="13" FontWeight="Bold" FontFamily="Trebuchet MS" Foreground="White"/>
                 </StackPanel>
@@ -99,8 +99,8 @@
                    FontSize="13" 
                    FontWeight="Bold" 
                    Foreground="Black" 
-                   Padding="0,0,0,50"
-                   TextAlignment="Center" Width="230" Height="62" Margin="0,0,0,50"/>
+                   Margin="0,0,50,50"
+                   TextAlignment="Center" Width="230" Height="62"/>
                 </Grid>
 
                 <!-- Deuxième image avec masque -->

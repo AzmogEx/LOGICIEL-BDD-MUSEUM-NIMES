@@ -63,8 +63,8 @@
             <Button x:Name="Button_Close" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Height="60" Width="60" Background="Red" FontSize="30" Click="Button_Close_Click"/>
 
 
-            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="70,0,0,20">
-                <StackPanel Margin="40,0,0,0">
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="70,0,0,0">
+                <StackPanel Margin="40,0,0,50">
                     <Grid Margin="20" Width="300">
                         <Image Source="/arbre.png" Stretch="Fill" Height="250" Width="300"/>
 

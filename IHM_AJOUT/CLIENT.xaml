@@ -77,7 +77,7 @@
                 <TextBlock x:Name="Tbx_Description_Global" HorizontalAlignment="Left" TextWrapping="Wrap" Height="450" Width="450" Text="TextBlock" VerticalAlignment="Bottom" Background="#FFFFEA00"/>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock x:Name="Text_UICN" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" Height="200" Width="450" VerticalAlignment="Top" Background="Red"/>
-                    <TextBlock x:Name="Text_Critere_Menace" TextAlignment="Center" Margin="45,0,0,15" TextWrapping="Wrap" Text="TextBlock" Height="38" Width="101" FontSize="13" FontWeight="Bold" FontFamily="Trebuchet MS"/>
+                    <TextBlock x:Name="Text_Critere_Menace" TextAlignment="Center" Margin="42,0,0,25" TextWrapping="Wrap" Text="TextBlock" Height="38" Width="101" FontSize="13" FontWeight="Bold" FontFamily="Trebuchet MS"/>
                 </StackPanel>
             </StackPanel>
 

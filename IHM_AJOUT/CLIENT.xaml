@@ -44,6 +44,8 @@
         <!--Grille d'affichage de l'animal recherché-->
         <Grid x:Name="Grid_Info" Background="#FF009EE4">
 
+            <Image Margin="-71,397,1273,-50" Source="/rond-blanc.png" Stretch="Fill"/>
+
             <Image Margin="0,700,1587,0" Source="/bas-gauche.png" Stretch="Fill"/>
 
             <Image Margin="0,0,1587,647" Source="/haut-gauche.png" Stretch="Fill"/>
@@ -71,9 +73,9 @@
                     </Grid>
 
                 </StackPanel>
-                <TextBlock x:Name="Tbx_Description_Global" HorizontalAlignment="Left" TextWrapping="Wrap" Height="450" Width="450" Text="TextBlock" VerticalAlignment="Bottom" Background="White" FontSize="15"/>
+                <TextBlock x:Name="Tbx_Description_Global" HorizontalAlignment="Left" TextWrapping="Wrap" Height="450" Width="450" Text="TextBlock" VerticalAlignment="Bottom" FontSize="15"/>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock x:Name="Text_UICN" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" Height="200" Width="450" VerticalAlignment="Top" Background="White" Foreground="Red" FontSize="15"/>
+                    <TextBlock x:Name="Text_UICN" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" Height="200" Width="450" VerticalAlignment="Top" Foreground="Red" FontSize="15"/>
                     <Image Source="/critere.png" Stretch="Fill" Height="148" Width="148"/>
                     <TextBlock x:Name="Text_Critere_Menace" TextAlignment="Center" Margin="-150,0,0,-70" TextWrapping="Wrap" Text="TextBlock" Height="38" Width="101" FontSize="13" FontWeight="Bold" FontFamily="Trebuchet MS" Foreground="White"/>
                 </StackPanel>

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,6 +20,9 @@ namespace IHM_BASE {
     /// </summary>
     public partial class CLIENT :Window {
         private C_BDD BDD = null;
+        private string Desc1;
+        private string Desc2;
+
         public CLIENT() {
             BDD = new();
             List<C_ESPECE> List_Especes = new();
@@ -66,6 +70,11 @@ namespace IHM_BASE {
 
             //Recuperation des infos de l'animal selectionné
             C_ESPECE Espece_Select = Lstbx_Animaux.SelectedItem as C_ESPECE;
+
+            int splitPoint = Espece_Select.description.IndexOf(' ',Espece_Select.description.Length / 2);
+            Desc1 = Espece_Select.description.Substring(0,splitPoint).Trim();
+            Desc2 = Espece_Select.description.Substring(splitPoint).Trim();
+
             //Titre de l'animal
             Label_Titre_Animal.Content = Espece_Select.nomCommun;
             Label_Titre_Scientifique_Animal.Content = Espece_Select.nomScientifique;
@@ -83,7 +92,8 @@ namespace IHM_BASE {
             Label_Famille.Content = Espece_Select.famille;
             
             //Description en bas
-            Tbx_Description_Global.Text = Espece_Select.description;
+            Tbx_Description_Global.Text = Desc1;
+            Tbx_Description_Global1.Text = Desc2;
             Text_Info_Pratique.Text = Espece_Select.descPres;
             Text_Critere_Menace.Text = Espece_Select.statutEspece;
             Text_UICN.Text = Espece_Select.descUicn;

@@ -76,12 +76,12 @@ public class C_BDD {
         return Especes_Found;
     }
 
-    public string[] Get_Img_By_ID(int P_ID) {
+    public List<C_IMAGE> Get_Img_By_ID(int P_ID) {
         using SqlConnection connexion = new SqlConnection(Chaine_Connexion);
 
-        string query = "SELECT imgPath FROM images WHERE idEspece = @ID";
+        string query = "SELECT imgData FROM images WHERE idEspece = @ID";
 
-        return connexion.Query<string>(query,new { ID = P_ID }).ToArray();
+        return connexion.Query<C_IMAGE>(query,new { ID = P_ID }).ToList();
     }
 
 
@@ -138,17 +138,21 @@ public class C_BDD {
 
     public void Add_Image(int P_idEspece,List<string> P_ListPath) {
         using(SqlConnection connexion = new SqlConnection(Chaine_Connexion)) {
-            foreach(var Path in P_ListPath) {
-                connexion.Execute("INSERT INTO images (idEspece, imgPath) VALUES (@IDESPECE, @IMGPATH)",
-                new { IDESPECE = P_idEspece,IMGPATH = Path });
+            connexion.Open();
+
+            foreach(var path in P_ListPath) {
+                byte[] imageData = File.ReadAllBytes(path);
+                connexion.Execute(
+                    "INSERT INTO images (idEspece, imgPath, imgData) VALUES (@IDESPECE, @IMGPATH, @IMGDATA)",
+                    new { IDESPECE = P_idEspece,IMGPATH = path,IMGDATA = imageData });
             }
         }
     }
 
 
+
     public void Edit_Espece(C_ESPECE P_Espece,List<string> P_ImgPaths) {
         using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
-        string[] OldImgPaths = Get_Img_By_ID(P_Espece.idEspece);
 
         Connexion.Execute("update especes set nomCommun = @NOMCOMMUN, nomScientifique = @NOMSCIENT, statutEspece = @STATUTESPECE, " +
             "tailleMin = @TAILLEMIN, tailleMax = @TAILLEMAX, uniteTaille = @UNITETAILLE, " +
@@ -180,10 +184,8 @@ public class C_BDD {
                 IDESPECE = P_Espece.idEspece
             });
 
-        if(OldImgPaths != P_ImgPaths.ToArray()) {
-            Connexion.Execute("delete from images where images.idEspece = @IDESPECE",new { IDESPECE = P_Espece.idEspece });
-            Add_Image(P_Espece.idEspece,P_ImgPaths);
-        }
+        Connexion.Execute("delete from images where images.idEspece = @IDESPECE",new { IDESPECE = P_Espece.idEspece });
+        Add_Image(P_Espece.idEspece,P_ImgPaths);
     }
 
 

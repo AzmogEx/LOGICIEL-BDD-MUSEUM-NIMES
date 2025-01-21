@@ -128,7 +128,7 @@
                         <ImageBrush ImageSource="/rond.png" Stretch="Fill"/>
                     </Image.OpacityMask>
                 </Image>
-                <Grid Width="300" Height="250" Margin="10">
+                <Grid Width="300" Height="250" Margin="0,80,0,0">
                     <!-- Image en arrière-plan -->
                     <Image Source="/truc.png" Stretch="Fill"/>
 
@@ -140,7 +140,7 @@
                         <Label x:Name="Label_Duree_Vie" Width="169" HorizontalContentAlignment="Center" Content="Durée de vie" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Center" Margin="100,25,0,10" FontSize="20"/>
                     </StackPanel>
                 </Grid>
-                <Image x:Name="Img_Animal_3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,150" Width="300" Source="/axolotl.jpeg">
+                <Image x:Name="Img_Animal_3" HorizontalAlignment="Right" Margin="0,80,60,0" Width="324" Source="/axolotl.jpeg" Height="232">
                     <Image.OpacityMask>
                         <ImageBrush ImageSource="/rond.png" Stretch="Uniform" TileMode="None"/>
                     </Image.OpacityMask>

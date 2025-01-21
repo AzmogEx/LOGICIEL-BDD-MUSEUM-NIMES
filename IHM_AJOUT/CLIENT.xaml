@@ -46,7 +46,7 @@
 
             <Image Margin="-71,397,1273,-50" Source="/rond-blanc.png" Stretch="Fill"/>
 
-            <Image Margin="0,700,1587,0" Source="/bas-gauche.png" Stretch="Fill"/>
+            <Image Margin="0,800,1657,0" Source="/bas-gauche.png" Stretch="Fill"/>
 
             <Image Margin="0,0,1587,647" Source="/haut-gauche.png" Stretch="Fill"/>
 
@@ -59,7 +59,7 @@
             <Button x:Name="Button_Close" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Height="60" Width="60" Background="Red" FontSize="30" Click="Button_Close_Click"/>
 
 
-            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="70,0,0,70">
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="70,0,0,20">
                 <StackPanel Margin="40,0,0,0">
                     <Grid Margin="20" Width="300">
                         <Image Source="/arbre.png" Stretch="Fill" Height="250" Width="300"/>

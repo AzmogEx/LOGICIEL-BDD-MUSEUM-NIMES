@@ -48,11 +48,10 @@
         <!--Grille d'affichage de l'animal recherché-->
         <Grid x:Name="Grid_Info" Background="#FF009EE4">
 
-            <Image Margin="-28,700,1587,0" Source="/bas-gauche.png" Stretch="Fill"/>
+            <Image Margin="0,700,1587,0" Source="/bas-gauche.png" Stretch="Fill"/>
 
             <Image Margin="0,0,1587,647" Source="/haut-gauche.png" Stretch="Fill"/>
 
-            <Image Source="/critere.png" Stretch="Fill" Height="148" Width="148" Margin="468,844,1304,72"/>
 
 
             <Image Margin="726,330,730,269" Source="/rond.png" Stretch="Fill"/>
@@ -62,8 +61,8 @@
             <Button x:Name="Button_Close" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Height="60" Width="60" Background="Red" FontSize="30" Click="Button_Close_Click"/>
 
 
-            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom">
-                <StackPanel Margin="40">
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="70,0,0,70">
+                <StackPanel Margin="40,0,0,0">
                     <Grid Margin="20" Width="300">
                         <Image Source="/arbre.png" Stretch="Fill" Height="250" Width="300"/>
 
@@ -79,7 +78,8 @@
                 <TextBlock x:Name="Tbx_Description_Global" HorizontalAlignment="Left" TextWrapping="Wrap" Height="450" Width="450" Text="TextBlock" VerticalAlignment="Bottom" Background="White" FontSize="15"/>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock x:Name="Text_UICN" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" Height="200" Width="450" VerticalAlignment="Top" Background="White" Foreground="Red" FontSize="15"/>
-                    <TextBlock x:Name="Text_Critere_Menace" TextAlignment="Center" Margin="42,0,0,25" TextWrapping="Wrap" Text="TextBlock" Height="38" Width="101" FontSize="13" FontWeight="Bold" FontFamily="Trebuchet MS"/>
+                    <Image Source="/critere.png" Stretch="Fill" Height="148" Width="148"/>
+                    <TextBlock x:Name="Text_Critere_Menace" TextAlignment="Center" Margin="-150,0,0,-59" TextWrapping="Wrap" Text="TextBlock" Height="38" Width="101" FontSize="13" FontWeight="Bold" FontFamily="Trebuchet MS" Foreground="White"/>
                 </StackPanel>
             </StackPanel>
 
@@ -93,7 +93,7 @@
                 <!-- Superposition avec Grid -->
                 <Grid Width="250" Height="150">
                     <!-- Image en arrière-plan -->
-                    <Image Source="/chat.png" Stretch="Fill" />
+                    <Image Source="/chat.png" Stretch="Fill" Margin="-50,-19,0,0" />
 
                     <TextBlock x:Name="Text_Info_Pratique" Text="Chat" 
                    HorizontalAlignment="Center" 
@@ -118,7 +118,8 @@
                 </Image>
             </StackPanel>
 
-            <Label x:Name="Label_Localisation" Content="Pays" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="#FF1300FF"/>
+            <Image Source="/carte.png" Margin="676,800,746,25" RenderTransformOrigin="-6.134,0.197" />
+            <Label x:Name="Label_Localisation" Content="Pays" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Left" Background="{x:Null}" Margin="883,998,0,0" Width="193" FontSize="15" Height="38"/>
 
             <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,100,100,0">
                 <Image x:Name="Img_Animal_2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Source="/axolotl.jpeg">

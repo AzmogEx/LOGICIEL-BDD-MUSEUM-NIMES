@@ -74,7 +74,7 @@ namespace IHM_BASE {
             Label_Taille.Content = $"{Espece_Select.tailleMin} - {Espece_Select.tailleMax} {Espece_Select.uniteTaille}";
             Label_Poids.Content = $"{Espece_Select.poidsMin} - {Espece_Select.poidsMax} {Espece_Select.unitePoids}";
             Label_Duree_Vie.Content = $"{Espece_Select.dureeVieMin} - {Espece_Select.dureeVieMax} ans";
-            Label_Habitat.Content = Espece_Select.habitat;
+            Label_Habitat.Text = Espece_Select.habitat;
 
             //Info complémentaire
             Label_Embranchement.Content = Espece_Select.embranchement;

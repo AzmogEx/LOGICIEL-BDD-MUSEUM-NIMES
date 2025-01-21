@@ -119,8 +119,8 @@
                 </Image>
             </StackPanel>
 
-            <Image Source="/carte.png" Margin="676,800,746,25" RenderTransformOrigin="-6.134,0.197" />
-            <Label x:Name="Label_Localisation" Content="Pays" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Left" Background="{x:Null}" Margin="883,998,0,0" Width="193" FontSize="20" Height="38" Foreground="White"/>
+            <Image Source="/carte.png" Margin="845,800,577,25" RenderTransformOrigin="-6.134,0.197" />
+            <Label x:Name="Label_Localisation" Content="Pays" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Left" Background="{x:Null}" Margin="1056,1013,0,0" Width="193" FontSize="20" Height="38" Foreground="White"/>
 
             <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,100,100,0">
                 <Image x:Name="Img_Animal_2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Source="/axolotl.jpeg">

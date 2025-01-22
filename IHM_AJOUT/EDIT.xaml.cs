@@ -33,6 +33,7 @@ namespace IHM_BASE {
             BDD = new();
             ListPath = new();
             IDEspece = Espece.idEspece;
+            Regions = new();
             InitializeComponent();
             imagePaths = BDD.Get_Img_By_ID(IDEspece);
             GetRegions = BDD.Get_Region_By_ID(IDEspece);
@@ -59,13 +60,18 @@ namespace IHM_BASE {
             TB_NumInv.Text = Espece.numInventaire;
 
             try {
+                LB_Region.SelectionChanged -= LB_Region_SelectionChanged; // Désactiver temporairement l'événement
+
                 foreach(var item in LB_Region.Items) {
                     if(item != null && GetRegions.Contains(item.ToString())) {
                         LB_Region.SelectedItems.Add(item);
+                        Regions.Add(item.ToString());
                     }
                 }
             } catch(Exception ex) {
                 MessageBox.Show($"Une erreur est survenue : {ex.Message}");
+            } finally {
+                LB_Region.SelectionChanged += LB_Region_SelectionChanged; // Réactiver l'événement
             }
 
 

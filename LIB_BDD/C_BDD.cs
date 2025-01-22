@@ -202,7 +202,7 @@ public class C_BDD {
         }
         if(OldListRegion != P_Regions.ToArray()) {
             Connexion.Execute("delete from region where region.idEspece = @IDESPECE",new { IDESPECE = P_Espece.idEspece });
-            Add_Image(P_Espece.idEspece,P_Regions);
+            Add_Region(P_Espece.idEspece,P_Regions);
         }
     }
 

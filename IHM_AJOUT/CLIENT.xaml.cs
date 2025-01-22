@@ -127,5 +127,9 @@ namespace IHM_BASE {
             MessageBox.Show("oceanie");
 
         }
+
+        private void Zone_Click_Antartique(object sender,RoutedEventArgs e) {
+            MessageBox.Show("Antartique");
+        }
     }
 }

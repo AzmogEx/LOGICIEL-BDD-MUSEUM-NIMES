@@ -12,7 +12,7 @@
         FontFamily="Franklin Gothic Medium"
         Title="Musée des Animaux" Height="1080" Width="1920">
     <Grid>
-        
+
 
         <!--Grille de recherche d'animal-->
         <Grid x:Name="Grid_Recherche" Visibility="Visible">
@@ -38,7 +38,7 @@
                     <Grid>
                         <!-- Carte du monde -->
                         <Image Source="/2.png" Stretch="Fill" />
-
+                        <Image Source="/Capture d'écran Jan 22 2025.png" Margin="413,767,87,-131"/>
                         <!-- Zones cliquables -->
                         <Canvas>
                             <!-- AMERIQUE DU NORD -->
@@ -70,6 +70,12 @@ Click="Zone_Click_Asie" HorizontalAlignment="Left" VerticalAlignment="Center">
                             <Button Canvas.Left="1155" Canvas.Top="618" Width="312" Height="264" Background="Transparent" BorderBrush="Transparent"
 Click="Zone_Click_Oceanie" HorizontalAlignment="Left" VerticalAlignment="Top">
                             </Button>
+
+                            <!-- Antartique -->
+                            <Button Canvas.Left="446" Canvas.Top="907" Width="972" Height="100" Background="Transparent" BorderBrush="Transparent"
+Click="Zone_Click_Antartique" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            </Button>
+
 
                         </Canvas>
                     </Grid>

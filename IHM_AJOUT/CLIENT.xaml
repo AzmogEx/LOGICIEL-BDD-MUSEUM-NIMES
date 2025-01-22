@@ -138,28 +138,37 @@
 
 
                     <!-- Labels superposés -->
-                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="14,20,0,0" Grid.ColumnSpan="2">
-                        <Border CornerRadius="10" Background="White" Margin="100,-20,0,10" Width="167" Height="55">
-                            <TextBlock x:Name="Label_Habitat" TextAlignment="Center" Text="Habitat" 
-                   Foreground="Black" FontSize="20" VerticalAlignment="Center" TextWrapping="Wrap" Height="55" />
-                        </Border>
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Vertical" Margin="-40,-40,0,0" Grid.ColumnSpan="2">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/3.png" Stretch="Fill" Height="80"/>
+                            <Border CornerRadius="10" Background="White" Margin="20,0,0,0" Width="170" Height="55">
+                                <TextBlock x:Name="Label_Habitat" TextAlignment="Center" Text="Habitat" Foreground="Black" FontSize="20" VerticalAlignment="Center" TextWrapping="Wrap" Height="55" />
+                            </Border>
+                        </StackPanel>
 
-                        <Border CornerRadius="10" Background="White" Margin="100,5,0,10" Width="171" Height="55">
-                            <Label x:Name="Label_Taille" Content="Taille" 
-               Foreground="Black" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
-                        </Border>
+                        <StackPanel Orientation="Horizontal">
+                            <Image  Source="/1.png" Stretch="Fill" Height="80"/>
+                            <Border CornerRadius="10" Background="White" Margin="20,0,0,0" Width="170" Height="55">
+                                <Label x:Name="Label_Taille" Content="Taille" Foreground="Black" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </StackPanel>
 
-                        <Border CornerRadius="10" Background="White" Margin="100,15,0,10" Width="160" Height="55">
-                            <Label x:Name="Label_Poids" Content="Poids" 
-               Foreground="Black" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
-                        </Border>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/4.png" Stretch="Fill" Height="80"/>
+                            <Border CornerRadius="10" Background="White" Margin="20,0,0,0" Width="170" Height="55">
+                                <Label x:Name="Label_Poids" Content="Poids" Foreground="Black" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </StackPanel>
 
-                        <Border CornerRadius="10" Background="White" Margin="100,25,0,10" Width="169" Height="55">
-                            <Label x:Name="Label_Duree_Vie" Content="Durée de vie" 
-               Foreground="Black" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
-                        </Border>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/5.png" Stretch="Fill" Height="80"/>
+                            <Border CornerRadius="10" Background="White" Margin="20,0,0,0" Width="170" Height="55">
+                                <Label x:Name="Label_Duree_Vie" Content="Durée de vie" Foreground="Black" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </StackPanel>
                     </StackPanel>
                 </Grid>
+                
                 <Image x:Name="Img_Animal_3" Width="324" Source="/axolotl.jpeg" Height="232">
                     <Image.OpacityMask>
                         <ImageBrush ImageSource="/rond.png" Stretch="Uniform" TileMode="None"/>
@@ -167,10 +176,6 @@
                 </Image>
             </StackPanel>
             <Image Margin="1595,743,0,0" Source="/bas-droite.png" Stretch="Fill"/>
-            <Image Margin="1459,444,351,578" Source="/3.png" Stretch="Fill"/>
-            <Image Margin="1447,509,351,498" Source="/1.png" Stretch="Fill"/>
-            <Image Margin="1440,582,344,415" Source="/4.png" Stretch="Fill"/>
-            <Image Margin="1458,684,362,333" Source="/5.png" Stretch="Fill"/>
         </Grid>
     </Grid>
 </Window>

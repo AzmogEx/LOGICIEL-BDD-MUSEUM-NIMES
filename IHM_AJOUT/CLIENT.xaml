@@ -17,12 +17,7 @@
         <!--Grille de recherche d'animal-->
         <Grid x:Name="Grid_Recherche" Visibility="Visible">
 
-            <!-- Barre de recherche -->
-            <DockPanel DockPanel.Dock="Top" Margin="10" VerticalAlignment="Top">
-                <TextBox x:Name="SearchBox" Width="400" Height="30" Margin="5" 
-     HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="SearchBox_TextChanged" />
 
-            </DockPanel>
 
             <!-- Grille principale -->
             <Grid Margin="10" VerticalAlignment="Stretch">
@@ -34,11 +29,10 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- Carte du monde -->
-                <Border Grid.Column="0" Background="#EFEFEF" Margin="5,48,380,5" Grid.ColumnSpan="2">
-                    <Grid>
+                <Border Grid.Column="0" Background="#EFEFEF" Margin="0,0,272,5" Grid.ColumnSpan="2">
+                    <Grid Margin="0,-56,0,0">
                         <!-- Carte du monde -->
-                        <Image Source="/2.png" Stretch="Fill" />
-                        <Image Source="/Capture d'écran Jan 22 2025.png" Margin="413,767,87,-131"/>
+                        <Image Source="/monde.png" Stretch="Fill" />
                         <!-- Zones cliquables -->
                         <Canvas>
                             <!-- AMERIQUE DU NORD -->
@@ -72,8 +66,8 @@ Click="Zone_Click_Oceanie" HorizontalAlignment="Left" VerticalAlignment="Top">
                             </Button>
 
                             <!-- Antartique -->
-                            <Button Canvas.Left="446" Canvas.Top="907" Width="972" Height="100" Background="Transparent" BorderBrush="Transparent"
-Click="Zone_Click_Antartique" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Button Canvas.Left="438" Canvas.Top="953" Width="972" Height="100" Background="Transparent" BorderBrush="Transparent"
+Click="Zone_Click_Antartique" HorizontalAlignment="Left" VerticalAlignment="Top">
                             </Button>
 
 
@@ -82,8 +76,9 @@ Click="Zone_Click_Antartique" HorizontalAlignment="Left" VerticalAlignment="Cent
                 </Border>
 
                 <!-- Résultats -->
+                <TextBox x:Name="SearchBox" Margin="380,10,10,992" Grid.Column="1" TextChanged="SearchBox_TextChanged_1"/>
                 <Border Grid.Column="1" Background="#F5F5F5" Margin="380,5,5,5">
-                    <ListBox x:Name="Lstbx_Animaux" MouseDoubleClick="Lstbx_Animaux_MouseDoubleClick" Margin="10,0,0,0"/>
+                    <ListBox x:Name="Lstbx_Animaux" MouseDoubleClick="Lstbx_Animaux_MouseDoubleClick" Margin="10,70,0,122"/>
                 </Border>
             </Grid>
         </Grid>

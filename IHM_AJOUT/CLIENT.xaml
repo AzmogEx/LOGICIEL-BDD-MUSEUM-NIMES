@@ -36,37 +36,37 @@
                         <!-- Zones cliquables -->
                         <Canvas>
                             <!-- AMERIQUE DU NORD -->
-                            <Button Canvas.Left="10" Canvas.Top="40" Width="598" Height="523" Background="Transparent" BorderBrush="Transparent" 
-                    Click="Zone_Click_Amerique_Nord" HorizontalAlignment="Center" VerticalAlignment="Top">
+                            <Button Canvas.Left="10" Canvas.Top="40" Width="660" Height="523" Background="Transparent" BorderBrush="Transparent" 
+                    Click="Zone_Click_Amerique_Nord" HorizontalAlignment="Left" VerticalAlignment="Center">
                             </Button>
 
                             <!-- AMERIQUE DU SUD -->
-                            <Button Canvas.Left="360" Canvas.Top="563" Width="220" Height="403" Background="Transparent" BorderBrush="Transparent"
-                                    Click="Zone_Click_Amerique_Sud" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Button Canvas.Left="388" Canvas.Top="618" Width="220" Height="403" Background="Transparent" BorderBrush="Transparent"
+                                    Click="Zone_Click_Amerique_Sud" HorizontalAlignment="Left" VerticalAlignment="Top">
                             </Button>
 
                             <!-- AFRIQUE -->
-                            <Button Canvas.Left="648" Canvas.Top="440" Width="257" Height="403" Background="Transparent" BorderBrush="Transparent"
+                            <Button Canvas.Left="686" Canvas.Top="479" Width="240" Height="403" Background="Transparent" BorderBrush="Transparent"
                             Click="Zone_Click_Afrique" HorizontalAlignment="Left" VerticalAlignment="Center">
                             </Button>
 
                             <!-- Europe -->
-                            <Button Canvas.Left="675" Canvas.Top="40" Width="285" Height="387" Background="Transparent" BorderBrush="Transparent"
-Click="Zone_Click_Europe" HorizontalAlignment="Center" VerticalAlignment="Top">
+                            <Button Canvas.Left="675" Canvas.Top="40" Width="366" Height="387" Background="Transparent" BorderBrush="Transparent"
+Click="Zone_Click_Europe" HorizontalAlignment="Left" VerticalAlignment="Center">
                             </Button>
 
                             <!-- Asie -->
-                            <Button Canvas.Left="972" Canvas.Top="67" Width="533" Height="541" Background="Transparent" BorderBrush="Transparent"
+                            <Button Canvas.Left="1012" Canvas.Top="67" Width="616" Height="541" Background="Transparent" BorderBrush="Transparent"
 Click="Zone_Click_Asie" HorizontalAlignment="Left" VerticalAlignment="Center">
                             </Button>
 
                             <!-- Oceanie -->
-                            <Button Canvas.Left="1155" Canvas.Top="618" Width="312" Height="264" Background="Transparent" BorderBrush="Transparent"
+                            <Button Canvas.Left="1274" Canvas.Top="688" Width="312" Height="264" Background="Transparent" BorderBrush="Transparent"
 Click="Zone_Click_Oceanie" HorizontalAlignment="Left" VerticalAlignment="Top">
                             </Button>
 
                             <!-- Antartique -->
-                            <Button Canvas.Left="438" Canvas.Top="953" Width="972" Height="100" Background="Transparent" BorderBrush="Transparent"
+                            <Button Canvas.Left="470" Canvas.Top="1001" Width="972" Height="100" Background="Transparent" BorderBrush="Transparent"
 Click="Zone_Click_Antartique" HorizontalAlignment="Left" VerticalAlignment="Top">
                             </Button>
 

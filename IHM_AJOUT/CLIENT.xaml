@@ -9,6 +9,7 @@
         ResizeMode="NoResize"
         WindowState="Maximized"
         Topmost="True"
+        FontFamily="Franklin Gothic Medium"
         Title="Musée des Animaux" Height="1080" Width="1920">
     <Grid>
 
@@ -65,29 +66,29 @@
                     <Grid Margin="20" Width="300">
                         <Image Source="/arbre.png" Stretch="Fill" Height="250" Width="300"/>
 
-                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,5">
-                            <Label x:Name="Label_Famille" Margin="0,0,0,0"   Content="Famille"  Width="150" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
-                            <Label x:Name="Label_Ordre" Margin="0,0,0,0"   Content="Ordre" Width="150" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
-                            <Label x:Name="Label_Classe" Margin="0,0,0,0"   Content="Classe" Width="150" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
-                            <Label x:Name="Label_Embranchement" Margin="0,0,0,0"   Content="Embranchement" Width="150" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,-5">
+                            <Label x:Name="Label_Famille" Margin="0,0,0,3"   Content="Famille"  Width="150" Background="{x:Null}" Foreground="#FF2C2E87" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+                            <Label x:Name="Label_Ordre" Margin="0,0,0,5"   Content="Ordre" Width="150" Background="{x:Null}" Foreground="#FF2C2E87" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+                            <Label x:Name="Label_Classe" Margin="0,0,0,5"   Content="Classe" Width="150" Background="{x:Null}" Foreground="#FF2C2E87" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+                            <Label x:Name="Label_Embranchement" Margin="0,0,0,7"   Content="Embranchement" Width="150" Background="{x:Null}" Foreground="#FF2C2E87" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
                         </StackPanel>
                     </Grid>
 
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock x:Name="Tbx_Description_Global" TextAlignment="Left" Margin="10,0,20,0" HorizontalAlignment="Left" TextWrapping="Wrap" Height="440" Width="225" Text="TextBlock" VerticalAlignment="Bottom"  FontSize="15" FontFamily="Franklin Gothic Medium"/>
-                    <TextBlock x:Name="Tbx_Description_Global1" TextAlignment="Left" Margin="0,0,0,0" HorizontalAlignment="Left" TextWrapping="Wrap" Height="440" Width="225" Text="TextBlock" VerticalAlignment="Bottom"  FontSize="15" FontFamily="Franklin Gothic Medium"/>
+                    <TextBlock x:Name="Tbx_Description_Global" TextAlignment="Left" Margin="10,0,20,0" HorizontalAlignment="Left" TextWrapping="Wrap" Height="440" Width="225" Text="TextBlock" VerticalAlignment="Bottom"  FontSize="15" Foreground="#FF2C2E87"/>
+                    <TextBlock x:Name="Tbx_Description_Global1" TextAlignment="Left" Margin="0,0,0,0" HorizontalAlignment="Left" TextWrapping="Wrap" Height="440" Width="225" Text="TextBlock" VerticalAlignment="Bottom"  FontSize="15" Foreground="#FF2C2E87"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock x:Name="Text_UICN" TextAlignment="Center" HorizontalAlignment="Right" TextWrapping="Wrap" Text="TextBlock" Height="160" Width="300" VerticalAlignment="Top" Foreground="Red" Margin="160,10,0,0" FontSize="15"/>
+                    <TextBlock x:Name="Text_UICN" TextAlignment="Center" HorizontalAlignment="Right" TextWrapping="Wrap" Text="TextBlock" Height="160" Width="300" VerticalAlignment="Top" Foreground="#FFCE1619" Margin="160,10,0,0" FontSize="15"/>
                     <Image Source="/critere.png" Margin="10,0,0,0" Stretch="Fill" Height="148" Width="148"/>
                     <TextBlock x:Name="Text_Critere_Menace" TextAlignment="Center" Margin="-150,0,0,-70" TextWrapping="Wrap" Text="TextBlock" Height="38" Width="101" FontSize="13" FontWeight="Bold" FontFamily="Trebuchet MS" Foreground="White"/>
                 </StackPanel>
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0">
-                <Label x:Name="Label_Nom_Animal" Content="Nom animal" HorizontalAlignment="Center" FontSize="70" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-                <Label x:Name="Label_Nom_Scientifique_Animal" Content="Nom Scientifique" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+                <Label x:Name="Label_Nom_Animal" Content="Nom animal" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="70" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" />
+                <Label x:Name="Label_Nom_Scientifique_Animal" Content="Nom Scientifique" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" />
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -101,7 +102,7 @@
                    VerticalAlignment="Top" TextWrapping="Wrap"
                    FontSize="13" 
                    FontWeight="Bold" 
-                   Foreground="Black" 
+                   Foreground="#FF2C2E87" 
                    Margin="10,12,0,0"
                    TextAlignment="Center" Width="187" Height="69"/>
                 </Grid>
@@ -134,25 +135,10 @@
                     
                     <!-- Labels superposés -->
                     <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,20,0,0">
-                        <Border CornerRadius="10" Background="White" Margin="100,-20,0,10" Width="167" Height="55">
-                            <TextBlock x:Name="Label_Habitat" TextAlignment="Center" Text="Habitat" 
-                   Foreground="Black" FontSize="20" VerticalAlignment="Center" />
-                        </Border>
-
-                        <Border CornerRadius="5" Background="White" Margin="100,5,0,10" Width="171" Height="55">
-                            <Label x:Name="Label_Taille" Content="Taille" 
-               Foreground="Black" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
-                        </Border>
-
-                        <Border CornerRadius="5" Background="White" Margin="100,15,0,10" Width="160" Height="55">
-                            <Label x:Name="Label_Poids" Content="Poids" 
-               Foreground="Black" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
-                        </Border>
-
-                        <Border CornerRadius="10" Background="White" Margin="100,25,0,10" Width="160" Height="55">
-                            <Label x:Name="Label_Duree_Vie" Content="Durée de vie" 
-               Foreground="Black" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
-                        </Border>
+                        <TextBlock x:Name="Label_Habitat" Width="170" TextAlignment="Center" Text="Habitat" Background="{x:Null}" Foreground="#FF2C2E87" HorizontalAlignment="Center" Margin="110,-20,0,8" Height="60" TextWrapping="Wrap" FontSize="20"/>
+                        <Label x:Name="Label_Taille" Width="190" HorizontalContentAlignment="Center" Content="Taille" Background="{x:Null}" Foreground="#FF2C2E87" HorizontalAlignment="Center" Margin="110,5,0,10" FontSize="20"/>
+                        <Label x:Name="Label_Poids" Width="190" HorizontalContentAlignment="Center" Content="Poids" Background="{x:Null}" Foreground="#FF2C2E87" HorizontalAlignment="Center" Margin="110,15,0,10" FontSize="20"/>
+                        <Label x:Name="Label_Duree_Vie" Width="190" HorizontalContentAlignment="Center" Content="Durée de vie" Background="{x:Null}" Foreground="#FF2C2E87" HorizontalAlignment="Center" Margin="110,26,0,10" Height="40" FontSize="20"/>
                     </StackPanel>
                 </Grid>
                 <Image x:Name="Img_Animal_3" Width="324" Source="/axolotl.jpeg" Height="232">

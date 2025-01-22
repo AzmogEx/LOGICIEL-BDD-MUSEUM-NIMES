@@ -141,7 +141,7 @@
                     <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="14,20,0,0" Grid.ColumnSpan="2">
                         <Border CornerRadius="10" Background="White" Margin="100,-20,0,10" Width="167" Height="55">
                             <TextBlock x:Name="Label_Habitat" TextAlignment="Center" Text="Habitat" 
-                   Foreground="Black" FontSize="20" VerticalAlignment="Center" />
+                   Foreground="Black" FontSize="20" VerticalAlignment="Center" Height="55" />
                         </Border>
 
                         <Border CornerRadius="10" Background="White" Margin="100,5,0,10" Width="171" Height="55">

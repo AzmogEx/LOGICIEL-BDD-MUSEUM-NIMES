@@ -12,9 +12,10 @@
         FontFamily="Franklin Gothic Medium"
         Title="Musée des Animaux" Height="1080" Width="1920">
     <Grid>
+        
 
         <!--Grille de recherche d'animal-->
-        <Grid x:Name="Grid_Recherche" Visibility="Hidden">
+        <Grid x:Name="Grid_Recherche" Visibility="Visible">
 
             <!-- Barre de recherche -->
             <DockPanel DockPanel.Dock="Top" Margin="10" VerticalAlignment="Top">
@@ -26,20 +27,57 @@
             <!-- Grille principale -->
             <Grid Margin="10" VerticalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="1253*" />
                     <!-- Carte -->
-                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="647*" />
                     <!-- Résultats -->
                 </Grid.ColumnDefinitions>
 
                 <!-- Carte du monde -->
-                <Border Grid.Column="0" Background="#EFEFEF" Margin="5,48,5,5">
+                <Border Grid.Column="0" Background="#EFEFEF" Margin="5,48,380,5" Grid.ColumnSpan="2">
+                    <Grid>
+                        <!-- Carte du monde -->
+                        <Image Source="/2.png" Stretch="Fill" />
 
+                        <!-- Zones cliquables -->
+                        <Canvas>
+                            <!-- AMERIQUE DU NORD -->
+                            <Button Canvas.Left="10" Canvas.Top="40" Width="598" Height="523" Background="Transparent" BorderBrush="Transparent" 
+                    Click="Zone_Click_Amerique_Nord" HorizontalAlignment="Center" VerticalAlignment="Top">
+                            </Button>
+
+                            <!-- AMERIQUE DU SUD -->
+                            <Button Canvas.Left="360" Canvas.Top="563" Width="220" Height="403" Background="Transparent" BorderBrush="Transparent"
+                                    Click="Zone_Click_Amerique_Sud" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            </Button>
+
+                            <!-- AFRIQUE -->
+                            <Button Canvas.Left="648" Canvas.Top="440" Width="257" Height="403" Background="Transparent" BorderBrush="Transparent"
+                            Click="Zone_Click_Afrique" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            </Button>
+
+                            <!-- Europe -->
+                            <Button Canvas.Left="675" Canvas.Top="40" Width="285" Height="387" Background="Transparent" BorderBrush="Transparent"
+Click="Zone_Click_Europe" HorizontalAlignment="Center" VerticalAlignment="Top">
+                            </Button>
+
+                            <!-- Asie -->
+                            <Button Canvas.Left="972" Canvas.Top="67" Width="533" Height="541" Background="Transparent" BorderBrush="Transparent"
+Click="Zone_Click_Asie" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            </Button>
+
+                            <!-- Oceanie -->
+                            <Button Canvas.Left="1155" Canvas.Top="618" Width="312" Height="264" Background="Transparent" BorderBrush="Transparent"
+Click="Zone_Click_Oceanie" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            </Button>
+
+                        </Canvas>
+                    </Grid>
                 </Border>
 
                 <!-- Résultats -->
-                <Border Grid.Column="1" Background="#F5F5F5" Margin="5">
-                    <ListBox x:Name="Lstbx_Animaux" MouseDoubleClick="Lstbx_Animaux_MouseDoubleClick"/>
+                <Border Grid.Column="1" Background="#F5F5F5" Margin="380,5,5,5">
+                    <ListBox x:Name="Lstbx_Animaux" MouseDoubleClick="Lstbx_Animaux_MouseDoubleClick" Margin="10,0,0,0"/>
                 </Border>
             </Grid>
         </Grid>
@@ -47,7 +85,7 @@
         <!--============================================================================-->
 
         <!--Grille d'affichage de l'animal recherché-->
-        <Grid x:Name="Grid_Info" Background="#FF009EE4">
+        <Grid x:Name="Grid_Info" Visibility="Hidden" Background="#FF009EE4">
 
             <Image Margin="-71,392,1221,-50" Source="/rond-blanc.png" Stretch="Fill"/>
 
@@ -168,7 +206,7 @@
                         </StackPanel>
                     </StackPanel>
                 </Grid>
-                
+
                 <Image x:Name="Img_Animal_3" Width="324" Source="/axolotl.jpeg" Height="232">
                     <Image.OpacityMask>
                         <ImageBrush ImageSource="/rond.png" Stretch="Uniform" TileMode="None"/>

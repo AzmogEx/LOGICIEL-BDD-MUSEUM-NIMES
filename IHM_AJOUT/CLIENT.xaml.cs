@@ -98,5 +98,34 @@ namespace IHM_BASE {
             Text_Critere_Menace.Text = Espece_Select.statutEspece;
             Text_UICN.Text = Espece_Select.descUicn;
         }
+
+        private void Zone_Click_Amerique_Nord(object sender,RoutedEventArgs e) {
+            MessageBox.Show("Amerique du nord");
+
+        }
+
+        private void Zone_Click_Amerique_Sud(object sender,RoutedEventArgs e) {
+            MessageBox.Show("Amerique du sud");
+
+        }
+
+        private void Zone_Click_Afrique(object sender,RoutedEventArgs e) {
+            MessageBox.Show("afrique");
+        }
+
+        private void Zone_Click_Europe(object sender,RoutedEventArgs e) {
+            MessageBox.Show("europe");
+
+        }
+
+        private void Zone_Click_Asie(object sender,RoutedEventArgs e) {
+            MessageBox.Show("asie");
+
+        }
+
+        private void Zone_Click_Oceanie(object sender,RoutedEventArgs e) {
+            MessageBox.Show("oceanie");
+
+        }
     }
 }

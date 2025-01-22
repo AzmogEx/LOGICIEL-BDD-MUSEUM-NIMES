@@ -51,9 +51,8 @@
                             </Button>
 
                             <!-- Europe -->
-                            <Button Canvas.Left="675" Canvas.Top="40" Width="366" Height="387" Background="Transparent" BorderBrush="Transparent"
-Click="Zone_Click_Europe" HorizontalAlignment="Left" VerticalAlignment="Center">
-                            </Button>
+                            <Button Canvas.Left="686" Width="326" Height="387" Background="Transparent" BorderBrush="Transparent"
+Click="Zone_Click_Europe" HorizontalAlignment="Left" VerticalAlignment="Center" Content="@" Canvas.Top="92"/>
 
                             <!-- Asie -->
                             <Button Canvas.Left="1012" Canvas.Top="67" Width="616" Height="541" Background="Transparent" BorderBrush="Transparent"

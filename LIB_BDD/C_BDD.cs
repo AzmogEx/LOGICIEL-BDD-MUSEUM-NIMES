@@ -83,6 +83,14 @@ public class C_BDD {
         return connexion.Query<string>(query,new { ID = P_ID }).ToArray();
     }
 
+    public string[] Get_Region_By_ID(int P_ID) {
+        using SqlConnection connexion = new SqlConnection(Chaine_Connexion);
+
+        string query = "SELECT nomRegion FROM region WHERE idEspece = @ID";
+
+        return connexion.Query<string>(query,new { ID = P_ID }).ToArray();
+    }
+
 
     public void Delete_Espece(int P_Espece) {
 
@@ -96,7 +104,7 @@ public class C_BDD {
 
     }
 
-    public void Add_Espece(C_ESPECE P_Espece,List<string> P_ImgPath) {
+    public void Add_Espece(C_ESPECE P_Espece,List<string> P_ImgPath, List<string> P_Regions) {
 
         try {
             using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
@@ -127,6 +135,7 @@ public class C_BDD {
             int ID = Connexion.QuerySingle<int>("SELECT TOP 1 idEspece FROM especes ORDER BY idEspece DESC;");
 
             Add_Image(ID,P_ImgPath);
+            Add_Region(ID,P_Regions);
         } catch(Exception) {
             throw;
         }
@@ -142,10 +151,20 @@ public class C_BDD {
         }
     }
 
+    public void Add_Region(int P_idEspece, List<string> P_ListRegion) {
+        using(SqlConnection connexion = new SqlConnection(Chaine_Connexion)) {
+            foreach(var Region in P_ListRegion) {
+                connexion.Execute("INSERT INTO region (idEspece, nomRegion) VALUES (@IDESPECE, @NOMREGION)",
+                new { IDESPECE = P_idEspece,NOMREGION = Region });
+            }
+        }
+    }
 
-    public void Edit_Espece(C_ESPECE P_Espece,List<string> P_ImgPaths) {
+
+    public void Edit_Espece(C_ESPECE P_Espece,List<string> P_ImgPaths, List<string> P_Regions) {
         using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
         string[] OldImgPaths = Get_Img_By_ID(P_Espece.idEspece);
+        string[] OldListRegion = Get_Region_By_ID(P_Espece.idEspece);
 
         Connexion.Execute("update especes set nomCommun = @NOMCOMMUN, nomScientifique = @NOMSCIENT, statutEspece = @STATUTESPECE, " +
             "tailleMin = @TAILLEMIN, tailleMax = @TAILLEMAX, uniteTaille = @UNITETAILLE, " +
@@ -180,6 +199,10 @@ public class C_BDD {
         if(OldImgPaths != P_ImgPaths.ToArray()) {
             Connexion.Execute("delete from images where images.idEspece = @IDESPECE",new { IDESPECE = P_Espece.idEspece });
             Add_Image(P_Espece.idEspece,P_ImgPaths);
+        }
+        if(OldListRegion != P_Regions.ToArray()) {
+            Connexion.Execute("delete from region where region.idEspece = @IDESPECE",new { IDESPECE = P_Espece.idEspece });
+            Add_Image(P_Espece.idEspece,P_Regions);
         }
     }
 

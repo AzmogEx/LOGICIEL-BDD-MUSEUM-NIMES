@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IHM_AJOUT"
         mc:Ignorable="d"
-        Title="Ajout d'espèces" Height="600" Width="1000"
+        Title="Ajout d'espèces" Height="650" Width="1200"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
     <Grid>
@@ -70,14 +70,32 @@
         <Label Content="Num d'inventaire" HorizontalAlignment="Left" Margin="10,340,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
         <TextBox x:Name="TB_NumInv" MaxLength="16" HorizontalAlignment="Left" Margin="140,344,0,0" VerticalAlignment="Top" Width="120"/>
 
-        <Label Content="Info présentation" HorizontalAlignment="Left" Margin="10,370,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_DescPres" TextWrapping="Wrap" MaxLength="512" HorizontalAlignment="Left" Margin="140,374,0,0" VerticalAlignment="Top" Width="225" Height="80"/>
+        <Label Content="Région du monde" HorizontalAlignment="Left" Margin="9,371,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
+        <ListBox Name="LB_Region" HorizontalAlignment="Left" VerticalAlignment="Top"
+         Margin="140,371,0,0" Width="150" Height="154" SelectionMode="Multiple" SelectionChanged="LB_Region_SelectionChanged">
+            <ListBox.ItemsSource>
+                <x:Array Type="{x:Type sys:String}" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                    <sys:String>Europe</sys:String>
+                    <sys:String>Amérique du Nord</sys:String>
+                    <sys:String>Amérique du Sud</sys:String>
+                    <sys:String>Afrique</sys:String>
+                    <sys:String>Antarctique</sys:String>
+                    <sys:String>Asie</sys:String>
+                    <sys:String>Océanie</sys:String>
+                </x:Array>
+            </ListBox.ItemsSource>
+        </ListBox>
 
-        <Label Content="Description (UICN)" HorizontalAlignment="Left" Margin="10,463,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_DescUICN" TextWrapping="Wrap" MaxLength="512" HorizontalAlignment="Left" Margin="140,467,0,0" VerticalAlignment="Top" Width="225" Height="80"/>
 
-        <Label Content="Description" HorizontalAlignment="Left" Margin="339,318,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_Desc" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"  MaxLength="4096" HorizontalAlignment="Left" Margin="469,322,0,0" VerticalAlignment="Top" Width="398" Height="232"/>
+
+        <Label Content="Info présentation" HorizontalAlignment="Left" Margin="317,377,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_DescPres" TextWrapping="Wrap" MaxLength="512" HorizontalAlignment="Left" Margin="447,381,0,0" VerticalAlignment="Top" Width="225" Height="80"/>
+
+        <Label Content="Description (UICN)" HorizontalAlignment="Left" Margin="317,470,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_DescUICN" TextWrapping="Wrap" MaxLength="512" HorizontalAlignment="Left" Margin="447,474,0,0" VerticalAlignment="Top" Width="225" Height="80"/>
+
+        <Label Content="Description" HorizontalAlignment="Right" Margin="0,322,500,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_Desc" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"  MaxLength="4096" HorizontalAlignment="Right" Margin="0,322,100,0" VerticalAlignment="Top" Width="398" Height="232"/>
 
         <StackPanel Orientation="Vertical" Margin="0,10,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="600">
             <StackPanel Orientation="Horizontal">

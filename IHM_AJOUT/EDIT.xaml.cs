@@ -25,6 +25,8 @@ namespace IHM_BASE {
         private string Path1;
         private string Path2;
         private int IDEspece;
+        private List<string> Regions;
+        private string[] GetRegions;
         private C_ESPECE P_Espece;
 
         public EDIT(C_ESPECE Espece) {
@@ -32,7 +34,8 @@ namespace IHM_BASE {
             ListPath = new();
             IDEspece = Espece.idEspece;
             InitializeComponent();
-            imagePaths = BDD.Get_Img_By_ID(Espece.idEspece);
+            imagePaths = BDD.Get_Img_By_ID(IDEspece);
+            GetRegions = BDD.Get_Region_By_ID(IDEspece);
 
             TB_Nom.Text = Espece.nomCommun;
             TB_NomScient.Text = Espece.nomScientifique;
@@ -54,6 +57,17 @@ namespace IHM_BASE {
             TB_DescUICN.Text = Espece.descUicn;
             TB_DescPres.Text = Espece.descPres;
             TB_NumInv.Text = Espece.numInventaire;
+
+            try {
+                foreach(var item in LB_Region.Items) {
+                    if(item != null && GetRegions.Contains(item.ToString())) {
+                        LB_Region.SelectedItems.Add(item);
+                    }
+                }
+            } catch(Exception ex) {
+                MessageBox.Show($"Une erreur est survenue : {ex.Message}");
+            }
+
 
             try {
                 foreach(var imagePath in imagePaths) {
@@ -187,7 +201,7 @@ namespace IHM_BASE {
             }
 
             try {
-                BDD.Edit_Espece(P_Espece,ListPath);
+                BDD.Edit_Espece(P_Espece,ListPath, Regions);
             } catch(Exception ex) {
                 MessageBox.Show($"Erreur lors de la modification de l'espèce : {ex.Message}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
                 return;
@@ -213,6 +227,22 @@ namespace IHM_BASE {
             ImagePreview2.Source = null;
             BTN_DeleteImg2.IsEnabled = false;
             Path2 = null;
+        }
+
+        private void LB_Region_SelectionChanged(object sender,SelectionChangedEventArgs e) {
+            foreach(var item in e.AddedItems) {
+                string region = item.ToString();
+                if(!Regions.Contains(region)) {
+                    Regions.Add(region);
+                }
+            }
+
+            foreach(var item in e.RemovedItems) {
+                string region = item.ToString();
+                if(Regions.Contains(region)) {
+                    Regions.Remove(region);
+                }
+            }
         }
     }
 }

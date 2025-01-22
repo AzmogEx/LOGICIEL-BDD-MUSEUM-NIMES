@@ -20,11 +20,13 @@ namespace IHM_AJOUT {
         private string Path1;
         private string Path2;
         private List<string> ListPath;
+        private List<string> Regions;
         private C_ESPECE Espece;
 
         public ADD() {
             BDD = new();
             ListPath = new();
+            Regions = new();
             InitializeComponent();
         }
 
@@ -52,7 +54,7 @@ namespace IHM_AJOUT {
                                 Path2 = imagePath;
                             }
                         }
-                    }
+                    }       
                 }
             } catch(Exception ex) {
                 MessageBox.Show($"Une erreur est survenue : {ex.Message}\n{ex.StackTrace}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
@@ -149,7 +151,7 @@ namespace IHM_AJOUT {
                 }
 
 
-                BDD.Add_Espece(Espece,ListPath);
+                BDD.Add_Espece(Espece, ListPath, Regions);
                 ListPath = new();
                 MessageBox.Show("L'espèce a été ajoutée avec succès.","Succès",MessageBoxButton.OK,MessageBoxImage.Information);
             } catch(Exception ex) {
@@ -174,5 +176,22 @@ namespace IHM_AJOUT {
             BTN_DeleteImg2.IsEnabled = false;
             Path2 = null;
         }
+
+        private void LB_Region_SelectionChanged(object sender,SelectionChangedEventArgs e) {
+            foreach(var item in e.AddedItems) {
+                string region = item.ToString();
+                if(!Regions.Contains(region)) {
+                    Regions.Add(region);
+                }
+            }
+
+            foreach(var item in e.RemovedItems) {
+                string region = item.ToString();
+                if(Regions.Contains(region)) {
+                    Regions.Remove(region);
+                }
+            }
+        }
+
     }
 }

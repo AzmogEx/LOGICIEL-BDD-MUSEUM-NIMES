@@ -68,8 +68,6 @@ Click="Zone_Click_Oceanie" HorizontalAlignment="Left" VerticalAlignment="Top">
                             <Button Canvas.Left="470" Canvas.Top="1001" Width="972" Height="100" Background="Transparent" BorderBrush="Transparent"
 Click="Zone_Click_Antartique" HorizontalAlignment="Left" VerticalAlignment="Top">
                             </Button>
-
-
                         </Canvas>
                     </Grid>
                 </Border>

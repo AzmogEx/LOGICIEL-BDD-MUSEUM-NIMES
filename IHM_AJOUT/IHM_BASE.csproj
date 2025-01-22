@@ -26,6 +26,7 @@
     <None Remove="critere.png" />
     <None Remove="haut-droite.png" />
     <None Remove="haut-gauche.png" />
+    <None Remove="monde.png" />
     <None Remove="rond-blanc.png" />
     <None Remove="rond.png" />
     <None Remove="truc.png" />
@@ -53,6 +54,7 @@
     <Resource Include="critere.png" />
     <Resource Include="haut-droite.png" />
     <Resource Include="haut-gauche.png" />
+    <Resource Include="monde.png" />
     <Resource Include="rond-blanc.png" />
     <Resource Include="rond.png" />
     <Resource Include="truc.png" />

@@ -52,16 +52,6 @@ namespace IHM_BASE {
             Grid_Info.Visibility = Visibility.Hidden;
             Grid_Recherche.Visibility = Visibility.Visible;
         }
-    
-        private void SearchBox_TextChanged(object sender,TextChangedEventArgs e) {
-           var Liste_Animaux_Recuperer = BDD.Get_Espece_By_Name(SearchBox.Text);
-            Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
-        }
-
-        private void SearchButton_Click(object sender,RoutedEventArgs e) {
-            var Liste_Animaux_Recuperer = BDD.Get_Espece_By_Name(SearchBox.Text);
-            Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
-        }
 
         private void Lstbx_Animaux_MouseDoubleClick(object sender,MouseButtonEventArgs e) {
             Grid_Recherche.Visibility = Visibility.Hidden;
@@ -130,6 +120,11 @@ namespace IHM_BASE {
 
         private void Zone_Click_Antartique(object sender,RoutedEventArgs e) {
             MessageBox.Show("Antartique");
+        }
+
+        private void SearchBox_TextChanged(object sender,TextChangedEventArgs e) {
+            var Liste_Animaux_Recuperer = BDD.Get_Espece_By_Name(SearchBox.Text);
+            Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
         }
     }
 }

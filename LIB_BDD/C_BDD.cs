@@ -48,10 +48,10 @@ public class C_BDD {
     public void Add_User(string nomUtilisateur,string motDePasse) {
         using SqlConnection connexion = new SqlConnection(Chaine_Connexion);
 
-        // Hacher le mot de passe avec BCrypt.Net
+        // Hachage du mot de passe avec BCrypt.Net
         string motDePasseHache = BCrypt.Net.BCrypt.HashPassword(motDePasse);
 
-        // Insérer dans la base de données
+        // Insertion dans la base de données
         connexion.Execute(
             "INSERT INTO Utilisateurs (NomUtilisateur, MotDePasse) VALUES (@NomUtilisateur, @MotDePasse)",
             new { NomUtilisateur = nomUtilisateur,MotDePasse = motDePasseHache }
@@ -146,7 +146,6 @@ public class C_BDD {
         } catch(Exception) {
             throw;
         }
-
     }
 
     public void Add_Image(int P_idEspece,List<string> P_ListPath) {
@@ -212,7 +211,4 @@ public class C_BDD {
             Add_Region(P_Espece.idEspece,P_Regions);
         }
     }
-
-
-
 }

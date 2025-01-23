@@ -49,7 +49,7 @@ namespace IHM_BASE {
             Grid_Recherche.Visibility = Visibility.Visible;
             Lstbx_Animaux.DisplayMemberPath = nameof(C_ESPECE.nomCommun);
             
-            if (SearchBox.Text == string.Empty) {
+            if (SearchBox.Text == "") {
                 Lstbx_Animaux.Items.Clear();
             }
         }

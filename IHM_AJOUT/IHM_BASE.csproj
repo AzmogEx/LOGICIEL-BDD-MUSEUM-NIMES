@@ -18,6 +18,7 @@
     <None Remove="axolotl.jpeg" />
     <None Remove="bas-droite.png" />
     <None Remove="bas-gauche.png" />
+    <None Remove="bulle.png" />
     <None Remove="Capture d%27écran Jan 22 2025.png" />
     <None Remove="Capture d’écran 2025-01-20 à 11.01.50.png" />
     <None Remove="carte.png" />
@@ -39,6 +40,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="RESSOURCES\bulle.png" />
     <Resource Include="RESSOURCES\1.png" />
     <Resource Include="RESSOURCES\3.png" />
     <Resource Include="RESSOURCES\4.png" />

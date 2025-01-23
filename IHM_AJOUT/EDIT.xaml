@@ -24,8 +24,6 @@
             <ComboBoxItem>Vulnérable (VU)</ComboBoxItem>
             <ComboBoxItem>Quasi menacée (NT)</ComboBoxItem>
             <ComboBoxItem>Préoccupation mineure (LC)</ComboBoxItem>
-            <ComboBoxItem>Données insuffisantes (DD)</ComboBoxItem>
-            <ComboBoxItem>Non évaluée (NE)</ComboBoxItem>
         </ComboBox>
 
         <Label Content="Taille entre" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>

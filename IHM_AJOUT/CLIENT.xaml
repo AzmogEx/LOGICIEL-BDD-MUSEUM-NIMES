@@ -97,13 +97,22 @@ Click="Zone_Click_Antartique" HorizontalAlignment="Left" VerticalAlignment="Top"
 
             <Button x:Name="Button_Close" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Height="60" Width="60" Background="Red" FontSize="30" Click="Button_Close_Click"/>
 
-            <StackPanel Margin="300,150,0,0">
+            <StackPanel Margin="300,150,0,0" Width="400" Height="200" VerticalAlignment="Top" HorizontalAlignment="Left">
                 <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0">
-                    <Label x:Name="Label_Famille" Margin="0,0,0,5"   Content="Embranchement" HorizontalContentAlignment="Center" Width="150" Background="{x:Null}" Foreground="#FF2C2E87" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
-                    <Label x:Name="Label_Ordre" Margin="0,0,0,5"   Content="Classe" HorizontalContentAlignment="Center" Width="150" Background="{x:Null}" Foreground="#FF2C2E87" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
-                    <Label x:Name="Label_Classe" Margin="0,0,0,5"   Content="Ordre" HorizontalContentAlignment="Center" Width="150" Background="{x:Null}" Foreground="#FF2C2E87" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
-                    <Label x:Name="Label_Embranchement" Margin="0,0,0,5"   Content="Famille" HorizontalContentAlignment="Center" Width="150" Background="{x:Null}" Foreground="#FF2C2E87" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+                    <Border Margin="0,0,0,8" CornerRadius="10" Background="#dd8e0b" Width="350" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Label x:Name="Label_Famille" Content="Embranchement" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
+                    </Border>
+                    <Border Margin="0,0,0,8" CornerRadius="10" Background="#d3dd0b" Width="275" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Label x:Name="Label_Ordre" Content="Classe" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
+                    </Border>
+                    <Border Margin="0,0,0,8" CornerRadius="10" Background="#94dd0b" Width="200" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Label x:Name="Label_Classe" Content="Ordre" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
+                    </Border>
+                    <Border Margin="0,0,0,8" CornerRadius="10" Background="#32dd0b " Width="125" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Label x:Name="Label_Embranchement" Content="Famille" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
+                    </Border>
                 </StackPanel>
+
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="70,0,0,0">

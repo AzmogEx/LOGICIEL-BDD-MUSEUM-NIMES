@@ -162,13 +162,12 @@ namespace IHM_BASE {
         }
 
         private void SearchBox_TextChanged(object sender,TextChangedEventArgs e) {
-
-            if(SearchBox.Text == string.Empty) {
-                Lstbx_Animaux.Items.Clear();
-            }
-
             var Liste_Animaux_Recuperer = BDD.Get_Espece_By_Name(SearchBox.Text);
             Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
+
+            if(SearchBox.Text == string.Empty) {
+                Lstbx_Animaux.ItemsSource = new List<string>();
+            }
         }
     }
 }

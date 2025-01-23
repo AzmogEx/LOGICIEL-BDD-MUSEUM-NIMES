@@ -25,6 +25,7 @@
     <None Remove="carte.png" />
     <None Remove="chat.png" />
     <None Remove="contour-gauche.png" />
+    <None Remove="coucou.png" />
     <None Remove="critere.png" />
     <None Remove="haut-droite.png" />
     <None Remove="haut-gauche.png" />
@@ -41,6 +42,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="RESSOURCES\coucou.png" />
     <Resource Include="RESSOURCES\Bulle_Bd.png" />
     <Resource Include="RESSOURCES\1.png" />
     <Resource Include="RESSOURCES\3.png" />

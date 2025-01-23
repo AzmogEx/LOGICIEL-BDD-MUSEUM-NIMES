@@ -39,28 +39,28 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="1.png" />
-    <Resource Include="2.png" />
-    <Resource Include="3.png" />
-    <Resource Include="4.png" />
-    <Resource Include="5.png" />
-    <Resource Include="arbre.png" />
-    <Resource Include="axolotl.jpeg" />
-    <Resource Include="bas-droite.png" />
-    <Resource Include="bas-gauche.png" />
-    <Resource Include="Capture d'écran Jan 22 2025.png" />
-    <Resource Include="carte.png" />
-    <Resource Include="chat.png" />
-    <Resource Include="contour-gauche.png" />
-    <Resource Include="critere.png" />
-    <Resource Include="haut-droite.png" />
-    <Resource Include="haut-gauche.png" />
-    <Resource Include="monde.png" />
-    <Resource Include="rond-blanc.png" />
-    <Resource Include="rond.png" />
-    <Resource Include="truc.png" />
-    <Resource Include="world-map-xaml-high-res2.png" />
-    <Resource Include="world.png" />
+    <Resource Include="RESSOURCES\1.png" />
+    <Resource Include="RESSOURCES\2.png" />
+    <Resource Include="RESSOURCES\3.png" />
+    <Resource Include="RESSOURCES\4.png" />
+    <Resource Include="RESSOURCES\5.png" />
+    <Resource Include="RESSOURCES\arbre.png" />
+    <Resource Include="RESSOURCES\axolotl.jpeg" />
+    <Resource Include="RESSOURCES\bas-droite.png" />
+    <Resource Include="RESSOURCES\bas-gauche.png" />
+    <Resource Include="RESSOURCES\Capture d%27écran Jan 22 2025.png" />
+    <Resource Include="RESSOURCES\carte.png" />
+    <Resource Include="RESSOURCES\chat.png" />
+    <Resource Include="RESSOURCES\contour-gauche.png" />
+    <Resource Include="RESSOURCES\critere.png" />
+    <Resource Include="RESSOURCES\haut-droite.png" />
+    <Resource Include="RESSOURCES\haut-gauche.png" />
+    <Resource Include="RESSOURCES\monde.png" />
+    <Resource Include="RESSOURCES\rond-blanc.png" />
+    <Resource Include="RESSOURCES\rond.png" />
+    <Resource Include="RESSOURCES\truc.png" />
+    <Resource Include="RESSOURCES\world-map-xaml-high-res2.png" />
+    <Resource Include="RESSOURCES\world.png" />
   </ItemGroup>
 
 </Project>

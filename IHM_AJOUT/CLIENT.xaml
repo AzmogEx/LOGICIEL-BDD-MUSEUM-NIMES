@@ -48,25 +48,20 @@
                             </Button>
 
                             <!-- Europe -->
-                            <Button Canvas.Left="686" Width="326" Height="387" Background="Transparent" BorderBrush="Transparent"
-Click="Zone_Click_Europe" HorizontalAlignment="Left" VerticalAlignment="Center" Content="@" Canvas.Top="92" Opacity="0"/>
+                            <Button Canvas.Left="686" Width="326" Height="387" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Europe" HorizontalAlignment="Left" VerticalAlignment="Center" Content="@" Canvas.Top="92" Opacity="0"/>
 
                             <!-- Asie -->
-                            <Button Canvas.Left="1012" Canvas.Top="67" Width="616" Height="541" Background="Transparent" BorderBrush="Transparent"
-Click="Zone_Click_Asie" HorizontalAlignment="Left" VerticalAlignment="Center" Opacity="0">
+                            <Button Canvas.Left="1012" Canvas.Top="67" Width="616" Height="541" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Asie" HorizontalAlignment="Left" VerticalAlignment="Center" Opacity="0">
                             </Button>
-                            <Button Canvas.Left="931" Canvas.Top="408" Width="82" Height="200" Background="Transparent" BorderBrush="Transparent"
-Click="Zone_Click_Asie" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="0">
+                            <Button Canvas.Left="931" Canvas.Top="408" Width="82" Height="200" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Asie" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="0">
                             </Button>
 
                             <!-- Oceanie -->
-                            <Button Canvas.Left="1274" Canvas.Top="688" Width="312" Height="264" Background="Transparent" BorderBrush="Transparent"
-Click="Zone_Click_Oceanie" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="0">
+                            <Button Canvas.Left="1274" Canvas.Top="688" Width="312" Height="264" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Oceanie" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="0">
                             </Button>
 
                             <!-- Antartique -->
-                            <Button Canvas.Left="470" Canvas.Top="1001" Width="972" Height="100" Background="Transparent" BorderBrush="Transparent"
-Click="Zone_Click_Antartique" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="0">
+                            <Button Canvas.Left="470" Canvas.Top="1001" Width="972" Height="100" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Antartique" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="0">
                             </Button>
                         </Canvas>
                     </Grid>
@@ -104,17 +99,16 @@ Click="Zone_Click_Antartique" HorizontalAlignment="Left" VerticalAlignment="Top"
                     <Border Margin="0,0,0,8" CornerRadius="10" Background="#dd8e0b" Width="350" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Label x:Name="Label_Famille" Content="Embranchement" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
                     </Border>
-                    <Border Margin="0,0,0,8" CornerRadius="10" Background="#d3dd0b" Width="275" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Border Margin="0,0,0,8" CornerRadius="10" Background="#d3dd0b" Width="285" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Label x:Name="Label_Ordre" Content="Classe" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
                     </Border>
-                    <Border Margin="0,0,0,8" CornerRadius="10" Background="#94dd0b" Width="200" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Border Margin="0,0,0,8" CornerRadius="10" Background="#94dd0b" Width="220" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Label x:Name="Label_Classe" Content="Ordre" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
                     </Border>
-                    <Border Margin="0,0,0,8" CornerRadius="10" Background="#32dd0b " Width="125" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Border Margin="0,0,0,8" CornerRadius="10" Background="#32dd0b " Width="155" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Label x:Name="Label_Embranchement" Content="Famille" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
                     </Border>
                 </StackPanel>
-
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="70,0,0,0">

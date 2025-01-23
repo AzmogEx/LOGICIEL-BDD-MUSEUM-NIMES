@@ -31,6 +31,7 @@
     <None Remove="rond.png" />
     <None Remove="truc.png" />
     <None Remove="world-map-xaml-high-res2.png" />
+    <None Remove="world.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -59,6 +60,7 @@
     <Resource Include="rond.png" />
     <Resource Include="truc.png" />
     <Resource Include="world-map-xaml-high-res2.png" />
+    <Resource Include="world.png" />
   </ItemGroup>
 
 </Project>

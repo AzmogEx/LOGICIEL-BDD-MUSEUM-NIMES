@@ -70,8 +70,6 @@ Click="Zone_Click_Oceanie" HorizontalAlignment="Left" VerticalAlignment="Top" Op
                             <Button Canvas.Left="470" Canvas.Top="1001" Width="972" Height="100" Background="Transparent" BorderBrush="Transparent"
 Click="Zone_Click_Antartique" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="0">
                             </Button>
-
-
                         </Canvas>
                     </Grid>
                 </Border>
@@ -93,7 +91,7 @@ Click="Zone_Click_Antartique" HorizontalAlignment="Left" VerticalAlignment="Top"
 
             <Image Margin="0,800,1657,0" Source="/bas-gauche.png" Stretch="Fill"/>
 
-            <Image Margin="0,0,1587,647" Source="/haut-gauche.png" Stretch="Fill"/>
+            <Image Margin="-19,80,1606,567" Source="/haut-gauche.png" Stretch="Fill"/>
 
             <Image Margin="726,330,730,269" Source="/rond.png" Stretch="Fill"/>
 
@@ -156,7 +154,7 @@ Click="Zone_Click_Antartique" HorizontalAlignment="Left" VerticalAlignment="Top"
                 </Image>
             </StackPanel>
 
-            <Image Source="/carte.png" Margin="845,800,577,25" RenderTransformOrigin="-6.134,0.197" />
+            <Image Source="/world.png" Margin="845,800,577,25" RenderTransformOrigin="-6.134,0.197" />
             <Label x:Name="Label_Localisation" Content="Pays" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Left" Background="{x:Null}" Margin="1056,1013,0,0" Width="193" FontSize="20" Height="38" Foreground="White"/>
 
             <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,100,100,0">

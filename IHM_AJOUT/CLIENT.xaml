@@ -79,6 +79,7 @@ Click="Zone_Click_Antartique" HorizontalAlignment="Left" VerticalAlignment="Top"
                 <TextBox x:Name="SearchBox" TextChanged="SearchBox_TextChanged" Width="250" Height="30"/>
                 <ListBox x:Name="Lstbx_Animaux" MouseDoubleClick="Lstbx_Animaux_MouseDoubleClick" Width="250" Height="1050"/>
             </StackPanel>
+            <Button x:Name="Btn_Admin" Content="Admin" HorizontalAlignment="Left" Margin="1698,1043,0,0" VerticalAlignment="Top" Click="Btn_Admin_Click"/>
 
         </Grid>
 

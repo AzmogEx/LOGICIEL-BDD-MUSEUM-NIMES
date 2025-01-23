@@ -15,7 +15,7 @@
 
 
         <!--Grille de recherche d'animal-->
-        <Grid x:Name="Grid_Recherche" Visibility="Visible">
+        <Grid x:Name="Grid_Recherche" Visibility="Hidden">
 
             <!-- Grille principale -->
             <Grid Margin="10" VerticalAlignment="Stretch">
@@ -71,8 +71,6 @@ Click="Zone_Click_Antartique" HorizontalAlignment="Left" VerticalAlignment="Top"
                         </Canvas>
                     </Grid>
                 </Border>
-
-                <!-- Résultats -->
             </Grid>
 
             <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Width="250">
@@ -80,13 +78,12 @@ Click="Zone_Click_Antartique" HorizontalAlignment="Left" VerticalAlignment="Top"
                 <ListBox x:Name="Lstbx_Animaux" MouseDoubleClick="Lstbx_Animaux_MouseDoubleClick" Width="250" Height="1050"/>
             </StackPanel>
             <Button x:Name="Btn_Admin" Content="Admin" HorizontalAlignment="Left" Margin="1698,1043,0,0" VerticalAlignment="Top" Click="Btn_Admin_Click"/>
-
         </Grid>
 
         <!--============================================================================-->
 
         <!--Grille d'affichage de l'animal recherché-->
-        <Grid x:Name="Grid_Info" Visibility="Hidden" Background="#FF009EE4">
+        <Grid x:Name="Grid_Info" Visibility="Visible" Background="#FF009EE4">
 
             <Image Margin="-71,392,1221,-50" Source="/RESSOURCES/rond-blanc.png" Stretch="Fill"/>
 
@@ -153,7 +150,7 @@ Click="Zone_Click_Antartique" HorizontalAlignment="Left" VerticalAlignment="Top"
                 <!-- Superposition avec Grid -->
                 <Grid Width="250" Height="150">
                     <!-- Image en arrière-plan -->
-                    <Image Source="RESSOURCES/chat.png" Stretch="Fill" Margin="-50,-19,0,0" />
+                    <Image Source="/RESSOURCES/bulle.png" Stretch="Fill" Margin="-36,-19,-14,0" />
 
                     <TextBlock x:Name="Text_Info_Pratique" Text="Chat" 
                    HorizontalAlignment="Left" 

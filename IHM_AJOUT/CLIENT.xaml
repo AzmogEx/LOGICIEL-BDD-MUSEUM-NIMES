@@ -125,12 +125,12 @@ Click="Zone_Click_Antartique" HorizontalAlignment="Left" VerticalAlignment="Top"
 
                     <Border Background="White" Margin="130,0,0,0" CornerRadius="20" Height="103">
                         <StackPanel Orientation="Vertical" Margin="15,0,15,0">
-                            <TextBlock x:Name="Text_Critere_Menace" TextAlignment="Center" Margin="0,10,0,20" TextWrapping="Wrap" Text="TextBlock" Height="38" Width="101" FontSize="16" FontWeight="Bold" Foreground="#FF2C2E87"/>
+                            <TextBlock x:Name="Text_Critere_Menace" TextAlignment="Center" Margin="0,10,0,20" TextWrapping="Wrap" Text="TextBlock" Height="40" Width="200" FontSize="20" FontWeight="Bold" Foreground="#FF2C2E87"/>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock x:Name="Txt_UICN_Black" Background="BLack" Text="" Width="20" Height="10" FontSize="15" />
                                 <TextBlock x:Name="Txt_UICN_Red" Background="Red" Margin="8,0,0,0" Text="" Width="20" Height="10" FontSize="15" />
                                 <TextBlock x:Name="Txt_UICN_Orange" Background="Orange" Margin="8,0,0,0" Text="" Width="20" Height="10" FontSize="15" />
-                                <TextBlock x:Name="Txt_UICN_Yellow" Background="Yellow" Margin="8,0,0,0" Text="" Width="20" Height="10" FontSize="15" />
+                                <TextBlock x:Name="Txt_UICN_Yellow" Background="#feed00" Margin="8,0,0,0" Text="" Width="20" Height="10" FontSize="15" />
                                 <TextBlock x:Name="Txt_UICN_LawnGreen" Background="LawnGreen" Margin="8,0,0,0" Text="" Width="20" Height="10" FontSize="15" />
                                 <TextBlock x:Name="Txt_UICN_YellowGreen" Background="YellowGreen" Margin="8,0,0,0" Text="" Width="20" Height="10" FontSize="15" />
                                 <TextBlock x:Name="Txt_UICN_Green" Background="Green" Margin="8,0,0,0" Text="" Width="20" Height="10" FontSize="15" />

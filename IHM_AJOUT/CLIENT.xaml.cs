@@ -169,5 +169,11 @@ namespace IHM_BASE {
                 Lstbx_Animaux.ItemsSource = new List<string>();
             }
         }
+
+        private void Btn_Admin_Click(object sender,RoutedEventArgs e) {
+            MainMenu mainMenu = new();
+            mainMenu.Show();
+            Close();
+        }
     }
 }

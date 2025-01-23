@@ -17,6 +17,7 @@
         </StackPanel>
         <ListBox Width="200" HorizontalAlignment="Left" x:Name="LB_Especes" SelectionChanged="LB_Especes_SelectionChanged"/>
         <Button x:Name="BTN_CREATE_USER" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" FontSize="12" Content="Créer un compte" Padding="10" Width="auto" Click="BTN_CREATE_USER_Click" />
+        <Button x:Name="BTN_CLIENT" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,74,25,0" FontSize="12" Content="Page Client" Padding="10" Width="auto" Click="BTN_COUCOU_CLICK" />
 
     </Grid>
 </Window>

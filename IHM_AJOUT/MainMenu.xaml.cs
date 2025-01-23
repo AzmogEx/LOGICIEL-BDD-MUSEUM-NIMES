@@ -73,5 +73,11 @@ namespace IHM_BASE {
             var Deplace = new INSCRIPTION();
             Deplace.Show();
         }
+
+        private void BTN_COUCOU_CLICK(object sender,RoutedEventArgs e) {
+            CLIENT Coucou = new();
+            Coucou.Show();
+            Close();
+        }
     }
 }

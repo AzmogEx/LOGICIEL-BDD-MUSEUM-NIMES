@@ -149,20 +149,22 @@
                 <Label x:Name="Label_Nom_Scientifique_Animal" Content="Nom Scientifique" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" />
             </StackPanel>
 
-            <StackPanel Width="250" Height="150" VerticalAlignment="Top">
-                <Image Source="/RESSOURCES/Bulle_Bd.png"/>
-                <TextBlock x:Name="Text_Info_Pratique" Text="Chat" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" FontSize="13" FontWeight="Bold" Foreground="#FF2C2E87" TextAlignment="Center" Width="187" Height="69"/>
+            <StackPanel Width="600" Height="150" Margin="0,230,100,0" VerticalAlignment="Top">
+                <Border Background="White" Margin="0,0,55,0" Width="250" Height="130" CornerRadius="120">
+                    <TextBlock x:Name="Text_Info_Pratique" Text="Chat" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" FontSize="13" FontWeight="Bold" Foreground="#FF2C2E87" TextAlignment="Center" Width="200"/>
+                </Border>
+                <Polygon Points="60,0 80,20 30,0" HorizontalAlignment="Center" Margin="0,0,60,0" Fill="white" />
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
 
                 <!-- Deuxième image avec masque -->
                 <Image x:Name="Img_Animal_1"
-           Width="441" 
-           Source="RESSOURCES/axolotl.jpeg" 
-           Margin="0,0,0,-60" 
-           Height="368" 
-           Stretch="Fill">
+                   Width="441" 
+                   Source="RESSOURCES/axolotl.jpeg" 
+                   Margin="0,0,0,-60" 
+                   Height="368" 
+                   Stretch="Fill">
                     <Image.OpacityMask>
                         <ImageBrush ImageSource="RESSOURCES/rond.png" Stretch="Uniform" TileMode="None" />
                     </Image.OpacityMask>

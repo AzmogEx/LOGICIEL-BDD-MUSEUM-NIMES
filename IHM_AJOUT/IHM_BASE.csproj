@@ -40,26 +40,20 @@
 
   <ItemGroup>
     <Resource Include="RESSOURCES\1.png" />
-    <Resource Include="RESSOURCES\2.png" />
     <Resource Include="RESSOURCES\3.png" />
     <Resource Include="RESSOURCES\4.png" />
     <Resource Include="RESSOURCES\5.png" />
-    <Resource Include="RESSOURCES\arbre.png" />
     <Resource Include="RESSOURCES\axolotl.jpeg" />
     <Resource Include="RESSOURCES\bas-droite.png" />
     <Resource Include="RESSOURCES\bas-gauche.png" />
-    <Resource Include="RESSOURCES\Capture d%27écran Jan 22 2025.png" />
     <Resource Include="RESSOURCES\carte.png" />
     <Resource Include="RESSOURCES\chat.png" />
     <Resource Include="RESSOURCES\contour-gauche.png" />
-    <Resource Include="RESSOURCES\critere.png" />
     <Resource Include="RESSOURCES\haut-droite.png" />
     <Resource Include="RESSOURCES\haut-gauche.png" />
     <Resource Include="RESSOURCES\monde.png" />
     <Resource Include="RESSOURCES\rond-blanc.png" />
     <Resource Include="RESSOURCES\rond.png" />
-    <Resource Include="RESSOURCES\truc.png" />
-    <Resource Include="RESSOURCES\world-map-xaml-high-res2.png" />
     <Resource Include="RESSOURCES\world.png" />
   </ItemGroup>
 

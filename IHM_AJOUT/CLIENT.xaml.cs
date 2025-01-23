@@ -80,15 +80,45 @@ namespace IHM_BASE {
             Label_Classe.Content = Espece_Select.classe;
             Label_Ordre.Content = Espece_Select.ordre;
             Label_Famille.Content = Espece_Select.famille;
-            
+
             //Description en bas
             Tbx_Description_Global.Text = Desc1;
             Tbx_Description_Global1.Text = Desc2;
             Text_Info_Pratique.Text = Espece_Select.descPres;
             Text_Critere_Menace.Text = Espece_Select.statutEspece;
             Text_UICN.Text = Espece_Select.descUicn;
-        }
 
+            switch(Text_Critere_Menace.Text) {
+                case "Eteinte (EX)":
+                    Txt_UICN_Black.Width = 40;
+                    Txt_UICN_Black.Height = 20;
+                    break;
+                case "Eteinte à l’état sauvage (EW)":
+                    Txt_UICN_Red.Width = 40;
+                    Txt_UICN_Red.Height = 20; 
+                    break;
+                case "En danger critique (CR)":
+                    Txt_UICN_Orange.Width = 40;
+                    Txt_UICN_Orange.Height = 20; 
+                    break;
+                case "En danger (EN)":
+                    Txt_UICN_Yellow.Width = 40;
+                    Txt_UICN_Yellow.Height = 20; 
+                    break;
+                case "Vulnérable (VU)":
+                    Txt_UICN_LawnGreen.Width = 40;
+                    Txt_UICN_LawnGreen.Height = 20; 
+                    break;
+                case "Quasi menacée (NT)":
+                    Txt_UICN_YellowGreen.Width = 40;
+                    Txt_UICN_YellowGreen.Height = 20;
+                    break;
+                case "Préoccupation mineure (LC)":
+                    Txt_UICN_Green.Width = 40;
+                    Txt_UICN_Green.Height = 20;
+                    break;
+            }
+        }
         private void Zone_Click_Amerique_Nord(object sender,RoutedEventArgs e) {
             MessageBox.Show("Amerique du nord");
 

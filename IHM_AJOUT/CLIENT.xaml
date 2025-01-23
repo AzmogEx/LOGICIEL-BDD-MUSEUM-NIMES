@@ -76,8 +76,18 @@ Click="Zone_Click_Antartique" HorizontalAlignment="Left" VerticalAlignment="Top"
             </Grid>
             <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Width="250">
                 <TextBox x:Name="SearchBox" TextChanged="SearchBox_TextChanged" Width="250" Height="30"/>
-                <ListBox x:Name="Lstbx_Animaux" MouseDoubleClick="Lstbx_Animaux_MouseDoubleClick" Width="250" Height="1050"/>
+                <ListBox x:Name="Lstbx_Animaux" MouseDoubleClick="Lstbx_Animaux_MouseDoubleClick" Width="250" Height="1050">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/axolotl.jpeg" Width="30" Height="30" Margin="5"/>
+                                <TextBlock Text="{Binding}" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </StackPanel>
+
         </Grid>
 
         <!--============================================================================-->

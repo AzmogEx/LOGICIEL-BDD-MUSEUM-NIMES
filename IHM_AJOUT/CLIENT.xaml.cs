@@ -25,6 +25,8 @@ namespace IHM_BASE {
         private string Desc2;
 
         public CLIENT() {
+            InitializeComponent();
+
             BDD = new();
             List<C_ESPECE> List_Especes = new();
 
@@ -38,22 +40,37 @@ namespace IHM_BASE {
                 MessageBox.Show($"La connexion à la base de données a échoué : {Etat_Connexion}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
             }
 
-
-            InitializeComponent();
-
             //Recuperation des especes de la base dans la listbox
             //Lstbx_Animaux.DisplayMemberPath = nameof(C_ESPECE.nomCommun);
             //Lstbx_Animaux.ItemsSource = List_Especes;
 
             Grid_Info.Visibility = Visibility.Hidden;
             Grid_Recherche.Visibility = Visibility.Visible;
-            Lstbx_Animaux.DisplayMemberPath = nameof(C_ESPECE.nomCommun);
-            
 
         }
 
         private void Button_Close_Click(object sender,RoutedEventArgs e) {
             Grid_Info.Visibility = Visibility.Hidden;
+            Txt_UICN_Black.Width = 20;
+            Txt_UICN_Black.Height = 10;
+
+            Txt_UICN_Red.Width = 20;
+            Txt_UICN_Red.Height = 10;
+
+            Txt_UICN_Orange.Width = 20;
+            Txt_UICN_Orange.Height = 10;
+
+            Txt_UICN_Yellow.Width = 20;
+            Txt_UICN_Yellow.Height = 10;
+
+            Txt_UICN_LawnGreen.Width = 20;
+            Txt_UICN_LawnGreen.Height = 10;
+
+            Txt_UICN_YellowGreen.Width = 20;
+            Txt_UICN_YellowGreen.Height = 10;
+
+            Txt_UICN_Green.Width = 20;
+            Txt_UICN_Green.Height = 10;
             Grid_Recherche.Visibility = Visibility.Visible;
         }
 

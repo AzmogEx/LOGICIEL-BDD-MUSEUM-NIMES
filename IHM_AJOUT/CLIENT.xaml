@@ -15,7 +15,7 @@
 
 
         <!--Grille de recherche d'animal-->
-        <Grid x:Name="Grid_Recherche" Visibility="Visible" d:Visibility="Hidden">
+        <Grid x:Name="Grid_Recherche" Visibility="Visible" d:Visibility="Visible">
 
             <!-- Grille principale -->
             <Grid Margin="10" VerticalAlignment="Stretch">
@@ -34,8 +34,8 @@
                         <!-- Zones cliquables -->
                         <Canvas>
                             <!-- AMERIQUE DU NORD -->
-                            <Button Canvas.Left="10" Canvas.Top="40" Width="660" Height="523" Background="Transparent" BorderBrush="Transparent" 
-                    Click="Zone_Click_Amerique_Nord" HorizontalAlignment="Left" VerticalAlignment="Center" Opacity="0"/>
+                            <Button Canvas.Left="10" Canvas.Top="40" Width="660" Height="601" Background="Transparent" BorderBrush="Transparent" 
+                    Click="Zone_Click_Amerique_Nord" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0"/>
 
                             <!-- AMERIQUE DU SUD -->
                             <Button Canvas.Left="388" Canvas.Top="618" Width="220" Height="403" Background="Transparent" BorderBrush="Transparent"
@@ -43,17 +43,21 @@
                             </Button>
 
                             <!-- AFRIQUE -->
-                            <Button Canvas.Left="686" Canvas.Top="479" Width="240" Height="403" Background="Transparent" BorderBrush="Transparent"
-                            Click="Zone_Click_Afrique" HorizontalAlignment="Left" VerticalAlignment="Center" Opacity="0">
+                            <Button Canvas.Left="686" Canvas.Top="479" Width="240" Height="443" Background="Transparent" BorderBrush="Transparent"
+                                Click="Zone_Click_Afrique" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0">
+                            </Button>
+                            <Button Canvas.Left="931" Canvas.Top="637" Width="139" Height="265" Background="Transparent" BorderBrush="Transparent"
+                                Click="Zone_Click_Afrique" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0">
                             </Button>
 
                             <!-- Europe -->
-                            <Button Canvas.Left="686" Width="326" Height="387" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Europe" HorizontalAlignment="Left" VerticalAlignment="Center" Content="@" Canvas.Top="92" Opacity="0"/>
+                            <Button Canvas.Left="675" Width="256" Height="387" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Europe" HorizontalAlignment="Left" VerticalAlignment="Center" Content="@" Canvas.Top="92" Opacity="0"/>
+                            <Button Canvas.Left="936" Width="98" Height="336" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Europe" HorizontalAlignment="Center" VerticalAlignment="Top" Content="@" Canvas.Top="67" Opacity="0"/>
 
                             <!-- Asie -->
-                            <Button Canvas.Left="1012" Canvas.Top="67" Width="616" Height="541" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Asie" HorizontalAlignment="Left" VerticalAlignment="Center" Opacity="0">
+                            <Button Canvas.Left="1039" Canvas.Top="67" Width="589" Height="616" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Asie" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0">
                             </Button>
-                            <Button Canvas.Left="931" Canvas.Top="408" Width="82" Height="200" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Asie" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="0">
+                            <Button Canvas.Left="931" Canvas.Top="408" Width="103" Height="200" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Asie" HorizontalAlignment="Left" VerticalAlignment="Center" Opacity="0">
                             </Button>
 
                             <!-- Oceanie -->
@@ -71,11 +75,25 @@
             <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Width="250">
                 <TextBox x:Name="SearchBox" TextChanged="SearchBox_TextChanged" Width="250" Height="30"/>
                 <ListBox x:Name="Lstbx_Animaux" MouseDoubleClick="Lstbx_Animaux_MouseDoubleClick" Width="250" Height="1050">
+                    <ListBox.Resources>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="BorderBrush" Value="Transparent" />
+                            <Setter Property="BorderThickness" Value="0" />
+                        </Style>
+                    </ListBox.Resources>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Border Height="50" Background="White" CornerRadius="10" Margin="2">
-                                <TextBlock Text="{Binding nomCommun}" VerticalAlignment="Center" Margin="5" HorizontalAlignment="Center" />
-                            </Border>
+                            <StackPanel Orientation="Horizontal">
+                                <Image x:Name="Img_Animal_1" Width="60" Source="RESSOURCES/axolotl.jpeg" Margin="2" Height="60" Stretch="Fill">
+                                    <Image.OpacityMask>
+                                        <ImageBrush ImageSource="RESSOURCES/rond.png" Stretch="Uniform" TileMode="None" />
+                                    </Image.OpacityMask>
+                                </Image>
+                                <Border Height="70" Width="150" Background="White" HorizontalAlignment="Right" CornerRadius="10" Margin="2">
+                                    <TextBlock Text="{Binding nomCommun}" VerticalAlignment="Center" Margin="5" HorizontalAlignment="Center" FontSize="16" />
+                                </Border>
+                            </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
@@ -87,7 +105,7 @@
         <!--============================================================================-->
 
         <!--Grille d'affichage de l'animal recherché-->
-        <Grid x:Name="Grid_Info" Visibility="Hidden" d:Visibility="Visible" Background="#FF009EE4">
+        <Grid x:Name="Grid_Info" Visibility="Hidden" d:Visibility="Hidden" Background="#FF009EE4">
 
             <Image Margin="-71,382,1199,-50" Source="RESSOURCES/rond-blanc.png" Stretch="Fill"/>
 

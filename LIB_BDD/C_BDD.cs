@@ -66,6 +66,13 @@ public class C_BDD {
 
     }
 
+    public List<C_ESPECE> Get_Especes_By_Region(string P_Region) {
+        using SqlConnection connexion = new SqlConnection(Chaine_Connexion);
+        string query = @"SELECT * FROM especes WHERE idEspece IN (SELECT idEspece FROM region WHERE nomRegion = @Region)";
+
+        return connexion.Query<C_ESPECE>(query,new { Region = P_Region }).ToList();
+    }
+
     public List<C_ESPECE> Get_Espece_By_Name(string P_Nom) {
         P_Nom = P_Nom.ToLower();
         var Especes_Found = new List<C_ESPECE>();

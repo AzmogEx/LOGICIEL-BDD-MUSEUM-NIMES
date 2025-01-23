@@ -1,4 +1,5 @@
 ﻿using LIB_BDD;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,8 +48,8 @@ namespace IHM_BASE {
             Grid_Info.Visibility = Visibility.Hidden;
             Grid_Recherche.Visibility = Visibility.Visible;
             Lstbx_Animaux.DisplayMemberPath = nameof(C_ESPECE.nomCommun);
-            if (SearchBox.Text == "") {
-                Lstbx_Animaux.ClearValue(ItemsControl.ItemsSourceProperty);
+            if (SearchBox.Text.IsNullOrEmpty()) {
+                Lstbx_Animaux.Items.Clear();
             }
         }
 

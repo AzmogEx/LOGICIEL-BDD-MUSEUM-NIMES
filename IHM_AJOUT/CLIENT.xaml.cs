@@ -163,7 +163,7 @@ namespace IHM_BASE {
 
         private void SearchBox_TextChanged(object sender,TextChangedEventArgs e) {
 
-            if(SearchBox.Text.IsNullOrEmpty()) {
+            if(SearchBox.Text == string.Empty) {
                 Lstbx_Animaux.Items.Clear();
             }
 

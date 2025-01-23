@@ -15,9 +15,7 @@
 
 
         <!--Grille de recherche d'animal-->
-        <Grid x:Name="Grid_Recherche" Visibility="Hidden">
-
-
+        <Grid x:Name="Grid_Recherche" Visibility="Visible">
 
             <!-- Grille principale -->
             <Grid Margin="10" VerticalAlignment="Stretch">
@@ -85,7 +83,7 @@ Click="Zone_Click_Antartique" HorizontalAlignment="Left" VerticalAlignment="Top"
         <!--============================================================================-->
 
         <!--Grille d'affichage de l'animal recherché-->
-        <Grid x:Name="Grid_Info" Visibility="Visible" Background="#FF009EE4">
+        <Grid x:Name="Grid_Info" Visibility="Hidden" Background="#FF009EE4">
 
             <Image Margin="-71,392,1221,-50" Source="/rond-blanc.png" Stretch="Fill"/>
 

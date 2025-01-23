@@ -41,8 +41,8 @@ namespace IHM_BASE {
             InitializeComponent();
 
             //Recuperation des especes de la base dans la listbox
-            Lstbx_Animaux.DisplayMemberPath = nameof(C_ESPECE.nomCommun);
-            Lstbx_Animaux.ItemsSource = List_Especes;
+            //Lstbx_Animaux.DisplayMemberPath = nameof(C_ESPECE.nomCommun);
+            //Lstbx_Animaux.ItemsSource = List_Especes;
 
             Grid_Info.Visibility = Visibility.Hidden;
             Grid_Recherche.Visibility = Visibility.Visible;
@@ -88,6 +88,7 @@ namespace IHM_BASE {
             Text_Critere_Menace.Text = Espece_Select.statutEspece;
             Text_UICN.Text = Espece_Select.descUicn;
 
+            //Critere de danger d'extinction uicn rectangle de couleur 
             switch(Text_Critere_Menace.Text) {
                 case "Eteinte (EX)":
                     Txt_UICN_Black.Width = 40;
@@ -120,36 +121,40 @@ namespace IHM_BASE {
             }
         }
         private void Zone_Click_Amerique_Nord(object sender,RoutedEventArgs e) {
-            MessageBox.Show("Amerique du nord");
-
+            var Liste_Animaux_Recuperer = BDD.Get_Especes_By_Region("Amérique du Nord");
+            Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
         }
 
         private void Zone_Click_Amerique_Sud(object sender,RoutedEventArgs e) {
-            MessageBox.Show("Amerique du sud");
-
+            var Liste_Animaux_Recuperer = BDD.Get_Especes_By_Region("Amérique du Sud");
+            Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
         }
 
         private void Zone_Click_Afrique(object sender,RoutedEventArgs e) {
-            MessageBox.Show("afrique");
+            var Liste_Animaux_Recuperer = BDD.Get_Especes_By_Region("Afrique");
+            Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
         }
 
         private void Zone_Click_Europe(object sender,RoutedEventArgs e) {
-            MessageBox.Show("europe");
-
+            var Liste_Animaux_Recuperer = BDD.Get_Especes_By_Region("Europe");
+            Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
         }
 
         private void Zone_Click_Asie(object sender,RoutedEventArgs e) {
-            MessageBox.Show("asie");
+            var Liste_Animaux_Recuperer = BDD.Get_Especes_By_Region("Asie");
+            Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
 
         }
 
         private void Zone_Click_Oceanie(object sender,RoutedEventArgs e) {
-            MessageBox.Show("oceanie");
+            var Liste_Animaux_Recuperer = BDD.Get_Especes_By_Region("Océanie");
+            Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
 
         }
 
         private void Zone_Click_Antartique(object sender,RoutedEventArgs e) {
-            MessageBox.Show("Antartique");
+            var Liste_Animaux_Recuperer = BDD.Get_Especes_By_Region("Antarctique");
+            Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
         }
 
         private void SearchBox_TextChanged(object sender,TextChangedEventArgs e) {

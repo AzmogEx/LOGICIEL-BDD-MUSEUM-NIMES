@@ -91,7 +91,7 @@ Click="Zone_Click_Antartique" HorizontalAlignment="Left" VerticalAlignment="Top"
 
             <Image Margin="0,800,1657,0" Source="/bas-gauche.png" Stretch="Fill"/>
 
-            <Image Margin="-19,80,1606,567" Source="/haut-gauche.png" Stretch="Fill"/>
+            <Image Margin="0,0,1587,647" Source="/haut-gauche.png" Stretch="Fill"/>
 
             <Image Margin="726,330,730,269" Source="/rond.png" Stretch="Fill"/>
 
@@ -99,7 +99,7 @@ Click="Zone_Click_Antartique" HorizontalAlignment="Left" VerticalAlignment="Top"
 
             <Button x:Name="Button_Close" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Height="60" Width="60" Background="Red" FontSize="30" Click="Button_Close_Click"/>
 
-            <StackPanel Margin="40,0,0,100">
+            <StackPanel Margin="300,150,0,0">
                 <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0">
                     <Label x:Name="Label_Famille" Margin="0,0,0,5"   Content="Embranchement" HorizontalContentAlignment="Center" Width="150" Background="{x:Null}" Foreground="#FF2C2E87" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
                     <Label x:Name="Label_Ordre" Margin="0,0,0,5"   Content="Classe" HorizontalContentAlignment="Center" Width="150" Background="{x:Null}" Foreground="#FF2C2E87" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>

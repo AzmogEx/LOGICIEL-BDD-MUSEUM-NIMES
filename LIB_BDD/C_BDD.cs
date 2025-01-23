@@ -77,7 +77,7 @@ public class C_BDD {
         P_Nom = P_Nom.ToLower();
         var Especes_Found = new List<C_ESPECE>();
         foreach(var Espece in Les_Especes) {
-            if(Espece.nomCommun.ToLower().StartsWith(P_Nom)) Especes_Found.Add(Espece);
+            if(Espece.nomCommun.ToLower().Contains(P_Nom)) Especes_Found.Add(Espece);
         }
         return Especes_Found;
     }

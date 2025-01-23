@@ -73,11 +73,11 @@ Click="Zone_Click_Antartique" HorizontalAlignment="Left" VerticalAlignment="Top"
                 </Border>
 
                 <!-- Résultats -->
-                <Border Grid.Column="1" Background="#F5F5F5" Margin="380,5,5,51">
-                    <ListBox x:Name="Lstbx_Animaux" MouseDoubleClick="Lstbx_Animaux_MouseDoubleClick" Margin="10,70,0,122"/>
-                </Border>
-                <TextBox x:Name="SearchBox" Margin="380,10,10,992" Grid.Column="1" TextChanged="SearchBox_TextChanged"/>
             </Grid>
+            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Width="250">
+                <TextBox x:Name="SearchBox" TextChanged="SearchBox_TextChanged" Width="250" Height="30"/>
+                <ListBox x:Name="Lstbx_Animaux" MouseDoubleClick="Lstbx_Animaux_MouseDoubleClick" Width="250" Height="1050"/>
+            </StackPanel>
         </Grid>
 
         <!--============================================================================-->

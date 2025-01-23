@@ -47,6 +47,9 @@ namespace IHM_BASE {
             Grid_Info.Visibility = Visibility.Hidden;
             Grid_Recherche.Visibility = Visibility.Visible;
             Lstbx_Animaux.DisplayMemberPath = nameof(C_ESPECE.nomCommun);
+            if (SearchBox.Text == "") {
+                Lstbx_Animaux.ClearValue(ItemsControl.ItemsSourceProperty);
+            }
         }
 
         private void Button_Close_Click(object sender,RoutedEventArgs e) {

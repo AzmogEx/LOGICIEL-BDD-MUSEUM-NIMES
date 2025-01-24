@@ -5,11 +5,11 @@ using System.Windows.Controls;
 
 namespace IHM_BASE {
 
-    public partial class MainMenu:Window {
+    public partial class Menu:Window {
         private C_BDD BDD = null;
         private List<C_ESPECE> List_Especes;
 
-        public MainMenu() {
+        public Menu() {
             BDD = new();
             List_Especes = new();
             InitializeComponent();
@@ -33,6 +33,7 @@ namespace IHM_BASE {
             bool? result = addWindow.ShowDialog();
             List_Especes = BDD.Get_All_Especes();
             LB_Especes.ItemsSource = List_Especes;
+            LB_Especes.SelectedIndex = 0;
         }
 
         //Button edit d'une espèce
@@ -72,8 +73,8 @@ namespace IHM_BASE {
 
         //Button Creation de compte utilisateur
         private void BTN_CREATE_USER_Click(object sender,RoutedEventArgs e) {
-            var CreateUser = new INSCRIPTION();
-            CreateUser.Show();
+            var Deplace = new INSCRIPTION();
+            Deplace.Show();
         }
 
         private void BTN_COUCOU_CLICK(object sender,RoutedEventArgs e) {
@@ -87,6 +88,7 @@ namespace IHM_BASE {
             bool? result = addWindow.ShowDialog();
             List_Especes = BDD.Get_All_Especes();
             LB_Especes.ItemsSource = List_Especes;
+            LB_Especes.SelectedIndex = 0;
         }
     }
 }

@@ -30,7 +30,7 @@ namespace IHM_BASE {
                 var Ok = La_Base.Connexion(Tbx_User.Text,Tbx_Password.Password);
                 if(Ok == true) {
                     MessageBox.Show("Vous êtes connecté");
-                    var deplace = new  MainMenu();
+                    var deplace = new Menu();
                     deplace.Show();
                     this.Close();
                 }

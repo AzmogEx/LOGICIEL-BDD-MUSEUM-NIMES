@@ -12,15 +12,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace IHM_BASE
-{
+namespace IHM_BASE {
     /// <summary>
     /// Logique d'interaction pour ADD_PARCOURS.xaml
     /// </summary>
-    public partial class ADD_PARCOURS : Window
-    {
-        public ADD_PARCOURS()
-        {
+    public partial class ADD_PARCOURS:Window {
+        public ADD_PARCOURS() {
             InitializeComponent();
         }
     }

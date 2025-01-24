@@ -1,5 +1,8 @@
-﻿using System;
+﻿using LIB_BDD;
+using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,12 +16,38 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace IHM_BASE {
-    /// <summary>
-    /// Logique d'interaction pour ADD_PARCOURS.xaml
-    /// </summary>
+
     public partial class ADD_PARCOURS:Window {
+        private C_BDD BDD = null;
+        private string imgPath;
+
         public ADD_PARCOURS() {
+            BDD = new C_BDD();
             InitializeComponent();
+
+        }
+
+
+        private void ImportImage_Click(object sender,RoutedEventArgs e) {
+            try {
+                OpenFileDialog openFileDialog = new OpenFileDialog {
+                    Filter = "Image files (*.png;*.jpg;*.jpeg)|*.png;*.jpg;*.jpeg",
+                };
+                if(openFileDialog.ShowDialog() == true) {
+                    imgPath = openFileDialog.FileName;
+                    if(ImagePreview.Source == null) {
+                        ImagePreview.Source = new BitmapImage(new Uri(imgPath));
+                        BTN_DeleteImg.IsEnabled = true;
+                    }
+                }
+            } catch(Exception ex) {
+                MessageBox.Show($"Une erreur est survenue : {ex.Message}\n{ex.StackTrace}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
+            }
+        }
+
+        private void BTN_DeleteImg_Click(object sender,RoutedEventArgs e) {
+            ImagePreview.Source = null;
+            BTN_DeleteImg.IsEnabled = false;
         }
     }
 }

@@ -10,10 +10,32 @@
 
     <Grid>
 
-        <Button Content="test" Width="100" Height="100">
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,20">
+                <Label Content="Nom du parcours" HorizontalContentAlignment="Right" Width="150"  Margin="0,0,10,0"/>
+                <TextBox x:Name="TB_NomParcours" Width="200"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                <Label Content="Description du parcours" HorizontalContentAlignment="Right" Width="150" Margin="0,0,10,0"/>
+                <TextBox x:Name="TB_DescParcours" Width="200" Height="200"/>
+            </StackPanel>
+        </StackPanel>
 
-        </Button>
-
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,20,0">
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="BTN_Import" Click="ImportImage_Click" Content="Importer une image" Width="130" Height="38" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Border BorderBrush="Gray" BorderThickness="1" Width="200" Height="200" AllowDrop="True">
+                        <Image x:Name="ImagePreview" Stretch="Uniform" />
+                    </Border>
+                    <Button x:Name="BTN_DeleteImg" IsEnabled="False" Width="38" Height="38" HorizontalAlignment="Right" Click="BTN_DeleteImg_Click">
+                        <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text="&#xE74D;" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 
 </Window>

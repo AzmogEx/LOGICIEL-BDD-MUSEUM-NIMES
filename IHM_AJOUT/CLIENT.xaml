@@ -12,13 +12,17 @@
         FontFamily="Franklin Gothic Medium"
         Title="Musée des Animaux" Height="1080" Width="1920">
     <Grid>
+        <Button x:Name="Btn_Admin" Content="Admin" HorizontalAlignment="Left" Margin="1882,0,0,0" VerticalAlignment="Top" Click="Btn_Admin_Click"/>
 
+        <Grid x:Name="Grid_Parcours" Visibility="Visible">
+            
+        </Grid>
 
         <!--Grille de recherche d'animal-->
-        <Grid x:Name="Grid_Recherche" Visibility="Visible" d:Visibility="Visible">
+        <Grid x:Name="Grid_Recherche" Visibility="Hidden">
 
             <!-- Grille principale -->
-            <Grid Margin="10" VerticalAlignment="Stretch">
+            <Grid Margin="10" VerticalAlignment="Stretch" Visibility="Hidden">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1253*" />
                     <!-- Carte -->
@@ -72,7 +76,7 @@
                 </Border>
             </Grid>
 
-            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Width="250">
+            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Width="250" Visibility="Hidden">
                 <TextBox x:Name="SearchBox" TextChanged="SearchBox_TextChanged" Width="250" Height="30"/>
                 <ListBox x:Name="Lstbx_Animaux" MouseDoubleClick="Lstbx_Animaux_MouseDoubleClick" Width="250" Height="1050">
                     <ListBox.Resources>
@@ -99,7 +103,6 @@
                 </ListBox>
             </StackPanel>
 
-            <Button x:Name="Btn_Admin" Content="Admin" HorizontalAlignment="Left" Margin="1698,1043,0,0" VerticalAlignment="Top" Click="Btn_Admin_Click"/>
         </Grid>
 
         <!--============================================================================-->
@@ -124,13 +127,13 @@
                     <Border Margin="0,0,0,8" CornerRadius="10" Background="#dd8e0b" Width="350" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Label x:Name="Label_Famille" Content="Embranchement" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
                     </Border>
-                    <Border Margin="0,0,0,8" CornerRadius="10" Background="#d3dd0b" Width="285" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Border Margin="0,0,0,8" CornerRadius="10" Background="#d3dd0b" Width="295" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Label x:Name="Label_Ordre" Content="Classe" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
                     </Border>
-                    <Border Margin="0,0,0,8" CornerRadius="10" Background="#94dd0b" Width="220" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Border Margin="0,0,0,8" CornerRadius="10" Background="#94dd0b" Width="240" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Label x:Name="Label_Classe" Content="Ordre" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
                     </Border>
-                    <Border Margin="0,0,0,8" CornerRadius="10" Background="#32dd0b " Width="155" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Border Margin="0,0,0,8" CornerRadius="10" Background="#32dd0b " Width="185" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Label x:Name="Label_Embranchement" Content="Famille" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
                     </Border>
                 </StackPanel>
@@ -189,8 +192,8 @@
                 </Image>
             </StackPanel>
 
-            <!--<Image Source="RESSOURCES/world.png" Margin="845,800,577,25" RenderTransformOrigin="-6.134,0.197" />-->
-            <!--<Label x:Name="Label_Localisation" Content="Pays" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Left" Background="{x:Null}" Margin="1056,1013,0,0" Width="193" FontSize="20" Height="38" Foreground="White"/>-->
+            <Image Source="RESSOURCES/world.png" Margin="845,800,577,25" RenderTransformOrigin="-6.134,0.197" />
+            <Label x:Name="Label_Localisation" Content="Pays" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Left" Background="{x:Null}" Margin="1056,1013,0,0" Width="193" FontSize="20" Height="38" Foreground="White"/>
 
             <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,100,100,0">
                 <Image x:Name="Img_Animal_2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Source="RESSOURCES/axolotl.jpeg">

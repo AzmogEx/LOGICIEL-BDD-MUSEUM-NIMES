@@ -42,6 +42,7 @@ namespace IHM_BASE {
             bool? result = addWindow.ShowDialog();
             List_Especes = BDD.Get_All_Especes();
             LB_Especes.ItemsSource = List_Especes;
+            LB_Especes.SelectedIndex = 0;
         }
 
         //Changement de l'espèce sélectionnée
@@ -66,6 +67,7 @@ namespace IHM_BASE {
             BDD.Delete_Espece( Espece_Select.idEspece );
             List_Especes = BDD.Get_All_Especes();
             LB_Especes.ItemsSource = List_Especes;
+            LB_Especes.SelectedIndex = 0;
         }
 
         //Button Creation de compte utilisateur
@@ -78,6 +80,10 @@ namespace IHM_BASE {
             CLIENT Coucou = new();
             Coucou.Show();
             Close();
+        }
+
+        private void BTN_PARCOURS_Click(object sender,RoutedEventArgs e) {
+
         }
     }
 }

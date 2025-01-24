@@ -211,4 +211,12 @@ public class C_BDD {
             Add_Region(P_Espece.idEspece,P_Regions);
         }
     }
+
+    public void Create_Parcours(int P_idEspece,C_PARCOURS P_Parcours) {
+        using(SqlConnection connexion = new SqlConnection(Chaine_Connexion)) {
+            connexion.Execute("INSERT INTO parcours (idEspece, nomParcours, imgPathParcours) VALUES (@IDESPECE, @NOMPARCOURS, @IMGPATHPARCOURS)",
+            new { IDESPECE = P_idEspece,NOMPARCOURS = P_Parcours.nomParcours,IMGPATHPARCOURS = P_Parcours.imgPathParcours});
+        }
+    }
+
 }

@@ -72,8 +72,8 @@ namespace IHM_BASE {
 
         //Button Creation de compte utilisateur
         private void BTN_CREATE_USER_Click(object sender,RoutedEventArgs e) {
-            var Deplace = new INSCRIPTION();
-            Deplace.Show();
+            var CreateUser = new INSCRIPTION();
+            CreateUser.Show();
         }
 
         private void BTN_COUCOU_CLICK(object sender,RoutedEventArgs e) {
@@ -83,7 +83,10 @@ namespace IHM_BASE {
         }
 
         private void BTN_PARCOURS_Click(object sender,RoutedEventArgs e) {
-
+            var addWindow = new ADD_PARCOURS();
+            bool? result = addWindow.ShowDialog();
+            List_Especes = BDD.Get_All_Especes();
+            LB_Especes.ItemsSource = List_Especes;
         }
     }
 }

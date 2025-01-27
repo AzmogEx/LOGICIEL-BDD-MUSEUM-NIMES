@@ -14,7 +14,7 @@
             <Button x:Name="BTN_ADD" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Ajouter" Padding="10" Click="BTN_ADD_Click" Width="80"/>
             <Button x:Name="BTN_EDIT" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Modifier" Padding="10" Click="BTN_EDIT_Click" Width="80" />
             <Button x:Name="BTN_SUPPR" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Supprimer" Padding="10" Width="80" Click="BTN_SUPPR_Click" />
-            <Button x:Name="BTN_PARCOURS" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Créer un parcours" Padding="10" Width="130" Click="BTN_PARCOURS_Click"/>
+            <Button x:Name="BTN_PARCOURS" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Parcours" Padding="10" Width="80" Click="BTN_PARCOURS_Click"/>
         </StackPanel>
 
         <!--SECTION LISTBOX-->

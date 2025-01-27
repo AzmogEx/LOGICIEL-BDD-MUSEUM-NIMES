@@ -67,5 +67,9 @@ namespace IHM_BASE {
             }
             
         }
+
+        private void LB_Parcours_SelectionChanged(object sender,SelectionChangedEventArgs e) {
+
+        }
     }
 }

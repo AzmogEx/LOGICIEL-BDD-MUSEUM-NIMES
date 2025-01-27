@@ -30,15 +30,7 @@ namespace IHM_BASE {
             BDD = new();
             List<C_ESPECE> List_Especes = new();
 
-            //Verification de la connexion à la base
-            var Etat_Connexion = BDD.Test_Connexion();
-
-            if(Etat_Connexion == null) {
-                List_Especes = BDD.Get_All_Especes();
-            }
-            else {
-                MessageBox.Show($"La connexion à la base de données a échoué : {Etat_Connexion}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
-            }
+            InitialiserConnexion();
 
             //Recuperation des especes de la base dans la listbox
             //Lstbx_Animaux.DisplayMemberPath = nameof(C_ESPECE.nomCommun);
@@ -47,6 +39,21 @@ namespace IHM_BASE {
             Grid_Info.Visibility = Visibility.Hidden;
             Grid_Recherche.Visibility = Visibility.Visible;
 
+        }
+
+        private void InitialiserConnexion() {
+            var Etat_Connexion = BDD.Test_Connexion();
+            if(Etat_Connexion == null) {
+                ChargerEspeces();
+            }
+            else {
+                MessageBox.Show($"La connexion à la base de données a échoué : {Etat_Connexion}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
+            }
+        }
+
+        private void ChargerEspeces() {
+            var List_Especes = BDD.Get_All_Especes();
+            Lstbx_Animaux.ItemsSource = List_Especes;
         }
 
         private void Button_Close_Click(object sender,RoutedEventArgs e) {

@@ -90,5 +90,12 @@ namespace IHM_BASE {
             LB_Especes.ItemsSource = List_Especes;
             LB_Especes.SelectedIndex = 0;
         }
+
+        private void BTN_EDIT_PARCOURS_Click(object sender,RoutedEventArgs e) {
+            EDIT_PARCOURS Edit_Parcours = new();
+
+            Edit_Parcours.Show();
+            Close();
+        }
     }
 }

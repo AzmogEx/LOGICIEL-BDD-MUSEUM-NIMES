@@ -27,7 +27,7 @@
             <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
             <Image Margin="1595,743,0,0" Source="RESSOURCES/bas-droite.png" Stretch="Fill"/>
 
-            <!-- ScrollViewer avec limite de hauteur pour 4 lignes -->
+            <!-- ScrollViewer avec barre de défilement verticale -->
             <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Margin="50" Height="600">
                 <ItemsControl x:Name="ParcoursList" HorizontalAlignment="Center" VerticalAlignment="Top">
                     <ItemsControl.ItemsPanel>
@@ -36,6 +36,7 @@
                             <WrapPanel Orientation="Horizontal" />
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
+
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Border Margin="10" Padding="10" Background="#4976ba" CornerRadius="10" Width="150" Height="150">

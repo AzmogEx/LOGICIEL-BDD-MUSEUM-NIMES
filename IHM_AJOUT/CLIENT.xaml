@@ -40,7 +40,7 @@
                         <Border Margin="10" Padding="10" Background="#4976ba" CornerRadius="10">
                             <StackPanel>
                                 <!-- Image du parcours -->
-                                <Border Margin="10" Padding="10" CornerRadius="10">
+                                <Border CornerRadius="10">
 
                                     <Image Source="{Binding imgPathParcours}" Width="100" Height="100" Stretch="UniformToFill" />
                                 
@@ -52,7 +52,7 @@
                                 <TextBlock Text="{Binding descParcours}" FontStyle="Italic" TextAlignment="Center" TextWrapping="Wrap" Margin="5" />
 
                                 <!-- Bouton pour accéder au parcours -->
-                                <Border Margin="10" Padding="10" CornerRadius="10">
+                                <Border CornerRadius="10">
 
                                     <Button x:Name="Btn_Open_Parcours" Content="Voir le parcours"
                                         Command="{Binding OpenParcoursCommand}" 

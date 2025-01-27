@@ -49,9 +49,12 @@
                                 <TextBlock Text="{Binding descParcours}" FontStyle="Italic" TextAlignment="Center" TextWrapping="Wrap" Margin="5" />
 
                                 <!-- Bouton pour accéder au parcours -->
-                                <Button x:Name="Btn_Open_Parcours" Content="Voir le parcours"
-                                Command="{Binding OpenParcoursCommand}" 
-                                Margin="5,10,5,0" Click="Btn_Open_Parcours_Click" />
+                                <Border Margin="10" Padding="10" CornerRadius="10">
+
+                                    <Button x:Name="Btn_Open_Parcours" Content="Voir le parcours"
+                                        Command="{Binding OpenParcoursCommand}" 
+                                        Margin="5,10,5,0" Click="Btn_Open_Parcours_Click" />
+                                </Border>
                             </StackPanel>
                         </Border>
                     </DataTemplate>

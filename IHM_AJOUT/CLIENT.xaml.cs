@@ -37,8 +37,7 @@ namespace IHM_BASE {
             //Lstbx_Animaux.ItemsSource = List_Especes;
 
             Grid_Info.Visibility = Visibility.Hidden;
-            Grid_Recherche.Visibility = Visibility.Visible;
-
+            Grid_Recherche.Visibility = Visibility.Visible;            
         }
 
         private void InitialiserConnexion() {

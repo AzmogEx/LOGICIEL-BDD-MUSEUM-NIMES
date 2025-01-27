@@ -49,7 +49,6 @@
                                 <TextBlock Text="{Binding descParcours}" FontStyle="Italic" TextAlignment="Center" Foreground="White" TextWrapping="Wrap" Margin="5" />
 
                                 <!-- Bouton pour accéder au parcours -->
-
                                 <Button Background="Purple" x:Name="Btn_Open_Parcours" Width="100" Content="Voir le parcours" Command="{Binding OpenParcoursCommand}" Click="Btn_Open_Parcours_Click" Foreground="White" Height="30" BorderThickness="0">
                                     <Button.Template>
                                         <ControlTemplate TargetType="Button">
@@ -59,7 +58,6 @@
                                         </ControlTemplate>
                                     </Button.Template>
                                 </Button>
-
                             </StackPanel>
                         </Border>
                     </DataTemplate>

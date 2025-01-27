@@ -15,11 +15,17 @@
         <Button x:Name="Btn_Admin" Content="Admin" HorizontalAlignment="Right" VerticalAlignment="Top" Click="Btn_Admin_Click" Height="61" Width="88"/>
 
         <!--============================================================================-->
-        
+
         <!--Grille Parcours -->
 
 
-        <Grid x:Name="Grid_Parcours" Visibility="Visible">
+        <Grid x:Name="Grid_Parcours" Visibility="Visible" Background="#FF009EE4">
+            <Image Margin="0,800,1657,0" Source="RESSOURCES/bas-gauche.png" Stretch="Fill"/>
+            <Image Margin="0,0,1587,647" Source="RESSOURCES/haut-gauche.png" Stretch="Fill"/>
+            <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
+            <Image Margin="1595,743,0,0" Source="RESSOURCES/bas-droite.png" Stretch="Fill"/>
+
+
             <ItemsControl x:Name="ParcoursList" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -28,7 +34,10 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Border Margin="10" Padding="10" Background="LightGray" CornerRadius="10">
+                        <Border Margin="10" Padding="10" CornerRadius="10">
+                            <Border.Background>
+                                <ImageBrush ImageSource="/RESSOURCES/rond.png"/>
+                            </Border.Background>
                             <StackPanel>
                                 <!-- Image du parcours -->
                                 <Image Source="{Binding imgPathParcours}" Width="100" Height="100" Stretch="UniformToFill" />

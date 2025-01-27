@@ -40,9 +40,11 @@ namespace IHM_BASE {
             CB_PARCOURS.ItemsSource = BDD.Get_All_Parcours();
             CB_PARCOURS.DisplayMemberPath = nameof(C_PARCOURS.nomParcours);
 
+            //Alimentation de la listBox des régions
             imagePaths = BDD.Get_Img_By_ID(IDEspece);
             GetRegions = BDD.Get_Region_By_ID(IDEspece);
 
+            //Alimentation des informations de l'espèce
             TB_Nom.Text = Espece.nomCommun;
             TB_NomScient.Text = Espece.nomScientifique;
             CB_Statut.Text = Espece.statutEspece;
@@ -79,7 +81,6 @@ namespace IHM_BASE {
                 LB_Region.SelectionChanged += LB_Region_SelectionChanged; // Réactiver l'événement
             }
 
-
             try {
                 foreach(var imagePath in imagePaths) {
                     if(!string.IsNullOrWhiteSpace(imagePath) && File.Exists(imagePath)) {
@@ -110,6 +111,7 @@ namespace IHM_BASE {
 
         }
 
+        //Glisser déposer d'image
         private void ImportImage_Click(object sender,RoutedEventArgs e) {
             try {
                 OpenFileDialog openFileDialog = new OpenFileDialog {
@@ -224,18 +226,21 @@ namespace IHM_BASE {
             Close();
         }
 
+        //Premier boutton de suppression d'image
         private void BTN_DeleteImg_Click(object sender,RoutedEventArgs e) {
             ImagePreview.Source = null;
             BTN_DeleteImg.IsEnabled = false;
             Path = null;
         }
 
+        //Deuxieme boutton de suppression d'image
         private void BTN_DeleteImg1_Click(object sender,RoutedEventArgs e) {
             ImagePreview1.Source = null;
             BTN_DeleteImg1.IsEnabled = false;
             Path1 = null;
         }
 
+        //Troisieme boutton de suppression d'image
         private void BTN_DeleteImg2_Click(object sender,RoutedEventArgs e) {
             ImagePreview2.Source = null;
             BTN_DeleteImg2.IsEnabled = false;

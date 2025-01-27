@@ -27,7 +27,12 @@ namespace IHM_AJOUT {
             BDD = new();
             ListPath = new();
             Regions = new();
+
             InitializeComponent();
+            CB_PARCOURS.ItemsSource = BDD.Get_All_Parcours();
+            CB_PARCOURS.DisplayMemberPath = nameof(C_PARCOURS.nomParcours);
+
+
         }
 
         private void ImportImage_Click(object sender,RoutedEventArgs e) {
@@ -150,8 +155,9 @@ namespace IHM_AJOUT {
                     MessageBox.Show("Erreur : Veuillez vérifier les données entrées sur la taille");
                 }
 
+                var Coucou = CB_PARCOURS.SelectedItem as C_PARCOURS;
 
-                BDD.Add_Espece(Espece, ListPath, Regions);
+                BDD.Add_Espece(Espece, ListPath, Regions, Coucou);
                 ListPath = new();
                 MessageBox.Show("L'espèce a été ajoutée avec succès.","Succès",MessageBoxButton.OK,MessageBoxImage.Information);
             } catch(Exception ex) {

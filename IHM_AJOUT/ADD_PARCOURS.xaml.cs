@@ -62,8 +62,8 @@ namespace IHM_BASE {
                     imgPathParcours = Path
                 };
                 BDD.Create_Parcours(Parcours);
-                ////MessageBox.Show($"Le parcours '{Parcours.nomParcours}' a été ajouté avec succès.","Succès",MessageBoxButton.OK,MessageBoxImage.Information);
-                ////Close();
+                MessageBox.Show($"Le parcours '{Parcours.nomParcours}' a été ajouté avec succès.","Succès",MessageBoxButton.OK,MessageBoxImage.Information);
+                Close();
             } catch(Exception ex) {
                 MessageBox.Show($"Une erreur est survenue : {ex.Message}\n{ex.StackTrace}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
             }

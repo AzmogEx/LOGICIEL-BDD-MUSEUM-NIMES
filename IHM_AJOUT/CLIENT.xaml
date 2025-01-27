@@ -36,7 +36,7 @@
                             <WrapPanel.Style>
                                 <Style TargetType="WrapPanel">
                                     <Style.Triggers>
-                                        <DataTrigger Binding="{Binding ElementName=ParcoursList, Path=Items.Count}" Value="30">
+                                        <DataTrigger Binding="{Binding ElementName=ParcoursList, Path=Items.Count}" Value="20">
                                             <Setter Property="Orientation" Value="Vertical"/>
                                         </DataTrigger>
                                     </Style.Triggers>
@@ -47,7 +47,7 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Border Margin="10" Padding="10" Background="#4976ba" CornerRadius="10">
+                        <Border Margin="10" Padding="10" Width="200" Background="#4976ba" CornerRadius="10">
                             <StackPanel>
                                 <StackPanel>
                                     <!-- Image du parcours -->

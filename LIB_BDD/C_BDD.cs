@@ -112,7 +112,7 @@ public class C_BDD {
 
     }
 
-    public void Add_Espece(C_ESPECE P_Espece,List<string> P_ImgPath, List<string> P_Regions) {
+    public void Add_Espece(C_ESPECE P_Espece,List<string> P_ImgPath, List<string> P_Regions, C_PARCOURS P_Parcours) {
 
         try {
             using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
@@ -139,7 +139,7 @@ public class C_BDD {
                     DESCUICN = P_Espece.descUicn,
                     DESCPRES = P_Espece.descPres,
                     NUMINVENTAIRE = P_Espece.numInventaire,
-                    IDPARCOURS = P_Espece.idParcours
+                    IDPARCOURS = P_Parcours.idParcours
                 });
             int ID = Connexion.QuerySingle<int>("SELECT TOP 1 idEspece FROM especes ORDER BY idEspece DESC;");
 

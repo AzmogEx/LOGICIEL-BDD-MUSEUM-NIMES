@@ -155,9 +155,9 @@ namespace IHM_AJOUT {
                     MessageBox.Show("Erreur : Veuillez vérifier les données entrées sur la taille");
                 }
 
-                var Coucou = CB_PARCOURS.SelectedItem as C_PARCOURS;
+                var Item_Selectionnee = CB_PARCOURS.SelectedItem as C_PARCOURS;
 
-                BDD.Add_Espece(Espece, ListPath, Regions, Coucou);
+                BDD.Add_Espece(Espece, ListPath, Regions,Item_Selectionnee);
                 ListPath = new();
                 MessageBox.Show("L'espèce a été ajoutée avec succès.","Succès",MessageBoxButton.OK,MessageBoxImage.Information);
             } catch(Exception ex) {

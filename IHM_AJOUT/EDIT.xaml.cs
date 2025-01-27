@@ -211,8 +211,10 @@ namespace IHM_BASE {
                 MessageBox.Show("Erreur : Veuillez vérifier les données entrées sur la taille");
             }
 
+            var Item_Selectionnee = CB_PARCOURS.SelectedItem as C_PARCOURS;
+
             try {
-                BDD.Edit_Espece(P_Espece,ListPath, Regions);
+                BDD.Edit_Espece(P_Espece,ListPath, Regions,Item_Selectionnee);
             } catch(Exception ex) {
                 MessageBox.Show($"Erreur lors de la modification de l'espèce : {ex.Message}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
                 return;

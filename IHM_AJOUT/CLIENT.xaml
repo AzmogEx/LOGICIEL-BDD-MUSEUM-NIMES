@@ -59,7 +59,6 @@
                                         </ControlTemplate>
                                     </Button.Template>
                                 </Button>
-
                             </StackPanel>
                         </Border>
                     </DataTemplate>

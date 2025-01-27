@@ -53,7 +53,7 @@
                                 <Button Background="Purple" x:Name="Btn_Open_Parcours" Content="Voir" Command="{Binding OpenParcoursCommand}" Click="Btn_Open_Parcours_Click" Foreground="White" Width="50" Height="50" BorderThickness="0">
                                     <Button.Template>
                                         <ControlTemplate TargetType="Button">
-                                            <Border Background="{TemplateBinding Background}" CornerRadius="25" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                            <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}" />
                                             </Border>
                                         </ControlTemplate>

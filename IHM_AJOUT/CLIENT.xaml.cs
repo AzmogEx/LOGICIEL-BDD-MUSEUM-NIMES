@@ -45,6 +45,7 @@ namespace IHM_BASE {
             var Etat_Connexion = BDD.Test_Connexion();
             if(Etat_Connexion == null) {
                 ChargerEspeces();
+                ChargerParcours();
             }
             else {
                 MessageBox.Show($"La connexion à la base de données a échoué : {Etat_Connexion}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
@@ -54,6 +55,11 @@ namespace IHM_BASE {
         private void ChargerEspeces() {
             var List_Especes = BDD.Get_All_Especes();
             Lstbx_Animaux.ItemsSource = List_Especes;
+        }
+
+        private void ChargerParcours() {
+            var List_Parcours = BDD.Get_All_Parcours();
+            ParcoursList.ItemsSource = List_Parcours;
         }
 
         private void Button_Close_Click(object sender,RoutedEventArgs e) {
@@ -198,6 +204,17 @@ namespace IHM_BASE {
             Menu mainMenu = new();
             mainMenu.Show();
             Close();
+        }
+
+        private void Btn_Open_Parcours_Click(object sender,RoutedEventArgs e) {
+            // Récupération des données liées au bouton cliqué
+            var bouton = sender as Button;
+            var parcours = bouton?.DataContext as C_PARCOURS;
+
+            if(parcours != null) {
+                // Affichez les détails ou effectuez une action pour ce parcours
+                MessageBox.Show($"Parcours sélectionné : {parcours.nomParcours}\n{parcours.descParcours}","Détails du parcours");
+            }
         }
     }
 }

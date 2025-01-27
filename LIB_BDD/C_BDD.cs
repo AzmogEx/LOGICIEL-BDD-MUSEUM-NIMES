@@ -169,7 +169,7 @@ public class C_BDD {
     }
 
 
-    public void Edit_Espece(C_ESPECE P_Espece,List<string> P_ImgPaths, List<string> P_Regions) {
+    public void Edit_Espece(C_ESPECE P_Espece,List<string> P_ImgPaths, List<string> P_Regions, C_PARCOURS P_Parcours) {
         using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
         string[] OldImgPaths = Get_Img_By_ID(P_Espece.idEspece);
         string[] OldListRegion = Get_Region_By_ID(P_Espece.idEspece);
@@ -202,7 +202,7 @@ public class C_BDD {
                 DESCPRES = P_Espece.descPres,
                 NUMINVENTAIRE = P_Espece.numInventaire,
                 IDESPECE = P_Espece.idEspece,
-                IDPARCOURS = P_Espece.idParcours
+                IDPARCOURS = P_Parcours.idParcours
             });
 
         if(OldImgPaths != P_ImgPaths.ToArray()) {

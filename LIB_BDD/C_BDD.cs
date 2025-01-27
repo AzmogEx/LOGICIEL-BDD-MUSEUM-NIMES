@@ -116,8 +116,8 @@ public class C_BDD {
 
         try {
             using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
-            Connexion.Execute($"insert into especes(nomCommun, nomScientifique, statutEspece, tailleMin, tailleMax, uniteTaille, poidsMin, poidsMax, unitePoids, dureeVieMin, dureeVieMax, habitat, embranchement, classe, ordre, famille, description, descUicn, descPres, numInventaire) " +
-                $"VALUES (@NOMCOMMUN, @NOMSCIENT, @STATUTESPECE, @TAILLEMIN, @TAILLEMAX, @UNITETAILLE, @POIDSMIN, @POIDSMAX, @UNITEPOIDS, @DUREEVIEMIN, @DUREEVIEMAX, @HABITAT, @EMBRANCHEMENT, @CLASSE, @ORDRE, @FAMILLE, @DESCRIPTION, @DESCUICN, @DESCPRES, @NUMINVENTAIRE);",
+            Connexion.Execute($"insert into especes(nomCommun, nomScientifique, statutEspece, tailleMin, tailleMax, uniteTaille, poidsMin, poidsMax, unitePoids, dureeVieMin, dureeVieMax, habitat, embranchement, classe, ordre, famille, description, descUicn, descPres, numInventaire, idParcours) " +
+                $"VALUES (@NOMCOMMUN, @NOMSCIENT, @STATUTESPECE, @TAILLEMIN, @TAILLEMAX, @UNITETAILLE, @POIDSMIN, @POIDSMAX, @UNITEPOIDS, @DUREEVIEMIN, @DUREEVIEMAX, @HABITAT, @EMBRANCHEMENT, @CLASSE, @ORDRE, @FAMILLE, @DESCRIPTION, @DESCUICN, @DESCPRES, @NUMINVENTAIRE, @IDPARCOURS);",
                 new {
                     NOMCOMMUN = P_Espece.nomCommun,
                     NOMSCIENT = P_Espece.nomScientifique,
@@ -138,7 +138,8 @@ public class C_BDD {
                     DESCRIPTION = P_Espece.description,
                     DESCUICN = P_Espece.descUicn,
                     DESCPRES = P_Espece.descPres,
-                    NUMINVENTAIRE = P_Espece.numInventaire
+                    NUMINVENTAIRE = P_Espece.numInventaire,
+                    IDPARCOURS = P_Espece.idParcours
                 });
             int ID = Connexion.QuerySingle<int>("SELECT TOP 1 idEspece FROM especes ORDER BY idEspece DESC;");
 
@@ -178,7 +179,7 @@ public class C_BDD {
             "poidsMin = @POIDSMIN, poidsMax = @POIDSMAX, unitePoids = @UNITEPOIDS, dureeVieMin = @DUREEVIEMIN, " +
             "dureeVieMax = @DUREEVIEMAX, habitat = @HABITAT, embranchement = @EMBRANCHEMENT, classe = @CLASSE, " +
             "ordre = @ORDRE, famille = @FAMILLE, description = @DESCRIPTION, descUicn = @DESCUICN, descPres = @DESCPRES, " +
-            "numInventaire = @NUMINVENTAIRE where idEspece = @IDESPECE",
+            "numInventaire = @NUMINVENTAIRE, idParcours = @IDPARCOURS where idEspece = @IDESPECE",
             new {
                 NOMCOMMUN = P_Espece.nomCommun,
                 NOMSCIENT = P_Espece.nomScientifique,
@@ -200,7 +201,8 @@ public class C_BDD {
                 DESCUICN = P_Espece.descUicn,
                 DESCPRES = P_Espece.descPres,
                 NUMINVENTAIRE = P_Espece.numInventaire,
-                IDESPECE = P_Espece.idEspece
+                IDESPECE = P_Espece.idEspece,
+                IDPARCOURS = P_Espece.idParcours
             });
 
         if(OldImgPaths != P_ImgPaths.ToArray()) {

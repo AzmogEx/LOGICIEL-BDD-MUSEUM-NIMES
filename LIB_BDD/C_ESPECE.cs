@@ -28,4 +28,5 @@ public class C_ESPECE {
     public string descUicn { get; set; }
     public string descPres { get; set; }
     public string numInventaire { get; set; }
+    public int idParcours { get; set; }
 }

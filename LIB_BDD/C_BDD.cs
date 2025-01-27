@@ -212,10 +212,10 @@ public class C_BDD {
         }
     }
 
-    public void Create_Parcours(int P_idEspece,C_PARCOURS P_Parcours) {
+    public void Create_Parcours(C_PARCOURS P_Parcours) {
         using(SqlConnection connexion = new SqlConnection(Chaine_Connexion)) {
-            connexion.Execute("INSERT INTO parcours (idEspece, nomParcours, imgPathParcours, descParcours) VALUES (@IDESPECE, @NOMPARCOURS, @IMGPATHPARCOURS, @DESCPARCOURS)",
-            new { IDESPECE = P_idEspece,NOMPARCOURS = P_Parcours.nomParcours,IMGPATHPARCOURS = P_Parcours.imgPathParcours,DESCPARCOURS = P_Parcours.descParcours});
+            connexion.Execute("INSERT INTO parcours (nomParcours, imgPathParcours, descParcours) VALUES (@NOMPARCOURS, @IMGPATHPARCOURS, @DESCPARCOURS)",
+            new { NOMPARCOURS = P_Parcours.nomParcours,IMGPATHPARCOURS = P_Parcours.imgPathParcours,DESCPARCOURS = P_Parcours.descParcours});
         }
     }
 

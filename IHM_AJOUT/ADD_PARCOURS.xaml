@@ -36,6 +36,9 @@
                 </StackPanel>
             </StackPanel>
         </StackPanel>
+
+        <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Créer un parcours" Padding="10" Margin="20" Click="Button_Click"/>
+
     </Grid>
 
 </Window>

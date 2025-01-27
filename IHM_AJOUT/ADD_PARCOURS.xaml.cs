@@ -20,6 +20,7 @@ namespace IHM_BASE {
     public partial class ADD_PARCOURS:Window {
         private C_BDD BDD = null;
         private string imgPath;
+        private string Path;
 
         public ADD_PARCOURS() {
             BDD = new C_BDD();
@@ -35,6 +36,7 @@ namespace IHM_BASE {
                 };
                 if(openFileDialog.ShowDialog() == true) {
                     imgPath = openFileDialog.FileName;
+                    Path = imgPath;
                     if(ImagePreview.Source == null) {
                         ImagePreview.Source = new BitmapImage(new Uri(imgPath));
                         BTN_DeleteImg.IsEnabled = true;
@@ -48,6 +50,15 @@ namespace IHM_BASE {
         private void BTN_DeleteImg_Click(object sender,RoutedEventArgs e) {
             ImagePreview.Source = null;
             BTN_DeleteImg.IsEnabled = false;
+        }
+
+        private void Button_Click(object sender,RoutedEventArgs e) {
+            var Parcours = new C_PARCOURS() {
+                nomParcours = TB_NomParcours.Text,
+                descParcours = TB_DescParcours.Text,
+                imgPathParcours = Path
+            };
+            BDD.Create_Parcours(Parcours);
         }
     }
 }

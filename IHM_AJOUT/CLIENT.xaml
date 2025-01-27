@@ -40,8 +40,11 @@
                         <Border Margin="10" Padding="10" Background="#4976ba" CornerRadius="10">
                             <StackPanel>
                                 <!-- Image du parcours -->
-                                <Image Source="{Binding imgPathParcours}" Width="100" Height="100" Stretch="UniformToFill" />
+                                <Border Margin="10" Padding="10" CornerRadius="10">
 
+                                    <Image Source="{Binding imgPathParcours}" Width="100" Height="100" Stretch="UniformToFill" />
+                                
+                                </Border>
                                 <!-- Nom du parcours -->
                                 <TextBlock Text="{Binding nomParcours}" FontWeight="Bold" TextAlignment="Center" Margin="5" />
 

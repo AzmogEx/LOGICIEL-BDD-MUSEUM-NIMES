@@ -14,6 +14,7 @@ public class C_BDD {
 
     const string Chaine_Connexion = "Server=tcp:service.adam-marzuk.fr;Initial Catalog=animaux;Persist Security Info=False;User ID=stage;Password=Museum123.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;";
     List<C_ESPECE> Les_Especes = new List<C_ESPECE>();
+    List<C_PARCOURS> Les_Parcours = new List<C_PARCOURS>();
 
     public Exception Test_Connexion() {
         Exception ok = null;
@@ -219,4 +220,11 @@ public class C_BDD {
         }
     }
 
+    public List<C_PARCOURS> Get_All_Parcours() {
+
+        using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
+        Les_Parcours = Connexion.Query<C_PARCOURS>("select * from parcours").ToList();
+        return Les_Parcours;
+
+    }
 }

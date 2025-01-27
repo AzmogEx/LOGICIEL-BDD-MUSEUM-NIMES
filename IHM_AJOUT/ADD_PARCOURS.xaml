@@ -37,7 +37,7 @@
             </StackPanel>
         </StackPanel>
 
-        <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Créer un parcours" Padding="10" Margin="20" Click="Button_Click"/>
+        <Button HorizontalAlignment="Right" x:Name="BTN_AJOUT" VerticalAlignment="Bottom" Content="Créer un parcours" Padding="10" Margin="20" Click="BTN_AJOUT_Click"/>
 
     </Grid>
 

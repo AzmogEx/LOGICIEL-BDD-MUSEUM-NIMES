@@ -28,7 +28,6 @@
 
             <Image Margin="1595,743,0,0" Source="RESSOURCES/bas-droite.png" Stretch="Fill"/>
 
-
             <ItemsControl x:Name="ParcoursList" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>

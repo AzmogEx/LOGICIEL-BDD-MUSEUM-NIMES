@@ -36,6 +36,7 @@ namespace IHM_AJOUT {
         }
 
         private void ImportImage_Click(object sender,RoutedEventArgs e) {
+            //permet d'importer de 1 à 3 images
             try {
                 OpenFileDialog openFileDialog = new OpenFileDialog {
                     Filter = "Image files (*.png;*.jpg;*.jpeg)|*.png;*.jpg;*.jpeg",
@@ -44,6 +45,7 @@ namespace IHM_AJOUT {
                 if(openFileDialog.ShowDialog() == true) {
                     imagePaths = openFileDialog.FileNames;
                     foreach(var imagePath in imagePaths) {
+                        //Pour chacune des images, si des images sont sélectionnées, crée un aperçu sur la fenêtre et sauvegarde le chemin d'accès de l'image
                         if(ImagePreview.Source == null) {
                             ImagePreview.Source = new BitmapImage(new Uri(imagePath));
                             BTN_DeleteImg.IsEnabled = true;
@@ -68,6 +70,7 @@ namespace IHM_AJOUT {
 
         private void BTN_Add_Click(object sender,RoutedEventArgs e) {
             try {
+                //Vérifications que les champs ne contiennent pas de valeurs inappropriées 
                 if(string.IsNullOrEmpty(TB_Nom.Text) || string.IsNullOrEmpty(TB_NomScient.Text)) {
                     MessageBox.Show("Le nom commun et le nom scientifique sont obligatoires.","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
                     return;
@@ -100,6 +103,8 @@ namespace IHM_AJOUT {
                     return;
                 }
 
+                //si des images sont chargées, et donc que les chemins ne sont pas nuls, alors on les sauvegarde dans une liste
+
                 if(Path != null) {
                     ListPath.Add(Path);
                 }
@@ -122,6 +127,7 @@ namespace IHM_AJOUT {
                             int.TryParse(TB_AgeMin.Text,out int DureeVieMin);
                             int.TryParse(TB_AgeMax.Text,out int DureeVieMax);
 
+                            //initialisation du type C_ESPECE avec les données rentrées par l'utilisateur
                             Espece = new C_ESPECE() {
                                 nomCommun = TB_Nom.Text,
                                 nomScientifique = TB_NomScient.Text,
@@ -155,16 +161,17 @@ namespace IHM_AJOUT {
                     MessageBox.Show("Erreur : Veuillez vérifier les données entrées sur la taille");
                 }
 
-                var Item_Selectionnee = CB_PARCOURS.SelectedItem as C_PARCOURS;
+                var Item_Selectionnee = CB_PARCOURS.SelectedItem as C_PARCOURS; //permet de lié un parcours à une espèce
 
-                BDD.Add_Espece(Espece, ListPath, Regions,Item_Selectionnee);
-                ListPath = new();
+                BDD.Add_Espece(Espece, ListPath, Regions, Item_Selectionnee);
                 MessageBox.Show("L'espèce a été ajoutée avec succès.","Succès",MessageBoxButton.OK,MessageBoxImage.Information);
+                Close();
             } catch(Exception ex) {
                 MessageBox.Show($"Une erreur est survenue : {ex.Message}\n{ex.StackTrace}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
             }
         }
 
+        //supprimer une image chargée précédemment
         private void BTN_DeleteImg_Click(object sender,RoutedEventArgs e) {
             ImagePreview.Source = null;
             BTN_DeleteImg.IsEnabled = false;
@@ -183,6 +190,8 @@ namespace IHM_AJOUT {
             Path2 = null;
         }
 
+
+        //assignation d'une ou plusieurs régions à une espèce
         private void LB_Region_SelectionChanged(object sender,SelectionChangedEventArgs e) {
             foreach(var item in e.AddedItems) {
                 string region = item.ToString();

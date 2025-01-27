@@ -40,23 +40,21 @@
                         <Border Margin="10" Padding="10" Background="#4976ba" CornerRadius="10">
                             <StackPanel>
                                 <!-- Image du parcours -->
-                                <Border CornerRadius="10">
-
-                                    <Image Source="{Binding imgPathParcours}" Width="100" Height="100" Stretch="UniformToFill" />
+                                <Image Source="{Binding imgPathParcours}" Width="100" Height="100" Stretch="UniformToFill" />
                                 
-                                </Border>
                                 <!-- Nom du parcours -->
-                                <TextBlock Text="{Binding nomParcours}" FontWeight="Bold" TextAlignment="Center" Margin="5" />
+                                <TextBlock Text="{Binding nomParcours}" FontWeight="Bold" TextAlignment="Center" Foreground="White" FontSize="20" Margin="5" />
 
                                 <!-- Description -->
-                                <TextBlock Text="{Binding descParcours}" FontStyle="Italic" TextAlignment="Center" TextWrapping="Wrap" Margin="5" />
+                                <TextBlock Text="{Binding descParcours}" FontStyle="Italic" TextAlignment="Center" Foreground="White" TextWrapping="Wrap" Margin="5" />
 
                                 <!-- Bouton pour accéder au parcours -->
                                 <Border CornerRadius="10">
 
-                                    <Button x:Name="Btn_Open_Parcours" Content="Voir le parcours"
+                                    <Button Background="Purple" x:Name="Btn_Open_Parcours" Content="Voir le parcours"
                                         Command="{Binding OpenParcoursCommand}" 
-                                        Margin="5,10,5,0" Click="Btn_Open_Parcours_Click" />
+                                        Margin="5,10,5,0" Click="Btn_Open_Parcours_Click" Foreground="White" />
+                                    
                                 </Border>
                             </StackPanel>
                         </Border>

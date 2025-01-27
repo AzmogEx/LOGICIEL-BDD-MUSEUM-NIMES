@@ -50,7 +50,7 @@
 
                                 <!-- Bouton pour accéder au parcours -->
 
-                                <Button Background="Purple" x:Name="Btn_Open_Parcours" Width="75" Content="Voir le parcours" Command="{Binding OpenParcoursCommand}" Click="Btn_Open_Parcours_Click" Foreground="White" Height="50" BorderThickness="0">
+                                <Button Background="Purple" x:Name="Btn_Open_Parcours" Width="100" Content="Voir le parcours" Command="{Binding OpenParcoursCommand}" Click="Btn_Open_Parcours_Click" Foreground="White" Height="50" BorderThickness="0">
                                     <Button.Template>
                                         <ControlTemplate TargetType="Button">
                                             <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">

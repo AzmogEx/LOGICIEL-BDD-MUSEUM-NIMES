@@ -49,13 +49,17 @@
                                 <TextBlock Text="{Binding descParcours}" FontStyle="Italic" TextAlignment="Center" Foreground="White" TextWrapping="Wrap" Margin="5" />
 
                                 <!-- Bouton pour accéder au parcours -->
-                                <Border Padding="10" CornerRadius="50">
 
-                                    <Button Background="Purple" x:Name="Btn_Open_Parcours" Content="Voir le parcours"
-                                        Command="{Binding OpenParcoursCommand}" 
-                                        Margin="5,10,5,0" Click="Btn_Open_Parcours_Click" Foreground="White" />
-                                    
-                                </Border>
+                                <Button Background="Purple" x:Name="Btn_Open_Parcours" Content="Voir" Command="{Binding OpenParcoursCommand}" Click="Btn_Open_Parcours_Click" Foreground="White" Width="50" Height="50" BorderThickness="0">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}" CornerRadius="25" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}" />
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+
                             </StackPanel>
                         </Border>
                     </DataTemplate>

@@ -29,10 +29,10 @@ namespace IHM_AJOUT {
             Regions = new();
 
             InitializeComponent();
+
+            //Alimentation de la comboBox des parcours
             CB_PARCOURS.ItemsSource = BDD.Get_All_Parcours();
             CB_PARCOURS.DisplayMemberPath = nameof(C_PARCOURS.nomParcours);
-
-
         }
 
         private void ImportImage_Click(object sender,RoutedEventArgs e) {

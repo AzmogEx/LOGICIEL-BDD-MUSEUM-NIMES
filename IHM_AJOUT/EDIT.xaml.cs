@@ -35,6 +35,11 @@ namespace IHM_BASE {
             IDEspece = Espece.idEspece;
             Regions = new();
             InitializeComponent();
+
+            //Alimentation de la comboBox des parcours
+            CB_PARCOURS.ItemsSource = BDD.Get_All_Parcours();
+            CB_PARCOURS.DisplayMemberPath = nameof(C_PARCOURS.nomParcours);
+
             imagePaths = BDD.Get_Img_By_ID(IDEspece);
             GetRegions = BDD.Get_Region_By_ID(IDEspece);
 

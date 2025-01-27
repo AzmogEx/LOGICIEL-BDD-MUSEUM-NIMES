@@ -9,8 +9,10 @@
         WindowStartupLocation="CenterScreen">
 
     <Grid>
+        <ListBox Width="200" HorizontalAlignment="Left" x:Name="LB_Parcours" SelectionChanged="LB_Parcours_SelectionChanged"/>
+        <Button x:Name="BTN_SUPPR" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Supprimer" Padding="10" Width="80" Click="BTN_SUPPR_Click" />
 
-        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Vertical">
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Vertical" Margin="234,12,0,0">
             <StackPanel Orientation="Horizontal" Margin="0,20,0,20">
                 <Label Content="Nom du parcours" HorizontalContentAlignment="Right" Width="150"  Margin="0,0,10,0"/>
                 <TextBox x:Name="TB_NomParcours" Width="200"/>

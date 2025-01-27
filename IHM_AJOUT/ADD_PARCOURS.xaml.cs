@@ -26,6 +26,8 @@ namespace IHM_BASE {
             BDD = new C_BDD();
             InitializeComponent();
 
+            LB_Parcours.ItemsSource = BDD.Get_All_Parcours();
+            LB_Parcours.DisplayMemberPath = nameof(C_PARCOURS.nomParcours);
         }
 
 
@@ -60,12 +62,35 @@ namespace IHM_BASE {
                     imgPathParcours = Path
                 };
                 BDD.Create_Parcours(Parcours);
-                MessageBox.Show($"Le parcours '{Parcours.nomParcours}' a été ajouté avec succès.","Succès",MessageBoxButton.OK,MessageBoxImage.Information);
-                Close();
+                ////MessageBox.Show($"Le parcours '{Parcours.nomParcours}' a été ajouté avec succès.","Succès",MessageBoxButton.OK,MessageBoxImage.Information);
+                ////Close();
             } catch(Exception ex) {
                 MessageBox.Show($"Une erreur est survenue : {ex.Message}\n{ex.StackTrace}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
             }
             
+        }
+
+        private void LB_Parcours_SelectionChanged(object sender,SelectionChangedEventArgs e) {
+            C_PARCOURS Parcours_Select = LB_Parcours.SelectedItem as C_PARCOURS;
+        }
+
+        private void BTN_SUPPR_Click(object sender,RoutedEventArgs e) {
+            C_PARCOURS Parcours_Select = LB_Parcours.SelectedItem as C_PARCOURS;
+            var result = MessageBox.Show(
+                    $"Voulez vous vraiment supprimer {Parcours_Select.nomParcours}? Cette action est irréversible.",
+                    "Confirmation",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question
+                );
+
+            if(result == MessageBoxResult.No) {
+                return;
+            }
+
+            BDD.Delete_Parcours(Parcours_Select.idParcours);
+            var List_Parcours = BDD.Get_All_Parcours();
+            LB_Parcours.ItemsSource = List_Parcours;
+            LB_Parcours.SelectedIndex = 0;
         }
     }
 }

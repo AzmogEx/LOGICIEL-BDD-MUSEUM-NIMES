@@ -109,7 +109,16 @@ public class C_BDD {
         } catch(Exception) {
             throw;
         }
+    }
 
+    public void Delete_Parcours(int P_Parcours) {
+        try {
+            using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
+            Connexion.Execute("delete from parcours where idParcours = @IDPARCOURS",new { IDPARCOURS = P_Parcours });
+            Connexion.Execute("update especes set idParcours = NULL where especes.idParcours = @IDPARCOURS",new { IDPARCOURS = P_Parcours });
+        } catch(Exception) {
+            throw;
+        }
     }
 
     public void Add_Espece(C_ESPECE P_Espece,List<string> P_ImgPath, List<string> P_Regions, C_PARCOURS P_Parcours) {

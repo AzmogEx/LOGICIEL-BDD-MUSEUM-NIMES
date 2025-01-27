@@ -14,9 +14,43 @@
     <Grid>
         <Button x:Name="Btn_Admin" Content="Admin" HorizontalAlignment="Right" VerticalAlignment="Top" Click="Btn_Admin_Click" Height="61" Width="88"/>
 
-        <Grid x:Name="Grid_Parcours" Visibility="Visible">
+        <!--============================================================================-->
+        
+        <!--Grille Parcours -->
 
+
+        <Grid x:Name="Grid_Parcours" Visibility="Visible">
+            <ItemsControl x:Name="ParcoursList" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="10" Padding="10" Background="LightGray" CornerRadius="10">
+                            <StackPanel>
+                                <!-- Image du parcours -->
+                                <Image Source="{Binding imgPathParcours}" Width="100" Height="100" Stretch="UniformToFill" />
+
+                                <!-- Nom du parcours -->
+                                <TextBlock Text="{Binding nomParcours}" FontWeight="Bold" TextAlignment="Center" Margin="5" />
+
+                                <!-- Description -->
+                                <TextBlock Text="{Binding descParcours}" FontStyle="Italic" TextAlignment="Center" TextWrapping="Wrap" Margin="5" />
+
+                                <!-- Bouton pour accéder au parcours -->
+                                <Button Content="Voir le parcours"
+                                Command="{Binding OpenParcoursCommand}" 
+                                Margin="5,10,5,0" />
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </Grid>
+
+        <!--============================================================================-->
 
         <!--Grille de recherche d'animal-->
         <Grid x:Name="Grid_Recherche" Visibility="Hidden">

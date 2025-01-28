@@ -19,8 +19,8 @@ namespace IHM_BASE {
 
     public partial class EDIT:Window {
         C_BDD BDD = null;
-        List<string> ListPath = null;
-        private string[] imagePaths;
+        List<C_IMAGE> ListPath = null;
+        private List<C_IMAGE> imagePaths = null;
         private string Path;
         private string Path1;
         private string Path2;
@@ -83,21 +83,21 @@ namespace IHM_BASE {
 
             try {
                 foreach(var imagePath in imagePaths) {
-                    if(!string.IsNullOrWhiteSpace(imagePath) && File.Exists(imagePath)) {
-                        var uri = new Uri(imagePath,UriKind.Absolute);
+                    if(!string.IsNullOrWhiteSpace(imagePath.ImgPath) && File.Exists(imagePath.ImgPath)) {
+                        var uri = new Uri(imagePath.ImgPath,UriKind.Absolute);
 
                         if(ImagePreview.Source == null) {
                             ImagePreview.Source = new BitmapImage(uri);
                             BTN_DeleteImg.IsEnabled = true;
-                            Path = imagePath;
+                            Path = imagePath.ImgPath;
                         } else if(ImagePreview1.Source == null) {
                             ImagePreview1.Source = new BitmapImage(uri);
                             BTN_DeleteImg1.IsEnabled = true;
-                            Path1 = imagePath;
+                            Path1 = imagePath.ImgPath;
                         } else if(ImagePreview2.Source == null) {
                             ImagePreview2.Source = new BitmapImage(uri);
                             BTN_DeleteImg2.IsEnabled = true;
-                            Path2 = imagePath;
+                            Path2 = imagePath.ImgPath;
                         }
                     } else {
                         MessageBox.Show($"Une ou plusieurs images n'ont pas pu être chargées correctement","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
@@ -119,8 +119,8 @@ namespace IHM_BASE {
                     Multiselect = true
                 };
                 if(openFileDialog.ShowDialog() == true) {
-                    imagePaths = openFileDialog.FileNames;
-                    foreach(var imagePath in imagePaths) {
+                    var Paths = openFileDialog.FileNames;
+                    foreach(var imagePath in Paths) {
                         if(ImagePreview.Source == null) {
                             ImagePreview.Source = new BitmapImage(new Uri(imagePath));
                             BTN_DeleteImg.IsEnabled = true;
@@ -158,15 +158,15 @@ namespace IHM_BASE {
             }
 
             if(Path != null) {
-                ListPath.Add(Path);
+                ListPath.Add(new C_IMAGE() { ImgPath = Path });
             }
 
             if(Path1 != null) {
-                ListPath.Add(Path1);
+                ListPath.Add(new C_IMAGE() { ImgPath = Path1 });
             }
 
             if(Path2 != null) {
-                ListPath.Add(Path2);
+                ListPath.Add(new C_IMAGE() { ImgPath = Path2 });
             }
 
             try {

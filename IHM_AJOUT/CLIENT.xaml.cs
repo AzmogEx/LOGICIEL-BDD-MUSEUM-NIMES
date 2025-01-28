@@ -209,12 +209,17 @@ namespace IHM_BASE {
 
         private void Btn_Open_Parcours_Click(object sender,RoutedEventArgs e) {
             var button = sender as Button;
+            List<C_IMAGE> Images = new();
 
             if(button != null) {
                 var parcours = button.DataContext as C_PARCOURS;
                 if(parcours != null) {
                     int parcoursId = parcours.idParcours;
                     var especes = BDD.Get_All_Especes_By_IdParcours(parcoursId);
+                    foreach(var espece in especes) {
+                        var image = BDD.Get_Img_By_ID(espece.idEspece);
+
+                    }
                     EspecesList.ItemsSource = especes;
                     Grid_Especes_Parcours.Visibility = Visibility.Visible;
                     Grid_Parcours.Visibility = Visibility.Hidden;

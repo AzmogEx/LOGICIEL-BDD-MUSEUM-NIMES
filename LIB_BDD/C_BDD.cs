@@ -85,12 +85,12 @@ public class C_BDD {
         return Especes_Found;
     }
 
-    public string[] Get_Img_By_ID(int P_ID) {
+    public List<C_IMAGE> Get_Img_By_ID(int P_ID) {
         using SqlConnection connexion = new SqlConnection(Chaine_Connexion);
 
         string query = "SELECT imgPath FROM images WHERE idEspece = @ID";
 
-        return connexion.Query<string>(query,new { ID = P_ID }).ToArray();
+        return connexion.Query<C_IMAGE>(query,new { ID = P_ID }).ToList();
     }
 
     public string[] Get_Region_By_ID(int P_ID) {
@@ -123,7 +123,7 @@ public class C_BDD {
         }
     }
 
-    public void Add_Espece(C_ESPECE P_Espece,List<string> P_ImgPath, List<string> P_Regions, C_PARCOURS P_Parcours) {
+    public void Add_Espece(C_ESPECE P_Espece,List<C_IMAGE> P_ImgPath, List<string> P_Regions, C_PARCOURS P_Parcours) {
 
         try {
             using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
@@ -161,11 +161,11 @@ public class C_BDD {
         }
     }
 
-    public void Add_Image(int P_idEspece,List<string> P_ListPath) {
+    public void Add_Image(int P_idEspece,List<C_IMAGE> P_ListPath) {
         using(SqlConnection connexion = new SqlConnection(Chaine_Connexion)) {
             foreach(var Path in P_ListPath) {
                 connexion.Execute("INSERT INTO images (idEspece, imgPath) VALUES (@IDESPECE, @IMGPATH)",
-                new { IDESPECE = P_idEspece,IMGPATH = Path });
+                new { IDESPECE = P_idEspece,IMGPATH = Path.ImgPath });
             }
         }
     }
@@ -191,9 +191,9 @@ public class C_BDD {
             });
     }
 
-    public void Edit_Espece(C_ESPECE P_Espece,List<string> P_ImgPaths, List<string> P_Regions, C_PARCOURS P_Parcours) {
+    public void Edit_Espece(C_ESPECE P_Espece,List<C_IMAGE> P_ImgPaths, List<string> P_Regions, C_PARCOURS P_Parcours) {
         using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
-        string[] OldImgPaths = Get_Img_By_ID(P_Espece.idEspece);
+        List<C_IMAGE> OldImgPaths = Get_Img_By_ID(P_Espece.idEspece);
         string[] OldListRegion = Get_Region_By_ID(P_Espece.idEspece);
 
         Connexion.Execute("update especes set nomCommun = @NOMCOMMUN, nomScientifique = @NOMSCIENT, statutEspece = @STATUTESPECE, " +
@@ -227,7 +227,7 @@ public class C_BDD {
                 IDPARCOURS = P_Parcours.idParcours
             });
 
-        if(OldImgPaths != P_ImgPaths.ToArray()) {
+        if(OldImgPaths != P_ImgPaths) {
             Connexion.Execute("delete from images where images.idEspece = @IDESPECE",new { IDESPECE = P_Espece.idEspece });
             Add_Image(P_Espece.idEspece,P_ImgPaths);
         }

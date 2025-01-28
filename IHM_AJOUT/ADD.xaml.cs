@@ -19,7 +19,7 @@ namespace IHM_AJOUT {
         private string Path;
         private string Path1;
         private string Path2;
-        private List<string> ListPath;
+        private List<C_IMAGE> ListPath;
         private List<string> Regions;
         private C_ESPECE Espece;
 
@@ -106,15 +106,15 @@ namespace IHM_AJOUT {
                 //si des images sont chargées, et donc que les chemins ne sont pas nuls, alors on les sauvegarde dans une liste
 
                 if(Path != null) {
-                    ListPath.Add(Path);
+                    ListPath.Add(new C_IMAGE() { ImgPath = Path});
                 }
 
                 if(Path1 != null) {
-                    ListPath.Add(Path1);
+                    ListPath.Add(new C_IMAGE() { ImgPath = Path1 });
                 }
 
                 if(Path2 != null) {
-                    ListPath.Add(Path2);
+                    ListPath.Add(new C_IMAGE() { ImgPath = Path2 });
                 }
 
                 try {

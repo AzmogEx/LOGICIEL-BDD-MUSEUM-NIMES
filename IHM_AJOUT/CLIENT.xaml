@@ -22,6 +22,21 @@
 
             <!-- Affichage dynamique des animaux avec Images et Informations -->
             <ItemsControl x:Name="EspecesList" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel x:Name="WrapPanel">
+                            <WrapPanel.Style>
+                                <Style TargetType="WrapPanel">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ElementName=EspecesList, Path=Items.Count}" Value="30">
+                                            <Setter Property="Orientation" Value="Vertical"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </WrapPanel.Style>
+                        </WrapPanel>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Border Margin="10" Padding="10" Background="#4976ba" CornerRadius="10">

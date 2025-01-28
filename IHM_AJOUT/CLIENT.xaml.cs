@@ -208,17 +208,18 @@ namespace IHM_BASE {
         }
 
         private void Btn_Open_Parcours_Click(object sender,RoutedEventArgs e) {
-            int parcoursId = (int)((Button)sender).Tag;
+            var button = sender as Button;
 
-            // Récupérer les espèces associées au parcours
-            var especes = BDD.Get_All_Especes_By_IdParcours(parcoursId);
-
-            // Lier les espèces à la ListBox (ou autre contrôle visuel)
-            EspecesList.ItemsSource = especes;
-
-            // Basculer l'affichage vers la Grid des espèces
-            Grid_Especes_Parcours.Visibility = Visibility.Visible;
-            Grid_Parcours.Visibility = Visibility.Hidden;
+            if(button != null) {
+                var parcours = button.DataContext as C_PARCOURS;
+                if(parcours != null) {
+                    int parcoursId = parcours.idParcours;
+                    var especes = BDD.Get_All_Especes_By_IdParcours(parcoursId);
+                    EspecesList.ItemsSource = especes;
+                    Grid_Especes_Parcours.Visibility = Visibility.Visible;
+                    Grid_Parcours.Visibility = Visibility.Hidden;
+                }
+            }
         }
     }
 }

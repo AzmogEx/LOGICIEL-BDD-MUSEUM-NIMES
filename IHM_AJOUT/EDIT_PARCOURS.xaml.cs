@@ -23,7 +23,7 @@ namespace IHM_BASE {
         // Charger la liste des parcours dans le ListBox
         private void LoadParcoursList() {
             // Récupérer tous les parcours de la base de données
-            var parcoursList = La_Base.Get_All_Parcours();
+            var parcoursList = BDD.Get_All_Parcours();
 
             // Lier les parcours à la ListBox
             LB_Parcours.ItemsSource = parcoursList;

@@ -9,35 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="1.png" />
-    <None Remove="2.png" />
-    <None Remove="3.png" />
-    <None Remove="4.png" />
-    <None Remove="5.png" />
-    <None Remove="arbre.png" />
-    <None Remove="axolotl.jpeg" />
-    <None Remove="bas-droite.png" />
-    <None Remove="bas-gauche.png" />
-    <None Remove="bulle.png" />
-    <None Remove="Bulle_Bd.png" />
-    <None Remove="Capture d%27écran Jan 22 2025.png" />
-    <None Remove="Capture d’écran 2025-01-20 à 11.01.50.png" />
-    <None Remove="carte.png" />
-    <None Remove="chat.png" />
-    <None Remove="contour-gauche.png" />
-    <None Remove="coucou.png" />
-    <None Remove="critere.png" />
-    <None Remove="haut-droite.png" />
-    <None Remove="haut-gauche.png" />
-    <None Remove="monde.png" />
-    <None Remove="rond-blanc.png" />
-    <None Remove="rond.png" />
-    <None Remove="truc.png" />
-    <None Remove="world-map-xaml-high-res2.png" />
-    <None Remove="world.png" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\LIB_BDD\LIB_BDD.csproj" />
   </ItemGroup>
 

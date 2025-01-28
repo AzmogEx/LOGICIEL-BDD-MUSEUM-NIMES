@@ -65,7 +65,7 @@
                                 <Style TargetType="WrapPanel">
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding ElementName=ParcoursList, Path=Items.Count}" Value="20">
-                                            <Setter Property="Orientation" Value="Vertical"/>
+                                            <Setter Property="Orientation" Value="Horizontal"/>
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>

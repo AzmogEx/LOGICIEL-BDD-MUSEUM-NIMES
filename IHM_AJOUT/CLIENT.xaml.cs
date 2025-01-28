@@ -21,11 +21,10 @@ namespace IHM_BASE {
     /// <summary>
     /// Logique d'interaction pour CLIENT.xaml
     /// </summary>
-    public partial class CLIENT :Window {
+    public partial class CLIENT:Window {
         private C_BDD BDD = null;
         private string Desc1;
         private string Desc2;
-        private List<int> IdEspecesParcours;
 
         public CLIENT() {
             InitializeComponent();
@@ -40,7 +39,7 @@ namespace IHM_BASE {
             //Lstbx_Animaux.ItemsSource = List_Especes;
 
             Grid_Info.Visibility = Visibility.Hidden;
-            Grid_Recherche.Visibility = Visibility.Visible;            
+            Grid_Recherche.Visibility = Visibility.Visible;
         }
 
         private void InitialiserConnexion() {
@@ -48,8 +47,7 @@ namespace IHM_BASE {
             if(Etat_Connexion == null) {
                 ChargerEspeces();
                 ChargerParcours();
-            }
-            else {
+            } else {
                 MessageBox.Show($"La connexion à la base de données a échoué : {Etat_Connexion}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
             }
         }
@@ -132,19 +130,19 @@ namespace IHM_BASE {
                     break;
                 case "Eteinte à l’état sauvage (EW)":
                     Txt_UICN_Red.Width = 40;
-                    Txt_UICN_Red.Height = 20; 
+                    Txt_UICN_Red.Height = 20;
                     break;
                 case "En danger critique (CR)":
                     Txt_UICN_Orange.Width = 40;
-                    Txt_UICN_Orange.Height = 20; 
+                    Txt_UICN_Orange.Height = 20;
                     break;
                 case "En danger (EN)":
                     Txt_UICN_Yellow.Width = 40;
-                    Txt_UICN_Yellow.Height = 20; 
+                    Txt_UICN_Yellow.Height = 20;
                     break;
                 case "Vulnérable (VU)":
                     Txt_UICN_LawnGreen.Width = 40;
-                    Txt_UICN_LawnGreen.Height = 20; 
+                    Txt_UICN_LawnGreen.Height = 20;
                     break;
                 case "Quasi menacée (NT)":
                     Txt_UICN_YellowGreen.Width = 40;
@@ -201,7 +199,7 @@ namespace IHM_BASE {
                 Lstbx_Animaux.ItemsSource = new List<string>();
             }
         }
-        //coucou
+
         private void Btn_Admin_Click(object sender,RoutedEventArgs e) {
             Menu mainMenu = new();
             mainMenu.Show();
@@ -226,7 +224,6 @@ namespace IHM_BASE {
                     foreach(var espece in especes) {
                         // Récupérer l'image associée à l'espèce
                         var image = BDD.Get_Img_By_ID(espece.idEspece)?.FirstOrDefault();
-                        IdEspecesParcours.Add(espece.idEspece);
 
                         if(image != null) {
                             Especes_Parcours.Add(new C_ESPECES_PARCOURS {
@@ -255,81 +252,35 @@ namespace IHM_BASE {
                 var espece = button.DataContext as C_ESPECE;
 
                 if(espece != null) {
-                    var especeId = espece.idEspece;
+                    int especeId = espece.idEspece;
 
-                    // Récupérer les détails de l'espèce depuis la base de données
-                    var especeDetails = BDD.Get_Espece_By_Name_Scient();
+                    // Récupérer les espèces associées au parcours
+                    var especes = BDD.Get_Espece_By_ID(especeId);
 
-                    if(especeDetails != null) {
-                        // Mise à jour des labels et informations de l'espèce
-                        Grid_Info.Visibility = Visibility.Visible;
-                        Grid_Recherche.Visibility = Visibility.Hidden;
+                    // Créer une liste combinée d'espèces et d'images
+                    List<C_ESPECES_PARCOURS> Especes_Parcours = new();
 
-                        Label_Nom_Animal.Content = especeDetails.nomCommun;
-                        Label_Nom_Scientifique_Animal.Content = especeDetails.nomScientifique;
-                        Label_Taille.Content = $"{especeDetails.tailleMin} - {especeDetails.tailleMax} {especeDetails.uniteTaille}";
-                        Label_Poids.Content = $"{especeDetails.poidsMin} - {especeDetails.poidsMax} {especeDetails.unitePoids}";
-                        Label_Duree_Vie.Content = $"{especeDetails.dureeVieMin} - {especeDetails.dureeVieMax} ans";
-                        Label_Habitat.Text = especeDetails.habitat;
+                    foreach(var coucou in Especes_Parcours) {
+                        // Récupérer l'image associée à l'espèce
+                        var image = BDD.Get_Img_By_ID(espece.idEspece)?.FirstOrDefault();
 
-                        // Info complémentaire
-                        Label_Embranchement.Content = especeDetails.embranchement;
-                        Label_Classe.Content = especeDetails.classe;
-                        Label_Ordre.Content = especeDetails.ordre;
-                        Label_Famille.Content = especeDetails.famille;
-
-                        // Description
-                        Tbx_Description_Global.Text = especeDetails.description;
-                        Text_Info_Pratique.Text = especeDetails.descPres;
-                        Text_Critere_Menace.Text = especeDetails.statutEspece;
-                        Text_UICN.Text = especeDetails.descUicn;
-
-                        // Gestion de l'UICN avec rectangles de couleurs
-                        MettreAJourUICN(Text_Critere_Menace.Text);
+                        if(image != null) {
+                            Especes_Parcours.Add(new C_ESPECES_PARCOURS {
+                                NomCommun = espece.nomCommun,
+                                NomScientifique = espece.nomScientifique,
+                                StatutEspece = espece.statutEspece,
+                                ImgPath = image.ImgPath
+                            });
+                        }
                     }
+
+                    // Lier la liste combinée au ItemsControl
+                    EspecesList.ItemsSource = Especes_Parcours;
+
+                    // Basculer l'affichage
+                    Grid_Especes_Parcours.Visibility = Visibility.Visible;
+                    Grid_Parcours.Visibility = Visibility.Hidden;
                 }
-            }
-        }
-
-        private void MettreAJourUICN(string statutUICN) {
-            // Réinitialisation des tailles
-            Txt_UICN_Black.Width = Txt_UICN_Red.Width = Txt_UICN_Orange.Width =
-            Txt_UICN_Yellow.Width = Txt_UICN_LawnGreen.Width = Txt_UICN_YellowGreen.Width =
-            Txt_UICN_Green.Width = 20;
-
-            Txt_UICN_Black.Height = Txt_UICN_Red.Height = Txt_UICN_Orange.Height =
-            Txt_UICN_Yellow.Height = Txt_UICN_LawnGreen.Height = Txt_UICN_YellowGreen.Height =
-            Txt_UICN_Green.Height = 10;
-
-            switch(statutUICN) {
-                case "Eteinte (EX)":
-                    Txt_UICN_Black.Width = 40;
-                    Txt_UICN_Black.Height = 20;
-                    break;
-                case "Eteinte à l’état sauvage (EW)":
-                    Txt_UICN_Red.Width = 40;
-                    Txt_UICN_Red.Height = 20;
-                    break;
-                case "En danger critique (CR)":
-                    Txt_UICN_Orange.Width = 40;
-                    Txt_UICN_Orange.Height = 20;
-                    break;
-                case "En danger (EN)":
-                    Txt_UICN_Yellow.Width = 40;
-                    Txt_UICN_Yellow.Height = 20;
-                    break;
-                case "Vulnérable (VU)":
-                    Txt_UICN_LawnGreen.Width = 40;
-                    Txt_UICN_LawnGreen.Height = 20;
-                    break;
-                case "Quasi menacée (NT)":
-                    Txt_UICN_YellowGreen.Width = 40;
-                    Txt_UICN_YellowGreen.Height = 20;
-                    break;
-                case "Préoccupation mineure (LC)":
-                    Txt_UICN_Green.Width = 40;
-                    Txt_UICN_Green.Height = 20;
-                    break;
             }
         }
     }

@@ -4,11 +4,13 @@ using Microsoft.Win32;
 using System.IO;
 using System.Linq;
 using LIB_BDD;
+using IHM_AJOUT;
+using System.Windows.Controls;
 
 namespace IHM_BASE {
     public partial class EDIT_PARCOURS :Window {
         // Instance de la base de données
-        C_BDD La_Base = new C_BDD();
+        C_BDD BDD = new C_BDD();
         private C_PARCOURS selectedParcours;
 
         public EDIT_PARCOURS() {
@@ -78,7 +80,7 @@ namespace IHM_BASE {
                 };
 
                 // Appeler la méthode Edit_Parcours pour mettre à jour le parcours
-                La_Base.Edit_Parcours(updatedParcours);
+                BDD.Edit_Parcours(updatedParcours);
             }
         }
 
@@ -86,8 +88,17 @@ namespace IHM_BASE {
         private void BTN_SUPPR_Click(object sender,RoutedEventArgs e) {
             if(selectedParcours != null) {
                 // Supprimer le parcours de la base de données
-                La_Base.Delete_Parcours(selectedParcours.idParcours);
+                BDD.Delete_Parcours(selectedParcours.idParcours);
                 MessageBox.Show("Delete Reussi");
+            }
+        }
+
+        private void SearchBox_TextChanged(object sender,TextChangedEventArgs e) {
+            var Liste_Animaux_Recuperer = BDD.Get_Espece_By_Name(SearchBox.Text);
+            LB_Animaux.ItemsSource = Liste_Animaux_Recuperer;
+
+            if(SearchBox.Text == string.Empty) {
+                LB_Animaux.ItemsSource = new List<string>();
             }
         }
     }

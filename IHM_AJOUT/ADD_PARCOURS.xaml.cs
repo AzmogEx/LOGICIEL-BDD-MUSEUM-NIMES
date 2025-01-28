@@ -21,6 +21,7 @@ namespace IHM_BASE {
         private C_BDD BDD = null;
         private string imgPath;
         private string Path;
+        private int Nb_Parcours;
 
         public ADD_PARCOURS() {
             BDD = new C_BDD();
@@ -28,6 +29,9 @@ namespace IHM_BASE {
 
             LB_Parcours.ItemsSource = BDD.Get_All_Parcours();
             LB_Parcours.DisplayMemberPath = nameof(C_PARCOURS.nomParcours);
+            foreach(var Parcours in LB_Parcours.Items) {
+                Nb_Parcours++;
+            }
         }
 
 
@@ -61,9 +65,14 @@ namespace IHM_BASE {
                     descParcours = TB_DescParcours.Text,
                     imgPathParcours = Path
                 };
-                BDD.Create_Parcours(Parcours);
-                MessageBox.Show($"Le parcours '{Parcours.nomParcours}' a été ajouté avec succès.","Succès",MessageBoxButton.OK,MessageBoxImage.Information);
-                Close();
+                if(Nb_Parcours >= 24) { 
+                    MessageBox.Show("Veuillez supprimer un parcours avant d'en rajouter davantage. (Vous ne pouvez pas créer plus de 24 parcours.)","Échec",MessageBoxButton.OK,MessageBoxImage.Information);
+                } else {
+                    BDD.Create_Parcours(Parcours);
+                    Nb_Parcours++;
+                    MessageBox.Show($"Le parcours '{Parcours.nomParcours}' a été ajouté avec succès.","Succès",MessageBoxButton.OK,MessageBoxImage.Information);
+                    Close();
+                } 
             } catch(Exception ex) {
                 MessageBox.Show($"Une erreur est survenue : {ex.Message}\n{ex.StackTrace}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
             }
@@ -71,9 +80,9 @@ namespace IHM_BASE {
         }
 
         private void LB_Parcours_SelectionChanged(object sender,SelectionChangedEventArgs e) {
-            C_PARCOURS Parcours_Select = LB_Parcours.SelectedItem as C_PARCOURS;
+        
         }
-
+        
         private void BTN_SUPPR_Click(object sender,RoutedEventArgs e) {
             C_PARCOURS Parcours_Select = LB_Parcours.SelectedItem as C_PARCOURS;
             var result = MessageBox.Show(
@@ -89,6 +98,7 @@ namespace IHM_BASE {
 
             BDD.Delete_Parcours(Parcours_Select.idParcours);
             var List_Parcours = BDD.Get_All_Parcours();
+            Nb_Parcours--;
             LB_Parcours.ItemsSource = List_Parcours;
             LB_Parcours.SelectedIndex = 0;
         }

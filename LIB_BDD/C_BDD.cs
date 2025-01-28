@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Dapper;
 using Microsoft.Data.SqlClient;
 using BCrypt.Net;
+using System.Reflection;
 
 
 namespace LIB_BDD;
@@ -249,5 +250,14 @@ public class C_BDD {
         Les_Parcours = Connexion.Query<C_PARCOURS>("select * from parcours").ToList();
         return Les_Parcours;
 
+    }
+
+    public List<C_ESPECE> Get_All_Especes_By_IdParcours(int parcoursId) {
+        using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
+
+        // Récupération des espèces pour un parcours donné
+        return Connexion.Query<C_ESPECE>(
+            "SELECT * FROM especes WHERE idParcours = @IDPARCOURS",
+            new { IDPARCOURS = parcoursId }).ToList();
     }
 }

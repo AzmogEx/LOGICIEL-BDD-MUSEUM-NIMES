@@ -227,7 +227,15 @@ namespace IHM_BASE {
                         // Récupérer l'image associée à l'espèce
                         var image = BDD.Get_Img_By_ID(espece.idEspece)?.FirstOrDefault();
                         EspecesParcours.Add(espece);
-                        if(image != null) {
+                        if(image == null) {
+                            var EmptyPath = "";
+                            Especes_Parcours.Add(new C_ESPECES_PARCOURS {
+                                NomCommun = espece.nomCommun,
+                                NomScientifique = espece.nomScientifique,
+                                StatutEspece = espece.statutEspece,
+                                ImgPath = EmptyPath
+                            });
+                        } else {
                             Especes_Parcours.Add(new C_ESPECES_PARCOURS {
                                 NomCommun = espece.nomCommun,
                                 NomScientifique = espece.nomScientifique,
@@ -258,9 +266,14 @@ namespace IHM_BASE {
                     foreach(var Espece in EspecesParcours) {
                         if(especeParcours.NomScientifique == Espece.nomScientifique) {
                             Espece_Select = Espece;
-                            int splitPoint = Espece_Select.description.IndexOf(' ',Espece_Select.description.Length / 2);
-                            Desc1 = Espece_Select.description.Substring(0,splitPoint).Trim();
-                            Desc2 = Espece_Select.description.Substring(splitPoint).Trim();
+                            if(Espece.description != "") {
+                                int splitPoint = Espece_Select.description.IndexOf(' ',Espece_Select.description.Length / 2);
+                                Desc1 = Espece_Select.description.Substring(0,splitPoint).Trim();
+                                Desc2 = Espece_Select.description.Substring(splitPoint).Trim();
+                            } else {
+                                Desc1 = "";
+                                Desc2 = "";
+                            }
 
                             //Titre de l'animal
                             Label_Nom_Animal.Content = Espece_Select.nomCommun;

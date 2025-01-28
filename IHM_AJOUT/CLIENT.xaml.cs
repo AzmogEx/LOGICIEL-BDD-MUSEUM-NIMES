@@ -246,7 +246,6 @@ namespace IHM_BASE {
                 }
             }
         }
-
         private void Btn_Open_Espece_Click(object sender,RoutedEventArgs e) {
             var button = sender as Button; // Récupère le bouton cliqué
             C_ESPECE Espece_Select;

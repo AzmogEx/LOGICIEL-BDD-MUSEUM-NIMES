@@ -14,11 +14,11 @@
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Vertical" Margin="234,3,0,0">
             <StackPanel Orientation="Horizontal" Margin="0,20,0,20">
                 <Label Content="Nom du parcours" HorizontalContentAlignment="Right" Width="150"  Margin="0,0,10,0"/>
-                <TextBox x:Name="TB_NomParcours" Width="200"/>
+                <TextBox x:Name="TB_NomParcours" Width="200" MaxLength="32"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                 <Label Content="Description du parcours" HorizontalContentAlignment="Right" Width="150" Margin="0,0,10,0"/>
-                <TextBox x:Name="TB_DescParcours" Width="200" Height="200" TextWrapping="Wrap"/>
+                <TextBox x:Name="TB_DescParcours" Width="200" Height="200" TextWrapping="Wrap" MaxLength="256"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Width="360">
                 <StackPanel Orientation="Vertical">

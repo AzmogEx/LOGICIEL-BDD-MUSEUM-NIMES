@@ -200,7 +200,7 @@ namespace IHM_BASE {
                 Lstbx_Animaux.ItemsSource = new List<string>();
             }
         }
-        //coucou
+        
         private void Btn_Admin_Click(object sender,RoutedEventArgs e) {
             Menu mainMenu = new();
             mainMenu.Show();
@@ -279,8 +279,8 @@ namespace IHM_BASE {
                     EspecesList.ItemsSource = Especes_Parcours;
 
                     // Basculer l'affichage
-                    Grid_Especes_Parcours.Visibility = Visibility.Visible;
-                    Grid_Parcours.Visibility = Visibility.Hidden;
+                    Grid_Especes_Parcours.Visibility = Visibility.Hidden;
+                    Grid_Info.Visibility = Visibility.Visible;
                 }
             }
         }

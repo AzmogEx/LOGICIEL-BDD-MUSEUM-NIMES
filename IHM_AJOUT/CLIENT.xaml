@@ -38,7 +38,7 @@
                                 <TextBlock Text="{Binding NomCommun}" Width="200" FontWeight="Bold" TextAlignment="Center" Foreground="White" FontSize="20" Margin="5" />
 
                                 <!-- Nom Scientifique -->
-                                <TextBlock x:Name="Text_NomScientifique" Text="{Binding NomScientifique}" FontStyle="Italic" TextAlignment="Center" Foreground="White" TextWrapping="Wrap" Margin="0,5,0,5" />
+                                <TextBlock x:Name="coucou" Text="{Binding NomScientifique}" FontStyle="Italic" TextAlignment="Center" Foreground="White" TextWrapping="Wrap" Margin="0,5,0,5" />
 
                                 <!-- Statut de conservation -->
                                 <TextBlock Text="{Binding StatutEspece}" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" Margin="0,5,0,5" />

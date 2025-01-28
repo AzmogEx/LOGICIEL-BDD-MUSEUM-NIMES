@@ -253,7 +253,7 @@ namespace IHM_BASE {
                 var espece = button.DataContext as C_ESPECE;
 
                 if(espece != null) {
-                    int especeId = espece.idEspece;
+                    var especeId = espece.idEspece;
 
                     // Récupérer les détails de l'espèce depuis la base de données
                     var especeDetails = BDD.Get_Espece_By_Name_Scient();

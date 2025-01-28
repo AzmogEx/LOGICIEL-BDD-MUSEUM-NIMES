@@ -11,7 +11,7 @@
     <Grid>
         <ListBox Width="200" HorizontalAlignment="Left" x:Name="LB_Parcours" SelectionChanged="LB_Parcours_SelectionChanged"/>
         <Button x:Name="BTN_SUPPR" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Supprimer" Padding="10" Width="80" Click="BTN_SUPPR_Click" />
-        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Vertical" Margin="234,12,0,0">
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Vertical" Margin="234,3,0,0">
             <StackPanel Orientation="Horizontal" Margin="0,20,0,20">
                 <Label Content="Nom du parcours" HorizontalContentAlignment="Right" Width="150"  Margin="0,0,10,0"/>
                 <TextBox x:Name="TB_NomParcours" Width="200"/>
@@ -19,6 +19,30 @@
             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                 <Label Content="Description du parcours" HorizontalContentAlignment="Right" Width="150" Margin="0,0,10,0"/>
                 <TextBox x:Name="TB_DescParcours" Width="200" Height="200" TextWrapping="Wrap"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Width="360">
+                <StackPanel Orientation="Vertical">
+                    <Grid Width="160" Height="30">
+                        <TextBox x:Name="SearchBox" TextChanged="SearchBox_TextChanged" />
+                        <!-- Placeholder -->
+                        <TextBlock Text="Cherchez une espèce..." Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" IsHitTestVisible="False">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                    <Style.Triggers>
+                                        <!-- Trigger pour afficher le placeholder lorsque le TextBox est vide -->
+                                        <DataTrigger Binding="{Binding Text, ElementName=SearchBox}" Value="">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Grid>
+                    <!-- Texte explicatif -->
+                    <TextBlock Text="Les espèces sélectionnées seront ajoutées au parcours" Width="150" TextWrapping="Wrap" Margin="0,10,10,0" />
+                </StackPanel>
+                <ListBox Name="LB_Animaux" HorizontalAlignment="Right" VerticalAlignment="Top" Width="200" Height="150" SelectionMode="Multiple"/>
             </StackPanel>
         </StackPanel>
 

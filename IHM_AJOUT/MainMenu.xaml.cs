@@ -95,7 +95,9 @@ namespace IHM_BASE {
             EDIT_PARCOURS Edit_Parcours = new();
 
             Edit_Parcours.Show();
-            Close();
+            List_Especes = BDD.Get_All_Especes();
+            LB_Especes.ItemsSource = List_Especes;
+            LB_Especes.SelectedIndex = 0;
         }
     }
 }

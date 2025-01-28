@@ -141,8 +141,8 @@ public class C_BDD {
     public void Delete_Parcours(int P_Parcours) {
         try {
             using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
-            Connexion.Execute("delete from parcours where idParcours = @IDPARCOURS",new { IDPARCOURS = P_Parcours });
             Connexion.Execute("update especes set idParcours = NULL where especes.idParcours = @IDPARCOURS",new { IDPARCOURS = P_Parcours });
+            Connexion.Execute("delete from parcours where idParcours = @IDPARCOURS",new { IDPARCOURS = P_Parcours });
         } catch(Exception) {
             throw;
         }

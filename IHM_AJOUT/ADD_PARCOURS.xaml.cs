@@ -27,6 +27,10 @@ namespace IHM_BASE {
             BDD = new C_BDD();
             InitializeComponent();
 
+
+            var List_Especes = BDD.Get_All_Especes();
+            LB_Animaux.ItemsSource = List_Especes;
+            LB_Animaux.DisplayMemberPath = nameof(C_ESPECE.nomCommun);
             LB_Parcours.ItemsSource = BDD.Get_All_Parcours();
             LB_Parcours.DisplayMemberPath = nameof(C_PARCOURS.nomParcours);
             foreach(var Parcours in LB_Parcours.Items) {
@@ -101,6 +105,11 @@ namespace IHM_BASE {
             Nb_Parcours--;
             LB_Parcours.ItemsSource = List_Parcours;
             LB_Parcours.SelectedIndex = 0;
+        }
+
+        private void SearchBox_TextChanged(object sender,TextChangedEventArgs e) {
+            var Liste_Animaux_Recuperer = BDD.Get_Espece_By_Name(SearchBox.Text);
+            LB_Animaux.ItemsSource = Liste_Animaux_Recuperer;
         }
     }
 }

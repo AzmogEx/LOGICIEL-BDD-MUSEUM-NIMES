@@ -16,6 +16,10 @@ namespace IHM_BASE {
         public EDIT_PARCOURS() {
             InitializeComponent();
 
+
+            var List_Especes = BDD.Get_All_Especes();
+            LB_Animaux.ItemsSource = List_Especes;
+            LB_Animaux.DisplayMemberPath = nameof(C_ESPECE.nomCommun);
             // Charger tous les parcours dans la ListBox
             LoadParcoursList();
         }
@@ -89,17 +93,13 @@ namespace IHM_BASE {
             if(selectedParcours != null) {
                 // Supprimer le parcours de la base de données
                 BDD.Delete_Parcours(selectedParcours.idParcours);
-                MessageBox.Show("Delete Reussi");
+                MessageBox.Show("Parcours supprimé avec succès.");
             }
         }
 
         private void SearchBox_TextChanged(object sender,TextChangedEventArgs e) {
             var Liste_Animaux_Recuperer = BDD.Get_Espece_By_Name(SearchBox.Text);
             LB_Animaux.ItemsSource = Liste_Animaux_Recuperer;
-
-            if(SearchBox.Text == string.Empty) {
-                LB_Animaux.ItemsSource = new List<string>();
-            }
         }
     }
 }

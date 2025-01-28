@@ -65,7 +65,10 @@ namespace IHM_BASE {
             TB_DescUICN.Text = Espece.descUicn;
             TB_DescPres.Text = Espece.descPres;
             TB_NumInv.Text = Espece.numInventaire;
-            CB_PARCOURS.Text = BDD.Get_Parcours_By_ID(Espece.idParcours).nomParcours;
+            C_PARCOURS Parcours = BDD.Get_Parcours_By_ID(Espece.idParcours);
+            if(Parcours!=null) {
+                CB_PARCOURS.Text = Parcours.nomParcours;
+            }
 
             try {
                 LB_Region.SelectionChanged -= LB_Region_SelectionChanged; // Désactiver temporairement l'événement

@@ -200,7 +200,7 @@ namespace IHM_BASE {
                 Lstbx_Animaux.ItemsSource = new List<string>();
             }
         }
-
+        //coucou
         private void Btn_Admin_Click(object sender,RoutedEventArgs e) {
             Menu mainMenu = new();
             mainMenu.Show();

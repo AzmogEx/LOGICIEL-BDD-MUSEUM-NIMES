@@ -1,4 +1,6 @@
-﻿using LIB_BDD;
+﻿using Dapper;
+using LIB_BDD;
+using Microsoft.Data.SqlClient;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -206,14 +208,17 @@ namespace IHM_BASE {
         }
 
         private void Btn_Open_Parcours_Click(object sender,RoutedEventArgs e) {
-            // Récupération des données liées au bouton cliqué
-            var bouton = sender as Button;
-            var parcours = bouton?.DataContext as C_PARCOURS;
+            int parcoursId = (int)((Button)sender).Tag;
 
-            if(parcours != null) {
-                // Affichez les détails ou effectuez une action pour ce parcours
-                MessageBox.Show($"Parcours sélectionné : {parcours.nomParcours}\n{parcours.descParcours}","Détails du parcours");
-            }
+            // Récupérer les espèces associées au parcours
+            var especes = BDD.Get_All_Especes_By_IdParcours(parcoursId);
+
+            // Lier les espèces à la ListBox (ou autre contrôle visuel)
+            EspecesList.ItemsSource = especes;
+
+            // Basculer l'affichage vers la Grid des espèces
+            Grid_Especes_Parcours.Visibility = Visibility.Visible;
+            Grid_Parcours.Visibility = Visibility.Hidden;
         }
     }
 }

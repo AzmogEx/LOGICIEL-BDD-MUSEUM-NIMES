@@ -43,7 +43,7 @@
                             <StackPanel>
                                 <StackPanel>
                                     <!-- Image de l'espèce -->
-                                    <Image Source="{Binding imgEspece}" Width="150" Height="100" Stretch="UniformToFill" Margin="0,10,0,10"/>
+                                    <Image Source="{Binding imgPathParcours}" Width="150" Height="100" Stretch="UniformToFill" Margin="0,10,0,10"/>
 
                                     <!-- Nom Commun de l'espèce -->
                                     <TextBlock Text="{Binding nomCommun}" Width="200" FontWeight="Bold" TextAlignment="Center" Foreground="White" FontSize="20" Margin="5" />

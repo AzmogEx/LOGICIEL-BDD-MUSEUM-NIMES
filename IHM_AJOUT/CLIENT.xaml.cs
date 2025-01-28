@@ -21,7 +21,7 @@ namespace IHM_BASE {
     /// <summary>
     /// Logique d'interaction pour CLIENT.xaml
     /// </summary>
-    public partial class CLIENT :Window {
+    public partial class CLIENT:Window {
         private C_BDD BDD = null;
         private string Desc1;
         private string Desc2;
@@ -39,7 +39,7 @@ namespace IHM_BASE {
             //Lstbx_Animaux.ItemsSource = List_Especes;
 
             Grid_Info.Visibility = Visibility.Hidden;
-            Grid_Recherche.Visibility = Visibility.Visible;            
+            Grid_Recherche.Visibility = Visibility.Visible;
         }
 
         private void InitialiserConnexion() {
@@ -47,8 +47,7 @@ namespace IHM_BASE {
             if(Etat_Connexion == null) {
                 ChargerEspeces();
                 ChargerParcours();
-            }
-            else {
+            } else {
                 MessageBox.Show($"La connexion à la base de données a échoué : {Etat_Connexion}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
             }
         }
@@ -131,19 +130,19 @@ namespace IHM_BASE {
                     break;
                 case "Eteinte à l’état sauvage (EW)":
                     Txt_UICN_Red.Width = 40;
-                    Txt_UICN_Red.Height = 20; 
+                    Txt_UICN_Red.Height = 20;
                     break;
                 case "En danger critique (CR)":
                     Txt_UICN_Orange.Width = 40;
-                    Txt_UICN_Orange.Height = 20; 
+                    Txt_UICN_Orange.Height = 20;
                     break;
                 case "En danger (EN)":
                     Txt_UICN_Yellow.Width = 40;
-                    Txt_UICN_Yellow.Height = 20; 
+                    Txt_UICN_Yellow.Height = 20;
                     break;
                 case "Vulnérable (VU)":
                     Txt_UICN_LawnGreen.Width = 40;
-                    Txt_UICN_LawnGreen.Height = 20; 
+                    Txt_UICN_LawnGreen.Height = 20;
                     break;
                 case "Quasi menacée (NT)":
                     Txt_UICN_YellowGreen.Width = 40;
@@ -200,7 +199,7 @@ namespace IHM_BASE {
                 Lstbx_Animaux.ItemsSource = new List<string>();
             }
         }
-        
+
         private void Btn_Admin_Click(object sender,RoutedEventArgs e) {
             Menu mainMenu = new();
             mainMenu.Show();

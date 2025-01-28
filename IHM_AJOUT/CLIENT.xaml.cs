@@ -245,5 +245,90 @@ namespace IHM_BASE {
                 }
             }
         }
+
+        private void Btn_Open_Espece_Click(object sender,RoutedEventArgs e) {
+            var button = sender as Button;
+
+            if(button != null) {
+                var espece = button.DataContext as C_ESPECE;
+
+                if(espece != null) {
+                    int especeId = espece.idEspece;
+
+                    // Récupérer les détails de l'espèce depuis la base de données
+                    var especeDetails = BDD.Get_Espece_By_Name_Scient();
+
+                    if(especeDetails != null) {
+                        // Mise à jour des labels et informations de l'espèce
+                        Grid_Info.Visibility = Visibility.Visible;
+                        Grid_Recherche.Visibility = Visibility.Hidden;
+
+                        Label_Nom_Animal.Content = especeDetails.nomCommun;
+                        Label_Nom_Scientifique_Animal.Content = especeDetails.nomScientifique;
+                        Label_Taille.Content = $"{especeDetails.tailleMin} - {especeDetails.tailleMax} {especeDetails.uniteTaille}";
+                        Label_Poids.Content = $"{especeDetails.poidsMin} - {especeDetails.poidsMax} {especeDetails.unitePoids}";
+                        Label_Duree_Vie.Content = $"{especeDetails.dureeVieMin} - {especeDetails.dureeVieMax} ans";
+                        Label_Habitat.Text = especeDetails.habitat;
+
+                        // Info complémentaire
+                        Label_Embranchement.Content = especeDetails.embranchement;
+                        Label_Classe.Content = especeDetails.classe;
+                        Label_Ordre.Content = especeDetails.ordre;
+                        Label_Famille.Content = especeDetails.famille;
+
+                        // Description
+                        Tbx_Description_Global.Text = especeDetails.description;
+                        Text_Info_Pratique.Text = especeDetails.descPres;
+                        Text_Critere_Menace.Text = especeDetails.statutEspece;
+                        Text_UICN.Text = especeDetails.descUicn;
+
+                        // Gestion de l'UICN avec rectangles de couleurs
+                        MettreAJourUICN(Text_Critere_Menace.Text);
+                    }
+                }
+            }
+        }
+
+        private void MettreAJourUICN(string statutUICN) {
+            // Réinitialisation des tailles
+            Txt_UICN_Black.Width = Txt_UICN_Red.Width = Txt_UICN_Orange.Width =
+            Txt_UICN_Yellow.Width = Txt_UICN_LawnGreen.Width = Txt_UICN_YellowGreen.Width =
+            Txt_UICN_Green.Width = 20;
+
+            Txt_UICN_Black.Height = Txt_UICN_Red.Height = Txt_UICN_Orange.Height =
+            Txt_UICN_Yellow.Height = Txt_UICN_LawnGreen.Height = Txt_UICN_YellowGreen.Height =
+            Txt_UICN_Green.Height = 10;
+
+            switch(statutUICN) {
+                case "Eteinte (EX)":
+                    Txt_UICN_Black.Width = 40;
+                    Txt_UICN_Black.Height = 20;
+                    break;
+                case "Eteinte à l’état sauvage (EW)":
+                    Txt_UICN_Red.Width = 40;
+                    Txt_UICN_Red.Height = 20;
+                    break;
+                case "En danger critique (CR)":
+                    Txt_UICN_Orange.Width = 40;
+                    Txt_UICN_Orange.Height = 20;
+                    break;
+                case "En danger (EN)":
+                    Txt_UICN_Yellow.Width = 40;
+                    Txt_UICN_Yellow.Height = 20;
+                    break;
+                case "Vulnérable (VU)":
+                    Txt_UICN_LawnGreen.Width = 40;
+                    Txt_UICN_LawnGreen.Height = 20;
+                    break;
+                case "Quasi menacée (NT)":
+                    Txt_UICN_YellowGreen.Width = 40;
+                    Txt_UICN_YellowGreen.Height = 20;
+                    break;
+                case "Préoccupation mineure (LC)":
+                    Txt_UICN_Green.Width = 40;
+                    Txt_UICN_Green.Height = 20;
+                    break;
+            }
+        }
     }
 }

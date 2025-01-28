@@ -85,12 +85,37 @@ public class C_BDD {
         return Especes_Found;
     }
 
+    public List<C_ESPECE> Get_Espece_By_Name_Scient(string P_Nom) {
+        P_Nom = P_Nom.ToLower();
+        var Especes_Found = new List<C_ESPECE>();
+        foreach(var Espece in Les_Especes) {
+            if(Espece.nomScientifique.ToLower().Contains(P_Nom)) Especes_Found.Add(Espece);
+        }
+        return Especes_Found;
+    }
+
+    public C_ESPECE Get_Espece_By_ID(int especeID) {
+        using SqlConnection connexion = new SqlConnection(Chaine_Connexion);
+
+        string query = "SELECT * FROM espece WHERE idEspece = @ID";
+
+        return connexion.QuerySingleOrDefault<C_ESPECE>(query,new { ID = especeID });
+    }
+
     public List<C_IMAGE> Get_Img_By_ID(int P_ID) {
         using SqlConnection connexion = new SqlConnection(Chaine_Connexion);
 
         string query = "SELECT imgPath FROM images WHERE idEspece = @ID";
 
         return connexion.Query<C_IMAGE>(query,new { ID = P_ID }).ToList();
+    }
+
+    public C_PARCOURS Get_Parcours_By_ID(int P_ID) {
+        using SqlConnection connexion = new SqlConnection(Chaine_Connexion);
+
+        string query = "SELECT * FROM parcours WHERE idParcours = @ID";
+
+        return connexion.QuerySingleOrDefault<C_PARCOURS>(query,new { ID = P_ID });
     }
 
     public string[] Get_Region_By_ID(int P_ID) {

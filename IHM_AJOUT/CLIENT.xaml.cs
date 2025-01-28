@@ -209,18 +209,37 @@ namespace IHM_BASE {
 
         private void Btn_Open_Parcours_Click(object sender,RoutedEventArgs e) {
             var button = sender as Button;
-            List<C_IMAGE> Images = new();
 
             if(button != null) {
                 var parcours = button.DataContext as C_PARCOURS;
+
                 if(parcours != null) {
                     int parcoursId = parcours.idParcours;
-                    var especes = BDD.Get_All_Especes_By_IdParcours(parcoursId);
-                    foreach(var espece in especes) {
-                        var image = BDD.Get_Img_By_ID(espece.idEspece);
 
+                    // Récupérer les espèces associées au parcours
+                    var especes = BDD.Get_All_Especes_By_IdParcours(parcoursId);
+
+                    // Créer une liste combinée d'espèces et d'images
+                    List<C_ESPECES_PARCOURS> Especes_Parcours = new();
+
+                    foreach(var espece in especes) {
+                        // Récupérer l'image associée à l'espèce
+                        var image = BDD.Get_Img_By_ID(espece.idEspece)?.FirstOrDefault();
+
+                        if(image != null) {
+                            Especes_Parcours.Add(new C_ESPECES_PARCOURS {
+                                NomCommun = espece.nomCommun,
+                                NomScientifique = espece.nomScientifique,
+                                StatutEspece = espece.statutEspece,
+                                ImgPath = image.ImgPath
+                            });
+                        }
                     }
-                    EspecesList.ItemsSource = especes;
+
+                    // Lier la liste combinée au ItemsControl
+                    EspecesList.ItemsSource = Especes_Parcours;
+
+                    // Basculer l'affichage
                     Grid_Especes_Parcours.Visibility = Visibility.Visible;
                     Grid_Parcours.Visibility = Visibility.Hidden;
                 }

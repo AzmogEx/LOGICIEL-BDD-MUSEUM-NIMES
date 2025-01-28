@@ -24,41 +24,30 @@
             <ItemsControl x:Name="EspecesList" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <WrapPanel x:Name="WrapPanel">
-                            <WrapPanel.Style>
-                                <Style TargetType="WrapPanel">
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding ElementName=EspecesList, Path=Items.Count}" Value="30">
-                                            <Setter Property="Orientation" Value="Vertical"/>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </WrapPanel.Style>
-                        </WrapPanel>
+                        <WrapPanel />
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Border Margin="10" Padding="10" Background="#4976ba" CornerRadius="10">
                             <StackPanel>
-                                <StackPanel>
-                                    <!-- Image de l'espèce -->
-                                    <Image Source="{Binding imgPathParcours}" Width="150" Height="100" Stretch="UniformToFill" Margin="0,10,0,10"/>
+                                <!-- Image de l'espèce -->
+                                <Image Source="{Binding ImgPath}" Width="150" Height="100" Stretch="UniformToFill" Margin="0,10,0,10" />
 
-                                    <!-- Nom Commun de l'espèce -->
-                                    <TextBlock Text="{Binding nomCommun}" Width="200" FontWeight="Bold" TextAlignment="Center" Foreground="White" FontSize="20" Margin="5" />
+                                <!-- Nom Commun de l'espèce -->
+                                <TextBlock Text="{Binding NomCommun}" Width="200" FontWeight="Bold" TextAlignment="Center" Foreground="White" FontSize="20" Margin="5" />
 
-                                    <!-- Nom Scientifique -->
-                                    <TextBlock Text="{Binding nomScientifique}" FontStyle="Italic" TextAlignment="Center" Foreground="White" TextWrapping="Wrap" Margin="0,5,0,5" />
+                                <!-- Nom Scientifique -->
+                                <TextBlock Text="{Binding NomScientifique}" FontStyle="Italic" TextAlignment="Center" Foreground="White" TextWrapping="Wrap" Margin="0,5,0,5" />
 
-                                    <!-- Statut de conservation -->
-                                    <TextBlock Text="{Binding statutEspece}" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" Margin="0,5,0,5"/>
-                                </StackPanel>
+                                <!-- Statut de conservation -->
+                                <TextBlock Text="{Binding StatutEspece}" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" Margin="0,5,0,5" />
                             </StackPanel>
                         </Border>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
+
         </Grid>
 
         <!--============================================================================-->

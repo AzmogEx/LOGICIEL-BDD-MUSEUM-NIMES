@@ -13,11 +13,12 @@
         Title="Musée des Animaux" Height="1080" Width="1920">
     <Grid>
         
-        <Grid x:Name="Grid_Especes_Parcours" Visibility="Hidden" Background="#FF009EE4">
+        <Grid x:Name="Grid_Especes_Parcours" Visibility="Hidden" d:Visibility="Visible" Background="#FF009EE4">
+            <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
             <Button x:Name="Btn_Admin_2" Content="Admin" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Btn_Admin_Click" Height="61" Width="88"/>
+            <Button x:Name="Button_Close2" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Height="60" Width="60" Background="Red" FontSize="30" Click="Button_Close2_Click"/>
             <Image Margin="0,647,1537,0" Source="RESSOURCES/bas-gauche.png" Stretch="Fill"/>
             <Image Margin="0,0,1587,647" Source="RESSOURCES/haut-gauche.png" Stretch="Fill"/>
-            <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
             <Image Margin="1595,743,0,0" Source="RESSOURCES/bas-droite.png" Stretch="Fill"/>
 
             <!-- Affichage dynamique des animaux avec Images et Informations -->
@@ -46,7 +47,7 @@
                                 <!-- Bouton pour accéder a l'espece -->
                                 <Button Background="#4976ba" x:Name="Btn_Open_Espece" Width="100" Content="Voir l'espece" Command="{Binding OpenEspeceCommand}" Click="Btn_Open_Espece_Click" Foreground="White" Height="30" BorderThickness="1" BorderBrush="Black">
                                     <Button.Template>
-                                        <ControlTemplate TargetType="Button">
+                                        <ControlTemplate TargetType="{x:Type Button}">
                                             <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}" />
                                             </Border>
@@ -65,7 +66,7 @@
         
         <!--Grille Parcours -->
 
-        <Grid x:Name="Grid_Parcours" Visibility="Visible" Background="#FF009EE4">
+        <Grid x:Name="Grid_Parcours" Visibility="Visible" d:Visibility="Hidden" Background="#FF009EE4">
             <Button x:Name="Btn_Admin" Content="Admin" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Btn_Admin_Click" Height="61" Width="88"/>
             <Image Margin="0,647,1537,0" Source="RESSOURCES/bas-gauche.png" Stretch="Fill"/>
             <Image Margin="0,0,1587,647" Source="RESSOURCES/haut-gauche.png" Stretch="Fill"/>
@@ -91,17 +92,13 @@
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Border Margin="10" Padding="10" Width="200" Background="#4976ba" CornerRadius="10">
-                            <StackPanel>
+                            <StackPanel HorizontalAlignment="Center">
                                 <StackPanel>
                                     <!-- Image du parcours -->
-                                    <Image Source="{Binding imgPathParcours}" Width="150" Height="100" Stretch="UniformToFill" Margin="0,10,0,10"/>
+                                    <Image Source="{Binding imgPathParcours}" Width="150" Height="100" Stretch="UniformToFill" HorizontalAlignment="Center" Margin="0,10,0,10"/>
 
                                     <!-- Nom du parcours -->
-                                    <TextBlock Text="{Binding nomParcours}" Width="200" FontWeight="Bold" TextAlignment="Center" Foreground="White" FontSize="20" Margin="5" />
-
-                                    <!-- Description -->
-                                    <TextBlock Text="{Binding descParcours}" FontStyle="Italic" TextAlignment="Center" Foreground="White" TextWrapping="Wrap" Margin="0,15,0,15" />
-
+                                    <TextBlock Text="{Binding nomParcours}" Width="200" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="20" Margin="0,10,0,10" />
                                     <!-- Bouton pour accéder au parcours -->
                                     <Button Background="#4976ba" x:Name="Btn_Open_Parcours" Width="100" Content="Voir le parcours" Command="{Binding OpenParcoursCommand}" Click="Btn_Open_Parcours_Click" Foreground="White" Height="30" BorderThickness="1" BorderBrush="Black">
                                         <Button.Template>

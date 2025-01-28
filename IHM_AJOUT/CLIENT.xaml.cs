@@ -25,12 +25,14 @@ namespace IHM_BASE {
         private C_BDD BDD = null;
         private string Desc1;
         private string Desc2;
+        private List<C_ESPECE> EspecesParcours;
 
         public CLIENT() {
             InitializeComponent();
 
             BDD = new();
             List<C_ESPECE> List_Especes = new();
+            EspecesParcours = new();
 
             InitialiserConnexion();
 
@@ -84,7 +86,7 @@ namespace IHM_BASE {
 
             Txt_UICN_Green.Width = 20;
             Txt_UICN_Green.Height = 10;
-            Grid_Recherche.Visibility = Visibility.Visible;
+            Grid_Especes_Parcours.Visibility = Visibility.Visible;
         }
 
         private void Lstbx_Animaux_MouseDoubleClick(object sender,MouseButtonEventArgs e) {
@@ -208,7 +210,7 @@ namespace IHM_BASE {
 
         private void Btn_Open_Parcours_Click(object sender,RoutedEventArgs e) {
             var button = sender as Button;
-
+            EspecesParcours = new();
             if(button != null) {
                 var parcours = button.DataContext as C_PARCOURS;
 
@@ -224,7 +226,7 @@ namespace IHM_BASE {
                     foreach(var espece in especes) {
                         // Récupérer l'image associée à l'espèce
                         var image = BDD.Get_Img_By_ID(espece.idEspece)?.FirstOrDefault();
-
+                        EspecesParcours.Add(espece);
                         if(image != null) {
                             Especes_Parcours.Add(new C_ESPECES_PARCOURS {
                                 NomCommun = espece.nomCommun,
@@ -246,42 +248,87 @@ namespace IHM_BASE {
         }
 
         private void Btn_Open_Espece_Click(object sender,RoutedEventArgs e) {
-            var button = sender as Button;
-
+            var button = sender as Button; // Récupère le bouton cliqué
+            C_ESPECE Espece_Select;
             if(button != null) {
-                var espece = button.DataContext as C_ESPECE;
+                // Récupère l'espèce associée au bouton
+                var especeParcours = button.DataContext as C_ESPECES_PARCOURS;
 
-                if(espece != null) {
-                    int especeId = espece.idEspece;
+                if(especeParcours != null) {
+                    // Récupération des données de l'espèce sélectionnée
+                    foreach(var Espece in EspecesParcours) {
+                        if(especeParcours.NomScientifique == Espece.nomScientifique) {
+                            Espece_Select = Espece;
+                            int splitPoint = Espece_Select.description.IndexOf(' ',Espece_Select.description.Length / 2);
+                            Desc1 = Espece_Select.description.Substring(0,splitPoint).Trim();
+                            Desc2 = Espece_Select.description.Substring(splitPoint).Trim();
 
-                    // Récupérer les espèces associées au parcours
-                    var especes = BDD.Get_Espece_By_ID(especeId);
+                            //Titre de l'animal
+                            Label_Nom_Animal.Content = Espece_Select.nomCommun;
+                            Label_Nom_Scientifique_Animal.Content = Espece_Select.nomScientifique;
 
-                    // Créer une liste combinée d'espèces et d'images
-                    List<C_ESPECES_PARCOURS> Especes_Parcours = new();
+                            //Affichage des informations de l'animal
+                            Label_Taille.Content = $"{Espece_Select.tailleMin} - {Espece_Select.tailleMax} {Espece_Select.uniteTaille}";
+                            Label_Poids.Content = $"{Espece_Select.poidsMin} - {Espece_Select.poidsMax} {Espece_Select.unitePoids}";
+                            Label_Duree_Vie.Content = $"{Espece_Select.dureeVieMin} - {Espece_Select.dureeVieMax} ans";
+                            Label_Habitat.Text = Espece_Select.habitat;
 
-                    foreach(var coucou in Especes_Parcours) {
-                        // Récupérer l'image associée à l'espèce
-                        var image = BDD.Get_Img_By_ID(espece.idEspece)?.FirstOrDefault();
+                            //Info complémentaire
+                            Label_Embranchement.Content = Espece_Select.embranchement;
+                            Label_Classe.Content = Espece_Select.classe;
+                            Label_Ordre.Content = Espece_Select.ordre;
+                            Label_Famille.Content = Espece_Select.famille;
 
-                        if(image != null) {
-                            Especes_Parcours.Add(new C_ESPECES_PARCOURS {
-                                NomCommun = espece.nomCommun,
-                                NomScientifique = espece.nomScientifique,
-                                StatutEspece = espece.statutEspece,
-                                ImgPath = image.ImgPath
-                            });
+                            //Description en bas
+                            Tbx_Description_Global.Text = Desc1;
+                            Tbx_Description_Global1.Text = Desc2;
+                            Text_Info_Pratique.Text = Espece_Select.descPres;
+                            Text_Critere_Menace.Text = Espece_Select.statutEspece;
+                            Text_UICN.Text = Espece_Select.descUicn;
+
+                            //Critere de danger d'extinction uicn rectangle de couleur 
+                            switch(Text_Critere_Menace.Text) {
+                                case "Eteinte (EX)":
+                                    Txt_UICN_Black.Width = 40;
+                                    Txt_UICN_Black.Height = 20;
+                                    break;
+                                case "Eteinte à l’état sauvage (EW)":
+                                    Txt_UICN_Red.Width = 40;
+                                    Txt_UICN_Red.Height = 20;
+                                    break;
+                                case "En danger critique (CR)":
+                                    Txt_UICN_Orange.Width = 40;
+                                    Txt_UICN_Orange.Height = 20;
+                                    break;
+                                case "En danger (EN)":
+                                    Txt_UICN_Yellow.Width = 40;
+                                    Txt_UICN_Yellow.Height = 20;
+                                    break;
+                                case "Vulnérable (VU)":
+                                    Txt_UICN_LawnGreen.Width = 40;
+                                    Txt_UICN_LawnGreen.Height = 20;
+                                    break;
+                                case "Quasi menacée (NT)":
+                                    Txt_UICN_YellowGreen.Width = 40;
+                                    Txt_UICN_YellowGreen.Height = 20;
+                                    break;
+                                case "Préoccupation mineure (LC)":
+                                    Txt_UICN_Green.Width = 40;
+                                    Txt_UICN_Green.Height = 20;
+                                    break;
+                            }
+                            Grid_Info.Visibility = Visibility.Visible;
+                            Grid_Especes_Parcours.Visibility = Visibility.Hidden;
+                            return;
                         }
                     }
-
-                    // Lier la liste combinée au ItemsControl
-                    EspecesList.ItemsSource = Especes_Parcours;
-
-                    // Basculer l'affichage
-                    Grid_Especes_Parcours.Visibility = Visibility.Hidden;
-                    Grid_Info.Visibility = Visibility.Visible;
                 }
             }
+        }
+
+        private void Button_Close2_Click(object sender,RoutedEventArgs e) {
+            Grid_Especes_Parcours.Visibility = Visibility.Hidden;
+            Grid_Parcours.Visibility = Visibility.Visible;
         }
     }
 }

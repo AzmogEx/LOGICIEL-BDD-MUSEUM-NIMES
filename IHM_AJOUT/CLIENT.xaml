@@ -44,8 +44,8 @@
                                 <TextBlock Text="{Binding StatutEspece}" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" Margin="0,5,0,5" />
 
                                 <!-- Bouton pour accéder a l'espece -->
-                                <Button Background="#4976ba" x:Name="Btn_Open_Espece" Width="100" Content="Voir l'espece" Command="{Binding OpenEspeceCommand}" Click="Btn_Open_Espece_Click" Foreground="White" Height="30" BorderThickness="1" BorderBrush="Black">
-                                    <Button.Template>
+                                <Button Background="#4976ba" x:Name="Btn_Open_Espece" Width="100" Content="Voir l'espèce" Click="Btn_Open_Espece_Click" Foreground="White" Height="30" BorderThickness="1" BorderBrush="Black" >
+                                <Button.Template>
                                         <ControlTemplate TargetType="Button">
                                             <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}" />

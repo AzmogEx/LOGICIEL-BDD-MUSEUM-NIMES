@@ -244,42 +244,19 @@ namespace IHM_BASE {
                 }
             }
         }
-
         private void Btn_Open_Espece_Click(object sender,RoutedEventArgs e) {
-            var button = sender as Button;
-
-            if(button != null) {
+            if(sender is Button button) {
                 var espece = button.DataContext as C_ESPECE;
 
                 if(espece != null) {
-                    int especeId = espece.idEspece;
+                    MessageBox.Show($"Espèce sélectionnée : {espece.nomCommun}");
 
-                    // Récupérer les espèces associées au parcours
-                    var especes = BDD.Get_Espece_By_ID(especeId);
-
-                    // Créer une liste combinée d'espèces et d'images
-                    List<C_ESPECES_PARCOURS> Especes_Parcours = new();
-
-                    foreach(var coucou in Especes_Parcours) {
-                        // Récupérer l'image associée à l'espèce
-                        var image = BDD.Get_Img_By_ID(espece.idEspece)?.FirstOrDefault();
-
-                        if(image != null) {
-                            Especes_Parcours.Add(new C_ESPECES_PARCOURS {
-                                NomCommun = espece.nomCommun,
-                                NomScientifique = espece.nomScientifique,
-                                StatutEspece = espece.statutEspece,
-                                ImgPath = image.ImgPath
-                            });
-                        }
-                    }
-
-                    // Lier la liste combinée au ItemsControl
-                    EspecesList.ItemsSource = Especes_Parcours;
-
-                    // Basculer l'affichage
+                    // Basculer vers la grille d'informations
                     Grid_Especes_Parcours.Visibility = Visibility.Hidden;
                     Grid_Info.Visibility = Visibility.Visible;
+                }
+                else {
+                    MessageBox.Show("Erreur : l'espèce est introuvable pour ce bouton.");
                 }
             }
         }

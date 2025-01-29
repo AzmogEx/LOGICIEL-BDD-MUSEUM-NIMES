@@ -9,8 +9,9 @@
         ResizeMode="NoResize"
         WindowState="Maximized"
         Topmost="True"
-        FontFamily="Franklin Gothic Medium"
+        FontFamily="Segoe UI Black"
         Title="Musée des Animaux" Height="1080" Width="1920">
+    <!--PENSER A RAJOUTER LE RETRAIT DES FONCTIONS ALT F4 ETC... SI DESSUS-->
     <Grid>
         
         <Grid x:Name="Grid_Especes_Parcours" Visibility="Hidden" d:Visibility="Visible" Background="#FF009EE4">
@@ -159,9 +160,9 @@
                             <Button Canvas.Left="936" Width="98" Height="336" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Europe" HorizontalAlignment="Center" VerticalAlignment="Top" Content="@" Canvas.Top="67" Opacity="0"/>
 
                             <!-- Asie -->
-                            <Button Canvas.Left="1039" Canvas.Top="67" Width="589" Height="616" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Asie" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0">
+                            <Button Canvas.Left="1039" Canvas.Top="67" Width="589" Height="616" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Asie" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0" FontFamily="Segoe UI Black">
                             </Button>
-                            <Button Canvas.Left="931" Canvas.Top="408" Width="103" Height="200" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Asie" HorizontalAlignment="Left" VerticalAlignment="Center" Opacity="0">
+                            <Button Canvas.Left="931" Canvas.Top="408" Width="103" Height="200" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Asie" HorizontalAlignment="Left" VerticalAlignment="Center" Opacity="0" FontFamily="Segoe UI Black">
                             </Button>
 
                             <!-- Oceanie -->
@@ -195,7 +196,7 @@
                                     </Image.OpacityMask>
                                 </Image>
                                 <Border Height="70" Width="150" Background="White" HorizontalAlignment="Right" CornerRadius="10" Margin="2">
-                                    <TextBlock Text="{Binding nomCommun}" VerticalAlignment="Center" Margin="5" HorizontalAlignment="Center" FontSize="16" />
+                                    <TextBlock Text="{Binding nomCommun}" VerticalAlignment="Center" Margin="5" HorizontalAlignment="Center" FontSize="16" FontFamily="Segoe UI Black"/>
                                 </Border>
                             </StackPanel>
                         </DataTemplate>
@@ -225,24 +226,24 @@
             <StackPanel Margin="300,150,0,0" Width="400" Height="200" VerticalAlignment="Top" HorizontalAlignment="Left">
                 <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0">
                     <Border Margin="0,0,0,8" CornerRadius="10" Background="#dd8e0b" Width="350" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Label x:Name="Label_Famille" Content="Embranchement" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
+                        <Label x:Name="Label_Famille" Content="Embranchement" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
                     </Border>
                     <Border Margin="0,0,0,8" CornerRadius="10" Background="#d3dd0b" Width="295" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Label x:Name="Label_Ordre" Content="Classe" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
+                        <Label x:Name="Label_Ordre" Content="Classe" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
                     </Border>
                     <Border Margin="0,0,0,8" CornerRadius="10" Background="#94dd0b" Width="240" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Label x:Name="Label_Classe" Content="Ordre" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
+                        <Label x:Name="Label_Classe" Content="Ordre" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
                     </Border>
                     <Border Margin="0,0,0,8" CornerRadius="10" Background="#32dd0b " Width="185" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Label x:Name="Label_Embranchement" Content="Famille" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
+                        <Label x:Name="Label_Embranchement" Content="Famille" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
                     </Border>
                 </StackPanel>
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="70,0,0,0">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock x:Name="Tbx_Description_Global" TextAlignment="Left" Margin="25,0,20,0" HorizontalAlignment="Left" TextWrapping="Wrap" Height="440" Width="225" Text="TextBlock" VerticalAlignment="Bottom"  FontSize="15" Foreground="#FF2C2E87"/>
-                    <TextBlock x:Name="Tbx_Description_Global1" TextAlignment="Left" Margin="0,0,0,0" HorizontalAlignment="Left" TextWrapping="Wrap" Height="440" Width="225" Text="TextBlock" VerticalAlignment="Bottom"  FontSize="15" Foreground="#FF2C2E87"/>
+                    <TextBlock x:Name="Tbx_Description_Global" TextAlignment="Left" Margin="25,0,20,0" HorizontalAlignment="Left" TextWrapping="Wrap" Height="440" Width="225" Text="TextBlock" VerticalAlignment="Bottom"  FontSize="15" Foreground="#FF2C2E87" FontFamily="Segoe UI" />
+                    <TextBlock x:Name="Tbx_Description_Global1" TextAlignment="Left" Margin="0,0,0,0" HorizontalAlignment="Left" TextWrapping="Wrap" Height="440" Width="225" Text="TextBlock" VerticalAlignment="Bottom"  FontSize="15" Foreground="#FF2C2E87" FontFamily="Segoe UI"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock x:Name="Text_UICN" TextAlignment="Center" HorizontalAlignment="Right" TextWrapping="Wrap" Text="TextBlock" Height="160" Width="300" VerticalAlignment="Top" Foreground="#FFCE1619" Margin="160,10,0,0" FontSize="15"/>
@@ -266,13 +267,13 @@
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0">
-                <Label x:Name="Label_Nom_Animal" Content="Nom animal" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="70" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White"/>
-                <Label x:Name="Label_Nom_Scientifique_Animal" Content="Nom Scientifique" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" />
+                <Label x:Name="Label_Nom_Animal" Content="Nom animal" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="70" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Segoe UI Black"/>
+                <Label x:Name="Label_Nom_Scientifique_Animal" Content="Nom Scientifique" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Segoe UI Black"/>
             </StackPanel>
 
             <StackPanel Width="600" Height="150" Margin="0,230,100,0" VerticalAlignment="Top">
                 <Border Background="White" Margin="0,0,55,0" Width="250" Height="130" CornerRadius="120">
-                    <TextBlock x:Name="Text_Info_Pratique" Text="Chat" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" FontSize="13" FontWeight="Bold" Foreground="#FF2C2E87" TextAlignment="Center" Width="200"/>
+                    <TextBlock x:Name="Text_Info_Pratique" Text="Chat" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" FontSize="13" FontWeight="Bold" Foreground="#FF2C2E87" TextAlignment="Center" Width="200" FontFamily="Segoe UI Black"/>
                 </Border>
                 <Polygon Points="60,0 80,20 30,0" HorizontalAlignment="Center" Margin="0,0,60,0" Fill="white" />
             </StackPanel>
@@ -293,7 +294,7 @@
             </StackPanel>
 
             <Image Source="RESSOURCES/world.png" Margin="845,800,577,25" RenderTransformOrigin="-6.134,0.197" />
-            <Label x:Name="Label_Localisation" Content="Pays" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Left" Background="{x:Null}" Margin="1056,1013,0,0" Width="193" FontSize="20" Height="38" Foreground="White"/>
+            <Label x:Name="Label_Localisation" Content="Pays" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Left" Background="{x:Null}" Margin="1056,1013,0,0" Width="193" FontSize="20" Height="38" Foreground="White" FontFamily="Segoe UI Black"/>
 
             <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,100,100,0">
                 <Image x:Name="Img_Animal_2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Source="RESSOURCES/axolotl.jpeg">
@@ -314,28 +315,28 @@
                         <StackPanel Orientation="Horizontal">
                             <Image Source="RESSOURCES/3.png" Stretch="Fill" Height="80"/>
                             <Border CornerRadius="10" Background="White" Margin="20,0,0,0" Width="170" Height="55">
-                                <TextBlock x:Name="Label_Habitat" TextAlignment="Center" Text="Habitat" Foreground="Black" FontSize="20" VerticalAlignment="Center" TextWrapping="Wrap" Height="55" />
+                                <TextBlock x:Name="Label_Habitat" TextAlignment="Center" Text="Habitat" Foreground="Black" FontSize="20" VerticalAlignment="Center" TextWrapping="Wrap" Height="55" FontFamily="Segoe UI Black"/>
                             </Border>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal">
                             <Image  Source="RESSOURCES/1.png" Stretch="Fill" Height="80"/>
                             <Border CornerRadius="10" Background="White" Margin="20,0,0,0" Width="170" Height="55">
-                                <Label x:Name="Label_Taille" Content="Taille" Foreground="Black" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
+                                <Label x:Name="Label_Taille" Content="Taille" Foreground="Black" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
                             </Border>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal">
                             <Image Source="RESSOURCES/4.png" Stretch="Fill" Height="80"/>
                             <Border CornerRadius="10" Background="White" Margin="20,0,0,0" Width="170" Height="55">
-                                <Label x:Name="Label_Poids" Content="Poids" Foreground="Black" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
+                                <Label x:Name="Label_Poids" Content="Poids" Foreground="Black" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
                             </Border>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal">
                             <Image Source="RESSOURCES/5.png" Stretch="Fill" Height="80"/>
                             <Border CornerRadius="10" Background="White" Margin="20,0,0,0" Width="170" Height="55">
-                                <Label x:Name="Label_Duree_Vie" Content="Durée de vie" Foreground="Black" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
+                                <Label x:Name="Label_Duree_Vie" Content="Durée de vie" Foreground="Black" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
                             </Border>
                         </StackPanel>
                     </StackPanel>

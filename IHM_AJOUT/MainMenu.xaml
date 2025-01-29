@@ -24,6 +24,5 @@
         <!--SECTION BUTTONS-->
         <Button x:Name="BTN_CREATE_USER" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" FontSize="12" Content="Créer un compte" Padding="10" Width="auto" Click="BTN_CREATE_USER_Click" />
         <Button x:Name="BTN_CLIENT" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="12" Content="Page Client" Padding="10" Width="auto" Click="BTN_COUCOU_CLICK" />
-
     </Grid>
 </Window>

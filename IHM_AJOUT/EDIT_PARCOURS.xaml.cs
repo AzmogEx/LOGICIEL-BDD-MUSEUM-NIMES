@@ -163,17 +163,20 @@ namespace IHM_BASE {
         }
 
         private void LB_Animaux_SelectionChanged(object sender,SelectionChangedEventArgs e) {
-            foreach(int espece in e.AddedItems) {
-                if(!Id_Especes_Parcours.Contains(espece)) {
-                    Id_Especes_Parcours.Add(espece);
+            foreach(C_ESPECE espece in e.AddedItems.Cast<C_ESPECE>()) {
+                if(!Id_Especes_Parcours.Contains(espece.idEspece)) // Utilise espece.idEspece
+                {
+                    Id_Especes_Parcours.Add(espece.idEspece);
                 }
             }
 
-            foreach(int espece in e.RemovedItems) {
-                if(Id_Especes_Parcours.Contains(espece)) {
-                    Id_Especes_Parcours.Remove(espece);
+            foreach(C_ESPECE espece in e.RemovedItems.Cast<C_ESPECE>()) {
+                if(Id_Especes_Parcours.Contains(espece.idEspece)) // Utilise espece.idEspece
+                {
+                    Id_Especes_Parcours.Remove(espece.idEspece);
                 }
             }
         }
+
     }
 }

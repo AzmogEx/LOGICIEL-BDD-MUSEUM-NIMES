@@ -131,6 +131,7 @@ public class C_BDD {
 
         try {
             using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
+            Connexion.Execute("delete from region where region.idEspece = @IDESPECE",new { IDESPECE = P_Espece });
             Connexion.Execute("delete from images where images.idEspece = @IDESPECE",new { IDESPECE = P_Espece });
             Connexion.Execute("delete from especes where idEspece = @IDESPECE",new { IDESPECE = P_Espece });
         } catch(Exception) {
@@ -262,10 +263,13 @@ public class C_BDD {
         }
     }
 
-    public void Edit_Parcours_Especes(int P_IdParcours) {
+    public void Edit_Parcours_Especes(int P_IdParcours, List<int> P_Especes) {
         using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
+        Connexion.Execute("update especes set especes.idParcours = 0 where especes.idParcours = @IDPARCOURS",new { IDPARCOURS = P_IdParcours });
+        foreach(var Espece in P_Especes) {
+            Connexion.Execute("update especes set especes.idParcours = @IDPARCOURS where especes.idEspece = @IDESPECE",new { IDPARCOURS = P_IdParcours,IDESPECE = Espece });
+        }
 
-        Connexion.Execute("update especes set especes.idParcours = @IDPARCOURS",new { IDPARCOURS = P_IdParcours });
     }
 
     public void Create_Parcours(C_PARCOURS P_Parcours) {

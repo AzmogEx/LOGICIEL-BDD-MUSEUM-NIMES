@@ -262,6 +262,12 @@ public class C_BDD {
         }
     }
 
+    public void Edit_Parcours_Especes(int P_IdParcours) {
+        using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
+
+        Connexion.Execute("update especes set especes.idParcours = @IDPARCOURS",new { IDPARCOURS = P_IdParcours });
+    }
+
     public void Create_Parcours(C_PARCOURS P_Parcours) {
         using(SqlConnection connexion = new SqlConnection(Chaine_Connexion)) {
             connexion.Execute("INSERT INTO parcours (nomParcours, imgPathParcours, descParcours) VALUES (@NOMPARCOURS, @IMGPATHPARCOURS, @DESCPARCOURS)",

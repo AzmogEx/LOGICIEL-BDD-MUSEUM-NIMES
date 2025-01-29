@@ -12,16 +12,41 @@ namespace IHM_BASE {
         // Instance de la base de données
         C_BDD BDD = new C_BDD();
         private C_PARCOURS selectedParcours;
+        private List<C_ESPECE> Especes_Parcours;
+        private List<string> Noms_Especes;
+
 
         public EDIT_PARCOURS() {
+            Noms_Especes = new();
+            Especes_Parcours = new();
             InitializeComponent();
 
 
             var List_Especes = BDD.Get_All_Especes();
             LB_Animaux.ItemsSource = List_Especes;
             LB_Animaux.DisplayMemberPath = nameof(C_ESPECE.nomCommun);
+
             // Charger tous les parcours dans la ListBox
             LoadParcoursList();
+            var Parcours_Select = LB_Parcours.SelectedItem as C_PARCOURS;
+            Especes_Parcours = BDD.Get_All_Especes_By_IdParcours(Parcours_Select.idParcours);
+            foreach(var espece in Especes_Parcours) {
+                Noms_Especes.Add(espece.nomCommun);
+            }
+
+            try {
+                LB_Animaux.SelectionChanged -= LB_Animaux_SelectionChanged; // Désactiver temporairement l'événement
+
+                foreach(C_ESPECE espece in LB_Animaux.Items) {
+                    if(espece != null && Noms_Especes.Contains(espece.nomCommun)) {
+                        LB_Animaux.SelectedItems.Add(espece);
+                    }
+                }
+            } catch(Exception ex) {
+                MessageBox.Show($"Une erreur est survenue : {ex.Message}");
+            } finally {
+                LB_Animaux.SelectionChanged += LB_Animaux_SelectionChanged; // Réactiver l'événement
+            }
         }
 
         // Charger la liste des parcours dans le ListBox
@@ -32,10 +57,19 @@ namespace IHM_BASE {
             // Lier les parcours à la ListBox
             LB_Parcours.ItemsSource = parcoursList;
             LB_Parcours.DisplayMemberPath = nameof(C_PARCOURS.nomParcours);
+            LB_Parcours.SelectedIndex = 0;
         }
 
         // Sélectionner un parcours dans la liste
         private void LB_Parcours_SelectionChanged(object sender,System.Windows.Controls.SelectionChangedEventArgs e) {
+            var Parcours_Select = LB_Parcours.SelectedItem as C_PARCOURS;
+            Noms_Especes.Clear();
+            LB_Animaux.SelectedItems.Clear();
+            Especes_Parcours = BDD.Get_All_Especes_By_IdParcours(Parcours_Select.idParcours);
+            foreach(var espece in Especes_Parcours) {
+                Noms_Especes.Add(espece.nomCommun);
+            }
+
             if(LB_Parcours.SelectedItem != null) {
                 selectedParcours = (C_PARCOURS)LB_Parcours.SelectedItem;
 
@@ -48,6 +82,19 @@ namespace IHM_BASE {
                     ImagePreview.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri(selectedParcours.imgPathParcours));
                     BTN_DeleteImg.IsEnabled = true;
                 }
+            }
+            try {
+                LB_Animaux.SelectionChanged -= LB_Animaux_SelectionChanged; // Désactiver temporairement l'événement
+
+                foreach(C_ESPECE espece in LB_Animaux.Items) {
+                    if(espece != null && Noms_Especes.Contains(espece.nomCommun)) {
+                        LB_Animaux.SelectedItems.Add(espece);
+                    }
+                }
+            } catch(Exception ex) {
+                MessageBox.Show($"Une erreur est survenue : {ex.Message}");
+            } finally {
+                LB_Animaux.SelectionChanged += LB_Animaux_SelectionChanged; // Réactiver l'événement
             }
         }
 
@@ -100,6 +147,10 @@ namespace IHM_BASE {
         private void SearchBox_TextChanged(object sender,TextChangedEventArgs e) {
             var Liste_Animaux_Recuperer = BDD.Get_Espece_By_Name(SearchBox.Text);
             LB_Animaux.ItemsSource = Liste_Animaux_Recuperer;
+        }
+
+        private void LB_Animaux_SelectionChanged(object sender,SelectionChangedEventArgs e) {
+
         }
     }
 }

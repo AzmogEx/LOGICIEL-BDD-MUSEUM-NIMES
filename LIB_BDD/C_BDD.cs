@@ -264,7 +264,7 @@ public class C_BDD {
 
     public void Edit_Parcours_Especes(int P_IdParcours, List<int> P_Especes) {
         using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
-        Connexion.Execute("update especes set especes.idParcours = 0 where especes.idParcours = @IDPARCOURS",new { IDPARCOURS = P_IdParcours });
+        Connexion.Execute("update especes set especes.idParcours = null where especes.idParcours = @IDPARCOURS",new { IDPARCOURS = P_IdParcours });
         foreach(var Espece in P_Especes) {
             Connexion.Execute("update especes set especes.idParcours = @IDPARCOURS where especes.idEspece = @IDESPECE",new { IDPARCOURS = P_IdParcours,IDESPECE = Espece });
         }

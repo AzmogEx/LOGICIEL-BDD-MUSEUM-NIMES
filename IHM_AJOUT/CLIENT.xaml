@@ -9,8 +9,9 @@
         ResizeMode="NoResize"
         WindowState="Maximized"
         Topmost="True"
-        FontFamily="Franklin Gothic Medium"
+        FontFamily="Segoe UI Black"
         Title="Musée des Animaux" Height="1080" Width="1920">
+    <!--PENSER A RAJOUTER LE RETRAIT DES FONCTIONS ALT F4 ETC... SI DESSUS-->
     <Grid>
         
         <Grid x:Name="Grid_Especes_Parcours" Visibility="Hidden" d:Visibility="Visible" Background="#FF009EE4">
@@ -159,9 +160,9 @@
                             <Button Canvas.Left="936" Width="98" Height="336" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Europe" HorizontalAlignment="Center" VerticalAlignment="Top" Content="@" Canvas.Top="67" Opacity="0"/>
 
                             <!-- Asie -->
-                            <Button Canvas.Left="1039" Canvas.Top="67" Width="589" Height="616" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Asie" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0">
+                            <Button Canvas.Left="1039" Canvas.Top="67" Width="589" Height="616" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Asie" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0" FontFamily="Segoe UI Black">
                             </Button>
-                            <Button Canvas.Left="931" Canvas.Top="408" Width="103" Height="200" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Asie" HorizontalAlignment="Left" VerticalAlignment="Center" Opacity="0">
+                            <Button Canvas.Left="931" Canvas.Top="408" Width="103" Height="200" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Asie" HorizontalAlignment="Left" VerticalAlignment="Center" Opacity="0" FontFamily="Segoe UI Black">
                             </Button>
 
                             <!-- Oceanie -->
@@ -195,7 +196,7 @@
                                     </Image.OpacityMask>
                                 </Image>
                                 <Border Height="70" Width="150" Background="White" HorizontalAlignment="Right" CornerRadius="10" Margin="2">
-                                    <TextBlock Text="{Binding nomCommun}" VerticalAlignment="Center" Margin="5" HorizontalAlignment="Center" FontSize="16" />
+                                    <TextBlock Text="{Binding nomCommun}" VerticalAlignment="Center" Margin="5" HorizontalAlignment="Center" FontSize="16" FontFamily="Segoe UI Black"/>
                                 </Border>
                             </StackPanel>
                         </DataTemplate>
@@ -208,7 +209,7 @@
         <!--============================================================================-->
 
         <!--Grille d'affichage de l'animal recherché-->
-        <Grid x:Name="Grid_Info" Visibility="Hidden" d:Visibility="Visible" Background="#FF009EE4">
+        <Grid x:Name="Grid_Info" Visibility="Hidden" d:Visibility="Hidden" Background="#FF009EE4">
 
             <Image Margin="-71,382,1199,-50" Source="RESSOURCES/rond-blanc.png" Stretch="Fill"/>
 

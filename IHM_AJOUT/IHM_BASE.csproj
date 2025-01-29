@@ -9,6 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="IMAGES\**" />
+    <EmbeddedResource Remove="IMAGES\**" />
+    <None Remove="IMAGES\**" />
+    <Page Remove="IMAGES\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\LIB_BDD\LIB_BDD.csproj" />
   </ItemGroup>
 
@@ -30,10 +37,6 @@
     <Resource Include="RESSOURCES\rond-blanc.png" />
     <Resource Include="RESSOURCES\rond.png" />
     <Resource Include="RESSOURCES\world.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="IMAGES\" />
   </ItemGroup>
 
 </Project>

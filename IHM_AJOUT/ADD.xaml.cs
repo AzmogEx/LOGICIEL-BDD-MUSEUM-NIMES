@@ -64,17 +64,17 @@ namespace IHM_AJOUT {
                         if(ImagePreview.Source == null) {
                             ImagePreview.Source = new BitmapImage(new Uri(destinationPath));
                             BTN_DeleteImg.IsEnabled = true;
-                            Path = GetRelativePath(destinationPath);
+                            Path = fileName;
                         }
                         else if(ImagePreview1.Source == null) {
                             ImagePreview1.Source = new BitmapImage(new Uri(destinationPath));
                             BTN_DeleteImg1.IsEnabled = true;
-                            Path1 = GetRelativePath(destinationPath);
+                            Path1 = fileName;
                         }
                         else {
                             ImagePreview2.Source = new BitmapImage(new Uri(destinationPath));
                             BTN_DeleteImg2.IsEnabled = true;
-                            Path2 = GetRelativePath(destinationPath);
+                            Path2 = fileName;
                         }
                     }
                 }
@@ -83,13 +83,7 @@ namespace IHM_AJOUT {
                 MessageBox.Show($"Une erreur est survenue : {ex.Message}\n{ex.StackTrace}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
             }
         }
-
-        // Fonction pour obtenir un chemin relatif
-        private string GetRelativePath(string fullPath) {
-            var appBasePath = AppDomain.CurrentDomain.BaseDirectory;
-            return System.IO.Path.GetRelativePath(appBasePath,fullPath);
-        }
-
+        
         private void BTN_Add_Click(object sender,RoutedEventArgs e) {
             try {
                 //Vérifications que les champs ne contiennent pas de valeurs inappropriées 

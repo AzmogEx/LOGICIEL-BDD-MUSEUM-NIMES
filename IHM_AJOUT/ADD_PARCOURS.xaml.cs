@@ -31,11 +31,6 @@ namespace IHM_BASE {
             var List_Especes = BDD.Get_All_Especes();
             LB_Animaux.ItemsSource = List_Especes;
             LB_Animaux.DisplayMemberPath = nameof(C_ESPECE.nomCommun);
-            LB_Parcours.ItemsSource = BDD.Get_All_Parcours();
-            LB_Parcours.DisplayMemberPath = nameof(C_PARCOURS.nomParcours);
-            foreach(var Parcours in LB_Parcours.Items) {
-                Nb_Parcours++;
-            }
         }
 
 
@@ -81,30 +76,6 @@ namespace IHM_BASE {
                 MessageBox.Show($"Une erreur est survenue : {ex.Message}\n{ex.StackTrace}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
             }
             
-        }
-
-        private void LB_Parcours_SelectionChanged(object sender,SelectionChangedEventArgs e) {
-        
-        }
-        
-        private void BTN_SUPPR_Click(object sender,RoutedEventArgs e) {
-            C_PARCOURS Parcours_Select = LB_Parcours.SelectedItem as C_PARCOURS;
-            var result = MessageBox.Show(
-                    $"Voulez vous vraiment supprimer {Parcours_Select.nomParcours}? Cette action est irréversible.",
-                    "Confirmation",
-                    MessageBoxButton.YesNo,
-                    MessageBoxImage.Question
-                );
-
-            if(result == MessageBoxResult.No) {
-                return;
-            }
-
-            BDD.Delete_Parcours(Parcours_Select.idParcours);
-            var List_Parcours = BDD.Get_All_Parcours();
-            Nb_Parcours--;
-            LB_Parcours.ItemsSource = List_Parcours;
-            LB_Parcours.SelectedIndex = 0;
         }
 
         private void SearchBox_TextChanged(object sender,TextChangedEventArgs e) {

@@ -36,36 +36,58 @@ namespace IHM_AJOUT {
         }
 
         private void ImportImage_Click(object sender,RoutedEventArgs e) {
-            //permet d'importer de 1 à 3 images
             try {
+                // Configuration du dialogue d'importation
                 OpenFileDialog openFileDialog = new OpenFileDialog {
                     Filter = "Image files (*.png;*.jpg;*.jpeg)|*.png;*.jpg;*.jpeg",
                     Multiselect = true
                 };
+
+                // Répertoire cible pour les images importées
+                string imageDirectory = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"IMAGES");
+
+                // Crée le répertoire s'il n'existe pas
+                if(!Directory.Exists(imageDirectory)) {
+                    Directory.CreateDirectory(imageDirectory);
+                }
+
                 if(openFileDialog.ShowDialog() == true) {
                     imagePaths = openFileDialog.FileNames;
+
                     foreach(var imagePath in imagePaths) {
-                        //Pour chacune des images, si des images sont sélectionnées, crée un aperçu sur la fenêtre et sauvegarde le chemin d'accès de l'image
+                        string fileName = System.IO.Path.GetFileName(imagePath);
+                        string destinationPath = System.IO.Path.Combine(imageDirectory,fileName);
+                        // Copie du fichier dans le dossier Resources/Images
+                        File.Copy(imagePath,destinationPath,true);
+
+                        // Mise à jour des aperçus et stockage des chemins
                         if(ImagePreview.Source == null) {
-                            ImagePreview.Source = new BitmapImage(new Uri(imagePath));
+                            ImagePreview.Source = new BitmapImage(new Uri(destinationPath));
                             BTN_DeleteImg.IsEnabled = true;
-                            Path = imagePath;
-                        } else {
-                            if(ImagePreview1.Source == null) {
-                                ImagePreview1.Source = new BitmapImage(new Uri(imagePath));
-                                BTN_DeleteImg1.IsEnabled = true;
-                                Path1 = imagePath;
-                            } else {
-                                ImagePreview2.Source = new BitmapImage(new Uri(imagePath));
-                                BTN_DeleteImg2.IsEnabled = true;
-                                Path2 = imagePath;
-                            }
+                            Path = GetRelativePath(destinationPath);
                         }
-                    }       
+                        else if(ImagePreview1.Source == null) {
+                            ImagePreview1.Source = new BitmapImage(new Uri(destinationPath));
+                            BTN_DeleteImg1.IsEnabled = true;
+                            Path1 = GetRelativePath(destinationPath);
+                        }
+                        else {
+                            ImagePreview2.Source = new BitmapImage(new Uri(destinationPath));
+                            BTN_DeleteImg2.IsEnabled = true;
+                            Path2 = GetRelativePath(destinationPath);
+                        }
+                    }
                 }
-            } catch(Exception ex) {
+            }
+            catch(Exception ex) {
                 MessageBox.Show($"Une erreur est survenue : {ex.Message}\n{ex.StackTrace}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
             }
+        }
+
+        // Fonction pour obtenir un chemin relatif
+        private string GetRelativePath(string fullPath) {
+            var appBasePath = AppDomain.CurrentDomain.BaseDirectory;
+            return System.IO.Path.GetRelativePath(appBasePath,fullPath);
         }
 
         private void BTN_Add_Click(object sender,RoutedEventArgs e) {
@@ -105,16 +127,21 @@ namespace IHM_AJOUT {
 
                 //si des images sont chargées, et donc que les chemins ne sont pas nuls, alors on les sauvegarde dans une liste
 
-                if(Path != null) {
-                    ListPath.Add(new C_IMAGE() { ImgPath = Path});
+                // Si aucune image n'est fournie, ajouter une image par défaut
+                if(Path == null && Path1 == null && Path2 == null) {
+                    Path = "RESSOURCES/axolotl.jpeg"; // Remplace par un chemin d'image valide par défaut
+                    ListPath.Add(new C_IMAGE() { ImgPath = Path });
                 }
-
-                if(Path1 != null) {
-                    ListPath.Add(new C_IMAGE() { ImgPath = Path1 });
-                }
-
-                if(Path2 != null) {
-                    ListPath.Add(new C_IMAGE() { ImgPath = Path2 });
+                else {
+                    if(Path != null) {
+                        ListPath.Add(new C_IMAGE() { ImgPath = Path });
+                    }
+                    if(Path1 != null) {
+                        ListPath.Add(new C_IMAGE() { ImgPath = Path1 });
+                    }
+                    if(Path2 != null) {
+                        ListPath.Add(new C_IMAGE() { ImgPath = Path2 });
+                    }
                 }
 
                 try {

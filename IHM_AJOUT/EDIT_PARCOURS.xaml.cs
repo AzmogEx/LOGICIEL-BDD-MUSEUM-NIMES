@@ -20,6 +20,7 @@ namespace IHM_BASE {
             var List_Especes = BDD.Get_All_Especes();
             LB_Animaux.ItemsSource = List_Especes;
             LB_Animaux.DisplayMemberPath = nameof(C_ESPECE.nomCommun);
+
             // Charger tous les parcours dans la ListBox
             LoadParcoursList();
         }
@@ -48,6 +49,20 @@ namespace IHM_BASE {
                     ImagePreview.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri(selectedParcours.imgPathParcours));
                     BTN_DeleteImg.IsEnabled = true;
                 }
+            }
+            try {
+                LB_Animaux.SelectionChanged -= LB_Animaux_SelectionChanged; // Désactiver temporairement l'événement
+
+                foreach(var espece in LB_Animaux.Items) {
+                    if(espece != null && .Contains(espece.ToString())) {
+                        LB_Region.SelectedItems.Add(item);
+                        Regions.Add(item.ToString());
+                    }
+                }
+            } catch(Exception ex) {
+                MessageBox.Show($"Une erreur est survenue : {ex.Message}");
+            } finally {
+                LB_Region.SelectionChanged += LB_Region_SelectionChanged; // Réactiver l'événement
             }
         }
 
@@ -100,6 +115,10 @@ namespace IHM_BASE {
         private void SearchBox_TextChanged(object sender,TextChangedEventArgs e) {
             var Liste_Animaux_Recuperer = BDD.Get_Espece_By_Name(SearchBox.Text);
             LB_Animaux.ItemsSource = Liste_Animaux_Recuperer;
+        }
+
+        private void LB_Animaux_SelectionChanged(object sender,SelectionChangedEventArgs e) {
+
         }
     }
 }

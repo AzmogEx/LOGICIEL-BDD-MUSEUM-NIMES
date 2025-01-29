@@ -13,11 +13,11 @@ namespace IHM_BASE {
         C_BDD BDD = new C_BDD();
         private C_PARCOURS selectedParcours;
         private List<C_ESPECE> Especes_Parcours;
-        private List<string> Noms_Especes;
+        private List<int> Id_Especes_Parcours;
 
 
         public EDIT_PARCOURS() {
-            Noms_Especes = new();
+            Id_Especes_Parcours = new();
             Especes_Parcours = new();
             InitializeComponent();
 
@@ -31,22 +31,19 @@ namespace IHM_BASE {
             var Parcours_Select = LB_Parcours.SelectedItem as C_PARCOURS;
             Especes_Parcours = BDD.Get_All_Especes_By_IdParcours(Parcours_Select.idParcours);
             foreach(var espece in Especes_Parcours) {
-                Noms_Especes.Add(espece.nomCommun);
+                Id_Especes_Parcours.Add(espece.idEspece);
             }
 
             try {
-                LB_Animaux.SelectionChanged -= LB_Animaux_SelectionChanged; // Désactiver temporairement l'événement
 
                 foreach(C_ESPECE espece in LB_Animaux.Items) {
-                    if(espece != null && Noms_Especes.Contains(espece.nomCommun)) {
+                    if(espece != null && Id_Especes_Parcours.Contains(espece.idEspece)) {
                         LB_Animaux.SelectedItems.Add(espece);
                     }
                 }
             } catch(Exception ex) {
                 MessageBox.Show($"Une erreur est survenue : {ex.Message}");
-            } finally {
-                LB_Animaux.SelectionChanged += LB_Animaux_SelectionChanged; // Réactiver l'événement
-            }
+            } 
         }
 
         // Charger la liste des parcours dans le ListBox
@@ -63,11 +60,11 @@ namespace IHM_BASE {
         // Sélectionner un parcours dans la liste
         private void LB_Parcours_SelectionChanged(object sender,System.Windows.Controls.SelectionChangedEventArgs e) {
             var Parcours_Select = LB_Parcours.SelectedItem as C_PARCOURS;
-            Noms_Especes.Clear();
+            Id_Especes_Parcours.Clear();
             LB_Animaux.SelectedItems.Clear();
             Especes_Parcours = BDD.Get_All_Especes_By_IdParcours(Parcours_Select.idParcours);
             foreach(var espece in Especes_Parcours) {
-                Noms_Especes.Add(espece.nomCommun);
+                Id_Especes_Parcours.Add(espece.idEspece);
             }
 
             if(LB_Parcours.SelectedItem != null) {
@@ -87,7 +84,7 @@ namespace IHM_BASE {
                 LB_Animaux.SelectionChanged -= LB_Animaux_SelectionChanged; // Désactiver temporairement l'événement
 
                 foreach(C_ESPECE espece in LB_Animaux.Items) {
-                    if(espece != null && Noms_Especes.Contains(espece.nomCommun)) {
+                    if(espece != null && Id_Especes_Parcours.Contains(espece.idEspece)) {
                         LB_Animaux.SelectedItems.Add(espece);
                     }
                 }
@@ -132,6 +129,8 @@ namespace IHM_BASE {
 
                 // Appeler la méthode Edit_Parcours pour mettre à jour le parcours
                 BDD.Edit_Parcours(updatedParcours);
+                BDD.Edit_Parcours_Especes(updatedParcours.idParcours,Id_Especes_Parcours);
+                MessageBox.Show("Parcours modifié");
             }
         }
 
@@ -147,10 +146,34 @@ namespace IHM_BASE {
         private void SearchBox_TextChanged(object sender,TextChangedEventArgs e) {
             var Liste_Animaux_Recuperer = BDD.Get_Espece_By_Name(SearchBox.Text);
             LB_Animaux.ItemsSource = Liste_Animaux_Recuperer;
+
+            try {
+                LB_Animaux.SelectionChanged -= LB_Animaux_SelectionChanged; // Désactiver temporairement l'événement
+
+                foreach(C_ESPECE espece in LB_Animaux.Items) {
+                    if(espece != null && Id_Especes_Parcours.Contains(espece.idEspece)) {
+                        LB_Animaux.SelectedItems.Add(espece);
+                    }
+                }
+            } catch(Exception ex) {
+                MessageBox.Show($"Une erreur est survenue : {ex.Message}");
+            } finally {
+                LB_Animaux.SelectionChanged += LB_Animaux_SelectionChanged; // Réactiver l'événement
+            }
         }
 
         private void LB_Animaux_SelectionChanged(object sender,SelectionChangedEventArgs e) {
+            foreach(int espece in e.AddedItems) {
+                if(!Id_Especes_Parcours.Contains(espece)) {
+                    Id_Especes_Parcours.Add(espece);
+                }
+            }
 
+            foreach(int espece in e.RemovedItems) {
+                if(Id_Especes_Parcours.Contains(espece)) {
+                    Id_Especes_Parcours.Remove(espece);
+                }
+            }
         }
     }
 }

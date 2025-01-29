@@ -186,11 +186,11 @@ public class C_BDD {
         }
     }
 
-    public void Add_Image(int P_idEspece,List<C_IMAGE> P_ListPath) {
+    public void Add_Image(int P_idEspece,List<C_IMAGE> P_Images) {
         using(SqlConnection connexion = new SqlConnection(Chaine_Connexion)) {
-            foreach(var Path in P_ListPath) {
+            foreach(var Image in P_Images) {
                 connexion.Execute("INSERT INTO images (idEspece, imgPath) VALUES (@IDESPECE, @IMGPATH)",
-                new { IDESPECE = P_idEspece,IMGPATH = Path.ImgPath });
+                new { IDESPECE = P_idEspece,IMGPATH = Image.ImgPath });
             }
         }
     }

@@ -226,20 +226,16 @@ namespace IHM_BASE {
                         // Récupérer l'image associée à l'espèce
                         var image = BDD.Get_Img_By_ID(espece.idEspece)?.FirstOrDefault();
                         EspecesParcours.Add(espece);
-                        if(image == null) {
-                            var EmptyPath = "";
+
+                        if(image != null) {
+                            // Spécifier le chemin complet en ajoutant le dossier IMAGES
+                            string imagePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"IMAGES",image.ImgPath);
+
                             Especes_Parcours.Add(new C_ESPECES_PARCOURS {
                                 NomCommun = espece.nomCommun,
                                 NomScientifique = espece.nomScientifique,
                                 StatutEspece = espece.statutEspece,
-                                ImgPath = EmptyPath
-                            });
-                        } else {
-                            Especes_Parcours.Add(new C_ESPECES_PARCOURS {
-                                NomCommun = espece.nomCommun,
-                                NomScientifique = espece.nomScientifique,
-                                StatutEspece = espece.statutEspece,
-                                ImgPath = image.ImgPath
+                                ImgPath = imagePath // Le chemin complet vers l'image
                             });
                         }
                     }
@@ -265,14 +261,9 @@ namespace IHM_BASE {
                     foreach(var Espece in EspecesParcours) {
                         if(especeParcours.NomScientifique == Espece.nomScientifique) {
                             Espece_Select = Espece;
-                            if(Espece.description != "") {
-                                int splitPoint = Espece_Select.description.IndexOf(' ',Espece_Select.description.Length / 2);
-                                Desc1 = Espece_Select.description.Substring(0,splitPoint).Trim();
-                                Desc2 = Espece_Select.description.Substring(splitPoint).Trim();
-                            } else {
-                                Desc1 = "";
-                                Desc2 = "";
-                            }
+                            int splitPoint = Espece_Select.description.IndexOf(' ',Espece_Select.description.Length / 2);
+                            Desc1 = Espece_Select.description.Substring(0,splitPoint).Trim();
+                            Desc2 = Espece_Select.description.Substring(splitPoint).Trim();
 
                             //Titre de l'animal
                             Label_Nom_Animal.Content = Espece_Select.nomCommun;

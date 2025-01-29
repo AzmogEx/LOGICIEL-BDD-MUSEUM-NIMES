@@ -32,4 +32,8 @@
     <Resource Include="RESSOURCES\world.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="IMAGES\" />
+  </ItemGroup>
+
 </Project>

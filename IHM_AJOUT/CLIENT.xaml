@@ -59,7 +59,6 @@
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
-
         </Grid>
 
         <!--============================================================================-->

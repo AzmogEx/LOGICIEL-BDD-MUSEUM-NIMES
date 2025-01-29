@@ -185,7 +185,6 @@ namespace IHM_BASE {
         private void Zone_Click_Oceanie(object sender,RoutedEventArgs e) {
             var Liste_Animaux_Recuperer = BDD.Get_Especes_By_Region("Océanie");
             Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
-
         }
 
         private void Zone_Click_Antartique(object sender,RoutedEventArgs e) {

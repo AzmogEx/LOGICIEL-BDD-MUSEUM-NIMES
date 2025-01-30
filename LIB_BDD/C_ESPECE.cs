@@ -11,11 +11,11 @@ public class C_ESPECE {
     public string nomCommun { get; set; }
     public string nomScientifique { get; set; }
     public string statutEspece { get; set; }
-    public int tailleMin { get; set; }
-    public int tailleMax { get; set; }
+    public float tailleMin { get; set; }
+    public float tailleMax { get; set; }
     public string uniteTaille { get; set; }
-    public int poidsMin { get; set; }
-    public int poidsMax { get; set; }
+    public float poidsMin { get; set; }
+    public float poidsMax { get; set; }
     public string unitePoids { get; set; }
     public int dureeVieMin { get; set; }
     public int dureeVieMax { get; set; }

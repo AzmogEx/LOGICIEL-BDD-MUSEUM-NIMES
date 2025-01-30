@@ -171,11 +171,11 @@ namespace IHM_BASE {
             ListPath.Add(new C_IMAGE() { ImgPath = Path2 });
 
             try {
-                int.TryParse(TB_TailleMin.Text,out int TailleMin);
-                int.TryParse(TB_TailleMax.Text,out int TailleMax);
+                float.TryParse(TB_TailleMin.Text,out float TailleMin);
+                float.TryParse(TB_TailleMax.Text,out float TailleMax);
                 try {
-                    int.TryParse(TB_PoidsMin.Text,out int PoidsMin);
-                    int.TryParse(TB_PoidsMax.Text,out int PoidsMax);
+                    float.TryParse(TB_PoidsMin.Text,out float PoidsMin);
+                    float.TryParse(TB_PoidsMax.Text,out float PoidsMax);
                     try {
                         int.TryParse(TB_AgeMin.Text,out int DureeVieMin);
                         int.TryParse(TB_AgeMax.Text,out int DureeVieMax);

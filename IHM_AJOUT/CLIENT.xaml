@@ -31,12 +31,7 @@
             <Image Margin="1595,743,0,0" Source="RESSOURCES/bas-droite.png" Stretch="Fill"/>
             <Label x:Name="Label_Nom_Parcours" d:Content="Nom parcours" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="70" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Segoe UI Black" Margin="0,24,0,0"/>
             <Label x:Name="Label_Description_Parcours" d:Content="Description parcours" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Segoe UI Black" Margin="0,129,0,0"/>
-            <Button x:Name="Button_Close2" HorizontalAlignment="Right" VerticalAlignment="Top" Height="60" Width="60" FontSize="30" Click="Button_Close2_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="/close.png" Stretch="UniformToFill"/>
-                </Button.Background>
-            </Button>
-
+            <Button x:Name="Button_Close2" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Height="60" Width="60" Background="Red" FontSize="30" Click="Button_Close2_Click"/>
                 <!-- Affichage dynamique des animaux avec Images et Informations -->
             <ItemsControl x:Name="EspecesList" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <ItemsControl.ItemsPanel>
@@ -256,12 +251,8 @@
 
                 <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
 
-                <Button x:Name="Button_Close" HorizontalAlignment="Right" VerticalAlignment="Top" Height="60" Width="60" FontSize="30" Click="Button_Close_Click">
-                    <Button.Background>
-                        <ImageBrush ImageSource="/close.png" Stretch="UniformToFill"/>
-                    </Button.Background>
-                </Button>
-
+                <Button x:Name="Button_Close" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Height="60" Width="60" Background="Red" FontSize="30" Click="Button_Close_Click"/>
+                
                 <StackPanel Margin="300,150,0,0" Width="400" Height="200" VerticalAlignment="Top" HorizontalAlignment="Left">
                     <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0">
                         <Border Margin="0,0,0,8" CornerRadius="10" Background="#dd8e0b" Width="350" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">

@@ -24,7 +24,11 @@
          <Grid x:Name="Grid_Especes_Parcours" Visibility="Hidden" d:Visibility="Hidden">
             
                 <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
-                <Button x:Name="Btn_Admin_2" Content="Admin" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Btn_Admin_Click" Height="61" Width="88"/>
+                <Button x:Name="Btn_Admin_2" Content="Admin" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Btn_Admin_Click" Height="61" Width="88">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/close.png" Stretch="UniformToFill"/>
+                    </Button.Background>
+                </Button>
 
                 <Image Margin="0,647,1537,0" Source="RESSOURCES/bas-gauche.png" Stretch="Fill"/>
             <Image Margin="0,0,1587,647" Source="RESSOURCES/haut-gauche.png" Stretch="Fill"/>

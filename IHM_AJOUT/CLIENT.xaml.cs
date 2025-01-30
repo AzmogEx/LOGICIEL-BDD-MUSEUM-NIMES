@@ -226,7 +226,7 @@ namespace IHM_BASE {
                     int parcoursId = parcours.idParcours;
 
                     // Affichage du titre et de la description du parcours
-                    Label_Nom_Parcours.Content = parcours.nomParcours;
+                    Label_Nom_Parcours.Content = $"Parcours {parcours.nomParcours}";
                     Label_Description_Parcours.Content = parcours.descParcours;
 
                     // Récupérer les espèces associées au parcours

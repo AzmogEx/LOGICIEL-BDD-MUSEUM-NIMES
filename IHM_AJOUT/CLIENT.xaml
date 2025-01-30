@@ -13,18 +13,27 @@
         Title="Musée des Animaux" Height="1080" Width="1920">
     <!--PENSER A RAJOUTER LE RETRAIT DES FONCTIONS ALT F4 ETC... SI DESSUS-->
     <Grid>
+        <Border x:Name="Border_Especes" Visibility="Hidden">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#FF009EE4" Offset="0"/>
+                    <GradientStop Color="#FF005C97" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            
+         <Grid x:Name="Grid_Especes_Parcours" Visibility="Hidden" d:Visibility="Hidden">
+            
+                <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
+                <Button x:Name="Btn_Admin_2" Content="Admin" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Btn_Admin_Click" Height="61" Width="88"/>
 
-        <Grid x:Name="Grid_Especes_Parcours" Visibility="Hidden" d:Visibility="Visible" Background="#FF009EE4">
-            <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
-            <Button x:Name="Btn_Admin_2" Content="Admin" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Btn_Admin_Click" Height="61" Width="88"/>
-            <Button x:Name="Button_Close2" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Height="60" Width="60" Background="Red" FontSize="30" Click="Button_Close2_Click"/>
-            <Image Margin="0,647,1537,0" Source="RESSOURCES/bas-gauche.png" Stretch="Fill"/>
+                <Image Margin="0,647,1537,0" Source="RESSOURCES/bas-gauche.png" Stretch="Fill"/>
             <Image Margin="0,0,1587,647" Source="RESSOURCES/haut-gauche.png" Stretch="Fill"/>
             <Image Margin="1595,743,0,0" Source="RESSOURCES/bas-droite.png" Stretch="Fill"/>
             <Label x:Name="Label_Nom_Parcours" d:Content="Nom parcours" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="70" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Segoe UI Black" Margin="0,24,0,0"/>
-            <Label x:Name="Label_Description_Parcours" Content="Description parcours" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Segoe UI Black" Margin="0,129,0,0"/>
+            <Label x:Name="Label_Description_Parcours" d:Content="Description parcours" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Segoe UI Black" Margin="0,129,0,0"/>
+            <Button x:Name="Button_Close2" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Height="60" Width="60" Background="Red" FontSize="30" Click="Button_Close2_Click"/>
 
-            <!-- Affichage dynamique des animaux avec Images et Informations -->
+                <!-- Affichage dynamique des animaux avec Images et Informations -->
             <ItemsControl x:Name="EspecesList" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -63,224 +72,244 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </Grid>
-
+        </Border>
         <!--============================================================================-->
 
         <!--Grille Parcours -->
+        <Border x:Name="Border_Parcours" Visibility="Visible" d:Visibility="Visible">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#FF009EE4" Offset="0"/>
+                    <GradientStop Color="#FF005C97" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
 
-        <Grid x:Name="Grid_Parcours" Visibility="Visible" d:Visibility="Hidden" Background="#FF009EE4">
-            <Button x:Name="Btn_Admin" Content="Admin" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Btn_Admin_Click" Height="61" Width="88"/>
-            <Image Margin="0,647,1537,0" Source="RESSOURCES/bas-gauche.png" Stretch="Fill"/>
-            <Image Margin="0,0,1587,647" Source="RESSOURCES/haut-gauche.png" Stretch="Fill"/>
-            <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
-            <Image Margin="1595,743,0,0" Source="RESSOURCES/bas-droite.png" Stretch="Fill"/>
+            <Grid x:Name="Grid_Parcours" Visibility="Visible" d:Visibility="Visible">
+                <Button x:Name="Btn_Admin" Content="Admin" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Btn_Admin_Click" Height="61" Width="88"/>
+                <Image Margin="0,647,1537,0" Source="RESSOURCES/bas-gauche.png" Stretch="Fill"/>
+                <Image Margin="0,0,1587,647" Source="RESSOURCES/haut-gauche.png" Stretch="Fill"/>
+                <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
+                <Image Margin="1595,743,0,0" Source="RESSOURCES/bas-droite.png" Stretch="Fill"/>
 
-            <ItemsControl x:Name="ParcoursList" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel x:Name="WrapPanel">
-                            <WrapPanel.Style>
-                                <Style TargetType="WrapPanel">
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding ElementName=ParcoursList, Path=Items.Count}" Value="20">
-                                            <Setter Property="Orientation" Value="Horizontal"/>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </WrapPanel.Style>
-                        </WrapPanel>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Border Margin="10" Padding="10" Width="200" Background="#4976ba" CornerRadius="10">
-                            <StackPanel HorizontalAlignment="Center">
-                                <StackPanel>
-                                    <!-- Image du parcours -->
-                                    <Image Source="{Binding imgPathParcours}" Width="150" Height="100" Stretch="UniformToFill" HorizontalAlignment="Center" Margin="0,10,0,10"/>
+                <ItemsControl x:Name="ParcoursList" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel x:Name="WrapPanel">
+                                <WrapPanel.Style>
+                                    <Style TargetType="WrapPanel">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=ParcoursList, Path=Items.Count}" Value="20">
+                                                <Setter Property="Orientation" Value="Horizontal"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </WrapPanel.Style>
+                            </WrapPanel>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Margin="10" Padding="10" Width="200" Background="#4976ba" CornerRadius="10">
+                                <StackPanel HorizontalAlignment="Center">
+                                    <StackPanel>
+                                        <!-- Image du parcours -->
+                                        <Image Source="{Binding imgPathParcours}" Width="150" Height="100" Stretch="UniformToFill" HorizontalAlignment="Center" Margin="0,10,0,10"/>
 
-                                    <!-- Nom du parcours -->
-                                    <TextBlock Text="{Binding nomParcours}" Width="200" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="20" Margin="0,10,0,10" />
-                                    <!-- Bouton pour accéder au parcours -->
-                                    <Button Background="#4976ba" x:Name="Btn_Open_Parcours" Width="100" Content="Voir le parcours" Command="{Binding OpenParcoursCommand}" Click="Btn_Open_Parcours_Click" Foreground="White" Height="30" BorderThickness="1" BorderBrush="Black">
-                                        <Button.Template>
-                                            <ControlTemplate TargetType="Button">
-                                                <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
-                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}" />
-                                                </Border>
-                                            </ControlTemplate>
-                                        </Button.Template>
-                                    </Button>
+                                        <!-- Nom du parcours -->
+                                        <TextBlock Text="{Binding nomParcours}" Width="200" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="20" Margin="0,10,0,10" />
+                                        <!-- Bouton pour accéder au parcours -->
+                                        <Button Background="#4976ba" x:Name="Btn_Open_Parcours" Width="100" Content="Voir le parcours" Command="{Binding OpenParcoursCommand}" Click="Btn_Open_Parcours_Click" Foreground="White" Height="30" BorderThickness="1" BorderBrush="Black">
+                                            <Button.Template>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}" />
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Button.Template>
+                                        </Button>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
+        </Border>
+        <!--============================================================================-->
+        <Border x:Name="Border_Recherche_Animal" Visibility="Hidden">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#FF009EE4" Offset="0"/>
+                    <GradientStop Color="#FF005C97" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <!--Grille de recherche d'animal-->
+            <Grid x:Name="Grid_Recherche" Visibility="Hidden">
+
+                <!-- Grille principale -->
+                <Grid Margin="10" VerticalAlignment="Stretch" Visibility="Hidden">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1253*" />
+                        <!-- Carte -->
+                        <ColumnDefinition Width="647*" />
+                        <!-- Résultats -->
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Carte du monde -->
+                    <Border Grid.Column="0" Background="White" Margin="0,12,272,-12" Grid.ColumnSpan="2">
+                        <Grid Margin="0,-56,0,0">
+                            <!-- Carte du monde -->
+                            <Image Source="RESSOURCES/monde.png" Stretch="Fill" />
+                            <!-- Zones cliquables -->
+                            <Canvas>
+                                <!-- AMERIQUE DU NORD -->
+                                <Button Canvas.Left="10" Canvas.Top="40" Width="660" Height="601" Background="Transparent" BorderBrush="Transparent" 
+                    Click="Zone_Click_Amerique_Nord" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0"/>
+
+                                <!-- AMERIQUE DU SUD -->
+                                <Button Canvas.Left="388" Canvas.Top="618" Width="220" Height="403" Background="Transparent" BorderBrush="Transparent"
+                                    Click="Zone_Click_Amerique_Sud" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="0">
+                                </Button>
+
+                                <!-- AFRIQUE -->
+                                <Button Canvas.Left="686" Canvas.Top="479" Width="240" Height="443" Background="Transparent" BorderBrush="Transparent"
+                                Click="Zone_Click_Afrique" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0">
+                                </Button>
+                                <Button Canvas.Left="931" Canvas.Top="637" Width="139" Height="265" Background="Transparent" BorderBrush="Transparent"
+                                Click="Zone_Click_Afrique" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0">
+                                </Button>
+
+                                <!-- Europe -->
+                                <Button Canvas.Left="675" Width="256" Height="387" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Europe" HorizontalAlignment="Left" VerticalAlignment="Center" Content="@" Canvas.Top="92" Opacity="0"/>
+                                <Button Canvas.Left="936" Width="98" Height="336" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Europe" HorizontalAlignment="Center" VerticalAlignment="Top" Content="@" Canvas.Top="67" Opacity="0"/>
+
+                                <!-- Asie -->
+                                <Button Canvas.Left="1039" Canvas.Top="67" Width="589" Height="616" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Asie" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0" FontFamily="Segoe UI Black">
+                                </Button>
+                                <Button Canvas.Left="931" Canvas.Top="408" Width="103" Height="200" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Asie" HorizontalAlignment="Left" VerticalAlignment="Center" Opacity="0" FontFamily="Segoe UI Black">
+                                </Button>
+
+                                <!-- Oceanie -->
+                                <Button Canvas.Left="1274" Canvas.Top="688" Width="312" Height="264" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Oceanie" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="0">
+                                </Button>
+
+                                <!-- Antartique -->
+                                <Button Canvas.Left="470" Canvas.Top="1001" Width="972" Height="100" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Antartique" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="0">
+                                </Button>
+                            </Canvas>
+                        </Grid>
+                    </Border>
+                </Grid>
+
+                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Width="250" Visibility="Hidden">
+                    <TextBox x:Name="SearchBox" TextChanged="SearchBox_TextChanged" Width="250" Height="30"/>
+                    <ListBox x:Name="Lstbx_Animaux" MouseDoubleClick="Lstbx_Animaux_MouseDoubleClick" Width="250" Height="1050">
+                        <ListBox.Resources>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="BorderBrush" Value="Transparent" />
+                                <Setter Property="BorderThickness" Value="0" />
+                            </Style>
+                        </ListBox.Resources>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image x:Name="Img_Animal_1" Width="60" Source="RESSOURCES/axolotl.jpeg" Margin="2" Height="60" Stretch="Fill">
+                                        <Image.OpacityMask>
+                                            <ImageBrush ImageSource="RESSOURCES/rond.png" Stretch="Uniform" TileMode="None" />
+                                        </Image.OpacityMask>
+                                    </Image>
+                                    <Border Height="70" Width="150" Background="White" HorizontalAlignment="Right" CornerRadius="10" Margin="2">
+                                        <TextBlock Text="{Binding nomCommun}" VerticalAlignment="Center" Margin="5" HorizontalAlignment="Center" FontSize="16" FontFamily="Segoe UI Black"/>
+                                    </Border>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+
+            </Grid>
+
+        </Border>
+        <!--============================================================================-->
+        <Border x:Name="Border_Info" Visibility="Hidden">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#FF009EE4" Offset="0"/>
+                    <GradientStop Color="#FF005C97" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <!--Grille d'affichage de l'animal recherché-->
+            <Grid x:Name="Grid_Info" Visibility="Hidden" d:Visibility="hidden">
+
+                <Image Margin="-71,382,1199,-50" Source="RESSOURCES/rond-blanc.png" Stretch="Fill"/>
+
+                <Image Margin="0,800,1657,0" Source="RESSOURCES/bas-gauche.png" Stretch="Fill"/>
+
+                <Image Margin="0,0,1587,647" Source="RESSOURCES/haut-gauche.png" Stretch="Fill"/>
+
+                <Image Margin="726,330,730,269" Source="RESSOURCES/rond.png" Stretch="Fill"/>
+
+                <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
+
+                <Button x:Name="Button_Close" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Height="60" Width="60" Background="Red" FontSize="30" Click="Button_Close_Click"/>
+
+                <StackPanel Margin="300,150,0,0" Width="400" Height="200" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0">
+                        <Border Margin="0,0,0,8" CornerRadius="10" Background="#dd8e0b" Width="350" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Label x:Name="Label_Famille" Content="Embranchement" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
+                        </Border>
+                        <Border Margin="0,0,0,8" CornerRadius="10" Background="#d3dd0b" Width="295" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Label x:Name="Label_Ordre" Content="Classe" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
+                        </Border>
+                        <Border Margin="0,0,0,8" CornerRadius="10" Background="#94dd0b" Width="240" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Label x:Name="Label_Classe" Content="Ordre" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
+                        </Border>
+                        <Border Margin="0,0,0,8" CornerRadius="10" Background="#32dd0b " Width="185" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Label x:Name="Label_Embranchement" Content="Famille" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
+                        </Border>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="70,0,0,0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock x:Name="Tbx_Description_Global" TextAlignment="Left" Margin="25,0,20,0" HorizontalAlignment="Left" TextWrapping="Wrap" Height="440" Width="225" Text="TextBlock" VerticalAlignment="Bottom"  FontSize="15" Foreground="#FF2C2E87" FontFamily="Segoe UI" />
+                        <TextBlock x:Name="Tbx_Description_Global1" TextAlignment="Left" Margin="0,0,0,0" HorizontalAlignment="Left" TextWrapping="Wrap" Height="440" Width="225" Text="TextBlock" VerticalAlignment="Bottom"  FontSize="15" Foreground="#FF2C2E87" FontFamily="Segoe UI"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock x:Name="Text_UICN" TextAlignment="Center" HorizontalAlignment="Right" TextWrapping="Wrap" Text="TextBlock" Height="160" Width="300" VerticalAlignment="Top" Foreground="#FFCE1619" Margin="160,10,0,0" FontSize="15"/>
+
+                        <Border Background="White" Margin="145,0,0,0" CornerRadius="20" Height="127">
+                            <StackPanel Orientation="Vertical" Margin="15,0,15,0">
+                                <TextBlock x:Name="Text_Critere_Menace" TextAlignment="Center" Margin="0,10,0,20" TextWrapping="Wrap" Text="TextBlock" Height="58" Width="200" FontSize="20" FontWeight="Bold" Foreground="#FF2C2E87"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock x:Name="Txt_UICN_Black" Background="BLack" Text="" Width="20" Height="10" FontSize="15" />
+                                    <TextBlock x:Name="Txt_UICN_Red" Background="Red" Margin="8,0,0,0" Text="" Width="20" Height="10" FontSize="15" />
+                                    <TextBlock x:Name="Txt_UICN_Orange" Background="Orange" Margin="8,0,0,0" Text="" Width="20" Height="10" FontSize="15" />
+                                    <TextBlock x:Name="Txt_UICN_Yellow" Background="#feed00" Margin="8,0,0,0" Text="" Width="20" Height="10" FontSize="15" />
+                                    <TextBlock x:Name="Txt_UICN_LawnGreen" Background="LawnGreen" Margin="8,0,0,0" Text="" Width="20" Height="10" FontSize="15" />
+                                    <TextBlock x:Name="Txt_UICN_YellowGreen" Background="YellowGreen" Margin="8,0,0,0" Text="" Width="20" Height="10" FontSize="15" />
+                                    <TextBlock x:Name="Txt_UICN_Green" Background="Green" Margin="8,0,0,0" Text="" Width="20" Height="10" FontSize="15" />
                                 </StackPanel>
                             </StackPanel>
                         </Border>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </Grid>
 
-        <!--============================================================================-->
-
-        <!--Grille de recherche d'animal-->
-        <Grid x:Name="Grid_Recherche" Visibility="Hidden">
-
-            <!-- Grille principale -->
-            <Grid Margin="10" VerticalAlignment="Stretch" Visibility="Hidden">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1253*" />
-                    <!-- Carte -->
-                    <ColumnDefinition Width="647*" />
-                    <!-- Résultats -->
-                </Grid.ColumnDefinitions>
-
-                <!-- Carte du monde -->
-                <Border Grid.Column="0" Background="White" Margin="0,12,272,-12" Grid.ColumnSpan="2">
-                    <Grid Margin="0,-56,0,0">
-                        <!-- Carte du monde -->
-                        <Image Source="RESSOURCES/monde.png" Stretch="Fill" />
-                        <!-- Zones cliquables -->
-                        <Canvas>
-                            <!-- AMERIQUE DU NORD -->
-                            <Button Canvas.Left="10" Canvas.Top="40" Width="660" Height="601" Background="Transparent" BorderBrush="Transparent" 
-                    Click="Zone_Click_Amerique_Nord" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0"/>
-
-                            <!-- AMERIQUE DU SUD -->
-                            <Button Canvas.Left="388" Canvas.Top="618" Width="220" Height="403" Background="Transparent" BorderBrush="Transparent"
-                                    Click="Zone_Click_Amerique_Sud" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="0">
-                            </Button>
-
-                            <!-- AFRIQUE -->
-                            <Button Canvas.Left="686" Canvas.Top="479" Width="240" Height="443" Background="Transparent" BorderBrush="Transparent"
-                                Click="Zone_Click_Afrique" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0">
-                            </Button>
-                            <Button Canvas.Left="931" Canvas.Top="637" Width="139" Height="265" Background="Transparent" BorderBrush="Transparent"
-                                Click="Zone_Click_Afrique" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0">
-                            </Button>
-
-                            <!-- Europe -->
-                            <Button Canvas.Left="675" Width="256" Height="387" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Europe" HorizontalAlignment="Left" VerticalAlignment="Center" Content="@" Canvas.Top="92" Opacity="0"/>
-                            <Button Canvas.Left="936" Width="98" Height="336" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Europe" HorizontalAlignment="Center" VerticalAlignment="Top" Content="@" Canvas.Top="67" Opacity="0"/>
-
-                            <!-- Asie -->
-                            <Button Canvas.Left="1039" Canvas.Top="67" Width="589" Height="616" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Asie" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0" FontFamily="Segoe UI Black">
-                            </Button>
-                            <Button Canvas.Left="931" Canvas.Top="408" Width="103" Height="200" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Asie" HorizontalAlignment="Left" VerticalAlignment="Center" Opacity="0" FontFamily="Segoe UI Black">
-                            </Button>
-
-                            <!-- Oceanie -->
-                            <Button Canvas.Left="1274" Canvas.Top="688" Width="312" Height="264" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Oceanie" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="0">
-                            </Button>
-
-                            <!-- Antartique -->
-                            <Button Canvas.Left="470" Canvas.Top="1001" Width="972" Height="100" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Antartique" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="0">
-                            </Button>
-                        </Canvas>
-                    </Grid>
-                </Border>
-            </Grid>
-
-            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Width="250" Visibility="Hidden">
-                <TextBox x:Name="SearchBox" TextChanged="SearchBox_TextChanged" Width="250" Height="30"/>
-                <ListBox x:Name="Lstbx_Animaux" MouseDoubleClick="Lstbx_Animaux_MouseDoubleClick" Width="250" Height="1050">
-                    <ListBox.Resources>
-                        <Style TargetType="ListBoxItem">
-                            <Setter Property="Background" Value="Transparent" />
-                            <Setter Property="BorderBrush" Value="Transparent" />
-                            <Setter Property="BorderThickness" Value="0" />
-                        </Style>
-                    </ListBox.Resources>
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <Image x:Name="Img_Animal_1" Width="60" Source="RESSOURCES/axolotl.jpeg" Margin="2" Height="60" Stretch="Fill">
-                                    <Image.OpacityMask>
-                                        <ImageBrush ImageSource="RESSOURCES/rond.png" Stretch="Uniform" TileMode="None" />
-                                    </Image.OpacityMask>
-                                </Image>
-                                <Border Height="70" Width="150" Background="White" HorizontalAlignment="Right" CornerRadius="10" Margin="2">
-                                    <TextBlock Text="{Binding nomCommun}" VerticalAlignment="Center" Margin="5" HorizontalAlignment="Center" FontSize="16" FontFamily="Segoe UI Black"/>
-                                </Border>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-            </StackPanel>
-
-        </Grid>
-
-        <!--============================================================================-->
-
-        <!--Grille d'affichage de l'animal recherché-->
-        <Grid x:Name="Grid_Info" Visibility="Hidden" d:Visibility="hidden" Background="#FF009EE4">
-
-            <Image Margin="-71,382,1199,-50" Source="RESSOURCES/rond-blanc.png" Stretch="Fill"/>
-
-            <Image Margin="0,800,1657,0" Source="RESSOURCES/bas-gauche.png" Stretch="Fill"/>
-
-            <Image Margin="0,0,1587,647" Source="RESSOURCES/haut-gauche.png" Stretch="Fill"/>
-
-            <Image Margin="726,330,730,269" Source="RESSOURCES/rond.png" Stretch="Fill"/>
-
-            <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
-
-            <Button x:Name="Button_Close" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Height="60" Width="60" Background="Red" FontSize="30" Click="Button_Close_Click"/>
-
-            <StackPanel Margin="300,150,0,0" Width="400" Height="200" VerticalAlignment="Top" HorizontalAlignment="Left">
-                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0">
-                    <Border Margin="0,0,0,8" CornerRadius="10" Background="#dd8e0b" Width="350" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Label x:Name="Label_Famille" Content="Embranchement" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
-                    </Border>
-                    <Border Margin="0,0,0,8" CornerRadius="10" Background="#d3dd0b" Width="295" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Label x:Name="Label_Ordre" Content="Classe" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
-                    </Border>
-                    <Border Margin="0,0,0,8" CornerRadius="10" Background="#94dd0b" Width="240" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Label x:Name="Label_Classe" Content="Ordre" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
-                    </Border>
-                    <Border Margin="0,0,0,8" CornerRadius="10" Background="#32dd0b " Width="185" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Label x:Name="Label_Embranchement" Content="Famille" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
-                    </Border>
+                    </StackPanel>
                 </StackPanel>
-            </StackPanel>
 
-            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="70,0,0,0">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock x:Name="Tbx_Description_Global" TextAlignment="Left" Margin="25,0,20,0" HorizontalAlignment="Left" TextWrapping="Wrap" Height="440" Width="225" Text="TextBlock" VerticalAlignment="Bottom"  FontSize="15" Foreground="#FF2C2E87" FontFamily="Segoe UI" />
-                    <TextBlock x:Name="Tbx_Description_Global1" TextAlignment="Left" Margin="0,0,0,0" HorizontalAlignment="Left" TextWrapping="Wrap" Height="440" Width="225" Text="TextBlock" VerticalAlignment="Bottom"  FontSize="15" Foreground="#FF2C2E87" FontFamily="Segoe UI"/>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0">
+                    <Label x:Name="Label_Nom_Animal" Content="Nom animal" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="70" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Segoe UI Black"/>
+                    <Label x:Name="Label_Nom_Scientifique_Animal" Content="Nom Scientifique" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Segoe UI Black"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock x:Name="Text_UICN" TextAlignment="Center" HorizontalAlignment="Right" TextWrapping="Wrap" Text="TextBlock" Height="160" Width="300" VerticalAlignment="Top" Foreground="#FFCE1619" Margin="160,10,0,0" FontSize="15"/>
 
-                    <Border Background="White" Margin="145,0,0,0" CornerRadius="20" Height="127">
-                        <StackPanel Orientation="Vertical" Margin="15,0,15,0">
-                            <TextBlock x:Name="Text_Critere_Menace" TextAlignment="Center" Margin="0,10,0,20" TextWrapping="Wrap" Text="TextBlock" Height="58" Width="200" FontSize="20" FontWeight="Bold" Foreground="#FF2C2E87"/>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock x:Name="Txt_UICN_Black" Background="BLack" Text="" Width="20" Height="10" FontSize="15" />
-                                <TextBlock x:Name="Txt_UICN_Red" Background="Red" Margin="8,0,0,0" Text="" Width="20" Height="10" FontSize="15" />
-                                <TextBlock x:Name="Txt_UICN_Orange" Background="Orange" Margin="8,0,0,0" Text="" Width="20" Height="10" FontSize="15" />
-                                <TextBlock x:Name="Txt_UICN_Yellow" Background="#feed00" Margin="8,0,0,0" Text="" Width="20" Height="10" FontSize="15" />
-                                <TextBlock x:Name="Txt_UICN_LawnGreen" Background="LawnGreen" Margin="8,0,0,0" Text="" Width="20" Height="10" FontSize="15" />
-                                <TextBlock x:Name="Txt_UICN_YellowGreen" Background="YellowGreen" Margin="8,0,0,0" Text="" Width="20" Height="10" FontSize="15" />
-                                <TextBlock x:Name="Txt_UICN_Green" Background="Green" Margin="8,0,0,0" Text="" Width="20" Height="10" FontSize="15" />
-                            </StackPanel>
-                        </StackPanel>
+                <StackPanel Width="600" Height="150" Margin="0,230,100,0" VerticalAlignment="Top">
+                    <Border Background="White" Margin="0,0,55,0" Width="250" Height="130" CornerRadius="120">
+                        <TextBlock x:Name="Text_Info_Pratique" Text="Chat" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" FontSize="13" FontWeight="Bold" Foreground="#FF2C2E87" TextAlignment="Center" Width="200" FontFamily="Segoe UI Black"/>
                     </Border>
-
+                    <Polygon Points="60,0 80,20 30,0" HorizontalAlignment="Center" Margin="0,0,60,0" Fill="white" />
                 </StackPanel>
-            </StackPanel>
 
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0">
-                <Label x:Name="Label_Nom_Animal" Content="Nom animal" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="70" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Segoe UI Black"/>
-                <Label x:Name="Label_Nom_Scientifique_Animal" Content="Nom Scientifique" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Segoe UI Black"/>
-            </StackPanel>
-
-            <StackPanel Width="600" Height="150" Margin="0,230,100,0" VerticalAlignment="Top">
-                <Border Background="White" Margin="0,0,55,0" Width="250" Height="130" CornerRadius="120">
-                    <TextBlock x:Name="Text_Info_Pratique" Text="Chat" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" FontSize="13" FontWeight="Bold" Foreground="#FF2C2E87" TextAlignment="Center" Width="200" FontFamily="Segoe UI Black"/>
-                </Border>
-                <Polygon Points="60,0 80,20 30,0" HorizontalAlignment="Center" Margin="0,0,60,0" Fill="white" />
-            </StackPanel>
-
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
 
                 <!-- Deuxième image avec masque -->
                 <Image x:Name="Img_Animal_1"
@@ -288,14 +317,14 @@
                    Margin="0,0,0,-60" 
                    Height="368" 
                    Stretch="Fill">
-                    <Image.OpacityMask>
-                        <ImageBrush ImageSource="RESSOURCES/rond.png" Stretch="Uniform" TileMode="None" />
-                    </Image.OpacityMask>
-                </Image>
-            </StackPanel>
+                        <Image.OpacityMask>
+                            <ImageBrush ImageSource="RESSOURCES/rond.png" Stretch="Uniform" TileMode="None" />
+                        </Image.OpacityMask>
+                    </Image>
+                </StackPanel>
 
-            <Image Source="RESSOURCES/world.png" Margin="845,800,577,25" RenderTransformOrigin="-6.134,0.197" />
-            <Label x:Name="Label_Localisation" Content="Pays" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Left" Background="{x:Null}" Margin="1056,1013,0,0" Width="193" FontSize="20" Height="38" Foreground="White" FontFamily="Segoe UI Black"/>
+                <Image Source="RESSOURCES/world.png" Margin="845,800,577,25" RenderTransformOrigin="-6.134,0.197" />
+                <Label x:Name="Label_Localisation" Content="Pays" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Left" Background="{x:Null}" Margin="1056,1013,0,0" Width="193" FontSize="20" Height="38" Foreground="White" FontFamily="Segoe UI Black"/>
 
             <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,100,100,0">
                 <Image x:Name="Img_Animal_2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400">
@@ -311,37 +340,37 @@
                     <!-- Image en arrière-plan -->
 
 
-                    <!-- Labels superposés -->
-                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Vertical" Margin="-40,-40,0,0" Grid.ColumnSpan="2">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="RESSOURCES/3.png" Stretch="Fill" Height="80"/>
-                            <Border CornerRadius="10" Background="White" Margin="20,0,0,0" Width="170" Height="55">
-                                <TextBlock x:Name="Label_Habitat" TextAlignment="Center" Text="Habitat" Foreground="Black" FontSize="20" VerticalAlignment="Center" TextWrapping="Wrap" Height="55" FontFamily="Segoe UI Black"/>
-                            </Border>
-                        </StackPanel>
+                        <!-- Labels superposés -->
+                        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Vertical" Margin="-40,-40,0,0" Grid.ColumnSpan="2">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="RESSOURCES/3.png" Stretch="Fill" Height="80"/>
+                                <Border CornerRadius="10" Background="White" Margin="20,0,0,0" Width="170" Height="55">
+                                    <TextBlock x:Name="Label_Habitat" TextAlignment="Center" Text="Habitat" Foreground="Black" FontSize="20" VerticalAlignment="Center" TextWrapping="Wrap" Height="55" FontFamily="Segoe UI Black"/>
+                                </Border>
+                            </StackPanel>
 
-                        <StackPanel Orientation="Horizontal">
-                            <Image  Source="RESSOURCES/1.png" Stretch="Fill" Height="80"/>
-                            <Border CornerRadius="10" Background="White" Margin="20,0,0,0" Width="170" Height="55">
-                                <Label x:Name="Label_Taille" Content="Taille" Foreground="Black" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
-                            </Border>
-                        </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Image  Source="RESSOURCES/1.png" Stretch="Fill" Height="80"/>
+                                <Border CornerRadius="10" Background="White" Margin="20,0,0,0" Width="170" Height="55">
+                                    <Label x:Name="Label_Taille" Content="Taille" Foreground="Black" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
+                                </Border>
+                            </StackPanel>
 
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="RESSOURCES/4.png" Stretch="Fill" Height="80"/>
-                            <Border CornerRadius="10" Background="White" Margin="20,0,0,0" Width="170" Height="55">
-                                <Label x:Name="Label_Poids" Content="Poids" Foreground="Black" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
-                            </Border>
-                        </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="RESSOURCES/4.png" Stretch="Fill" Height="80"/>
+                                <Border CornerRadius="10" Background="White" Margin="20,0,0,0" Width="170" Height="55">
+                                    <Label x:Name="Label_Poids" Content="Poids" Foreground="Black" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
+                                </Border>
+                            </StackPanel>
 
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="RESSOURCES/5.png" Stretch="Fill" Height="80"/>
-                            <Border CornerRadius="10" Background="White" Margin="20,0,0,0" Width="170" Height="55">
-                                <Label x:Name="Label_Duree_Vie" Content="Durée de vie" Foreground="Black" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
-                            </Border>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="RESSOURCES/5.png" Stretch="Fill" Height="80"/>
+                                <Border CornerRadius="10" Background="White" Margin="20,0,0,0" Width="170" Height="55">
+                                    <Label x:Name="Label_Duree_Vie" Content="Durée de vie" Foreground="Black" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
+                                </Border>
+                            </StackPanel>
                         </StackPanel>
-                    </StackPanel>
-                </Grid>
+                    </Grid>
 
                 <Image x:Name="Img_Animal_3" Width="324" Height="232">
                     <Image.OpacityMask>

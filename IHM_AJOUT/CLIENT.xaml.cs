@@ -42,7 +42,10 @@ namespace IHM_BASE {
             //Lstbx_Animaux.ItemsSource = List_Especes;
 
             Grid_Info.Visibility = Visibility.Hidden;
-            Grid_Recherche.Visibility = Visibility.Visible;
+            Border_Info.Visibility = Visibility.Hidden;
+            
+            Grid_Parcours.Visibility = Visibility.Visible;
+            Border_Parcours.Visibility = Visibility.Visible;
         }
 
         private void InitialiserConnexion() {
@@ -67,6 +70,8 @@ namespace IHM_BASE {
 
         private void Button_Close_Click(object sender,RoutedEventArgs e) {
             Grid_Info.Visibility = Visibility.Hidden;
+            Border_Info.Visibility = Visibility.Hidden;
+
             Txt_UICN_Black.Width = 20;
             Txt_UICN_Black.Height = 10;
 
@@ -92,12 +97,15 @@ namespace IHM_BASE {
             Img_Animal_3.Source = null;
 
             Grid_Especes_Parcours.Visibility = Visibility.Visible;
+            Border_Especes.Visibility = Visibility.Visible;
         }
 
         private void Lstbx_Animaux_MouseDoubleClick(object sender,MouseButtonEventArgs e) {
             Grid_Recherche.Visibility = Visibility.Hidden;
+            Border_Recherche_Animal.Visibility = Visibility.Hidden;
 
             Grid_Info.Visibility = Visibility.Visible;
+            Border_Info.Visibility = Visibility.Visible;
 
             //Recuperation des infos de l'animal selectionné
             C_ESPECE Espece_Select = Lstbx_Animaux.SelectedItem as C_ESPECE;
@@ -254,7 +262,10 @@ namespace IHM_BASE {
 
                     // Basculer l'affichage
                     Grid_Especes_Parcours.Visibility = Visibility.Visible;
+                    Border_Especes.Visibility = Visibility.Visible;
+
                     Grid_Parcours.Visibility = Visibility.Hidden;
+                    Border_Parcours.Visibility = Visibility.Hidden;
                 }
             }
         }
@@ -353,7 +364,10 @@ namespace IHM_BASE {
                                     break;
                             }
                             Grid_Info.Visibility = Visibility.Visible;
+                            Border_Info.Visibility = Visibility.Visible;
+
                             Grid_Especes_Parcours.Visibility = Visibility.Hidden;
+                            Border_Especes.Visibility = Visibility.Hidden;
                             return;
                         }
 
@@ -366,7 +380,10 @@ namespace IHM_BASE {
 
         private void Button_Close2_Click(object sender,RoutedEventArgs e) {
             Grid_Especes_Parcours.Visibility = Visibility.Hidden;
+            Border_Especes.Visibility = Visibility.Hidden;
+            
             Grid_Parcours.Visibility = Visibility.Visible;
+            Border_Parcours.Visibility = Visibility.Visible;
         }
     }
 }

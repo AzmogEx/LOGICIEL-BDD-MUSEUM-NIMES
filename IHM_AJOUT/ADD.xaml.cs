@@ -92,12 +92,12 @@ namespace IHM_AJOUT {
                     return;
                 }
 
-                if(!decimal.TryParse(TB_TailleMin.Text,out _) || !decimal.TryParse(TB_TailleMax.Text,out _)) {
+                if(!float.TryParse(TB_TailleMin.Text,out _) || !float.TryParse(TB_TailleMax.Text,out _)) {
                     MessageBox.Show("Veuillez entrer des valeurs numériques valides pour la taille.","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
                     return;
                 }
 
-                if(!decimal.TryParse(TB_PoidsMin.Text,out _) || !decimal.TryParse(TB_PoidsMax.Text,out _)) {
+                if(!float.TryParse(TB_PoidsMin.Text,out _) || !float.TryParse(TB_PoidsMax.Text,out _)) {
                     MessageBox.Show("Veuillez entrer des valeurs numériques valides pour le poids.","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
                     return;
                 }

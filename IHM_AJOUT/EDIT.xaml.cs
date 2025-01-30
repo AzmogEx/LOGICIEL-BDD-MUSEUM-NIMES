@@ -150,6 +150,27 @@ namespace IHM_BASE {
 
         private void BTN_Edit_Click(object sender,RoutedEventArgs e) {
 
+            //Vérifications que les champs ne contiennent pas de valeurs inappropriées 
+            if(string.IsNullOrEmpty(TB_Nom.Text) || string.IsNullOrEmpty(TB_NomScient.Text)) {
+                MessageBox.Show("Le nom commun et le nom scientifique sont obligatoires.","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
+                return;
+            }
+
+            if(!float.TryParse(TB_TailleMin.Text,out _) || !float.TryParse(TB_TailleMax.Text,out _)) {
+                MessageBox.Show("Veuillez entrer des valeurs numériques valides pour la taille.","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
+                return;
+            }
+
+            if(!float.TryParse(TB_PoidsMin.Text,out _) || !float.TryParse(TB_PoidsMax.Text,out _)) {
+                MessageBox.Show("Veuillez entrer des valeurs numériques valides pour le poids.","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
+                return;
+            }
+
+            if(!int.TryParse(TB_AgeMin.Text,out _) || !int.TryParse(TB_AgeMax.Text,out _)) {
+                MessageBox.Show("Veuillez entrer des valeurs numériques valides pour la durée de vie.","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
+                return;
+            }
+
             var result = MessageBox.Show(
                     "Veuillez vérifier toutes les informations avant de continuer.\n\n" +
                     "Souhaitez-vous modifier cette espèce ?",

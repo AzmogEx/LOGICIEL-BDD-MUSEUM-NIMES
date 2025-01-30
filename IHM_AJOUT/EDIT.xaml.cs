@@ -103,10 +103,11 @@ namespace IHM_BASE {
                             BTN_DeleteImg2.IsEnabled = true;
                             Path2 = imagePath.ImgPath;
                         }
-                    } else {
+                    } else if(!string.IsNullOrWhiteSpace(imagePath.ImgPath)) {
                         MessageBox.Show($"Une ou plusieurs images n'ont pas pu être chargées correctement","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
                     }
                 }
+
             } catch(Exception ex) {
 
                 MessageBox.Show($"Une erreur est survenue : {ex.Message}\n{ex.StackTrace}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
@@ -161,17 +162,13 @@ namespace IHM_BASE {
                 return;
             }
 
-            if(Path != null) {
-                ListPath.Add(new C_IMAGE() { ImgPath = Path });
-            }
+            if(Path == null) { Path = " "; }
+            if(Path == null) { Path1 = " "; }
+            if(Path == null) { Path2 = " "; }
 
-            if(Path1 != null) {
-                ListPath.Add(new C_IMAGE() { ImgPath = Path1 });
-            }
-
-            if(Path2 != null) {
-                ListPath.Add(new C_IMAGE() { ImgPath = Path2 });
-            }
+            ListPath.Add(new C_IMAGE() { ImgPath = Path });
+            ListPath.Add(new C_IMAGE() { ImgPath = Path1 });
+            ListPath.Add(new C_IMAGE() { ImgPath = Path2 });
 
             try {
                 int.TryParse(TB_TailleMin.Text,out int TailleMin);

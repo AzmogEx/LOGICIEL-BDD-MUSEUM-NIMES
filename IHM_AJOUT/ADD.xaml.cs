@@ -121,22 +121,13 @@ namespace IHM_AJOUT {
 
                 //si des images sont chargées, et donc que les chemins ne sont pas nuls, alors on les sauvegarde dans une liste
 
-                // Si aucune image n'est fournie, ajouter une image par défaut
-                if(Path == null && Path1 == null && Path2 == null) {
-                    Path = "RESSOURCES/axolotl.jpeg"; // Remplace par un chemin d'image valide par défaut
-                    ListPath.Add(new C_IMAGE() { ImgPath = Path });
-                }
-                else {
-                    if(Path != null) {
-                        ListPath.Add(new C_IMAGE() { ImgPath = Path });
-                    }
-                    if(Path1 != null) {
-                        ListPath.Add(new C_IMAGE() { ImgPath = Path1 });
-                    }
-                    if(Path2 != null) {
-                        ListPath.Add(new C_IMAGE() { ImgPath = Path2 });
-                    }
-                }
+                if(Path == null) { Path = " "; }
+                if(Path == null) { Path1 = " "; }
+                if(Path == null) { Path2 = " "; }
+
+                ListPath.Add(new C_IMAGE() { ImgPath = Path });
+                ListPath.Add(new C_IMAGE() { ImgPath = Path1 });
+                ListPath.Add(new C_IMAGE() { ImgPath = Path2 });
 
                 try {
                     int.TryParse(TB_TailleMin.Text,out int TailleMin);

@@ -123,7 +123,7 @@ namespace IHM_BASE {
                 C_PARCOURS updatedParcours = new C_PARCOURS {
                     idParcours = selectedParcours.idParcours,
                     nomParcours = newNom,
-                    imgPathParcours = selectedParcours.imgPathParcours,  // Garder l'ancien chemin d'image
+                    imgPathParcours = selectedParcours.imgPathParcours,
                     descParcours = newDesc
                 };
 

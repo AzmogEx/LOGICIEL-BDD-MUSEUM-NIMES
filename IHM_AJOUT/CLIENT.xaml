@@ -212,7 +212,7 @@
         <!--============================================================================-->
 
         <!--Grille d'affichage de l'animal recherché-->
-        <Grid x:Name="Grid_Info" Visibility="Hidden" d:Visibility="Hidden" Background="#FF009EE4">
+        <Grid x:Name="Grid_Info" Visibility="Hidden" d:Visibility="hidden" Background="#FF009EE4">
 
             <Image Margin="-71,382,1199,-50" Source="RESSOURCES/rond-blanc.png" Stretch="Fill"/>
 
@@ -251,9 +251,9 @@
                 <StackPanel Orientation="Horizontal">
                     <TextBlock x:Name="Text_UICN" TextAlignment="Center" HorizontalAlignment="Right" TextWrapping="Wrap" Text="TextBlock" Height="160" Width="300" VerticalAlignment="Top" Foreground="#FFCE1619" Margin="160,10,0,0" FontSize="15"/>
 
-                    <Border Background="White" Margin="145,0,0,0" CornerRadius="20" Height="103">
+                    <Border Background="White" Margin="145,0,0,0" CornerRadius="20" Height="127">
                         <StackPanel Orientation="Vertical" Margin="15,0,15,0">
-                            <TextBlock x:Name="Text_Critere_Menace" TextAlignment="Center" Margin="0,10,0,20" TextWrapping="Wrap" Text="TextBlock" Height="40" Width="200" FontSize="20" FontWeight="Bold" Foreground="#FF2C2E87"/>
+                            <TextBlock x:Name="Text_Critere_Menace" TextAlignment="Center" Margin="0,10,0,20" TextWrapping="Wrap" Text="TextBlock" Height="58" Width="200" FontSize="20" FontWeight="Bold" Foreground="#FF2C2E87"/>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock x:Name="Txt_UICN_Black" Background="BLack" Text="" Width="20" Height="10" FontSize="15" />
                                 <TextBlock x:Name="Txt_UICN_Red" Background="Red" Margin="8,0,0,0" Text="" Width="20" Height="10" FontSize="15" />

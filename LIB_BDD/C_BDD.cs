@@ -262,19 +262,27 @@ public class C_BDD {
         }
     }
 
-    public void Edit_Parcours_Especes(int P_IdParcours, List<int> P_Especes) {
+    public void Edit_Parcours_Especes(int P_IdParcours,List<int> P_Especes) {
         using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
         Connexion.Execute("update especes set especes.idParcours = null where especes.idParcours = @IDPARCOURS",new { IDPARCOURS = P_IdParcours });
         foreach(var Espece in P_Especes) {
             Connexion.Execute("update especes set especes.idParcours = @IDPARCOURS where especes.idEspece = @IDESPECE",new { IDPARCOURS = P_IdParcours,IDESPECE = Espece });
         }
-
     }
 
-    public void Create_Parcours(C_PARCOURS P_Parcours) {
-        using(SqlConnection connexion = new SqlConnection(Chaine_Connexion)) {
-            connexion.Execute("INSERT INTO parcours (nomParcours, imgPathParcours, descParcours) VALUES (@NOMPARCOURS, @IMGPATHPARCOURS, @DESCPARCOURS)",
+    public void Add_Parcours_Especes(int P_IdParcours,List<int> P_Especes) {
+        using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
+        foreach(var Espece in P_Especes) {
+            Connexion.Execute("update especes set especes.idParcours = @IDPARCOURS where especes.idEspece = @IDESPECE",new { IDPARCOURS = P_IdParcours,IDESPECE = Espece });
+        }
+    }
+
+    public void Create_Parcours(C_PARCOURS P_Parcours, List<int> P_Id) {
+        using(SqlConnection Connexion = new SqlConnection(Chaine_Connexion)) {
+            Connexion.Execute("INSERT INTO parcours (nomParcours, imgPathParcours, descParcours) VALUES (@NOMPARCOURS, @IMGPATHPARCOURS, @DESCPARCOURS)",
             new { NOMPARCOURS = P_Parcours.nomParcours,IMGPATHPARCOURS = P_Parcours.imgPathParcours,DESCPARCOURS = P_Parcours.descParcours});
+            int ID = Connexion.QuerySingle<int>("SELECT TOP 1 idParcours FROM parcours ORDER BY idParcours DESC;");
+            Add_Parcours_Especes(ID, P_Id);
         }
     }
 

@@ -22,9 +22,11 @@ namespace IHM_BASE {
         private string imgPath;
         private string Path;
         private int Nb_Parcours;
+        private List<int> Id_Especes_Parcours;
 
         public ADD_PARCOURS() {
             BDD = new C_BDD();
+            Id_Especes_Parcours = new();
             InitializeComponent();
 
 
@@ -67,7 +69,7 @@ namespace IHM_BASE {
                 if(Nb_Parcours >= 24) { 
                     MessageBox.Show("Veuillez supprimer un parcours avant d'en rajouter davantage. (Vous ne pouvez pas créer plus de 24 parcours.)","Échec",MessageBoxButton.OK,MessageBoxImage.Information);
                 } else {
-                    BDD.Create_Parcours(Parcours);
+                    BDD.Create_Parcours(Parcours, Id_Especes_Parcours);
                     Nb_Parcours++;
                     MessageBox.Show($"Le parcours '{Parcours.nomParcours}' a été ajouté avec succès.","Succès",MessageBoxButton.OK,MessageBoxImage.Information);
                     Close();
@@ -81,6 +83,21 @@ namespace IHM_BASE {
         private void SearchBox_TextChanged(object sender,TextChangedEventArgs e) {
             var Liste_Animaux_Recuperer = BDD.Get_Espece_By_Name(SearchBox.Text);
             LB_Animaux.ItemsSource = Liste_Animaux_Recuperer;
+        }
+
+        private void LB_Animaux_SelectionChanged(object sender,SelectionChangedEventArgs e) {
+            foreach(C_ESPECE espece in e.AddedItems) {
+                int especeId = espece.idEspece; 
+                if(!Id_Especes_Parcours.Contains(especeId)) {
+                    Id_Especes_Parcours.Add(especeId);
+                }
+            }
+            foreach(C_ESPECE espece in e.RemovedItems) {
+                int especeId = espece.idEspece;
+                if(Id_Especes_Parcours.Contains(especeId)) {
+                    Id_Especes_Parcours.Remove(especeId);
+                }
+            }
         }
     }
 }

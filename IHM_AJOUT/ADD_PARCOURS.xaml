@@ -40,7 +40,7 @@
                     <!-- Texte explicatif -->
                     <TextBlock Text="Les espèces sélectionnées seront ajoutées au parcours" Width="150" TextWrapping="Wrap" Margin="0,10,10,0" />
                 </StackPanel>
-                <ListBox Name="LB_Animaux" HorizontalAlignment="Right" VerticalAlignment="Top" Width="200" Height="150" SelectionMode="Multiple"/>
+                <ListBox Name="LB_Animaux" HorizontalAlignment="Right" VerticalAlignment="Top" Width="200" Height="150" SelectionMode="Multiple" SelectionChanged="LB_Animaux_SelectionChanged"/>
             </StackPanel>
         </StackPanel>
 

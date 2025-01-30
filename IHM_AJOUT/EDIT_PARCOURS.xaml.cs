@@ -139,6 +139,9 @@ namespace IHM_BASE {
             if(selectedParcours != null) {
                 // Supprimer le parcours de la base de données
                 BDD.Delete_Parcours(selectedParcours.idParcours);
+                var parcoursList = BDD.Get_All_Parcours();
+                LB_Parcours.ItemsSource = parcoursList;
+
                 MessageBox.Show("Parcours supprimé avec succès.");
             }
         }
@@ -163,14 +166,13 @@ namespace IHM_BASE {
         }
 
         private void LB_Animaux_SelectionChanged(object sender,SelectionChangedEventArgs e) {
-            foreach(LIB_BDD.C_ESPECE espece in e.AddedItems) {
+            foreach(C_ESPECE espece in e.AddedItems) {
                 int especeId = espece.idEspece; // Assuming C_ESPECE has an Id property of type int
                 if(!Id_Especes_Parcours.Contains(especeId)) {
                     Id_Especes_Parcours.Add(especeId);
                 }
             }
-
-            foreach(LIB_BDD.C_ESPECE espece in e.RemovedItems) {
+            foreach(C_ESPECE espece in e.RemovedItems) {
                 int especeId = espece.idEspece; // Assuming C_ESPECE has an Id property of type int
                 if(Id_Especes_Parcours.Contains(especeId)) {
                     Id_Especes_Parcours.Remove(especeId);

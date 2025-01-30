@@ -182,9 +182,9 @@ namespace IHM_AJOUT {
                     MessageBox.Show("Erreur : Veuillez vérifier les données entrées sur la taille");
                 }
 
-                var Item_Selectionnee = CB_PARCOURS.SelectedItem as C_PARCOURS; //permet de lié un parcours à une espèce
+                var Parcours_Selectionnee = CB_PARCOURS.SelectedItem as C_PARCOURS; //permet de lié un parcours à une espèce
 
-                BDD.Add_Espece(Espece, ListPath, Regions, Item_Selectionnee);
+                BDD.Add_Espece(Espece, ListPath, Regions, Parcours_Selectionnee);
                 MessageBox.Show("L'espèce a été ajoutée avec succès.","Succès",MessageBoxButton.OK,MessageBoxImage.Information);
                 Close();
             } catch(Exception ex) {

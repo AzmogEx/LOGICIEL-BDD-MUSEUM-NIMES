@@ -13,7 +13,7 @@
         Title="Musée des Animaux" Height="1080" Width="1920">
     <!--PENSER A RAJOUTER LE RETRAIT DES FONCTIONS ALT F4 ETC... SI DESSUS-->
     <Grid>
-        
+
         <Grid x:Name="Grid_Especes_Parcours" Visibility="Hidden" d:Visibility="Visible" Background="#FF009EE4">
             <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
             <Button x:Name="Btn_Admin_2" Content="Admin" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Btn_Admin_Click" Height="61" Width="88"/>
@@ -21,6 +21,9 @@
             <Image Margin="0,647,1537,0" Source="RESSOURCES/bas-gauche.png" Stretch="Fill"/>
             <Image Margin="0,0,1587,647" Source="RESSOURCES/haut-gauche.png" Stretch="Fill"/>
             <Image Margin="1595,743,0,0" Source="RESSOURCES/bas-droite.png" Stretch="Fill"/>
+            <Image Margin="1410,540,-282,-208" Source="RESSOURCES/rond-blanc.png" Stretch="Fill"/>
+            <Label x:Name="Label_Nom_Parcours" Content="{Binding }" d:Content="Nom parcours" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="70" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Segoe UI Black"/>
+            <TextBlock x:Name="Tbx_Description_Parcours" TextAlignment="Left" Margin="1645,0,0,-7" HorizontalAlignment="Left" TextWrapping="Wrap" Height="440" Width="225" Text="TextBlock" VerticalAlignment="Bottom"  FontSize="15" Foreground="#FF2C2E87" FontFamily="Segoe UI" />
 
             <!-- Affichage dynamique des animaux avec Images et Informations -->
             <ItemsControl x:Name="EspecesList" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -63,7 +66,7 @@
         </Grid>
 
         <!--============================================================================-->
-        
+
         <!--Grille Parcours -->
 
         <Grid x:Name="Grid_Parcours" Visibility="Visible" d:Visibility="Hidden" Background="#FF009EE4">

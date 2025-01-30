@@ -216,6 +216,10 @@ namespace IHM_BASE {
                 if(parcours != null) {
                     int parcoursId = parcours.idParcours;
 
+                    // Affichage du titre et de la description du parcours
+                    Label_Nom_Parcours.Content = parcours.nomParcours;
+                    Tbx_Description_Parcours.Text = parcours.descParcours;
+
                     // Récupérer les espèces associées au parcours
                     var especes = BDD.Get_All_Especes_By_IdParcours(parcoursId);
 

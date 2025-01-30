@@ -21,7 +21,7 @@
                 </LinearGradientBrush>
             </Border.Background>
             
-         <Grid x:Name="Grid_Especes_Parcours" Visibility="Hidden" d:Visibility="Hidden">
+         <Grid x:Name="Grid_Especes_Parcours" Visibility="Hidden" d:Visibility="Visible">
             
                 <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
                 <Button x:Name="Btn_Admin_2" Content="Admin" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Btn_Admin_Click" Height="61" Width="88"/>
@@ -88,7 +88,7 @@
                 </LinearGradientBrush>
             </Border.Background>
 
-            <Grid x:Name="Grid_Parcours" Visibility="Visible" d:Visibility="Visible">
+            <Grid x:Name="Grid_Parcours" Visibility="Visible" d:Visibility="Hidden">
                 <Button x:Name="Btn_Admin" Content="Admin" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Btn_Admin_Click" Height="61" Width="88"/>
                 <Image Margin="0,647,1537,0" Source="RESSOURCES/bas-gauche.png" Stretch="Fill"/>
                 <Image Margin="0,0,1587,647" Source="RESSOURCES/haut-gauche.png" Stretch="Fill"/>

@@ -311,10 +311,9 @@
 
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                    <!-- Deuxième image avec masque -->
-                    <Image x:Name="Img_Animal_1"
-                   Width="441" 
-                   Source="RESSOURCES/axolotl.jpeg" 
+                <!-- Deuxième image avec masque -->
+                <Image x:Name="Img_Animal_1"
+                   Width="441"  
                    Margin="0,0,0,-60" 
                    Height="368" 
                    Stretch="Fill">
@@ -327,18 +326,18 @@
                 <Image Source="RESSOURCES/world.png" Margin="845,800,577,25" RenderTransformOrigin="-6.134,0.197" />
                 <Label x:Name="Label_Localisation" Content="Pays" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Left" Background="{x:Null}" Margin="1056,1013,0,0" Width="193" FontSize="20" Height="38" Foreground="White" FontFamily="Segoe UI Black"/>
 
-                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,100,100,0">
-                    <Image x:Name="Img_Animal_2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Source="RESSOURCES/axolotl.jpeg">
-                        <Image.OpacityMask>
-                            <ImageBrush ImageSource="RESSOURCES/rond.png" Stretch="Fill"/>
-                        </Image.OpacityMask>
-                    </Image>
-                    <Grid Width="300" Height="313" Margin="0,80,0,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="53*"/>
-                            <ColumnDefinition Width="247*"/>
-                        </Grid.ColumnDefinitions>
-                        <!-- Image en arrière-plan -->
+            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,100,100,0">
+                <Image x:Name="Img_Animal_2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400">
+                    <Image.OpacityMask>
+                        <ImageBrush ImageSource="RESSOURCES/rond.png" Stretch="Fill"/>
+                    </Image.OpacityMask>
+                </Image>
+                <Grid Width="300" Height="313" Margin="0,80,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="53*"/>
+                        <ColumnDefinition Width="247*"/>
+                    </Grid.ColumnDefinitions>
+                    <!-- Image en arrière-plan -->
 
 
                         <!-- Labels superposés -->
@@ -373,14 +372,13 @@
                         </StackPanel>
                     </Grid>
 
-                    <Image x:Name="Img_Animal_3" Width="324" Source="RESSOURCES/axolotl.jpeg" Height="232">
-                        <Image.OpacityMask>
-                            <ImageBrush ImageSource="RESSOURCES/rond.png" Stretch="Uniform" TileMode="None"/>
-                        </Image.OpacityMask>
-                    </Image>
-                </StackPanel>
-                <Image Margin="1595,743,0,0" Source="RESSOURCES/bas-droite.png" Stretch="Fill"/>
-            </Grid>
-        </Border>
+                <Image x:Name="Img_Animal_3" Width="324" Height="232">
+                    <Image.OpacityMask>
+                        <ImageBrush ImageSource="RESSOURCES/rond.png" Stretch="Uniform" TileMode="None"/>
+                    </Image.OpacityMask>
+                </Image>
+            </StackPanel>
+            <Image Margin="1595,743,0,0" Source="RESSOURCES/bas-droite.png" Stretch="Fill"/>
+        </Grid>
     </Grid>
 </Window>

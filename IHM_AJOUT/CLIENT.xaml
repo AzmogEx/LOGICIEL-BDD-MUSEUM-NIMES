@@ -22,7 +22,7 @@
             <Image Margin="0,0,1587,647" Source="RESSOURCES/haut-gauche.png" Stretch="Fill"/>
             <Image Margin="1595,743,0,0" Source="RESSOURCES/bas-droite.png" Stretch="Fill"/>
             <Image Margin="1410,540,-282,-208" Source="RESSOURCES/rond-blanc.png" Stretch="Fill"/>
-            <Label x:Name="Label_Nom_Parcours" Content="{Binding }" d:Content="Nom parcours" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="70" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Segoe UI Black"/>
+            <Label x:Name="Label_Nom_Parcours" d:Content="Nom parcours" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="70" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Segoe UI Black"/>
             <TextBlock x:Name="Tbx_Description_Parcours" TextAlignment="Left" Margin="1645,0,0,-7" HorizontalAlignment="Left" TextWrapping="Wrap" Height="440" Width="225" Text="TextBlock" VerticalAlignment="Bottom"  FontSize="15" Foreground="#FF2C2E87" FontFamily="Segoe UI" />
 
             <!-- Affichage dynamique des animaux avec Images et Informations -->

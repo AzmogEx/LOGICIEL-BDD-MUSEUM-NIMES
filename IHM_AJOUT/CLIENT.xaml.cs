@@ -4,6 +4,7 @@ using Microsoft.Data.SqlClient;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -86,6 +87,10 @@ namespace IHM_BASE {
 
             Txt_UICN_Green.Width = 20;
             Txt_UICN_Green.Height = 10;
+            Img_Animal_1.Source = null;
+            Img_Animal_2.Source = null;
+            Img_Animal_3.Source = null;
+
             Grid_Especes_Parcours.Visibility = Visibility.Visible;
         }
 
@@ -256,15 +261,39 @@ namespace IHM_BASE {
         private void Btn_Open_Espece_Click(object sender,RoutedEventArgs e) {
             var button = sender as Button; // Récupère le bouton cliqué
             C_ESPECE Espece_Select;
+            List<C_IMAGE> Images = new();
             if(button != null) {
                 // Récupère l'espèce associée au bouton
-                var especeParcours = button.DataContext as C_ESPECES_PARCOURS;
+                var especes = button.DataContext as C_ESPECES_PARCOURS;
 
-                if(especeParcours != null) {
+                if(especes != null) {
                     // Récupération des données de l'espèce sélectionnée
                     foreach(var Espece in EspecesParcours) {
-                        if(especeParcours.NomScientifique == Espece.nomScientifique) {
+
+                        if(especes.NomScientifique == Espece.nomScientifique) {
                             Espece_Select = Espece;
+                            Images = BDD.Get_Img_By_ID(Espece_Select.idEspece);
+
+                            try {
+                                foreach(var imagePath in Images) {
+                                    if(!string.IsNullOrWhiteSpace(imagePath.ImgPath) && File.Exists(imagePath.ImgPath)) {
+                                        var uri = new Uri(imagePath.ImgPath,UriKind.Absolute);
+
+                                        if(Img_Animal_1.Source == null) {
+                                            Img_Animal_1.Source = new BitmapImage(uri);
+                                        } else if(Img_Animal_2.Source == null) {
+                                            Img_Animal_2.Source = new BitmapImage(uri);
+                                        } else if(Img_Animal_3.Source == null) {
+                                            Img_Animal_3.Source = new BitmapImage(uri);
+                                        }
+                                    }
+                                }
+                            } catch(Exception) {
+
+                                MessageBox.Show("Erreur sur le chargement des images");
+                            }
+
+
                             int splitPoint = Espece_Select.description.IndexOf(' ',Espece_Select.description.Length / 2);
                             Desc1 = Espece_Select.description.Substring(0,splitPoint).Trim();
                             Desc2 = Espece_Select.description.Substring(splitPoint).Trim();
@@ -327,10 +356,13 @@ namespace IHM_BASE {
                             Grid_Especes_Parcours.Visibility = Visibility.Hidden;
                             return;
                         }
+
+
                     }
                 }
             }
         }
+
 
         private void Button_Close2_Click(object sender,RoutedEventArgs e) {
             Grid_Especes_Parcours.Visibility = Visibility.Hidden;

@@ -304,7 +304,6 @@ namespace IHM_BASE {
                                 MessageBox.Show("Erreur sur le chargement des images");
                             }
 
-
                             int splitPoint = Espece_Select.description.IndexOf(' ',Espece_Select.description.Length / 2);
                             Desc1 = Espece_Select.description.Substring(0,splitPoint).Trim();
                             Desc2 = Espece_Select.description.Substring(splitPoint).Trim();

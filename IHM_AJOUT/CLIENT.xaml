@@ -259,7 +259,7 @@
 
                 <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
 
-                <Button Background="#4976ba" x:Name="Button_Close" Width="120" VerticalAlignment="Top" HorizontalAlignment="Right" Content="X" Command="{Binding OpenParcoursCommand}" Click="Button_Close_Click" Foreground="Red" Height="30" BorderThickness="1" BorderBrush="Black">
+                <Button Background="#4976ba" x:Name="Button_Close" Height="60" Width="60" VerticalAlignment="Top" HorizontalAlignment="Right" Content="X" Command="{Binding OpenParcoursCommand}" Click="Button_Close_Click" Foreground="Red" BorderThickness="1" BorderBrush="Black">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">

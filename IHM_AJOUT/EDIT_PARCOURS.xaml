@@ -19,12 +19,12 @@
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Vertical" Margin="234,3,0,0">
             <!-- Champ pour le nom du parcours -->
             <StackPanel Orientation="Horizontal" Margin="0,20,0,20">
-                <Label Content="Nom du parcours" HorizontalContentAlignment="Right" Width="150" Margin="0,0,10,0"/>
+                <Label Content="Nom du parcours (32)" HorizontalContentAlignment="Right" Width="150" Margin="0,0,10,0"/>
                 <TextBox x:Name="TB_NomParcours" Width="200" MaxLength="32"/>
             </StackPanel>
             <!-- Champ pour la description du parcours -->
             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
-                <Label Content="Description du parcours" HorizontalContentAlignment="Right" Width="150" Margin="0,0,10,0"/>
+                <TextBlock Text="Description du parcours (256)" TextWrapping="Wrap" TextAlignment="Center" Width="150" Margin="0,0,10,0"/>
                 <TextBox x:Name="TB_DescParcours" Width="200" Height="200" MaxLength="256"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Width="360">

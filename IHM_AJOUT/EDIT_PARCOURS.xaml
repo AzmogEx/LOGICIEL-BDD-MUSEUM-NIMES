@@ -9,7 +9,7 @@
         WindowStartupLocation="CenterScreen">
 
     <Grid>
-        <!-- ListBox pour afficher les parcours disponibles -->
+        <!-- ListBoxe pour afficher les parcours disponibles -->
         <ListBox Width="200" HorizontalAlignment="Left" x:Name="LB_Parcours" SelectionChanged="LB_Parcours_SelectionChanged"/>
 
         <!-- Bouton pour supprimer un parcours -->

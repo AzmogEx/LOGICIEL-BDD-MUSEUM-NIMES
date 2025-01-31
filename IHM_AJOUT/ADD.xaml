@@ -10,10 +10,10 @@
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Label Content="Nom commun" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="10,10,0,0" VerticalAlignment="Top" Width="110"/>
-        <TextBox x:Name="TB_Nom" MaxLength="20" HorizontalAlignment="Left" Margin="140,14,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TB_Nom" MaxLength="32" HorizontalAlignment="Left" Margin="140,14,0,0" VerticalAlignment="Top" Width="120"/>
 
         <Label Content="Nom scientifique" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_NomScient" MaxLength="32" HorizontalAlignment="Left" Margin="140,44,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TB_NomScient" MaxLength="48" HorizontalAlignment="Left" Margin="140,44,0,0" VerticalAlignment="Top" Width="120"/>
 
         <Label Content="Statut (UICN)" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
         <ComboBox x:Name="CB_Statut" SelectedIndex="0" HorizontalAlignment="Left" Margin="140,72,0,0" VerticalAlignment="Top" Width="120">
@@ -53,7 +53,7 @@
         <Label Content="ans" HorizontalAlignment="Left" Margin="245,160,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
 
         <Label Content="Habitat" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_Habitat" MaxLength="32" HorizontalAlignment="Left" Margin="140,194,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TB_Habitat" MaxLength="48" HorizontalAlignment="Left" Margin="140,194,0,0" VerticalAlignment="Top" Width="120"/>
 
         <Label Content="Embranchement" HorizontalAlignment="Left" Margin="10,220,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
         <TextBox x:Name="TB_Embranchement" MaxLength="16" HorizontalAlignment="Left" Margin="140,224,0,0" VerticalAlignment="Top" Width="120"/>

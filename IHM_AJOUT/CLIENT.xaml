@@ -45,10 +45,11 @@
                                 <StackPanel>
                                     <!-- Image de l'espèce -->
                                     <Border Width="150" Height="100" CornerRadius="10" BorderBrush="Gray" BorderThickness="2" Margin="0,10,0,10">
-                                        <Grid>
-                                            <Border Background="White" CornerRadius="10" />
-                                            <Image Source="{Binding ImgPath}" Stretch="UniformToFill" ClipToBounds="True" />
-                                        </Grid>
+                                        <Image Source="{Binding ImgPath}" Stretch="UniformToFill">
+                                            <Image.Clip>
+                                                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,150,100" />
+                                            </Image.Clip>
+                                        </Image>
                                     </Border>
                                     <!-- Nom Commun de l'espèce -->
                                     <TextBlock Text="{Binding NomCommun}" Width="200" FontWeight="Bold" TextAlignment="Center" Foreground="White" FontSize="20" Margin="5" />

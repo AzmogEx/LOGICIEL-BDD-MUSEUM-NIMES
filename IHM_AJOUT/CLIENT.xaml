@@ -368,12 +368,13 @@
                         </StackPanel>
                     </Grid>
 
-                    <Image x:Name="Img_Animal_3" Width="324" Height="232">
-                        <Image.OpacityMask>
-                            <ImageBrush ImageSource="RESSOURCES/rond.png" Stretch="Uniform" TileMode="None"/>
-                        </Image.OpacityMask>
-                    </Image>
+                    
                 </StackPanel>
+                <Image x:Name="Img_Animal_3" Width="324" Height="232" Margin="1258,767,338,81">
+                    <Image.OpacityMask>
+                        <ImageBrush ImageSource="RESSOURCES/rond.png" Stretch="Uniform" TileMode="None"/>
+                    </Image.OpacityMask>
+                </Image>
                 <Image Margin="1595,743,0,0" Source="RESSOURCES/bas-droite.png" Stretch="Fill"/>
             </Grid>
         </Border>

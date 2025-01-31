@@ -44,10 +44,12 @@
                             <Border Margin="10" Padding="10" Background="#4976ba" CornerRadius="10">
                                 <StackPanel>
                                     <!-- Image de l'espèce -->
-                                    <Border Width="150" Height="100" CornerRadius="10" BorderBrush="Gray" BorderThickness="2" Margin="0,10,0,10" ClipToBounds="True">
-                                        <Grid>
-                                            <Image Source="{Binding ImgPath}" Stretch="UniformToFill" />
-                                        </Grid>
+                                    <Border Width="150" Height="100" CornerRadius="10" BorderBrush="Gray" BorderThickness="2" Margin="0,10,0,10">
+                                        <Image Source="{Binding ImgPath}" Stretch="UniformToFill">
+                                            <Image.Clip>
+                                                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,148,98" />
+                                            </Image.Clip>
+                                        </Image>
                                     </Border>
                                     <!-- Nom Commun de l'espèce -->
                                     <TextBlock Text="{Binding NomCommun}" Width="200" FontWeight="Bold" TextAlignment="Center" Foreground="White" FontSize="20" Margin="5" />

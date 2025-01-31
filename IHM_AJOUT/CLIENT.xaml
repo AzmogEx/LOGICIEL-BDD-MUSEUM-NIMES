@@ -52,11 +52,11 @@
                             <Border Margin="10" Padding="10" Background="#4976ba" CornerRadius="10">
                                 <StackPanel>
                                     <!-- Image de l'espèce -->
-                                        <Image Source="{Binding ImgPath}" Stretch="UniformToFill" Width="150" Height="100" Margin="0,10,0,10">
-                                            <Image.Clip>
-                                                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,148,98" />
-                                            </Image.Clip>
-                                        </Image>
+                                    <Image Source="{Binding ImgPath}" Stretch="UniformToFill" Width="150" Height="100" Margin="0,10,0,10">
+                                        <Image.Clip>
+                                            <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,148,98" />
+                                        </Image.Clip>
+                                    </Image>
                                     <!-- Nom Commun de l'espèce -->
                                     <TextBlock Text="{Binding NomCommun}" Width="200" FontWeight="Bold" TextAlignment="Center" Foreground="White" FontSize="20" Margin="5" />
 
@@ -94,14 +94,14 @@
                 </LinearGradientBrush>
             </Border.Background>
 
-            <Grid x:Name="Grid_Parcours" Visibility="Visible" d:Visibility="Hidden">
+            <Grid x:Name="Grid_Parcours" Visibility="Visible" d:Visibility="Visible">
                 <Button x:Name="Btn_Admin" Content="Admin" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Btn_Admin_Click" Height="61" Width="88"/>
                 <Image Margin="0,647,1537,0" Source="RESSOURCES/bas-gauche.png" Stretch="Fill"/>
                 <Image Margin="0,0,1587,647" Source="RESSOURCES/haut-gauche.png" Stretch="Fill"/>
                 <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
                 <Image Margin="1595,743,0,0" Source="RESSOURCES/bas-droite.png" Stretch="Fill"/>
                 <Label HorizontalAlignment="Right" VerticalAlignment="Bottom" Opacity="20" FontSize="10" Foreground="#1d4a90" Content="Crédits: Adam Marzuk / Mathis Mourot-Faraut" />
-                <Image HorizontalAlignment="Center" VerticalAlignment="Bottom" Source="/Logo-museum.png"/>
+                <Image HorizontalAlignment="Center" VerticalAlignment="Top" Source="/Logo-museum.png" Height="112" Margin="0,956,0,0" Width="136"/>
 
                 <ItemsControl x:Name="ParcoursList" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <ItemsControl.ItemsPanel>
@@ -394,7 +394,7 @@
                         </StackPanel>
                     </Grid>
 
-                    
+
                 </StackPanel>
                 <Image x:Name="Img_Animal_3" Width="324" Height="232" Margin="1258,767,338,81">
                     <Image.OpacityMask>

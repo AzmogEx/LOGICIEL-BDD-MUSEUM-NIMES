@@ -16,10 +16,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Logo-museum.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\LIB_BDD\LIB_BDD.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Logo-museum.png" />
     <Resource Include="RESSOURCES\coucou.png" />
     <Resource Include="RESSOURCES\Bulle_Bd.png" />
     <Resource Include="RESSOURCES\1.png" />

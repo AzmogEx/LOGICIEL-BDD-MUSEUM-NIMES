@@ -31,7 +31,15 @@
                 <Image Margin="1595,743,0,0" Source="RESSOURCES/bas-droite.png" Stretch="Fill"/>
                 <Label x:Name="Label_Nom_Parcours" d:Content="Nom parcours" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="70" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Segoe UI Black" Margin="0,24,0,0"/>
                 <Label x:Name="Label_Description_Parcours" d:Content="Description parcours" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Segoe UI Black" Margin="0,129,0,0"/>
-                <Button x:Name="Button_Close2" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Height="60" Width="60" Background="Red" FontSize="30" Click="Button_Close2_Click"/>
+                <Button Background="Red" x:Name="Button_Close2" Height="60" Width="60" VerticalAlignment="Top" HorizontalAlignment="Right" Content="X" Command="{Binding OpenParcoursCommand}" Click="Button_Close_Click" BorderThickness="1" FontSize="30" BorderBrush="Red">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
                 <!-- Affichage dynamique des animaux avec Images et Informations -->
                 <ItemsControl x:Name="EspecesList" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <ItemsControl.ItemsPanel>
@@ -259,7 +267,7 @@
 
                 <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
 
-                <Button Background="Red" x:Name="Button_Close" Height="60" Width="60" VerticalAlignment="Top" HorizontalAlignment="Right" Content="X" Command="{Binding OpenParcoursCommand}" Click="Button_Close_Click" BorderThickness="1" BorderBrush="Red">
+                <Button Background="Red" x:Name="Button_Close" Height="60" Width="60" VerticalAlignment="Top" HorizontalAlignment="Right" Content="X" Command="{Binding OpenParcoursCommand}" Click="Button_Close_Click" BorderThickness="1" FontSize="30" BorderBrush="Red">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">

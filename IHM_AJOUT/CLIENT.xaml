@@ -274,8 +274,8 @@
 
                 <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="70,0,0,0">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock x:Name="Tbx_Description_Global" TextAlignment="Left" Margin="25,0,20,0" HorizontalAlignment="Left" TextWrapping="Wrap" Height="440" Width="225" Text="TextBlock" VerticalAlignment="Bottom"  FontSize="15" Foreground="#FF2C2E87" FontFamily="Segoe UI" />
-                        <TextBlock x:Name="Tbx_Description_Global1" TextAlignment="Left" Margin="0,0,0,0" HorizontalAlignment="Left" TextWrapping="Wrap" Height="440" Width="225" Text="TextBlock" VerticalAlignment="Bottom"  FontSize="15" Foreground="#FF2C2E87" FontFamily="Segoe UI"/>
+                        <TextBlock x:Name="Tbx_Description_Global" TextAlignment="Left" Margin="25,0,20,0" HorizontalAlignment="Left" TextWrapping="Wrap" Height="440" Width="225" Text="TextBlock" VerticalAlignment="Bottom"  FontSize="15" Foreground="#FF2C2E87"/>
+                        <TextBlock x:Name="Tbx_Description_Global1" TextAlignment="Left" Margin="0,0,0,0" HorizontalAlignment="Left" TextWrapping="Wrap" Height="440" Width="225" Text="TextBlock" VerticalAlignment="Bottom"  FontSize="15" Foreground="#FF2C2E87"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock x:Name="Text_UICN" TextAlignment="Center" HorizontalAlignment="Right" TextWrapping="Wrap" Text="TextBlock" Height="160" Width="300" VerticalAlignment="Top" Foreground="#FFCE1619" Margin="160,10,0,0" FontSize="15"/>

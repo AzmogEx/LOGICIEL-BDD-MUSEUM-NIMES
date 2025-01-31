@@ -120,7 +120,7 @@ namespace IHM_BASE {
         //Glisser déposer d'image
         private void ImportImage_Click(object sender,RoutedEventArgs e) {
             try {
-                OpenFileDialog openFileDialog = new OpenFileDialog();
+                OpenFileDialog openFileDialog = new OpenFileDialog() {Multiselect=true};
                 openFileDialog.Filter = "Image files (*.png;*.jpg;*.jpeg)|*.png;*.jpg;*.jpeg";
 
                 if(openFileDialog.ShowDialog() == true) {

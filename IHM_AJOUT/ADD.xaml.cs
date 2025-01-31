@@ -15,7 +15,7 @@ using System.IO;
 namespace IHM_AJOUT {
     public partial class ADD:Window {
         private C_BDD BDD = null;
-        private string[] imagePaths;
+        private string imagePath;
         private string Path;
         private string Path1;
         private string Path2;
@@ -37,44 +37,26 @@ namespace IHM_AJOUT {
 
         private void ImportImage_Click(object sender,RoutedEventArgs e) {
             try {
-                // Configuration du dialogue d'importation
-                OpenFileDialog openFileDialog = new OpenFileDialog {
-                    Filter = "Image files (*.png;*.jpg;*.jpeg)|*.png;*.jpg;*.jpeg",
-                    Multiselect = true
-                };
-
-                // Répertoire cible pour les images importées
-                string imageDirectory = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"IMAGES");
-
-                // Crée le répertoire s'il n'existe pas
-                if(!Directory.Exists(imageDirectory)) {
-                    Directory.CreateDirectory(imageDirectory);
-                }
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Image files (*.png;*.jpg;*.jpeg)|*.png;*.jpg;*.jpeg";
 
                 if(openFileDialog.ShowDialog() == true) {
-                    imagePaths = openFileDialog.FileNames;
-
-                    foreach(var imagePath in imagePaths) {
-                        string fileName = System.IO.Path.GetFileName(imagePath);
-                        string destinationPath = System.IO.Path.Combine(imageDirectory,fileName);
-                        // Copie du fichier dans le dossier Resources/Images
-                        File.Copy(imagePath,destinationPath,true);
-
-                        // Mise à jour des aperçus et stockage des chemins
-                        if(ImagePreview.Source == null) {
-                            ImagePreview.Source = new BitmapImage(new Uri(destinationPath));
-                            BTN_DeleteImg.IsEnabled = true;
-                            Path = fileName;
-                        }
-                        else if(ImagePreview1.Source == null) {
-                            ImagePreview1.Source = new BitmapImage(new Uri(destinationPath));
+                    imagePath = openFileDialog.FileName;
+                    if(ImagePreview.Source == null) {
+                        ImagePreview.Source = new BitmapImage(new Uri(imagePath));
+                        BTN_DeleteImg.IsEnabled = true;
+                        Path = imagePath;
+                    }
+                    else {
+                        if(ImagePreview1.Source == null) {
+                            ImagePreview1.Source = new BitmapImage(new Uri(imagePath));
                             BTN_DeleteImg1.IsEnabled = true;
-                            Path1 = fileName;
+                            Path1 = imagePath;
                         }
                         else {
-                            ImagePreview2.Source = new BitmapImage(new Uri(destinationPath));
+                            ImagePreview2.Source = new BitmapImage(new Uri(imagePath));
                             BTN_DeleteImg2.IsEnabled = true;
-                            Path2 = fileName;
+                            Path2 = imagePath;
                         }
                     }
                 }
@@ -83,7 +65,7 @@ namespace IHM_AJOUT {
                 MessageBox.Show($"Une erreur est survenue : {ex.Message}\n{ex.StackTrace}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
             }
         }
-        
+
         private void BTN_Add_Click(object sender,RoutedEventArgs e) {
             try {
                 //Vérifications que les champs ne contiennent pas de valeurs inappropriées 

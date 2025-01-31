@@ -6,6 +6,8 @@ using System.Linq;
 using LIB_BDD;
 using IHM_AJOUT;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace IHM_BASE {
     public partial class EDIT_PARCOURS :Window {
@@ -14,6 +16,8 @@ namespace IHM_BASE {
         private C_PARCOURS selectedParcours;
         private List<C_ESPECE> Especes_Parcours;
         private List<int> Id_Especes_Parcours;
+        private string imagePath;
+        private string Path;
 
 
         public EDIT_PARCOURS() {
@@ -97,11 +101,21 @@ namespace IHM_BASE {
 
         // Importer une image
         private void ImportImage_Click(object sender,RoutedEventArgs e) {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            if(openFileDialog.ShowDialog() == true) {
-                selectedParcours.imgPathParcours = openFileDialog.FileName;
-                ImagePreview.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri(selectedParcours.imgPathParcours));
-                BTN_DeleteImg.IsEnabled = true;
+            try {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Image files (*.png;*.jpg;*.jpeg)|*.png;*.jpg;*.jpeg";
+
+                if(openFileDialog.ShowDialog() == true) {
+                    imagePath = openFileDialog.FileName;
+                    if(ImagePreview.Source == null) {
+                        ImagePreview.Source = new BitmapImage(new Uri(imagePath));
+                        BTN_DeleteImg.IsEnabled = true;
+                        Path = imagePath;
+                    }
+                }
+            }
+            catch(Exception ex) {
+                MessageBox.Show($"Une erreur est survenue : {ex.Message}\n{ex.StackTrace}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
             }
         }
 

@@ -19,7 +19,7 @@ namespace IHM_BASE {
 
     public partial class ADD_PARCOURS:Window {
         private C_BDD BDD = null;
-        private string imgPath;
+        private string imagePath;
         private string Path;
         private int Nb_Parcours;
         private List<int> Id_Especes_Parcours;
@@ -38,18 +38,19 @@ namespace IHM_BASE {
 
         private void ImportImage_Click(object sender,RoutedEventArgs e) {
             try {
-                OpenFileDialog openFileDialog = new OpenFileDialog {
-                    Filter = "Image files (*.png;*.jpg;*.jpeg)|*.png;*.jpg;*.jpeg",
-                };
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Image files (*.png;*.jpg;*.jpeg)|*.png;*.jpg;*.jpeg";
+
                 if(openFileDialog.ShowDialog() == true) {
-                    imgPath = openFileDialog.FileName;
-                    Path = imgPath;
+                    imagePath = openFileDialog.FileName;
                     if(ImagePreview.Source == null) {
-                        ImagePreview.Source = new BitmapImage(new Uri(imgPath));
+                        ImagePreview.Source = new BitmapImage(new Uri(imagePath));
                         BTN_DeleteImg.IsEnabled = true;
+                        Path = imagePath;
                     }
                 }
-            } catch(Exception ex) {
+            }
+            catch(Exception ex) {
                 MessageBox.Show($"Une erreur est survenue : {ex.Message}\n{ex.StackTrace}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
             }
         }

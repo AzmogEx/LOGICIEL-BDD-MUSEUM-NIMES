@@ -21,6 +21,7 @@ namespace IHM_BASE {
         C_BDD BDD = null;
         List<C_IMAGE> ListPath = null;
         private List<C_IMAGE> imagePaths = null;
+        private string imagePath;
         private string Path;
         private string Path1;
         private string Path2;
@@ -119,31 +120,31 @@ namespace IHM_BASE {
         //Glisser déposer d'image
         private void ImportImage_Click(object sender,RoutedEventArgs e) {
             try {
-                OpenFileDialog openFileDialog = new OpenFileDialog {
-                    Filter = "Image files (*.png;*.jpg;*.jpeg)|*.png;*.jpg;*.jpeg",
-                    Multiselect = true
-                };
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Image files (*.png;*.jpg;*.jpeg)|*.png;*.jpg;*.jpeg";
+
                 if(openFileDialog.ShowDialog() == true) {
-                    var Paths = openFileDialog.FileNames;
-                    foreach(var imagePath in Paths) {
-                        if(ImagePreview.Source == null) {
-                            ImagePreview.Source = new BitmapImage(new Uri(imagePath));
-                            BTN_DeleteImg.IsEnabled = true;
-                            Path = imagePath;
-                        } else {
-                            if(ImagePreview1.Source == null) {
-                                ImagePreview1.Source = new BitmapImage(new Uri(imagePath));
-                                BTN_DeleteImg1.IsEnabled = true;
-                                Path1 = imagePath;
-                            } else {
-                                ImagePreview2.Source = new BitmapImage(new Uri(imagePath));
-                                BTN_DeleteImg2.IsEnabled = true;
-                                Path2 = imagePath;
-                            }
+                    imagePath = openFileDialog.FileName;
+                    if(ImagePreview.Source == null) {
+                        ImagePreview.Source = new BitmapImage(new Uri(imagePath));
+                        BTN_DeleteImg.IsEnabled = true;
+                        Path = imagePath;
+                    }
+                    else {
+                        if(ImagePreview1.Source == null) {
+                            ImagePreview1.Source = new BitmapImage(new Uri(imagePath));
+                            BTN_DeleteImg1.IsEnabled = true;
+                            Path1 = imagePath;
+                        }
+                        else {
+                            ImagePreview2.Source = new BitmapImage(new Uri(imagePath));
+                            BTN_DeleteImg2.IsEnabled = true;
+                            Path2 = imagePath;
                         }
                     }
                 }
-            } catch(Exception ex) {
+            }
+            catch(Exception ex) {
                 MessageBox.Show($"Une erreur est survenue : {ex.Message}\n{ex.StackTrace}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
             }
         }

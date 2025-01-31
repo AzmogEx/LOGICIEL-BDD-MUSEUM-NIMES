@@ -133,6 +133,11 @@ namespace IHM_BASE {
                 string newNom = TB_NomParcours.Text;
                 string newDesc = TB_DescParcours.Text;
 
+                // Mettre à jour le chemin de l'image si une nouvelle image est sélectionnée
+                if(!string.IsNullOrEmpty(imagePath)) {
+                    selectedParcours.imgPathParcours = imagePath;
+                }
+
                 // Créer un objet C_PARCOURS avec les nouvelles valeurs
                 C_PARCOURS updatedParcours = new C_PARCOURS {
                     idParcours = selectedParcours.idParcours,

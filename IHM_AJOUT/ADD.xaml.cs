@@ -15,7 +15,7 @@ using System.IO;
 namespace IHM_AJOUT {
     public partial class ADD:Window {
         private C_BDD BDD = null;
-        private string imagePath;
+        private string[] imagePath;
         private string Path;
         private string Path1;
         private string Path2;
@@ -41,22 +41,24 @@ namespace IHM_AJOUT {
                 openFileDialog.Filter = "Image files (*.png;*.jpg;*.jpeg)|*.png;*.jpg;*.jpeg";
 
                 if(openFileDialog.ShowDialog() == true) {
-                    imagePath = openFileDialog.FileName;
-                    if(ImagePreview.Source == null) {
-                        ImagePreview.Source = new BitmapImage(new Uri(imagePath));
-                        BTN_DeleteImg.IsEnabled = true;
-                        Path = imagePath;
-                    }
-                    else {
-                        if(ImagePreview1.Source == null) {
-                            ImagePreview1.Source = new BitmapImage(new Uri(imagePath));
-                            BTN_DeleteImg1.IsEnabled = true;
-                            Path1 = imagePath;
+                    imagePath = openFileDialog.FileNames;
+                    foreach(var imagePath in imagePath) {
+                        if(ImagePreview.Source == null) {
+                            ImagePreview.Source = new BitmapImage(new Uri(imagePath));
+                            BTN_DeleteImg.IsEnabled = true;
+                            Path = imagePath;
                         }
                         else {
-                            ImagePreview2.Source = new BitmapImage(new Uri(imagePath));
-                            BTN_DeleteImg2.IsEnabled = true;
-                            Path2 = imagePath;
+                            if(ImagePreview1.Source == null) {
+                                ImagePreview1.Source = new BitmapImage(new Uri(imagePath));
+                                BTN_DeleteImg1.IsEnabled = true;
+                                Path1 = imagePath;
+                            }
+                            else {
+                                ImagePreview2.Source = new BitmapImage(new Uri(imagePath));
+                                BTN_DeleteImg2.IsEnabled = true;
+                                Path2 = imagePath;
+                            }
                         }
                     }
                 }

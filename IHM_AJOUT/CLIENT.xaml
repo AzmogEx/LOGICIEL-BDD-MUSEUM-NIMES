@@ -322,7 +322,7 @@
 
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0">
                     <Label x:Name="Label_Nom_Animal" Content="Nom animal" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="70" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Segoe UI Black"/>
-                    <Label x:Name="Label_Nom_Scientifique_Animal" Content="Nom Scientifique" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Segoe UI Black"/>
+                    <Label x:Name="Label_Nom_Scientifique_Animal" Content="Nom Scientifique" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontStyle="Italic" FontFamily="Segoe UI Black"/>
                 </StackPanel>
 
                 <StackPanel Width="600" Height="150" Margin="0,230,100,0" VerticalAlignment="Top">

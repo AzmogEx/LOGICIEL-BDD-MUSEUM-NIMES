@@ -101,7 +101,7 @@
                 <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
                 <Image Margin="1595,743,0,0" Source="RESSOURCES/bas-droite.png" Stretch="Fill"/>
                 <Label HorizontalAlignment="Right" VerticalAlignment="Bottom" Opacity="20" FontSize="10" Foreground="#1d4a90" Content="Crédits: Adam Marzuk / Mathis Mourot-Faraut" />
-                <Image HorizontalAlignment="Center" VerticalAlignment="Top" Source="/Logo-museum.png" Height="112" Margin="0,956,0,0" Width="136"/>
+                <Image HorizontalAlignment="Center" VerticalAlignment="Top" Source="/Logo-museum.png" Height="300" Margin="0,864,0,0" Width="400"/>
 
                 <ItemsControl x:Name="ParcoursList" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <ItemsControl.ItemsPanel>

@@ -20,57 +20,57 @@
                     <GradientStop Color="#5784BA" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
-            
-         <Grid x:Name="Grid_Especes_Parcours" Visibility="Hidden" d:Visibility="Visible">
-            
+
+            <Grid x:Name="Grid_Especes_Parcours" Visibility="Hidden" d:Visibility="Visible">
+
                 <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
                 <Button x:Name="Btn_Admin_2" Content="Admin" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Btn_Admin_Click" Height="61" Width="88"/>
 
                 <Image Margin="0,647,1537,0" Source="RESSOURCES/bas-gauche.png" Stretch="Fill"/>
-            <Image Margin="0,0,1587,647" Source="RESSOURCES/haut-gauche.png" Stretch="Fill"/>
-            <Image Margin="1595,743,0,0" Source="RESSOURCES/bas-droite.png" Stretch="Fill"/>
-            <Label x:Name="Label_Nom_Parcours" d:Content="Nom parcours" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="70" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Segoe UI Black" Margin="0,24,0,0"/>
-            <Label x:Name="Label_Description_Parcours" d:Content="Description parcours" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Segoe UI Black" Margin="0,129,0,0"/>
-            <Button x:Name="Button_Close2" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Height="60" Width="60" Background="Red" FontSize="30" Click="Button_Close2_Click"/>
+                <Image Margin="0,0,1587,647" Source="RESSOURCES/haut-gauche.png" Stretch="Fill"/>
+                <Image Margin="1595,743,0,0" Source="RESSOURCES/bas-droite.png" Stretch="Fill"/>
+                <Label x:Name="Label_Nom_Parcours" d:Content="Nom parcours" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="70" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Segoe UI Black" Margin="0,24,0,0"/>
+                <Label x:Name="Label_Description_Parcours" d:Content="Description parcours" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Segoe UI Black" Margin="0,129,0,0"/>
+                <Button x:Name="Button_Close2" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Height="60" Width="60" Background="Red" FontSize="30" Click="Button_Close2_Click"/>
                 <!-- Affichage dynamique des animaux avec Images et Informations -->
-            <ItemsControl x:Name="EspecesList" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel />
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Border Margin="10" Padding="10" Background="#4976ba" CornerRadius="10">
-                            <StackPanel>
-                                <!-- Image de l'espèce -->
-                                <Image Source="{Binding ImgPath}" Width="150" Height="100" Stretch="UniformToFill" Margin="0,10,0,10" />
+                <ItemsControl x:Name="EspecesList" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Margin="10" Padding="10" Background="#4976ba" CornerRadius="10">
+                                <StackPanel>
+                                    <!-- Image de l'espèce -->
+                                    <Image Source="{Binding ImgPath}" Width="150" Height="100" Stretch="UniformToFill" Margin="0,10,0,10" />
 
-                                <!-- Nom Commun de l'espèce -->
-                                <TextBlock Text="{Binding NomCommun}" Width="200" FontWeight="Bold" TextAlignment="Center" Foreground="White" FontSize="20" Margin="5" />
+                                    <!-- Nom Commun de l'espèce -->
+                                    <TextBlock Text="{Binding NomCommun}" Width="200" FontWeight="Bold" TextAlignment="Center" Foreground="White" FontSize="20" Margin="5" />
 
-                                <!-- Nom Scientifique -->
-                                <TextBlock Text="{Binding NomScientifique}" FontStyle="Italic" TextAlignment="Center" Foreground="White" TextWrapping="Wrap" Margin="0,5,0,5" />
+                                    <!-- Nom Scientifique -->
+                                    <TextBlock Text="{Binding NomScientifique}" FontStyle="Italic" TextAlignment="Center" Foreground="White" TextWrapping="Wrap" Margin="0,5,0,5" />
 
-                                <!-- Statut de conservation -->
-                                <TextBlock Text="{Binding StatutEspece}" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" Margin="0,5,0,5" />
+                                    <!-- Statut de conservation -->
+                                    <TextBlock Text="{Binding StatutEspece}" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" Margin="0,5,0,5" />
 
-                                <!-- Bouton pour accéder a l'espece -->
-                                <Button Background="#4976ba" x:Name="Btn_Open_Espece" Width="100" Content="Voir l'espece" Command="{Binding OpenEspeceCommand}" Click="Btn_Open_Espece_Click" Foreground="White" Height="30" BorderThickness="1" BorderBrush="Black">
-                                    <Button.Template>
-                                        <ControlTemplate TargetType="{x:Type Button}">
-                                            <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
-                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}" />
-                                            </Border>
-                                        </ControlTemplate>
-                                    </Button.Template>
-                                </Button>
-                            </StackPanel>
-                        </Border>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </Grid>
+                                    <!-- Bouton pour accéder a l'espece -->
+                                    <Button Background="#4976ba" x:Name="Btn_Open_Espece" Width="100" Content="Voir l'espece" Command="{Binding OpenEspeceCommand}" Click="Btn_Open_Espece_Click" Foreground="White" Height="30" BorderThickness="1" BorderBrush="Black">
+                                        <Button.Template>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}" />
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Button.Template>
+                                    </Button>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
         </Border>
         <!--============================================================================-->
 
@@ -108,26 +108,28 @@
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Border Margin="10" Padding="10" Width="200" Background="#009fe3" CornerRadius="10">
-                                <StackPanel HorizontalAlignment="Center">
-                                    <StackPanel>
-                                        <!-- Image du parcours -->
-                                        <Image Source="{Binding imgPathParcours}" Width="150" Height="100" Stretch="UniformToFill" HorizontalAlignment="Center" Margin="0,10,0,10"/>
+                            <Border CornerRadius="5" BorderThickness="2" Margin="0,0,13,0" BorderBrush="White">
+                                <Border Padding="10" Width="200" Background="#4976ba" CornerRadius="10">
+                                    <StackPanel HorizontalAlignment="Center">
+                                        <StackPanel>
+                                            <!-- Image du parcours -->
+                                            <Image Source="{Binding imgPathParcours}" Width="150" Height="100" Stretch="UniformToFill" HorizontalAlignment="Center" Margin="0,10,0,10"/>
 
-                                        <!-- Nom du parcours -->
-                                        <TextBlock Text="{Binding nomParcours}" Width="200" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="20" Margin="0,10,0,10" />
-                                        <!-- Bouton pour accéder au parcours -->
-                                        <Button Background="#009fe3" x:Name="Btn_Open_Parcours" Width="100" Content="Voir le parcours" Command="{Binding OpenParcoursCommand}" Click="Btn_Open_Parcours_Click" Foreground="White" Height="30" BorderThickness="1" BorderBrush="Black">
-                                            <Button.Template>
-                                                <ControlTemplate TargetType="Button">
-                                                    <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
-                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}" />
-                                                    </Border>
-                                                </ControlTemplate>
-                                            </Button.Template>
-                                        </Button>
+                                            <!-- Nom du parcours -->
+                                            <TextBlock Text="{Binding nomParcours}" Width="200" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="20" Margin="0,10,0,10" />
+                                            <!-- Bouton pour accéder au parcours -->
+                                            <Button Background="#4976ba" x:Name="Btn_Open_Parcours" Width="100" Content="Voir le parcours" Command="{Binding OpenParcoursCommand}" Click="Btn_Open_Parcours_Click" Foreground="White" Height="30" BorderThickness="1" BorderBrush="Black">
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}" />
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+                                        </StackPanel>
                                     </StackPanel>
-                                </StackPanel>
+                                </Border>
                             </Border>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
@@ -252,7 +254,7 @@
                 <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
 
                 <Button x:Name="Button_Close" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Height="60" Width="60" Background="Red" FontSize="30" Click="Button_Close_Click"/>
-                
+
                 <StackPanel Margin="300,150,0,0" Width="400" Height="200" VerticalAlignment="Top" HorizontalAlignment="Left">
                     <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0">
                         <Border Margin="0,0,0,8" CornerRadius="10" Background="#dd8e0b" Width="350" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">

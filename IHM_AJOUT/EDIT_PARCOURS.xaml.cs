@@ -185,6 +185,7 @@ namespace IHM_BASE {
         }
 
         private void LB_Animaux_SelectionChanged(object sender,SelectionChangedEventArgs e) {
+            ImagePreview.Source = null;
             foreach(C_ESPECE espece in e.AddedItems) {
                 int especeId = espece.idEspece; // Assuming C_ESPECE has an Id property of type int
                 if(!Id_Especes_Parcours.Contains(especeId)) {

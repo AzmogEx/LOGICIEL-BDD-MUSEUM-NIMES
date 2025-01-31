@@ -63,7 +63,7 @@ public class C_BDD {
     public List<C_ESPECE> Get_All_Especes() {
 
         using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
-        Les_Especes = Connexion.Query<C_ESPECE>("select * from especes").ToList();
+        Les_Especes = Connexion.Query<C_ESPECE>("SELECT * FROM especes ORDER BY nomCommun ASC").ToList();
         return Les_Especes;
 
     }

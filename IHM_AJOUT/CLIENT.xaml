@@ -259,7 +259,15 @@
 
                 <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
 
-                <Button x:Name="Button_Close" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Height="60" Width="60" Background="Red" FontSize="30" Click="Button_Close_Click"/>
+                <Button Background="#4976ba" x:Name="Button_Close" Width="120" Content="X" Command="{Binding OpenParcoursCommand}" Click="Button_Close_Click" Foreground="Red" Height="30" BorderThickness="1" BorderBrush="Black">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
 
                 <StackPanel Margin="300,150,0,0" Width="400" Height="200" VerticalAlignment="Top" HorizontalAlignment="Left">
                     <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0">

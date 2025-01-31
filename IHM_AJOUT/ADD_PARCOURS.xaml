@@ -11,11 +11,11 @@
     <Grid>
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Vertical" Margin="26,8,0,0">
             <StackPanel Orientation="Horizontal" Margin="0,20,0,20">
-                <Label Content="Nom du parcours" HorizontalContentAlignment="Right" Width="150"  Margin="0,0,10,0"/>
+                <Label Content="Nom du parcours (32)" HorizontalContentAlignment="Right" Width="150"  Margin="0,0,10,0"/>
                 <TextBox x:Name="TB_NomParcours" Width="200" MaxLength="32"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
-                <Label Content="Description du parcours" HorizontalContentAlignment="Right" Width="150" Margin="0,0,10,0"/>
+                <TextBlock Text="Description du parcours (256)" TextAlignment="Center" TextWrapping="Wrap" Width="150" Margin="0,0,10,0"/>
                 <TextBox x:Name="TB_DescParcours" Width="200" Height="200" TextWrapping="Wrap" MaxLength="256"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Width="360">

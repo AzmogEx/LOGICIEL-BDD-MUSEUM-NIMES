@@ -158,8 +158,10 @@ namespace IHM_BASE {
             if(selectedParcours != null) {
                 // Supprimer le parcours de la base de données
                 BDD.Delete_Parcours(selectedParcours.idParcours);
+                LB_Parcours.SelectionChanged -= LB_Parcours_SelectionChanged;
                 var parcoursList = BDD.Get_All_Parcours();
                 LB_Parcours.ItemsSource = parcoursList;
+                LB_Parcours.SelectionChanged += LB_Parcours_SelectionChanged;
 
                 MessageBox.Show("Parcours supprimé avec succès.");
             }

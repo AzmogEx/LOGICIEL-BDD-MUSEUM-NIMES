@@ -44,13 +44,11 @@
                             <Border Margin="10" Padding="10" Background="#4976ba" CornerRadius="10">
                                 <StackPanel>
                                     <!-- Image de l'espèce -->
-                                    <Border Width="150" Height="100" CornerRadius="10" BorderBrush="Gray" BorderThickness="2" Margin="0,10,0,10">
-                                        <Image Source="{Binding ImgPath}" Stretch="UniformToFill">
+                                        <Image Source="{Binding ImgPath}" Stretch="UniformToFill" Width="150" Height="100" Margin="0,10,0,10">
                                             <Image.Clip>
                                                 <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,148,98" />
                                             </Image.Clip>
                                         </Image>
-                                    </Border>
                                     <!-- Nom Commun de l'espèce -->
                                     <TextBlock Text="{Binding NomCommun}" Width="200" FontWeight="Bold" TextAlignment="Center" Foreground="White" FontSize="20" Margin="5" />
 
@@ -58,7 +56,7 @@
                                     <TextBlock Text="{Binding NomScientifique}" FontStyle="Italic" TextAlignment="Center" Foreground="White" TextWrapping="Wrap" Margin="0,5,0,5" />
 
                                     <!-- Statut de conservation -->
-                                    <TextBlock Text="{Binding StatutEspece}" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" Margin="0,5,0,5" />
+                                    <TextBlock Text="{Binding StatutEspece}" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" Margin="0,5,0,15" />
 
                                     <!-- Bouton pour accéder a l'espece -->
                                     <Button Background="#4976ba" x:Name="Btn_Open_Espece" Width="100" Content="Voir l'espece" Command="{Binding OpenEspeceCommand}" Click="Btn_Open_Espece_Click" Foreground="White" Height="30" BorderThickness="1" BorderBrush="Black">
@@ -118,8 +116,11 @@
                                     <StackPanel HorizontalAlignment="Center">
                                         <StackPanel>
                                             <!-- Image du parcours -->
-                                            <Image Source="{Binding imgPathParcours}" Width="150" Height="100" Stretch="UniformToFill" HorizontalAlignment="Center" Margin="0,10,0,10"/>
-
+                                            <Image Source="{Binding imgPathParcours}" Stretch="UniformToFill" Width="150" Height="100" Margin="0,10,0,10">
+                                                <Image.Clip>
+                                                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,148,98" />
+                                                </Image.Clip>
+                                            </Image>
                                             <!-- Nom du parcours -->
                                             <TextBlock Text="{Binding nomParcours}" Width="200" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="20" Margin="0,10,0,10" />
                                             <!-- Bouton pour accéder au parcours -->

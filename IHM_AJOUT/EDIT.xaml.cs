@@ -57,6 +57,7 @@ namespace IHM_BASE {
             CB_Unite_Poids.Text = Espece.unitePoids;
             TB_AgeMin.Text = Espece.dureeVieMin.ToString();
             TB_AgeMax.Text = Espece.dureeVieMax.ToString();
+            CB_Unite_Date.Text = Espece.uniteVie;
             TB_Habitat.Text = Espece.habitat;
             TB_Embranchement.Text = Espece.embranchement;
             TB_Classe.Text = Espece.classe;
@@ -216,6 +217,7 @@ namespace IHM_BASE {
                             unitePoids = CB_Unite_Poids.Text,
                             dureeVieMin = DureeVieMin,
                             dureeVieMax = DureeVieMax,
+                            uniteVie = CB_Unite_Date.Text,
                             habitat = TB_Habitat.Text,
                             embranchement = TB_Embranchement.Text,
                             classe = TB_Classe.Text,

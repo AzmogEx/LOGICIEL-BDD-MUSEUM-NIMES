@@ -266,6 +266,8 @@
                 <Image Margin="0,0,1587,647" Source="RESSOURCES/haut-gauche.png" Stretch="Fill"/>
 
                 <Image Margin="726,330,730,269" Source="RESSOURCES/rond.png" Stretch="Fill"/>
+                
+                <Image Margin="1276,746,356,59" Source="RESSOURCES/rond.png" Stretch="Fill"/>
 
                 <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
 
@@ -396,7 +398,7 @@
 
 
                 </StackPanel>
-                <Image x:Name="Img_Animal_3" Width="324" Height="232" Margin="1258,767,338,81">
+                <Image d:Source="RESSOURCES/axolotl.jpeg" x:Name="Img_Animal_3" Width="324" Height="232" Margin="1258,767,338,81">
                     <Image.OpacityMask>
                         <ImageBrush ImageSource="RESSOURCES/rond.png" Stretch="Uniform" TileMode="None"/>
                     </Image.OpacityMask>

@@ -51,7 +51,7 @@
         <ComboBox x:Name="CB_Unite_Date" SelectedIndex="0" HorizontalAlignment="Left" Margin="247,160,0,0" VerticalAlignment="Top" Width="64">
             <ComboBoxItem>Jours</ComboBoxItem>
             <ComboBoxItem>Mois</ComboBoxItem>
-            <ComboBoxItem>Année</ComboBoxItem>
+            <ComboBoxItem>Ans</ComboBoxItem>
         </ComboBox>
         
         <Label Content="Habitat (32)" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>

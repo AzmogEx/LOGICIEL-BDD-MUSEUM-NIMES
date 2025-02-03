@@ -136,6 +136,7 @@ namespace IHM_AJOUT {
                                 unitePoids = CB_Unite_Poids.Text,
                                 dureeVieMin = DureeVieMin,
                                 dureeVieMax = DureeVieMax,
+                                uniteVie = CB_Unite_Date.Text,
                                 habitat = TB_Habitat.Text,
                                 embranchement = TB_Embranchement.Text,
                                 classe = TB_Classe.Text,

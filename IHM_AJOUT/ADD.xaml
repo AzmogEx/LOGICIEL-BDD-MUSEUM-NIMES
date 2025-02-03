@@ -50,7 +50,11 @@
         <TextBox x:Name="TB_AgeMin" MaxLength="5" HorizontalAlignment="Left" Margin="140,164,0,0" VerticalAlignment="Top" Width="30"/>
         <Label Content="et" HorizontalAlignment="Left" Margin="180,160,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
         <TextBox x:Name="TB_AgeMax" MaxLength="5" HorizontalAlignment="Left" Margin="212,164,0,0" VerticalAlignment="Top" Width="30"/>
-        <Label Content="ans" HorizontalAlignment="Left" Margin="245,160,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
+        <ComboBox x:Name="CB_Unite_Date" SelectedIndex="0" HorizontalAlignment="Left" Margin="247,160,0,0" VerticalAlignment="Top" Width="63">
+            <ComboBoxItem>Jours</ComboBoxItem>
+            <ComboBoxItem>Mois</ComboBoxItem>
+            <ComboBoxItem>Année</ComboBoxItem>
+        </ComboBox>
 
         <Label Content="Habitat (48)" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
         <TextBox x:Name="TB_Habitat" MaxLength="48" HorizontalAlignment="Left" Margin="140,194,0,0" VerticalAlignment="Top" Width="120"/>

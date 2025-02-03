@@ -351,7 +351,7 @@
                 </StackPanel>
 
                 <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,100,100,0">
-                    <Image x:Name="Img_Animal_2" HorizontalAlignment="Left" VerticalAlignment="Top" Height="300" Width="400">
+                    <Image x:Name="Img_Animal_2" d:Source="RESSOURCES/axolotl.jpeg" HorizontalAlignment="Left" VerticalAlignment="Top" Height="300" Width="400">
                         <Image.OpacityMask>
                             <ImageBrush ImageSource="RESSOURCES/rond.png" Stretch="Fill"/>
                         </Image.OpacityMask>

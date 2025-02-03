@@ -20,7 +20,6 @@ namespace IHM_BASE {
     public partial class EDIT:Window {
         C_BDD BDD = null;
         List<C_IMAGE> ListPath = null;
-        List<C_IMAGE> Images_Credits = new List<C_IMAGE>();
         private List<C_IMAGE> imagePaths = null;
         private string[] imagePath;
         private string Path;
@@ -68,10 +67,10 @@ namespace IHM_BASE {
             TB_DescUICN.Text = Espece.descUicn;
             TB_DescPres.Text = Espece.descPres;
             TB_NumInv.Text = Espece.numInventaire;
-            Images_Credits = BDD.Get_Credits_By_ID(IDEspece);
-            TB_Credits.Text = Images_Credits[0].Credits;
-            TB_Credits2.Text = Images_Credits[1].Credits;
-            TB_Credits3.Text = Images_Credits[2].Credits;
+            ListPath = BDD.Get_Credits_By_ID(IDEspece);
+            TB_Credits.Text = ListPath[0].Credits;
+            TB_Credits2.Text = ListPath[1].Credits;
+            TB_Credits3.Text = ListPath[2].Credits;
 
             C_PARCOURS Parcours = BDD.Get_Parcours_By_ID(Espece.idParcours);
             if(Parcours!=null) {
@@ -197,13 +196,9 @@ namespace IHM_BASE {
             if(Path == null) { Path1 = " "; }
             if(Path == null) { Path2 = " "; }
 
-            ListPath.Add(new C_IMAGE() { ImgPath = Path });
-            ListPath.Add(new C_IMAGE() { ImgPath = Path1 });
-            ListPath.Add(new C_IMAGE() { ImgPath = Path2 });
-
-            Images_Credits.Add(new C_IMAGE() { Credits = TB_Credits.Text });
-            Images_Credits.Add(new C_IMAGE() { Credits = TB_Credits2.Text });
-            Images_Credits.Add(new C_IMAGE() { Credits = TB_Credits3.Text });
+            ListPath.Add(new C_IMAGE() { ImgPath = Path, Credits = TB_Credits.Text });
+            ListPath.Add(new C_IMAGE() { ImgPath = Path1,Credits = TB_Credits2.Text });
+            ListPath.Add(new C_IMAGE() { ImgPath = Path2,Credits = TB_Credits3.Text });
 
             try {
                 float.TryParse(TB_TailleMin.Text,out float TailleMin);

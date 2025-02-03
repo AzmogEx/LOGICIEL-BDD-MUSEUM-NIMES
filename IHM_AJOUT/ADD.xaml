@@ -142,7 +142,7 @@
         </StackPanel>
 
         <Button x:Name="BTN_Add" Content="Ajouter" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" Height="41" Width="80" Click="BTN_Add_Click"/>
-        <Button x:Name="BTN_Return" Content="Retour" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10,10,130,10" Height="41" Width="80" Click="BTN_Retour_Click"/>
+        <Button x:Name="BTN_Return" Content="Retour" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,100" Height="41" Width="80" Click="BTN_Retour_Click"/>
 
     </Grid>
 </Window>

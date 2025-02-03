@@ -44,6 +44,7 @@ namespace IHM_BASE {
             //Alimentation de la listBox des régions
             imagePaths = BDD.Get_Img_By_ID(IDEspece);
             GetRegions = BDD.Get_Region_By_ID(IDEspece);
+            ListPath = BDD.Get_Credits_By_ID(IDEspece);
 
             //Alimentation des informations de l'espèce
             TB_Nom.Text = Espece.nomCommun;

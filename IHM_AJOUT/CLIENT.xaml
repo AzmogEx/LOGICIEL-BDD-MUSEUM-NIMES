@@ -121,20 +121,20 @@
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Border CornerRadius="5" BorderThickness="2" Margin="0,0,13,0" BorderBrush="White">
-                                <Border Padding="10" Width="200" Background="#4976ba" CornerRadius="10">
+                            <Border CornerRadius="10" BorderThickness="2" Margin="0,13,13,0" BorderBrush="White">
+                                <Border Padding="10" Width="400" Background="#5784BA" CornerRadius="10">
                                     <StackPanel HorizontalAlignment="Center">
                                         <StackPanel>
                                             <!-- Image du parcours -->
-                                            <Image Source="{Binding imgPathParcours}" Stretch="UniformToFill" Width="150" Height="100" Margin="0,10,0,10">
+                                            <Image Source="{Binding imgPathParcours}" Stretch="UniformToFill" Width="350" Height="225" Margin="0,10,0,10">
                                                 <Image.Clip>
-                                                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,148,98" />
+                                                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,348,223" />
                                                 </Image.Clip>
                                             </Image>
                                             <!-- Nom du parcours -->
                                             <TextBlock Text="{Binding nomParcours}" Width="200" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="20" Margin="0,10,0,10" />
                                             <!-- Bouton pour accéder au parcours -->
-                                            <Button Background="#4976ba" x:Name="Btn_Open_Parcours" Width="120" Content="Voir le parcours" Command="{Binding OpenParcoursCommand}" Click="Btn_Open_Parcours_Click" Foreground="White" Height="30" BorderThickness="1" BorderBrush="Black">
+                                            <Button Background="#5784BA" x:Name="Btn_Open_Parcours" Width="120" Content="Voir le parcours" Command="{Binding OpenParcoursCommand}" Click="Btn_Open_Parcours_Click" Foreground="White" Height="30" BorderThickness="1" BorderBrush="Black">
                                                 <Button.Template>
                                                     <ControlTemplate TargetType="{x:Type Button}">
                                                         <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
@@ -249,7 +249,7 @@
 
         </Border>
         <!--============================================================================-->
-        <Border x:Name="Border_Info" Visibility="Visible" d:Visibility="Visible">
+        <Border x:Name="Border_Info" Visibility="Visible" d:Visibility="hidden">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#FF009EE4" Offset="0"/>
@@ -266,7 +266,7 @@
                 <Image Margin="0,0,1587,647" Source="RESSOURCES/haut-gauche.png" Stretch="Fill"/>
 
                 <Image Margin="726,330,730,269" Source="RESSOURCES/rond.png" Stretch="Fill"/>
-                
+
                 <Image Margin="1276,746,356,59" Source="RESSOURCES/rond.png" Stretch="Fill"/>
 
                 <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
@@ -330,10 +330,10 @@
                 </StackPanel>
 
                 <StackPanel Width="600" Height="150" Margin="0,230,100,0" VerticalAlignment="Top">
-                    <Border Background="White" Margin="0,0,55,0" Width="250" Height="130" CornerRadius="120">
+                    <Border Background="White" Margin="0,0,55,0" BorderThickness="3" BorderBrush="Black" Width="255" Height="130" CornerRadius="120">
                         <TextBlock x:Name="Text_Info_Pratique" Text="Chat" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" FontSize="13" FontWeight="Bold" Foreground="#FF2C2E87" TextAlignment="Center" Width="200" FontFamily="Segoe UI Black"/>
                     </Border>
-                    <Polygon Points="60,0 80,20 30,0" HorizontalAlignment="Center" Margin="0,0,60,0" Fill="white" />
+                    <Polygon Points="60,0 80,20 30,0" HorizontalAlignment="Center" Margin="0,0,60,0" Fill="white" Stroke="Black" StrokeThickness="3"/>
                 </StackPanel>
 
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">

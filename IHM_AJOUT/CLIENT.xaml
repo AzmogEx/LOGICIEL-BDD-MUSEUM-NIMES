@@ -369,7 +369,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="RESSOURCES/3.png" Stretch="Fill" Height="80"/>
                                 <Border BorderBrush="Black" BorderThickness="2" CornerRadius="10" Background="White" Margin="20,0,0,0" Width="170" Height="55">
-                                    <TextBlock x:Name="Label_Habitat" TextAlignment="Center" Text="Habitat" Foreground="Black" FontSize="20" VerticalAlignment="Center" TextWrapping="Wrap" Height="55" FontFamily="Segoe UI Black"/>
+                                    <TextBlock x:Name="Label_Habitat" TextAlignment="Center" Text="Habitat" Foreground="Black" FontSize="15" VerticalAlignment="Center" TextWrapping="Wrap" Height="55" FontFamily="Segoe UI Black"/>
                                 </Border>
                             </StackPanel>
 

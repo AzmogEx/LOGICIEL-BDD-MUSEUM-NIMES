@@ -13,7 +13,7 @@
         Title="Musée des Animaux" Height="1080" Width="1920">
     <!--PENSER A RAJOUTER LE RETRAIT DES FONCTIONS ALT F4 ETC... SI DESSUS-->
     <Grid>
-        <Border x:Name="Border_Especes" Visibility="Hidden">
+        <Border x:Name="Border_Especes" Visibility="Hidden" d:Visibility="Visible">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#9AC8EB" Offset="0"/>
@@ -31,15 +31,6 @@
                 <Image Margin="1595,743,0,0" Source="RESSOURCES/bas-droite.png" Stretch="Fill"/>
                 <Label x:Name="Label_Nom_Parcours" d:Content="Nom parcours" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="70" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Segoe UI Black" Margin="0,24,0,0"/>
                 <Label x:Name="Label_Description_Parcours" d:Content="Description parcours" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Segoe UI Black" Margin="0,129,0,0"/>
-                <Button Background="Red" x:Name="Button_Close2" Height="60" Width="60" VerticalAlignment="Top" HorizontalAlignment="Right" Content="X" Command="{Binding OpenParcoursCommand}" Click="Button_Close2_Click" BorderThickness="1" FontSize="30" BorderBrush="Red" Margin="0,20,20,0">
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}" />
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
                 <!-- Affichage dynamique des animaux avec Images et Informations -->
                 <ItemsControl x:Name="EspecesList" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <ItemsControl.ItemsPanel>
@@ -81,6 +72,15 @@
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
+                <Button Background="Red" x:Name="Button_Close2" Height="60" Width="142" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Retour" Command="{Binding OpenParcoursCommand}" Click="Button_Close2_Click" BorderThickness="1" FontSize="30" BorderBrush="Red" Margin="0,20,20,0">
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
             </Grid>
         </Border>
         <!--============================================================================-->
@@ -95,22 +95,22 @@
             </Border.Background>
 
             <Grid x:Name="Grid_Parcours" Visibility="Visible" d:Visibility="Visible">
+                <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
                 <Button x:Name="Btn_Admin" Content="Admin" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Btn_Admin_Click" Height="61" Width="88"/>
                 <Image Margin="0,647,1537,0" Source="RESSOURCES/bas-gauche.png" Stretch="Fill"/>
                 <Image Margin="0,0,1587,647" Source="RESSOURCES/haut-gauche.png" Stretch="Fill"/>
-                <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
                 <Image Margin="1595,743,0,0" Source="RESSOURCES/bas-droite.png" Stretch="Fill"/>
                 <Label HorizontalAlignment="Right" VerticalAlignment="Bottom" Opacity="20" FontSize="10" Foreground="#1d4a90" Content="Crédits: Adam Marzuk / Mathis Mourot-Faraut" />
-                <Image HorizontalAlignment="Center" VerticalAlignment="Bottom" Source="/Logo-museum.png" Height="112"  Width="136"/>
+                <Image HorizontalAlignment="Center" VerticalAlignment="Bottom" Source="/RESSOURCES/Logo-museum.png" Height="112"  Width="136"/>
 
                 <ItemsControl x:Name="ParcoursList" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel x:Name="WrapPanel">
                                 <WrapPanel.Style>
-                                    <Style TargetType="WrapPanel">
+                                    <Style TargetType="{x:Type WrapPanel}">
                                         <Style.Triggers>
-                                            <DataTrigger Binding="{Binding ElementName=ParcoursList, Path=Items.Count}" Value="20">
+                                            <DataTrigger Binding="{Binding Items.Count, ElementName=ParcoursList}" Value="20">
                                                 <Setter Property="Orientation" Value="Horizontal"/>
                                             </DataTrigger>
                                         </Style.Triggers>
@@ -136,7 +136,7 @@
                                             <!-- Bouton pour accéder au parcours -->
                                             <Button Background="#4976ba" x:Name="Btn_Open_Parcours" Width="120" Content="Voir le parcours" Command="{Binding OpenParcoursCommand}" Click="Btn_Open_Parcours_Click" Foreground="White" Height="30" BorderThickness="1" BorderBrush="Black">
                                                 <Button.Template>
-                                                    <ControlTemplate TargetType="Button">
+                                                    <ControlTemplate TargetType="{x:Type Button}">
                                                         <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                                                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}" />
                                                         </Border>
@@ -249,7 +249,7 @@
 
         </Border>
         <!--============================================================================-->
-        <Border x:Name="Border_Info" Visibility="Visible" d:Visibility="Hidden">
+        <Border x:Name="Border_Info" Visibility="Visible" d:Visibility="Visible">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#FF009EE4" Offset="0"/>
@@ -257,7 +257,7 @@
                 </LinearGradientBrush>
             </Border.Background>
             <!--Grille d'affichage de l'animal recherché-->
-            <Grid x:Name="Grid_Info" Visibility="Hidden" d:Visibility="Hidden">
+            <Grid x:Name="Grid_Info" Visibility="Hidden" d:Visibility="Visible">
 
                 <Image Margin="-71,382,1199,-50" Source="RESSOURCES/rond-blanc.png" Stretch="Fill"/>
 
@@ -269,7 +269,7 @@
 
                 <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
 
-                <Button Background="Red" x:Name="Button_Close" Margin="0,20,20,0" Height="60" Width="60" VerticalAlignment="Top" HorizontalAlignment="Right" Content="X" Command="{Binding OpenParcoursCommand}" Click="Button_Close_Click" BorderThickness="1" FontSize="30" BorderBrush="Red">
+                <Button Background="Red" x:Name="Button_Close" Margin="0,20,20,0" Height="60" Width="142" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Retour" Command="{Binding OpenParcoursCommand}" Click="Button_Close_Click" BorderThickness="1" FontSize="30" BorderBrush="Red">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
@@ -324,7 +324,7 @@
 
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0">
                     <Label x:Name="Label_Nom_Animal" Content="Nom animal" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="70" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Segoe UI Black"/>
-                    <Label x:Name="Label_Nom_Scientifique_Animal" Content="Nom Scientifique" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontStyle="Italic" FontFamily="Segoe UI Black"/>
+                    <Label x:Name="Label_Nom_Scientifique_Animal" Content="Nom Scientifique" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Segoe UI Black" FontStyle="Italic"/>
                 </StackPanel>
 
                 <StackPanel Width="600" Height="150" Margin="0,230,100,0" VerticalAlignment="Top">
@@ -349,7 +349,7 @@
                 </StackPanel>
 
                 <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,100,100,0">
-                    <Image x:Name="Img_Animal_2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400">
+                    <Image x:Name="Img_Animal_2" HorizontalAlignment="Left" VerticalAlignment="Top" Height="400" Width="400">
                         <Image.OpacityMask>
                             <ImageBrush ImageSource="RESSOURCES/rond.png" Stretch="Fill"/>
                         </Image.OpacityMask>

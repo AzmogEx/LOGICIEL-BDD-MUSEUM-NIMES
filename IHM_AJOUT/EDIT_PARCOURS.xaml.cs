@@ -37,9 +37,7 @@ namespace IHM_BASE {
             foreach(var espece in Especes_Parcours) {
                 Id_Especes_Parcours.Add(espece.idEspece);
             }
-
             try {
-
                 foreach(C_ESPECE espece in LB_Animaux.Items) {
                     if(espece != null && Id_Especes_Parcours.Contains(espece.idEspece)) {
                         LB_Animaux.SelectedItems.Add(espece);
@@ -47,7 +45,7 @@ namespace IHM_BASE {
                 }
             } catch(Exception ex) {
                 MessageBox.Show($"Une erreur est survenue : {ex.Message}");
-            } 
+            }
         }
 
         // Charger la liste des parcours dans le ListBox
@@ -77,7 +75,8 @@ namespace IHM_BASE {
                 // Afficher les informations du parcours sélectionné
                 TB_NomParcours.Text = selectedParcours.nomParcours;
                 TB_DescParcours.Text = selectedParcours.descParcours;
-
+                TB_Credits.Text = selectedParcours.credits;
+                    
                 // Charger l'image si elle existe
                 if(File.Exists(selectedParcours.imgPathParcours)) {
                     ImagePreview.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri(selectedParcours.imgPathParcours));
@@ -132,6 +131,7 @@ namespace IHM_BASE {
                 // Récupérer les nouvelles valeurs depuis les TextBox
                 string newNom = TB_NomParcours.Text;
                 string newDesc = TB_DescParcours.Text;
+                string newCredits = TB_Credits.Text;
 
                 // Mettre à jour le chemin de l'image si une nouvelle image est sélectionnée
                 if(!string.IsNullOrEmpty(imagePath)) {
@@ -143,6 +143,7 @@ namespace IHM_BASE {
                     idParcours = selectedParcours.idParcours,
                     nomParcours = newNom,
                     imgPathParcours = selectedParcours.imgPathParcours,
+                    credits = newCredits,
                     descParcours = newDesc
                 };
 

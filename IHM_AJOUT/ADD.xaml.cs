@@ -109,9 +109,9 @@ namespace IHM_AJOUT {
                 if(Path == null) { Path1 = " "; }
                 if(Path == null) { Path2 = " "; }
 
-                ListPath.Add(new C_IMAGE() { ImgPath = Path });
-                ListPath.Add(new C_IMAGE() { ImgPath = Path1 });
-                ListPath.Add(new C_IMAGE() { ImgPath = Path2 });
+                ListPath.Add(new C_IMAGE() { ImgPath = Path, Credits = TB_Credits.Text});
+                ListPath.Add(new C_IMAGE() { ImgPath = Path1, Credits = TB_Credits.Text });
+                ListPath.Add(new C_IMAGE() { ImgPath = Path2, Credits = TB_Credits.Text });
 
                 try {
                     float.TryParse(TB_TailleMin.Text,out float TailleMin);

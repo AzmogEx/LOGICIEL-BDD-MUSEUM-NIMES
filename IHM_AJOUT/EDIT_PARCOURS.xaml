@@ -66,7 +66,9 @@
                     <Border BorderBrush="Gray" BorderThickness="1" Width="200" Height="200" AllowDrop="True">
                         <Image x:Name="ImagePreview" Stretch="Uniform" />
                     </Border>
-                    <Button x:Name="BTN_DeleteImg" IsEnabled="False" Width="38" Height="38" HorizontalAlignment="Right" Click="BTN_DeleteImg_Click">
+                    <Label Content="Credits :" Width="129" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="TB_Credits" MaxLength="16" Width="120"/>
+                    <Button x:Name="BTN_DeleteImg" IsEnabled="False" Width="38" Height="38" HorizontalAlignment="Center" Margin="0,10,0,0" Click="BTN_DeleteImg_Click">
                         <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text="&#xE74D;" VerticalAlignment="Center" HorizontalAlignment="Center" />
                     </Button>
                 </StackPanel>

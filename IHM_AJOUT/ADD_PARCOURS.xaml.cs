@@ -65,6 +65,7 @@ namespace IHM_BASE {
                 var Parcours = new C_PARCOURS() {
                     nomParcours = TB_NomParcours.Text,
                     descParcours = TB_DescParcours.Text,
+                    credits = TB_Credits.Text,
                     imgPathParcours = Path
                 };
                 if(Nb_Parcours >= 24) { 

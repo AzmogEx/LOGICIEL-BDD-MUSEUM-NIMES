@@ -109,6 +109,15 @@ public class C_BDD {
         return connexion.Query<C_IMAGE>(query,new { ID = P_ID }).ToList();
     }
 
+    public List<C_IMAGE> Get_Credits_By_ID(int P_ID) {
+        using SqlConnection connexion = new SqlConnection(Chaine_Connexion);
+
+        string query = "SELECT credits FROM images WHERE idEspece = @ID";
+
+        return connexion.Query<C_IMAGE>(query,new { ID = P_ID }).ToList();
+    }
+
+
     public C_PARCOURS Get_Parcours_By_ID(int P_ID) {
         using SqlConnection connexion = new SqlConnection(Chaine_Connexion);
 
@@ -190,8 +199,8 @@ public class C_BDD {
     public void Add_Image(int P_idEspece,List<C_IMAGE> P_Images) {
         using(SqlConnection connexion = new SqlConnection(Chaine_Connexion)) {
             foreach(var Image in P_Images) {
-                connexion.Execute("INSERT INTO images (idEspece, imgPath) VALUES (@IDESPECE, @IMGPATH)",
-                new { IDESPECE = P_idEspece,IMGPATH = Image.ImgPath });
+                connexion.Execute("INSERT INTO images (idEspece, imgPath, credits) VALUES (@IDESPECE, @IMGPATH, @CREDITS)",
+                new { IDESPECE = P_idEspece,IMGPATH = Image.ImgPath, CREDITS = Image.Credits});
             }
         }
     }

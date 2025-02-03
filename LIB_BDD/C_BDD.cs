@@ -166,6 +166,7 @@ public class C_BDD {
                     UNITEPOIDS = P_Espece.unitePoids,
                     DUREEVIEMIN = P_Espece.dureeVieMin,
                     DUREEVIEMAX = P_Espece.dureeVieMax,
+                    UNITEVIE = P_Espece.uniteVie,
                     HABITAT = P_Espece.habitat,
                     EMBRANCHEMENT = P_Espece.embranchement,
                     CLASSE = P_Espece.classe,

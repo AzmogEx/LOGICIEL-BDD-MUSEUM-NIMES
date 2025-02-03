@@ -202,6 +202,14 @@ namespace IHM_BASE {
                 }
             }
         }
-
+        private void BTN_Retour_Click(object sender,RoutedEventArgs e) {
+            var result = MessageBox.Show("Voulez-vous annuler ?","Confirmation",MessageBoxButton.YesNo,MessageBoxImage.Question);
+            if(result == MessageBoxResult.Yes) {
+                Close();
+            }
+            else {
+                return;
+            }
+        }
     }
 }

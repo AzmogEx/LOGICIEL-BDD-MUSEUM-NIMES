@@ -100,8 +100,8 @@
         <Label Content="Description (UICN) (256)" HorizontalAlignment="Left" Margin="301,470,0,0" VerticalAlignment="Top" Width="138" HorizontalContentAlignment="Right"/>
         <TextBox x:Name="TB_DescUICN" TextWrapping="Wrap" MaxLength="256" HorizontalAlignment="Left" Margin="447,474,0,0" VerticalAlignment="Top" Width="225" Height="80"/>
 
-        <Label Content="Description (1200)" HorizontalAlignment="Right" Margin="0,377,1,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_Desc" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"  MaxLength="1200" HorizontalAlignment="Right" Margin="0,379,111,0" VerticalAlignment="Top" Width="398" Height="232"/>
+        <Label Content="Description (1200)" HorizontalAlignment="Right" Margin="0,349,1,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_Desc" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"  MaxLength="1200" HorizontalAlignment="Right" Margin="0,348,111,0" VerticalAlignment="Top" Width="398" Height="232"/>
 
         <StackPanel Orientation="Vertical" Margin="0,10,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="600">
             <StackPanel Orientation="Horizontal">
@@ -142,6 +142,7 @@
         </StackPanel>
 
         <Button x:Name="BTN_Add" Content="Ajouter" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" Height="41" Width="80" Click="BTN_Add_Click"/>
+        <Button x:Name="BTN_Return" Content="Retour" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10,10,130,10" Height="41" Width="80" Click="BTN_Retour_Click"/>
 
     </Grid>
 </Window>

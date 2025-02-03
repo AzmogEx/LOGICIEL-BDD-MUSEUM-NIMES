@@ -62,5 +62,6 @@
             </StackPanel>
         </StackPanel>
         <Button HorizontalAlignment="Right" x:Name="BTN_AJOUT" VerticalAlignment="Bottom" Content="Créer un parcours" Padding="10" Margin="20" Click="BTN_AJOUT_Click"/>
+        <Button x:Name="BTN_Return" Content="Retour" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10,10,170,20" Height="41" Width="80" Click="BTN_Retour_Click"/>
     </Grid>
 </Window>

@@ -200,7 +200,16 @@ public class C_BDD {
         using(SqlConnection connexion = new SqlConnection(Chaine_Connexion)) {
             foreach(var Image in P_Images) {
                 connexion.Execute("INSERT INTO images (idEspece, imgPath, credits) VALUES (@IDESPECE, @IMGPATH, @CREDITS)",
-                new { IDESPECE = P_idEspece,IMGPATH = Image.ImgPath, CREDITS = Image.Credits});
+                new { IDESPECE = P_idEspece,IMGPATH = Image.ImgPath,CREDITS = Image.Credits });
+            }
+        }
+    }
+
+    public void Edit_Image(int P_idEspece,List<C_IMAGE> P_Images) {
+        using(SqlConnection connexion = new SqlConnection(Chaine_Connexion)) {
+            foreach(var Image in P_Images) {
+                connexion.Execute("UPDATE images SET imgPath = @IMGPATH, credits = @CREDITS where idEspece = @IDESPECE",
+                new { IDESPECE = P_idEspece,IMGPATH = Image.ImgPath,CREDITS = Image.Credits });
             }
         }
     }
@@ -229,7 +238,6 @@ public class C_BDD {
 
     public void Edit_Espece(C_ESPECE P_Espece,List<C_IMAGE> P_ImgPaths, List<string> P_Regions, C_PARCOURS P_Parcours) {
         using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
-        List<C_IMAGE> OldImgPaths = Get_Img_By_ID(P_Espece.idEspece);
         string[] OldListRegion = Get_Region_By_ID(P_Espece.idEspece);
 
         Connexion.Execute("update especes set nomCommun = @NOMCOMMUN, nomScientifique = @NOMSCIENT, statutEspece = @STATUTESPECE, " +
@@ -264,10 +272,8 @@ public class C_BDD {
                 IDPARCOURS = P_Parcours.idParcours
             });
 
-        if(OldImgPaths != P_ImgPaths) {
-            Connexion.Execute("delete from images where images.idEspece = @IDESPECE",new { IDESPECE = P_Espece.idEspece });
-            Add_Image(P_Espece.idEspece,P_ImgPaths);
-        }
+        Edit_Image(P_Espece.idEspece,P_ImgPaths);
+
         if(OldListRegion != P_Regions.ToArray()) {
             Connexion.Execute("delete from region where region.idEspece = @IDESPECE",new { IDESPECE = P_Espece.idEspece });
             Add_Region(P_Espece.idEspece,P_Regions);

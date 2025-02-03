@@ -306,7 +306,7 @@
                     <StackPanel Orientation="Horizontal">
                         <TextBlock x:Name="Text_UICN" TextAlignment="Center" HorizontalAlignment="Right" TextWrapping="Wrap" Text="TextBlock" Height="160" Width="300" VerticalAlignment="Top" Foreground="#FFCE1619" Margin="160,10,0,0" FontSize="15"/>
 
-                        <Border Background="White" Margin="350,0,0,0" CornerRadius="20" Height="127">
+                        <Border Background="White" Margin="350,0,0,0" BorderThickness="3" BorderBrush="Black" CornerRadius="20" Height="127">
                             <StackPanel Orientation="Vertical" Margin="15,0,15,0">
                                 <TextBlock x:Name="Text_Critere_Menace" TextAlignment="Center" Margin="0,10,0,20" TextWrapping="Wrap" Text="TextBlock" Height="58" Width="200" FontSize="20" FontWeight="Bold" Foreground="#FF2C2E87"/>
                                 <StackPanel Orientation="Horizontal">
@@ -326,7 +326,7 @@
 
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0">
                     <Label x:Name="Label_Nom_Animal" Content="Nom animal" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="70" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Segoe UI Black"/>
-                    <Label x:Name="Label_Nom_Scientifique_Animal" Content="Nom Scientifique" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Segoe UI Black" FontStyle="Italic"/>
+                    <Label x:Name="Label_Nom_Scientifique_Animal" Content="Nom Scientifique" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Arial" FontStyle="Italic"/>
                 </StackPanel>
 
                 <StackPanel Width="600" Height="150" Margin="0,230,100,0" VerticalAlignment="Top">
@@ -368,28 +368,28 @@
                         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Vertical" Margin="-40,-40,0,0" Grid.ColumnSpan="2">
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="RESSOURCES/3.png" Stretch="Fill" Height="80"/>
-                                <Border CornerRadius="10" Background="White" Margin="20,0,0,0" Width="170" Height="55">
+                                <Border BorderBrush="Black" BorderThickness="2" CornerRadius="10" Background="White" Margin="20,0,0,0" Width="170" Height="55">
                                     <TextBlock x:Name="Label_Habitat" TextAlignment="Center" Text="Habitat" Foreground="Black" FontSize="20" VerticalAlignment="Center" TextWrapping="Wrap" Height="55" FontFamily="Segoe UI Black"/>
                                 </Border>
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal">
                                 <Image  Source="RESSOURCES/1.png" Stretch="Fill" Height="80"/>
-                                <Border CornerRadius="10" Background="White" Margin="20,0,0,0" Width="170" Height="55">
+                                <Border CornerRadius="10" BorderBrush="Black" BorderThickness="2" Background="White" Margin="20,0,0,0" Width="170" Height="55">
                                     <Label x:Name="Label_Taille" Content="Taille" Foreground="Black" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
                                 </Border>
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="RESSOURCES/4.png" Stretch="Fill" Height="80"/>
-                                <Border CornerRadius="10" Background="White" Margin="20,0,0,0" Width="170" Height="55">
+                                <Border CornerRadius="10" BorderBrush="Black" BorderThickness="2" Background="White" Margin="20,0,0,0" Width="170" Height="55">
                                     <Label x:Name="Label_Poids" Content="Poids" Foreground="Black" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
                                 </Border>
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="RESSOURCES/5.png" Stretch="Fill" Height="80"/>
-                                <Border CornerRadius="10" Background="White" Margin="20,0,0,0" Width="170" Height="55">
+                                <Border CornerRadius="10" BorderBrush="Black" BorderThickness="2" Background="White" Margin="20,0,0,0" Width="170" Height="55">
                                     <Label x:Name="Label_Duree_Vie" Content="Durée de vie" Foreground="Black" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
                                 </Border>
                             </StackPanel>

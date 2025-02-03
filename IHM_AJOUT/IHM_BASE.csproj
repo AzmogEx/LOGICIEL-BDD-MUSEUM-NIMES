@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Logo-museum.png" />
+    <None Remove="Logo_Museum_MDN_Noir.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="RESSOURCES\Logo-museum.png" />
+    <Resource Include="RESSOURCES\Logo_Museum_MDN_Noir.png" />
     <Resource Include="RESSOURCES\coucou.png" />
     <Resource Include="RESSOURCES\Bulle_Bd.png" />
     <Resource Include="RESSOURCES\1.png" />

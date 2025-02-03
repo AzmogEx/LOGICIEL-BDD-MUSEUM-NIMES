@@ -44,6 +44,7 @@ namespace IHM_BASE {
             //Alimentation de la listBox des régions
             imagePaths = BDD.Get_Img_By_ID(IDEspece);
             GetRegions = BDD.Get_Region_By_ID(IDEspece);
+            ListPath = BDD.Get_Credits_By_ID(IDEspece);
 
             //Alimentation des informations de l'espèce
             TB_Nom.Text = Espece.nomCommun;
@@ -193,8 +194,8 @@ namespace IHM_BASE {
             }
 
             if(Path == null) { Path = " "; }
-            if(Path == null) { Path1 = " "; }
-            if(Path == null) { Path2 = " "; }
+            if(Path1 == null) { Path1 = " "; }
+            if(Path2 == null) { Path2 = " "; }
 
             ListPath.Add(new C_IMAGE() { ImgPath = Path, Credits = TB_Credits.Text });
             ListPath.Add(new C_IMAGE() { ImgPath = Path1,Credits = TB_Credits2.Text });

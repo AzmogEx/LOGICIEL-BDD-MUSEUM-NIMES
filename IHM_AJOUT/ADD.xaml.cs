@@ -106,12 +106,12 @@ namespace IHM_AJOUT {
                 //si des images sont chargées, et donc que les chemins ne sont pas nuls, alors on les sauvegarde dans une liste
 
                 if(Path == null) { Path = " "; }
-                if(Path == null) { Path1 = " "; }
-                if(Path == null) { Path2 = " "; }
+                if(Path1 == null) { Path1 = " "; }
+                if(Path2 == null) { Path2 = " "; }
 
                 ListPath.Add(new C_IMAGE() { ImgPath = Path, Credits = TB_Credits.Text});
-                ListPath.Add(new C_IMAGE() { ImgPath = Path1, Credits = TB_Credits.Text });
-                ListPath.Add(new C_IMAGE() { ImgPath = Path2, Credits = TB_Credits.Text });
+                ListPath.Add(new C_IMAGE() { ImgPath = Path1, Credits = TB_Credits2.Text });
+                ListPath.Add(new C_IMAGE() { ImgPath = Path2, Credits = TB_Credits3.Text });
 
                 try {
                     float.TryParse(TB_TailleMin.Text,out float TailleMin);

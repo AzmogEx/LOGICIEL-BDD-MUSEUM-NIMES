@@ -152,8 +152,8 @@ public class C_BDD {
 
         try {
             using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
-            Connexion.Execute($"insert into especes(nomCommun, nomScientifique, statutEspece, tailleMin, tailleMax, uniteTaille, poidsMin, poidsMax, unitePoids, dureeVieMin, dureeVieMax, habitat, embranchement, classe, ordre, famille, description, descUicn, descPres, numInventaire, idParcours) " +
-                $"VALUES (@NOMCOMMUN, @NOMSCIENT, @STATUTESPECE, @TAILLEMIN, @TAILLEMAX, @UNITETAILLE, @POIDSMIN, @POIDSMAX, @UNITEPOIDS, @DUREEVIEMIN, @DUREEVIEMAX, @HABITAT, @EMBRANCHEMENT, @CLASSE, @ORDRE, @FAMILLE, @DESCRIPTION, @DESCUICN, @DESCPRES, @NUMINVENTAIRE, @IDPARCOURS);",
+            Connexion.Execute($"insert into especes(nomCommun, nomScientifique, statutEspece, tailleMin, tailleMax, uniteTaille, poidsMin, poidsMax, unitePoids, dureeVieMin, dureeVieMax, uniteVie, habitat, embranchement, classe, ordre, famille, description, descUicn, descPres, numInventaire, idParcours) " +
+                $"VALUES (@NOMCOMMUN, @NOMSCIENT, @STATUTESPECE, @TAILLEMIN, @TAILLEMAX, @UNITETAILLE, @POIDSMIN, @POIDSMAX, @UNITEPOIDS, @DUREEVIEMIN, @DUREEVIEMAX, @UNITEVIE @HABITAT, @EMBRANCHEMENT, @CLASSE, @ORDRE, @FAMILLE, @DESCRIPTION, @DESCUICN, @DESCPRES, @NUMINVENTAIRE, @IDPARCOURS);",
                 new {
                     NOMCOMMUN = P_Espece.nomCommun,
                     NOMSCIENT = P_Espece.nomScientifique,
@@ -225,7 +225,7 @@ public class C_BDD {
         Connexion.Execute("update especes set nomCommun = @NOMCOMMUN, nomScientifique = @NOMSCIENT, statutEspece = @STATUTESPECE, " +
             "tailleMin = @TAILLEMIN, tailleMax = @TAILLEMAX, uniteTaille = @UNITETAILLE, " +
             "poidsMin = @POIDSMIN, poidsMax = @POIDSMAX, unitePoids = @UNITEPOIDS, dureeVieMin = @DUREEVIEMIN, " +
-            "dureeVieMax = @DUREEVIEMAX, habitat = @HABITAT, embranchement = @EMBRANCHEMENT, classe = @CLASSE, " +
+            "dureeVieMax = @DUREEVIEMAX, uniteVie = @UNITEVIE , habitat = @HABITAT, embranchement = @EMBRANCHEMENT, classe = @CLASSE, " +
             "ordre = @ORDRE, famille = @FAMILLE, description = @DESCRIPTION, descUicn = @DESCUICN, descPres = @DESCPRES, " +
             "numInventaire = @NUMINVENTAIRE, idParcours = @IDPARCOURS where idEspece = @IDESPECE",
             new {
@@ -240,6 +240,7 @@ public class C_BDD {
                 UNITEPOIDS = P_Espece.unitePoids,
                 DUREEVIEMIN = P_Espece.dureeVieMin,
                 DUREEVIEMAX = P_Espece.dureeVieMax,
+                UNITEVIE = P_Espece.uniteVie,
                 HABITAT = P_Espece.habitat,
                 EMBRANCHEMENT = P_Espece.embranchement,
                 CLASSE = P_Espece.classe,

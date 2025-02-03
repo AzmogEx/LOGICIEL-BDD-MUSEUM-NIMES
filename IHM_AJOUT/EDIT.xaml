@@ -50,7 +50,7 @@
         <TextBox x:Name="TB_AgeMax" MaxLength="5" HorizontalAlignment="Left" Margin="212,164,0,0" VerticalAlignment="Top" Width="30"/>
         <ComboBox x:Name="CB_Unite_Date" SelectedIndex="0" HorizontalAlignment="Left" Margin="247,160,0,0" VerticalAlignment="Top" Width="64">
             <ComboBoxItem>jours</ComboBoxItem>
-            <ComboBoxItem>Mmois</ComboBoxItem>
+            <ComboBoxItem>Mois</ComboBoxItem>
             <ComboBoxItem>ans</ComboBoxItem>
         </ComboBox>
         

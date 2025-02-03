@@ -137,7 +137,6 @@
                 </StackPanel>
             </StackPanel>
         </StackPanel>
-
         <Button x:Name="BTN_Edit" Content="Modifier" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" Height="41" Width="80" Click="BTN_Edit_Click"/>
         <Button x:Name="BTN_Return" Content="Retour" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,100" Height="41" Width="80" Click="BTN_Retour_Click"/>
     </Grid>

@@ -8,7 +8,6 @@ namespace IHM_BASE {
     public partial class Menu :Window {
         private C_BDD BDD = null;
         private List<C_ESPECE> List_Especes;
-        private List<int> Id_Especes;
 
         public Menu() {
             BDD = new();

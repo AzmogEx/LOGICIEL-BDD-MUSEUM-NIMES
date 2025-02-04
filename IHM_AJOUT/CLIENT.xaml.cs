@@ -27,7 +27,6 @@ namespace IHM_BASE {
         private string Desc1;
         private string Desc2;
         private List<C_ESPECE> EspecesParcours;
-        private List<C_IMAGE> Les_Images;
 
         public CLIENT() {
             InitializeComponent();

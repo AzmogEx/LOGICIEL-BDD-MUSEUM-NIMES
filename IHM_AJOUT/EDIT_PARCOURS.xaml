@@ -29,26 +29,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Width="360">
                 <StackPanel Orientation="Vertical">
-                    <Grid Width="160" Height="30">
-                        <TextBox x:Name="SearchBox" TextChanged="SearchBox_TextChanged" />
-                        <!-- Placeholder -->
-                        <TextBlock Text="Cherchez une espèce..." Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" IsHitTestVisible="False">
-                            <TextBlock.Style>
-                                <Style TargetType="TextBlock">
-                                    <Setter Property="Visibility" Value="Collapsed" />
-                                    <Style.Triggers>
-                                        <!-- Trigger pour afficher le placeholder lorsque le TextBox est vide -->
-                                        <DataTrigger Binding="{Binding Text, ElementName=SearchBox}" Value="">
-                                            <Setter Property="Visibility" Value="Visible" />
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </TextBlock.Style>
-                        </TextBlock>
-                    </Grid>
-
-                    <!-- Texte explicatif -->
-                    <TextBlock Text="Les espèces sélectionnées seront ajoutées au parcours" Width="150" TextWrapping="Wrap" Margin="0,10,10,0" />
+                    <TextBlock x:Name="TB_NombreSelect" Text="Nombre d'espèces sélectionnées : " Width="150" TextWrapping="Wrap" Margin="0,10,10,0" />
                 </StackPanel>
                 <ListBox Name="LB_Animaux" HorizontalAlignment="Right" VerticalAlignment="Top" Width="200" Height="150" SelectionMode="Multiple" SelectionChanged="LB_Animaux_SelectionChanged"/>
             </StackPanel>

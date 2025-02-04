@@ -265,12 +265,13 @@ public class C_BDD {
         using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
 
         // Mise à jour des informations du parcours (nom et description)
-        Connexion.Execute("UPDATE Parcours SET nomParcours = @NOMPARCOURS, descParcours = @DESCPARCOURS, imgPathParcours = @IMGPATHPARCOURS " +
+        Connexion.Execute("UPDATE Parcours SET nomParcours = @NOMPARCOURS, descParcours = @DESCPARCOURS, imgPathParcours = @IMGPATHPARCOURS, afficher = @AFFICHER " +
                           "WHERE idParcours = @IDPARCOURS",
             new {
                 NOMPARCOURS = P_Parcours.nomParcours,
                 DESCPARCOURS = P_Parcours.descParcours,
                 IMGPATHPARCOURS = P_Parcours.imgPathParcours,
+                AFFICHER = P_Parcours.afficher,
                 IDPARCOURS = P_Parcours.idParcours
             });
     }

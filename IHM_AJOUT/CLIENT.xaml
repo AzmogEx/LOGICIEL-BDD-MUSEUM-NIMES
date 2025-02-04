@@ -288,10 +288,10 @@
                 <Label x:Name="Label_Credits" Content="Credits 1" HorizontalContentAlignment="Center" Margin="822,816,822,226" FontStyle="Italic" FontFamily="Arial"/>
                 
                 <Image Margin="1276,746,356,59" Source="RESSOURCES/rond.png" Stretch="Fill"/>
-                <Label x:Name="Label_Credits2" Content="Credits 2" HorizontalContentAlignment="Center" Margin="1300,1021,380,32" FontStyle="Italic" FontFamily="Arial"/>
+                <Label x:Name="Label_Credits2" Content="Credits 2" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" Margin="1522,67,202,988" FontStyle="Italic" FontFamily="Arial"/>
 
                 <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
-                <Label x:Name="Label_Credits3" Content="Credits 3" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" Margin="1522,67,202,988" FontStyle="Italic" FontFamily="Arial"/>
+                <Label x:Name="Label_Credits3" Content="Credits 3" HorizontalContentAlignment="Center" Margin="1300,1021,380,32" FontStyle="Italic" FontFamily="Arial"/>
 
                 <Button Background="Red" x:Name="Button_Close" Margin="0,20,20,0" Height="60" Width="142" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Retour" Command="{Binding OpenParcoursCommand}" Click="Button_Close_Click" BorderThickness="1" FontSize="30" BorderBrush="Red">
                     <Button.Template>

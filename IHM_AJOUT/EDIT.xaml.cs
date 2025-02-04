@@ -69,9 +69,12 @@ namespace IHM_BASE {
             TB_DescPres.Text = Espece.descPres;
             TB_NumInv.Text = Espece.numInventaire;
             ListPath = BDD.Get_Credits_By_ID(IDEspece);
-            TB_Credits.Text = ListPath[0].Credits;
-            TB_Credits2.Text = ListPath[1].Credits;
-            TB_Credits3.Text = ListPath[2].Credits;
+
+            foreach(var images in ListPath) {
+                if(TB_Credits.Text == string.Empty) TB_Credits.Text = images.Credits;
+                else if (TB_Credits2.Text == string.Empty) TB_Credits2.Text = images.Credits;
+                else if (TB_Credits3.Text == string.Empty) TB_Credits3.Text = images.Credits;
+            }
 
             C_PARCOURS Parcours = BDD.Get_Parcours_By_ID(Espece.idParcours);
             if(Parcours!=null) {

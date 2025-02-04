@@ -13,7 +13,7 @@
         Title="Musée des Animaux" Height="1080" Width="1920">
     <!--PENSER A RAJOUTER LE RETRAIT DES FONCTIONS ALT F4 ETC... SI DESSUS-->
     <Grid>
-        <Border x:Name="Border_Especes" Visibility="Hidden" d:Visibility="Visible">
+        <Border x:Name="Border_Especes" Visibility="Hidden" d:Visibility="Hidden">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#9AC8EB" Offset="0"/>
@@ -21,7 +21,7 @@
                 </LinearGradientBrush>
             </Border.Background>
 
-            <Grid x:Name="Grid_Especes_Parcours" Visibility="Hidden" d:Visibility="Visible">
+            <Grid x:Name="Grid_Especes_Parcours" Visibility="Hidden" d:Visibility="Hidden">
 
                 <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
                 <Button x:Name="Btn_Admin2" Content="Admin" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Btn_Admin_Click" Height="61" Width="88">
@@ -271,7 +271,7 @@
 
         </Border>
         <!--============================================================================-->
-        <Border x:Name="Border_Info" Visibility="Visible" d:Visibility="hidden">
+        <Border x:Name="Border_Info" Visibility="Visible" d:Visibility="Visible">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#FF009EE4" Offset="0"/>
@@ -288,10 +288,13 @@
                 <Image Margin="0,0,1587,647" Source="RESSOURCES/haut-gauche.png" Stretch="Fill"/>
 
                 <Image Margin="726,330,730,269" Source="RESSOURCES/rond.png" Stretch="Fill"/>
-
+                <Label x:Name="Label_Credits" Content="Credits 1" HorizontalContentAlignment="Center" Margin="840,816,840,197"/>
+                
                 <Image Margin="1276,746,356,59" Source="RESSOURCES/rond.png" Stretch="Fill"/>
+                <Label x:Name="Label_Credits2" Content="Credits 2" HorizontalContentAlignment="Center" Margin="1300,1021,380,10"/>
 
                 <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
+                <Label x:Name="Label_Credits3" Content="Credits 3" HorizontalContentAlignment="Center" Margin="1500,368,180,663"/>
 
                 <Button Background="Red" x:Name="Button_Close" Margin="0,20,20,0" Height="60" Width="142" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Retour" Command="{Binding OpenParcoursCommand}" Click="Button_Close_Click" BorderThickness="1" FontSize="30" BorderBrush="Red">
                     <Button.Template>

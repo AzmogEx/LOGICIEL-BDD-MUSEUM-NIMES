@@ -27,6 +27,7 @@ namespace IHM_BASE {
         private string Desc1;
         private string Desc2;
         private List<C_ESPECE> EspecesParcours;
+        private List<C_IMAGE> Les_Images;
 
         public CLIENT() {
             InitializeComponent();
@@ -95,6 +96,10 @@ namespace IHM_BASE {
             Img_Animal_1.Source = null;
             Img_Animal_2.Source = null;
             Img_Animal_3.Source = null;
+
+            Label_Credits.Content = string.Empty;
+            Label_Credits2.Content = string.Empty;
+            Label_Credits3.Content = string.Empty;
 
             Grid_Especes_Parcours.Visibility = Visibility.Visible;
             Border_Especes.Visibility = Visibility.Visible;
@@ -288,13 +293,19 @@ namespace IHM_BASE {
                                 foreach(var imagePath in Images) {
                                     if(!string.IsNullOrWhiteSpace(imagePath.ImgPath) && File.Exists(imagePath.ImgPath)) {
                                         var uri = new Uri(imagePath.ImgPath,UriKind.Absolute);
-
+                                                                                
                                         if(Img_Animal_1.Source == null) {
                                             Img_Animal_1.Source = new BitmapImage(uri);
-                                        } else if(Img_Animal_2.Source == null) {
+                                            Label_Credits.Content = imagePath.Credits;
+                                        }
+                                        else if(Img_Animal_2.Source == null) {
                                             Img_Animal_2.Source = new BitmapImage(uri);
-                                        } else if(Img_Animal_3.Source == null) {
+                                            Label_Credits2.Content = imagePath.Credits;
+                                        }
+                                        else if(Img_Animal_3.Source == null) {
                                             Img_Animal_3.Source = new BitmapImage(uri);
+                                            Label_Credits3.Content = imagePath.Credits;
+
                                         }
                                     }
                                 }

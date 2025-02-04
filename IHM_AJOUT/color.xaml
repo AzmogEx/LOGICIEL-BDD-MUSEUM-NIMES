@@ -1,0 +1,14 @@
+﻿<Window x:Class="IHM_BASE.color"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IHM_BASE" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="color" Height="450" Width="800">
+    <Grid>
+        <!-- ColorPicker contrôle de Xceed -->
+        <xctk:ColorPicker Name="colorPicker" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="40" SelectedColorChanged="ColorPicker_SelectedColorChanged"/>
+        <TextBox Name="hexTextBox" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,30" Width="200"/>
+    </Grid>
+</Window>

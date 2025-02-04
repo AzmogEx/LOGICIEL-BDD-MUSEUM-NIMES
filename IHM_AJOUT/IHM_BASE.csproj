@@ -9,14 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="IMAGES\**" />
-    <EmbeddedResource Remove="IMAGES\**" />
-    <None Remove="IMAGES\**" />
-    <Page Remove="IMAGES\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Logo_Museum_MDN_Noir.png" />
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.7.25103.5738" />
   </ItemGroup>
 
   <ItemGroup>

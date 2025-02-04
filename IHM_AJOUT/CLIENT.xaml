@@ -36,7 +36,7 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                
+
                 <Image Margin="0,647,1537,0" Source="RESSOURCES/bas-gauche.png" Stretch="Fill"/>
                 <Image Margin="0,0,1587,647" Source="RESSOURCES/haut-gauche.png" Stretch="Fill"/>
                 <Image Margin="1595,743,0,0" Source="RESSOURCES/bas-droite.png" Stretch="Fill"/>
@@ -289,12 +289,12 @@
 
                 <Image Margin="726,330,730,269" Source="RESSOURCES/rond.png" Stretch="Fill"/>
                 <Label x:Name="Label_Credits" Content="Credits 1" HorizontalContentAlignment="Center" Margin="822,816,822,226" FontStyle="Italic" FontFamily="Arial"/>
-                
+
                 <Image Margin="1276,746,356,59" Source="RESSOURCES/rond.png" Stretch="Fill"/>
                 <Label x:Name="Label_Credits2" Content="Credits 2" HorizontalContentAlignment="Center" Margin="1300,1021,380,32" FontStyle="Italic" FontFamily="Arial"/>
 
                 <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
-                <Label x:Name="Label_Credits3" Content="Credits 3" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" Margin="1522,67,202,988" FontStyle="Italic" FontFamily="Arial"/>
+                <Label x:Name="Label_Credits3" Content="Credits 3" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" Margin="1500,29,224,1026" FontStyle="Italic" FontFamily="Arial"/>
 
                 <Button Background="Red" x:Name="Button_Close" Margin="0,20,20,0" Height="60" Width="142" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Retour" Command="{Binding OpenParcoursCommand}" Click="Button_Close_Click" BorderThickness="1" FontSize="30" BorderBrush="Red">
                     <Button.Template>
@@ -375,8 +375,8 @@
                     </Image>
                 </StackPanel>
 
-                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,100,100,0">
-                    <Image x:Name="Img_Animal_2" d:Source="RESSOURCES/axolotl.jpeg" HorizontalAlignment="Left" VerticalAlignment="Top" Height="300" Width="400" Stretch="Fill">
+                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,60,30,0" Width="500">
+                    <Image x:Name="Img_Animal_2" Margin="0,0,100,0" d:Source="RESSOURCES/axolotl.jpeg" Height="300" Width="400" Stretch="Fill">
                         <Image.OpacityMask>
                             <ImageBrush ImageSource="RESSOURCES/rond.png" Stretch="Fill"/>
                         </Image.OpacityMask>
@@ -390,7 +390,7 @@
 
 
                         <!-- Labels superposés -->
-                        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Vertical" Margin="-40,-40,0,0" Grid.ColumnSpan="2">
+                        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Vertical" Margin="-40,-40,0,0" Grid.ColumnSpan="2">
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="RESSOURCES/3.png" Stretch="Fill" Height="80"/>
                                 <Border BorderBrush="Black" BorderThickness="2" CornerRadius="10" Background="White" Margin="20,0,0,0" Width="170" Height="55">

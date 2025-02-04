@@ -59,13 +59,23 @@ namespace IHM_BASE {
         }
 
         private void ChargerEspeces() {
-            var List_Especes = BDD.Get_All_Especes();
-            Lstbx_Animaux.ItemsSource = List_Especes;
+            try {
+                var List_Especes = BDD.Get_All_Especes();
+                Lstbx_Animaux.ItemsSource = List_Especes;
+            }
+            catch {
+                MessageBox.Show("Aucune espèce n'est récupérer");
+            }
         }
 
         private void ChargerParcours() {
-            var List_Parcours = BDD.Get_All_Parcours_Affichable();
-            ParcoursList.ItemsSource = List_Parcours;
+            try {
+                var List_Parcours = BDD.Get_All_Parcours_Affichable();
+                ParcoursList.ItemsSource = List_Parcours;
+            }
+            catch {
+                MessageBox.Show("Aucun parcours n'est affichable");
+            }
         }
 
         private void Button_Close_Click(object sender,RoutedEventArgs e) {

@@ -265,12 +265,13 @@ public class C_BDD {
         using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
 
         // Mise à jour des informations du parcours (nom et description)
-        Connexion.Execute("UPDATE Parcours SET nomParcours = @NOMPARCOURS, descParcours = @DESCPARCOURS, imgPathParcours = @IMGPATHPARCOURS " +
+        Connexion.Execute("UPDATE Parcours SET nomParcours = @NOMPARCOURS, descParcours = @DESCPARCOURS, imgPathParcours = @IMGPATHPARCOURS, afficher = @AFFICHER " +
                           "WHERE idParcours = @IDPARCOURS",
             new {
                 NOMPARCOURS = P_Parcours.nomParcours,
                 DESCPARCOURS = P_Parcours.descParcours,
                 IMGPATHPARCOURS = P_Parcours.imgPathParcours,
+                AFFICHER = P_Parcours.afficher,
                 IDPARCOURS = P_Parcours.idParcours
             });
     }
@@ -310,6 +311,13 @@ public class C_BDD {
         Les_Parcours = Connexion.Query<C_PARCOURS>("select * from parcours").ToList();
         return Les_Parcours;
 
+    }
+
+    public List<C_PARCOURS> Get_All_Parcours_Affichable() {
+        using(var connection = new SqlConnection(Chaine_Connexion)) {
+            string query = "SELECT * FROM C_PARCOURS WHERE afficher = 1";
+            return connection.Query<C_PARCOURS>(query).ToList();
+        }
     }
 
     public List<C_ESPECE> Get_All_Especes_By_IdParcours(int parcoursId) {

@@ -63,14 +63,26 @@ namespace IHM_BASE {
         }
 
         private void BTN_AJOUT_Click(object sender,RoutedEventArgs e) {
+
+            //Verification de si cocher ou non pour l'affichage du parcours
+            bool Is_Check;
+
+            if(Check_AfficheParcours.IsChecked == true) {
+                Is_Check = true;
+            }
+            else {
+                Is_Check = false;
+            }
+
             try {
                 var Parcours = new C_PARCOURS() {
                     nomParcours = TB_NomParcours.Text,
                     descParcours = TB_DescParcours.Text,
                     credits = TB_Credits.Text,
+                    afficher = Is_Check,
                     imgPathParcours = Path
                 };
-                if(Nb_Parcours >= 24) { 
+                if(Nb_Parcours >= 24) {
                     MessageBox.Show("Veuillez supprimer un parcours avant d'en rajouter davantage. (Vous ne pouvez pas créer plus de 24 parcours.)","Échec",MessageBoxButton.OK,MessageBoxImage.Information);
                 } else {
                     BDD.Create_Parcours(Parcours, Id_Especes_Parcours);

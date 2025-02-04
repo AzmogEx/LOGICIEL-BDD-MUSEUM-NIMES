@@ -87,6 +87,7 @@ namespace IHM_BASE {
                 TB_NomParcours.Text = selectedParcours.nomParcours;
                 TB_DescParcours.Text = selectedParcours.descParcours;
                 TB_Credits.Text = selectedParcours.credits;
+                Check_AfficheParcours.IsChecked = selectedParcours.afficher;
 
                 // Charger l'image si elle existe
                 if(File.Exists(selectedParcours.imgPathParcours)) {
@@ -126,6 +127,17 @@ namespace IHM_BASE {
 
         // Modifier le parcours
         private void BTN_EDIT_PARCOURS_Click(object sender,RoutedEventArgs e) {
+
+            //Verification de si cocher ou non pour l'affichage du parcours
+            bool Is_Check;
+
+            if(Check_AfficheParcours.IsChecked == true) {
+                Is_Check = true;
+            }
+            else {
+                Is_Check = false;
+            }
+
             if(selectedParcours != null) {
                 // Récupérer les nouvelles valeurs depuis les TextBox
                 string newNom = TB_NomParcours.Text;
@@ -143,7 +155,8 @@ namespace IHM_BASE {
                     nomParcours = newNom,
                     imgPathParcours = selectedParcours.imgPathParcours,
                     credits = newCredits,
-                    descParcours = newDesc
+                    descParcours = newDesc,
+                    afficher = Is_Check
                 };
 
                 // Appeler la méthode Edit_Parcours pour mettre à jour le parcours
@@ -159,15 +172,22 @@ namespace IHM_BASE {
 
         // Supprimer un parcours
         private void BTN_SUPPR_Click(object sender,RoutedEventArgs e) {
-            if(selectedParcours != null) {
-                // Supprimer le parcours de la base de données
-                BDD.Delete_Parcours(selectedParcours.idParcours);
-                LB_Parcours.SelectionChanged -= LB_Parcours_SelectionChanged;
-                var parcoursList = BDD.Get_All_Parcours();
-                LB_Parcours.ItemsSource = parcoursList;
-                LB_Parcours.SelectionChanged += LB_Parcours_SelectionChanged;
+            var result = MessageBox.Show("Voulez-vous vraiment supprimer ce parcours ?","Confirmation",MessageBoxButton.YesNo,MessageBoxImage.Question);
+            if(result == MessageBoxResult.Yes) {
 
-                MessageBox.Show("Parcours supprimé avec succès.");
+                if(selectedParcours != null) {
+                    // Supprimer le parcours de la base de données
+                    BDD.Delete_Parcours(selectedParcours.idParcours);
+                    LB_Parcours.SelectionChanged -= LB_Parcours_SelectionChanged;
+                    var parcoursList = BDD.Get_All_Parcours();
+                    LB_Parcours.ItemsSource = parcoursList;
+                    LB_Parcours.SelectionChanged += LB_Parcours_SelectionChanged;
+
+                    MessageBox.Show("Parcours supprimé avec succès.");
+                }
+            }
+            else {
+                return;
             }
         }
 

@@ -192,7 +192,7 @@ namespace IHM_BASE {
         }
 
         private void LB_Animaux_SelectionChanged(object sender,SelectionChangedEventArgs e) {
-            if(LB_Animaux.SelectedItems.Count > 5) {
+            if(LB_Animaux.SelectedItems.Count > 10) {
                 foreach(C_ESPECE espece in e.AddedItems) {
                     LB_Animaux.SelectedItems.Remove(espece);
                 }

@@ -172,15 +172,22 @@ namespace IHM_BASE {
 
         // Supprimer un parcours
         private void BTN_SUPPR_Click(object sender,RoutedEventArgs e) {
-            if(selectedParcours != null) {
-                // Supprimer le parcours de la base de données
-                BDD.Delete_Parcours(selectedParcours.idParcours);
-                LB_Parcours.SelectionChanged -= LB_Parcours_SelectionChanged;
-                var parcoursList = BDD.Get_All_Parcours();
-                LB_Parcours.ItemsSource = parcoursList;
-                LB_Parcours.SelectionChanged += LB_Parcours_SelectionChanged;
+            var result = MessageBox.Show("Voulez-vous vraiment supprimer ce parcours ?","Confirmation",MessageBoxButton.YesNo,MessageBoxImage.Question);
+            if(result == MessageBoxResult.Yes) {
 
-                MessageBox.Show("Parcours supprimé avec succès.");
+                if(selectedParcours != null) {
+                    // Supprimer le parcours de la base de données
+                    BDD.Delete_Parcours(selectedParcours.idParcours);
+                    LB_Parcours.SelectionChanged -= LB_Parcours_SelectionChanged;
+                    var parcoursList = BDD.Get_All_Parcours();
+                    LB_Parcours.ItemsSource = parcoursList;
+                    LB_Parcours.SelectionChanged += LB_Parcours_SelectionChanged;
+
+                    MessageBox.Show("Parcours supprimé avec succès.");
+                }
+            }
+            else {
+                return;
             }
         }
 

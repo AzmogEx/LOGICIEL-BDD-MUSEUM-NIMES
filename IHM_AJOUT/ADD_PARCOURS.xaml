@@ -43,7 +43,7 @@
                 <ListBox Name="LB_Animaux" HorizontalAlignment="Right" VerticalAlignment="Top" Width="200" Height="150" SelectionMode="Multiple" SelectionChanged="LB_Animaux_SelectionChanged"/>
             </StackPanel>
             <ListBox Name="LB_Animaux_Select" HorizontalAlignment="Right" VerticalAlignment="Top"
-         Width="200" Height="150" SelectionMode="Multiple" IsEnabled="True" />
+         Width="200" Height="150" SelectionMode="Multiple" IsEnabled="False" />
         </StackPanel>
 
         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,20,0">

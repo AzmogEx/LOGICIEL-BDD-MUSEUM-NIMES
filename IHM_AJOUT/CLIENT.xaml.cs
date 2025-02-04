@@ -245,14 +245,13 @@ namespace IHM_BASE {
                         EspecesParcours.Add(espece);
 
                         if(image != null) {
-                            // Spécifier le chemin complet en ajoutant le dossier IMAGES
-                            string imagePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"IMAGES",image.ImgPath);
+                            
 
                             Especes_Parcours.Add(new C_ESPECES_PARCOURS {
                                 NomCommun = espece.nomCommun,
                                 NomScientifique = espece.nomScientifique,
                                 StatutEspece = espece.statutEspece,
-                                ImgPath = imagePath // Le chemin complet vers l'image
+                                ImgPath = image.ImgPath
                             });
                         }
                     }

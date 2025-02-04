@@ -19,12 +19,14 @@ namespace IHM_BASE {
 
     public partial class EDIT:Window {
         C_BDD BDD = null;
-        List<C_IMAGE> ListPath = null;
-        private List<C_IMAGE> imagePaths = null;
+        private List<C_IMAGE> images = null;
         private string[] imagePath;
         private string Path;
         private string Path1;
         private string Path2;
+        private int idImage;
+        private int idImage1;
+        private int idImage2;
         private int IDEspece;
         private List<string> Regions;
         private string[] GetRegions;
@@ -32,7 +34,6 @@ namespace IHM_BASE {
 
         public EDIT(C_ESPECE Espece) {
             BDD = new();
-            ListPath = new();
             IDEspece = Espece.idEspece;
             Regions = new();
             InitializeComponent();
@@ -42,9 +43,11 @@ namespace IHM_BASE {
             CB_PARCOURS.DisplayMemberPath = nameof(C_PARCOURS.nomParcours);
 
             //Alimentation de la listBox des régions
-            imagePaths = BDD.Get_Img_By_ID(IDEspece);
+            images = BDD.Get_Img_By_ID(IDEspece);
+            idImage = images[0].idImage;
+            idImage1 = images[1].idImage;
+            idImage2 = images[2].idImage;
             GetRegions = BDD.Get_Region_By_ID(IDEspece);
-            ListPath = BDD.Get_Credits_By_ID(IDEspece);
 
             //Alimentation des informations de l'espèce
             TB_Nom.Text = Espece.nomCommun;
@@ -68,12 +71,11 @@ namespace IHM_BASE {
             TB_DescUICN.Text = Espece.descUicn;
             TB_DescPres.Text = Espece.descPres;
             TB_NumInv.Text = Espece.numInventaire;
-            ListPath = BDD.Get_Credits_By_ID(IDEspece);
 
-            foreach(var images in ListPath) {
-                if(TB_Credits.Text == string.Empty) TB_Credits.Text = images.Credits;
-                else if (TB_Credits2.Text == string.Empty) TB_Credits2.Text = images.Credits;
-                else if (TB_Credits3.Text == string.Empty) TB_Credits3.Text = images.Credits;
+            foreach(var credit in images) {
+                if(TB_Credits.Text == string.Empty) TB_Credits.Text = credit.Credits;
+                else if (TB_Credits2.Text == string.Empty) TB_Credits2.Text = credit.Credits;
+                else if (TB_Credits3.Text == string.Empty) TB_Credits3.Text = credit.Credits;
             }
 
             C_PARCOURS Parcours = BDD.Get_Parcours_By_ID(Espece.idParcours);
@@ -97,7 +99,7 @@ namespace IHM_BASE {
             }
 
             try {
-                foreach(var imagePath in imagePaths) {
+                foreach(var imagePath in images) {
                     if(!string.IsNullOrWhiteSpace(imagePath.ImgPath) && File.Exists(imagePath.ImgPath)) {
                         var uri = new Uri(imagePath.ImgPath,UriKind.Absolute);
 
@@ -200,9 +202,10 @@ namespace IHM_BASE {
             if(Path1 == null) { Path1 = " "; }
             if(Path2 == null) { Path2 = " "; }
 
-            ListPath.Add(new C_IMAGE() { ImgPath = Path, Credits = TB_Credits.Text });
-            ListPath.Add(new C_IMAGE() { ImgPath = Path1,Credits = TB_Credits2.Text });
-            ListPath.Add(new C_IMAGE() { ImgPath = Path2,Credits = TB_Credits3.Text });
+            images.Clear();
+            images.Add(new C_IMAGE() { idImage = idImage, ImgPath = Path,Credits = TB_Credits.Text });
+            images.Add(new C_IMAGE() { idImage = idImage1, ImgPath = Path1,Credits = TB_Credits2.Text });
+            images.Add(new C_IMAGE() { idImage = idImage2, ImgPath = Path2,Credits = TB_Credits3.Text });
 
             try {
                 float.TryParse(TB_TailleMin.Text,out float TailleMin);
@@ -252,7 +255,7 @@ namespace IHM_BASE {
             var Item_Selectionnee = CB_PARCOURS.SelectedItem as C_PARCOURS;
 
             try {
-                BDD.Edit_Espece(P_Espece,ListPath, Regions,Item_Selectionnee);
+                BDD.Edit_Espece(P_Espece,images,Regions,Item_Selectionnee);
             } catch(Exception ex) {
                 MessageBox.Show($"Erreur lors de la modification de l'espèce : {ex.Message}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
                 return;

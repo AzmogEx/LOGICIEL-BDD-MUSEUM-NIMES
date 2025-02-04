@@ -104,7 +104,7 @@ public class C_BDD {
     public List<C_IMAGE> Get_Img_By_ID(int P_ID) {
         using SqlConnection connexion = new SqlConnection(Chaine_Connexion);
 
-        string query = "SELECT imgPath FROM images WHERE idEspece = @ID";
+        string query = "SELECT * FROM images WHERE idEspece = @ID";
 
         return connexion.Query<C_IMAGE>(query,new { ID = P_ID }).ToList();
     }
@@ -198,8 +198,8 @@ public class C_BDD {
 
     public void Add_Image(int P_idEspece,List<C_IMAGE> P_Images) {
         using(SqlConnection connexion = new SqlConnection(Chaine_Connexion)) {
-            connexion.Execute("DELETE from images where images.idEspece = @IDESPECE",new { IDESPECE = P_idEspece });
             foreach(var Image in P_Images) {
+                connexion.Execute("delete from images where idImage = @IDIMAGE", new { IDIMAGE = Image.idImage });
                 connexion.Execute("INSERT INTO images (idEspece, imgPath, credits) VALUES (@IDESPECE, @IMGPATH, @CREDITS)",
                 new { IDESPECE = P_idEspece,IMGPATH = Image.ImgPath,CREDITS = Image.Credits });
             }
@@ -209,7 +209,7 @@ public class C_BDD {
     //public void Edit_Image(int P_idEspece,List<C_IMAGE> P_Images) {
     //    using(SqlConnection connexion = new SqlConnection(Chaine_Connexion)) {
     //        foreach(var Image in P_Images) {
-    //            connexion.Execute("UPDATE images SET imgPath = @IMGPATH, credits = @CREDITS where idEspece = @IDESPECE",
+    //            connexion.Execute("INSERT INTO images (idEspece, imgPath, credits) VALUES (@IDESPECE, @IMGPATH, @CREDITS)",
     //            new { IDESPECE = P_idEspece,IMGPATH = Image.ImgPath,CREDITS = Image.Credits });
     //        }
     //    }

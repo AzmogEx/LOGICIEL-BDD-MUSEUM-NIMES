@@ -313,6 +313,13 @@ public class C_BDD {
 
     }
 
+    public List<C_PARCOURS> Get_All_Parcours_Affichable() {
+        using(var connection = new SqlConnection(Chaine_Connexion)) {
+            string query = "SELECT * FROM C_PARCOURS WHERE afficher = 1";
+            return connection.Query<C_PARCOURS>(query).ToList();
+        }
+    }
+
     public List<C_ESPECE> Get_All_Especes_By_IdParcours(int parcoursId) {
         using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
 

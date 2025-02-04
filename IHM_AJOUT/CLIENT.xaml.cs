@@ -27,7 +27,6 @@ namespace IHM_BASE {
         private string Desc1;
         private string Desc2;
         private List<C_ESPECE> EspecesParcours;
-        private List<C_IMAGE> Les_Images;
 
         public CLIENT() {
             InitializeComponent();
@@ -65,7 +64,7 @@ namespace IHM_BASE {
         }
 
         private void ChargerParcours() {
-            var List_Parcours = BDD.Get_All_Parcours();
+            var List_Parcours = BDD.Get_All_Parcours_Affichable();
             ParcoursList.ItemsSource = List_Parcours;
         }
 
@@ -174,6 +173,7 @@ namespace IHM_BASE {
                     break;
             }
         }
+
         private void Zone_Click_Amerique_Nord(object sender,RoutedEventArgs e) {
             var Liste_Animaux_Recuperer = BDD.Get_Especes_By_Region("Amérique du Nord");
             Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
@@ -379,8 +379,6 @@ namespace IHM_BASE {
                             Border_Especes.Visibility = Visibility.Hidden;
                             return;
                         }
-
-
                     }
                 }
             }

@@ -12,4 +12,5 @@ public class C_PARCOURS {
     public string imgPathParcours { get; set; }
     public string descParcours { get; set; }
     public string credits { get; set; } 
+    public bool afficher { get; set; }
 }

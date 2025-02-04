@@ -294,8 +294,8 @@ public class C_BDD {
 
     public void Create_Parcours(C_PARCOURS P_Parcours, List<int> P_Id) {
         using(SqlConnection Connexion = new SqlConnection(Chaine_Connexion)) {
-            Connexion.Execute("INSERT INTO parcours (nomParcours, imgPathParcours, descParcours) VALUES (@NOMPARCOURS, @IMGPATHPARCOURS, @DESCPARCOURS)",
-            new { NOMPARCOURS = P_Parcours.nomParcours,IMGPATHPARCOURS = P_Parcours.imgPathParcours,DESCPARCOURS = P_Parcours.descParcours});
+            Connexion.Execute("INSERT INTO parcours (nomParcours, imgPathParcours, descParcours, afficher) VALUES (@NOMPARCOURS, @IMGPATHPARCOURS, @DESCPARCOURS, @AFFICHER)",
+            new { NOMPARCOURS = P_Parcours.nomParcours,IMGPATHPARCOURS = P_Parcours.imgPathParcours,DESCPARCOURS = P_Parcours.descParcours, AFFICHER = P_Parcours.afficher});
             int ID = Connexion.QuerySingle<int>("SELECT TOP 1 idParcours FROM parcours ORDER BY idParcours DESC;");
             Add_Parcours_Especes(ID, P_Id);
         }

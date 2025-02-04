@@ -315,7 +315,7 @@ public class C_BDD {
 
     public List<C_PARCOURS> Get_All_Parcours_Affichable() {
         using(var connection = new SqlConnection(Chaine_Connexion)) {
-            string query = "SELECT * FROM C_PARCOURS WHERE afficher = 1";
+            string query = "SELECT * FROM parcours WHERE afficher = 1";
             return connection.Query<C_PARCOURS>(query).ToList();
         }
     }

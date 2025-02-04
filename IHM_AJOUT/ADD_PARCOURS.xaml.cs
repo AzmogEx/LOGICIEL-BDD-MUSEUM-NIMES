@@ -33,6 +33,7 @@ namespace IHM_BASE {
             var List_Especes = BDD.Get_All_Especes();
             LB_Animaux.ItemsSource = List_Especes;
             LB_Animaux.DisplayMemberPath = nameof(C_ESPECE.nomCommun);
+            LB_Animaux_Select.DisplayMemberPath = nameof(C_ESPECE.nomCommun);
         }
 
 
@@ -89,19 +90,43 @@ namespace IHM_BASE {
         }
 
         private void LB_Animaux_SelectionChanged(object sender,SelectionChangedEventArgs e) {
+            // Ajouter les espèces sélectionnées à la seconde ListBox
             foreach(C_ESPECE espece in e.AddedItems) {
-                int especeId = espece.idEspece; 
+                int especeId = espece.idEspece;
                 if(!Id_Especes_Parcours.Contains(especeId)) {
                     Id_Especes_Parcours.Add(especeId);
+                    if(!LB_Animaux_Select.Items.Contains(espece)) {
+                        LB_Animaux_Select.Items.Add(espece);
+                    }
                 }
             }
+
+            // Supprimer les espèces désélectionnées de la seconde ListBox
             foreach(C_ESPECE espece in e.RemovedItems) {
                 int especeId = espece.idEspece;
                 if(Id_Especes_Parcours.Contains(especeId)) {
                     Id_Especes_Parcours.Remove(especeId);
+                    LB_Animaux_Select.Items.Remove(espece);
                 }
             }
         }
+
+        private void LB_Animaux_Select_SelectionChanged(object sender,SelectionChangedEventArgs e) {
+            foreach(C_ESPECE espece in e.AddedItems) {
+                if(!Id_Especes_Parcours.Contains(espece.idEspece)) {
+                    Id_Especes_Parcours.Add(espece.idEspece);
+                }
+                if(!LB_Animaux_Select.Items.Contains(espece)) {
+                    LB_Animaux_Select.Items.Add(espece);
+                }
+            }
+
+            foreach(C_ESPECE espece in e.RemovedItems) {
+                Id_Especes_Parcours.Remove(espece.idEspece);
+                LB_Animaux_Select.Items.Remove(espece);
+            }
+        }
+
         private void BTN_Retour_Click(object sender,RoutedEventArgs e) {
             var result = MessageBox.Show("Voulez-vous annuler ?","Confirmation",MessageBoxButton.YesNo,MessageBoxImage.Question);
             if(result == MessageBoxResult.Yes) {

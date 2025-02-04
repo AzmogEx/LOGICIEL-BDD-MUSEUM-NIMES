@@ -29,6 +29,7 @@ namespace IHM_BASE {
             var List_Especes = BDD.Get_All_Especes();
             LB_Animaux.ItemsSource = List_Especes;
             LB_Animaux.DisplayMemberPath = nameof(C_ESPECE.nomCommun);
+            LB_Animaux_Select.DisplayMemberPath = nameof(C_ESPECE.nomCommun);
 
             // Charger tous les parcours dans la ListBox
             LoadParcoursList();
@@ -60,41 +61,38 @@ namespace IHM_BASE {
         }
 
         // Sélectionner un parcours dans la liste
-        private void LB_Parcours_SelectionChanged(object sender,System.Windows.Controls.SelectionChangedEventArgs e) {
-            var Parcours_Select = LB_Parcours.SelectedItem as C_PARCOURS;
-            Id_Especes_Parcours.Clear();
-            LB_Animaux.SelectedItems.Clear();
-            Especes_Parcours = BDD.Get_All_Especes_By_IdParcours(Parcours_Select.idParcours);
-            foreach(var espece in Especes_Parcours) {
-                Id_Especes_Parcours.Add(espece.idEspece);
+        private void LB_Parcours_SelectionChanged(object sender,SelectionChangedEventArgs e) {
+            if(LB_Parcours.SelectedItem is C_PARCOURS parcours) {
+                selectedParcours = parcours; // Mise à jour de la variable selectedParcours
+            }
+            else {
+                selectedParcours = null;
             }
 
-            if(LB_Parcours.SelectedItem != null) {
-                selectedParcours = (C_PARCOURS)LB_Parcours.SelectedItem;
+            // Réinitialisation de la sélection
+            LB_Animaux.SelectedItems.Clear();
+            Id_Especes_Parcours.Clear();
 
-                // Afficher les informations du parcours sélectionné
+            // Charger les espèces associées au parcours sélectionné
+            if(selectedParcours != null) {
+                Especes_Parcours = BDD.Get_All_Especes_By_IdParcours(selectedParcours.idParcours);
+
+                foreach(var espece in LB_Animaux.Items) {
+                    if(espece is C_ESPECE especeItem && Especes_Parcours.Any(e => e.idEspece == especeItem.idEspece)) {
+                        LB_Animaux.SelectedItems.Add(especeItem);
+                    }
+                }
+
+                // Mise à jour des informations du parcours sélectionné
                 TB_NomParcours.Text = selectedParcours.nomParcours;
                 TB_DescParcours.Text = selectedParcours.descParcours;
                 TB_Credits.Text = selectedParcours.credits;
-                    
+
                 // Charger l'image si elle existe
                 if(File.Exists(selectedParcours.imgPathParcours)) {
-                    ImagePreview.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri(selectedParcours.imgPathParcours));
+                    ImagePreview.Source = new BitmapImage(new Uri(selectedParcours.imgPathParcours));
                     BTN_DeleteImg.IsEnabled = true;
                 }
-            }
-            try {
-                LB_Animaux.SelectionChanged -= LB_Animaux_SelectionChanged; // Désactiver temporairement l'événement
-
-                foreach(C_ESPECE espece in LB_Animaux.Items) {
-                    if(espece != null && Id_Especes_Parcours.Contains(espece.idEspece)) {
-                        LB_Animaux.SelectedItems.Add(espece);
-                    }
-                }
-            } catch(Exception ex) {
-                MessageBox.Show($"Une erreur est survenue : {ex.Message}");
-            } finally {
-                LB_Animaux.SelectionChanged += LB_Animaux_SelectionChanged; // Réactiver l'événement
             }
         }
 
@@ -152,6 +150,10 @@ namespace IHM_BASE {
                 BDD.Edit_Parcours(updatedParcours);
                 BDD.Edit_Parcours_Especes(updatedParcours.idParcours,Id_Especes_Parcours);
                 MessageBox.Show("Parcours modifié");
+                Close();
+            }
+            else {
+                MessageBox.Show("Veuillez sélectionner un parcours à modifier");
             }
         }
 
@@ -189,20 +191,21 @@ namespace IHM_BASE {
         }
 
         private void LB_Animaux_SelectionChanged(object sender,SelectionChangedEventArgs e) {
-            ImagePreview.Source = null;
             foreach(C_ESPECE espece in e.AddedItems) {
-                int especeId = espece.idEspece; // Assuming C_ESPECE has an Id property of type int
-                if(!Id_Especes_Parcours.Contains(especeId)) {
-                    Id_Especes_Parcours.Add(especeId);
+                if(!Id_Especes_Parcours.Contains(espece.idEspece)) {
+                    Id_Especes_Parcours.Add(espece.idEspece);
+                }
+                if(!LB_Animaux_Select.Items.Contains(espece)) {
+                    LB_Animaux_Select.Items.Add(espece);
                 }
             }
+
             foreach(C_ESPECE espece in e.RemovedItems) {
-                int especeId = espece.idEspece; // Assuming C_ESPECE has an Id property of type int
-                if(Id_Especes_Parcours.Contains(especeId)) {
-                    Id_Especes_Parcours.Remove(especeId);
-                }
+                Id_Especes_Parcours.Remove(espece.idEspece);
+                LB_Animaux_Select.Items.Remove(espece);
             }
         }
+
         private void BTN_Retour_Click(object sender,RoutedEventArgs e) {
             var result = MessageBox.Show("Voulez-vous annuler ?","Confirmation",MessageBoxButton.YesNo,MessageBoxImage.Question);
             if(result == MessageBoxResult.Yes) {

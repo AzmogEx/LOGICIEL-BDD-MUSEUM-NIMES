@@ -13,6 +13,8 @@ namespace LIB_BDD;
 
 public class C_BDD {
 
+    //------------------------------ connection base de donnnées --------------------------------------
+
     const string Chaine_Connexion = "Server=tcp:service.adam-marzuk.fr;Initial Catalog=animaux;Persist Security Info=False;User ID=stage;Password=Museum123.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;";
     List<C_ESPECE> Les_Especes = new List<C_ESPECE>();
     List<C_PARCOURS> Les_Parcours = new List<C_PARCOURS>();
@@ -59,6 +61,8 @@ public class C_BDD {
             new { NomUtilisateur = nomUtilisateur,MotDePasse = motDePasseHache }
         );
     }
+
+    //------------------------------ Obtenir des informations sur les Especes --------------------------------------
 
     public List<C_ESPECE> Get_All_Especes() {
 
@@ -110,14 +114,6 @@ public class C_BDD {
     }
 
 
-    public C_PARCOURS Get_Parcours_By_ID(int P_ID) {
-        using SqlConnection connexion = new SqlConnection(Chaine_Connexion);
-
-        string query = "SELECT * FROM parcours WHERE idParcours = @ID";
-
-        return connexion.QuerySingleOrDefault<C_PARCOURS>(query,new { ID = P_ID });
-    }
-
     public string[] Get_Region_By_ID(int P_ID) {
         using SqlConnection connexion = new SqlConnection(Chaine_Connexion);
 
@@ -126,6 +122,8 @@ public class C_BDD {
         return connexion.Query<string>(query,new { ID = P_ID }).ToArray();
     }
 
+
+    //------------------------------ Ajouter, supprimer ou modifier des informations sur les Especes --------------------------------------
 
     public void Delete_Espece(int P_Espece) {
 
@@ -139,17 +137,7 @@ public class C_BDD {
         }
     }
 
-    public void Delete_Parcours(int P_Parcours) {
-        try {
-            using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
-            Connexion.Execute("update especes set idParcours = NULL where especes.idParcours = @IDPARCOURS",new { IDPARCOURS = P_Parcours });
-            Connexion.Execute("delete from parcours where idParcours = @IDPARCOURS",new { IDPARCOURS = P_Parcours });
-        } catch(Exception) {
-            throw;
-        }
-    }
-
-    public void Add_Espece(C_ESPECE P_Espece,List<C_IMAGE> P_ImgPath, List<string> P_Regions, C_PARCOURS P_Parcours) {
+    public void Add_Espece(C_ESPECE P_Espece,List<C_IMAGE> P_ImgPath,List<string> P_Regions,C_PARCOURS P_Parcours) {
 
         try {
             using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
@@ -191,23 +179,14 @@ public class C_BDD {
     public void Add_Image(int P_idEspece,List<C_IMAGE> P_Images) {
         using(SqlConnection connexion = new SqlConnection(Chaine_Connexion)) {
             foreach(var Image in P_Images) {
-                connexion.Execute("delete from images where idImage = @IDIMAGE", new { IDIMAGE = Image.idImage });
+                connexion.Execute("delete from images where idImage = @IDIMAGE",new { IDIMAGE = Image.idImage });
                 connexion.Execute("INSERT INTO images (idEspece, imgPath, credits) VALUES (@IDESPECE, @IMGPATH, @CREDITS)",
                 new { IDESPECE = P_idEspece,IMGPATH = Image.ImgPath,CREDITS = Image.Credits });
             }
         }
     }
 
-    //public void Edit_Image(int P_idEspece,List<C_IMAGE> P_Images) {
-    //    using(SqlConnection connexion = new SqlConnection(Chaine_Connexion)) {
-    //        foreach(var Image in P_Images) {
-    //            connexion.Execute("INSERT INTO images (idEspece, imgPath, credits) VALUES (@IDESPECE, @IMGPATH, @CREDITS)",
-    //            new { IDESPECE = P_idEspece,IMGPATH = Image.ImgPath,CREDITS = Image.Credits });
-    //        }
-    //    }
-    //}
-
-    public void Add_Region(int P_idEspece, List<string> P_ListRegion) {
+    public void Add_Region(int P_idEspece,List<string> P_ListRegion) {
         using(SqlConnection connexion = new SqlConnection(Chaine_Connexion)) {
             foreach(var Region in P_ListRegion) {
                 connexion.Execute("INSERT INTO region (idEspece, nomRegion) VALUES (@IDESPECE, @NOMREGION)",
@@ -215,21 +194,8 @@ public class C_BDD {
             }
         }
     }
-    public void Edit_Parcours(C_PARCOURS P_Parcours) {
-        using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
 
-        // Mise à jour des informations du parcours (nom et description)
-        Connexion.Execute("UPDATE Parcours SET nomParcours = @NOMPARCOURS, descParcours = @DESCPARCOURS, imgPathParcours = @IMGPATHPARCOURS " +
-                          "WHERE idParcours = @IDPARCOURS",
-            new {
-                NOMPARCOURS = P_Parcours.nomParcours,
-                DESCPARCOURS = P_Parcours.descParcours,
-                IMGPATHPARCOURS = P_Parcours.imgPathParcours,
-                IDPARCOURS = P_Parcours.idParcours
-            });
-    }
-
-    public void Edit_Espece(C_ESPECE P_Espece,List<C_IMAGE> P_ImgPaths, List<string> P_Regions, C_PARCOURS P_Parcours) {
+    public void Edit_Espece(C_ESPECE P_Espece,List<C_IMAGE> P_ImgPaths,List<string> P_Regions,C_PARCOURS P_Parcours) {
         using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
         string[] OldListRegion = Get_Region_By_ID(P_Espece.idEspece);
 
@@ -273,6 +239,44 @@ public class C_BDD {
         }
     }
 
+    //------------------------------ Ajouter, supprimer ou modifier des Parcours --------------------------------------
+
+    public C_PARCOURS Get_Parcours_By_ID(int P_ID) {
+        using SqlConnection connexion = new SqlConnection(Chaine_Connexion);
+
+        string query = "SELECT * FROM parcours WHERE idParcours = @ID";
+
+        return connexion.QuerySingleOrDefault<C_PARCOURS>(query,new { ID = P_ID });
+    }
+
+
+    public void Delete_Parcours(int P_Parcours) {
+        try {
+            using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
+            Connexion.Execute("update especes set idParcours = NULL where especes.idParcours = @IDPARCOURS",new { IDPARCOURS = P_Parcours });
+            Connexion.Execute("delete from parcours where idParcours = @IDPARCOURS",new { IDPARCOURS = P_Parcours });
+        } catch(Exception) {
+            throw;
+        }
+    }
+
+    
+    public void Edit_Parcours(C_PARCOURS P_Parcours) {
+        using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
+
+        // Mise à jour des informations du parcours (nom et description)
+        Connexion.Execute("UPDATE Parcours SET nomParcours = @NOMPARCOURS, descParcours = @DESCPARCOURS, imgPathParcours = @IMGPATHPARCOURS " +
+                          "WHERE idParcours = @IDPARCOURS",
+            new {
+                NOMPARCOURS = P_Parcours.nomParcours,
+                DESCPARCOURS = P_Parcours.descParcours,
+                IMGPATHPARCOURS = P_Parcours.imgPathParcours,
+                IDPARCOURS = P_Parcours.idParcours
+            });
+    }
+
+    
+
     public void Edit_Parcours_Especes(int P_IdParcours,List<int> P_Especes) {
         using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
         Connexion.Execute("update especes set especes.idParcours = null where especes.idParcours = @IDPARCOURS",new { IDPARCOURS = P_IdParcours });
@@ -296,6 +300,9 @@ public class C_BDD {
             Add_Parcours_Especes(ID, P_Id);
         }
     }
+
+
+    //------------------------------ Obtenir des informations sur les parcours --------------------------------------
 
     public List<C_PARCOURS> Get_All_Parcours() {
 

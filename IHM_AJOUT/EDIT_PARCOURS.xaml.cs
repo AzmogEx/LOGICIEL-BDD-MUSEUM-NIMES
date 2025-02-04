@@ -120,6 +120,7 @@ namespace IHM_BASE {
 
         // Supprimer l'image
         private void BTN_DeleteImg_Click(object sender,RoutedEventArgs e) {
+            TB_Credits.Text = string.Empty;
             selectedParcours.imgPathParcours = string.Empty;
             ImagePreview.Source = null;
             BTN_DeleteImg.IsEnabled = false;

@@ -8,6 +8,7 @@ namespace IHM_BASE {
     public partial class Menu:Window {
         private C_BDD BDD = null;
         private List<C_ESPECE> List_Especes;
+        private List<int> Id_Especes;
 
         public Menu() {
             BDD = new();
@@ -98,6 +99,27 @@ namespace IHM_BASE {
             List_Especes = BDD.Get_All_Especes();
             LB_Especes.ItemsSource = List_Especes;
             LB_Especes.SelectedIndex = 0;
+        }
+
+        private void SearchBox_Espece_TextChanged(object sender,TextChangedEventArgs e) {
+            var Liste_Animaux_Recuperer = BDD.Get_Espece_By_Name(SearchBox_Espece.Text);
+            LB_Especes.ItemsSource = Liste_Animaux_Recuperer;
+
+            try {
+                LB_Especes.SelectionChanged -= LB_Especes_SelectionChanged; // Désactiver temporairement l'événement
+
+                foreach(C_ESPECE espece in LB_Especes.Items) {
+                    if(espece != null && Id_Especes.Contains(espece.idEspece)) {
+                        LB_Especes.SelectedItems.Add(espece);
+                    }
+                }
+            }
+            catch(Exception ex) {
+                MessageBox.Show($"Une erreur est survenue : {ex.Message}");
+            }
+            finally {
+                LB_Especes.SelectionChanged += LB_Especes_SelectionChanged; // Réactiver l'événement
+            }
         }
     }
 }

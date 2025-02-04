@@ -170,18 +170,21 @@ namespace IHM_AJOUT {
 
         //supprimer une image chargée précédemment
         private void BTN_DeleteImg_Click(object sender,RoutedEventArgs e) {
+            TB_Credits.Text = string.Empty;
             ImagePreview.Source = null;
             BTN_DeleteImg.IsEnabled = false;
             Path = null;
         }
 
         private void BTN_DeleteImg1_Click(object sender,RoutedEventArgs e) {
+            TB_Credits2.Text = string.Empty;
             ImagePreview1.Source = null;
             BTN_DeleteImg1.IsEnabled = false;
             Path1 = null;
         }
 
         private void BTN_DeleteImg2_Click(object sender,RoutedEventArgs e) {
+            TB_Credits3.Text = string.Empty;
             ImagePreview2.Source = null;
             BTN_DeleteImg2.IsEnabled = false;
             Path2 = null;

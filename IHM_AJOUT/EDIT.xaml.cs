@@ -267,6 +267,7 @@ namespace IHM_BASE {
 
         //Premier boutton de suppression d'image
         private void BTN_DeleteImg_Click(object sender,RoutedEventArgs e) {
+            TB_Credits.Text = string.Empty;
             ImagePreview.Source = null;
             BTN_DeleteImg.IsEnabled = false;
             Path = null;
@@ -274,6 +275,7 @@ namespace IHM_BASE {
 
         //Deuxieme boutton de suppression d'image
         private void BTN_DeleteImg1_Click(object sender,RoutedEventArgs e) {
+            TB_Credits2.Text = string.Empty;
             ImagePreview1.Source = null;
             BTN_DeleteImg1.IsEnabled = false;
             Path1 = null;
@@ -281,6 +283,7 @@ namespace IHM_BASE {
 
         //Troisieme boutton de suppression d'image
         private void BTN_DeleteImg2_Click(object sender,RoutedEventArgs e) {
+            TB_Credits3.Text = string.Empty;
             ImagePreview2.Source = null;
             BTN_DeleteImg2.IsEnabled = false;
             Path2 = null;

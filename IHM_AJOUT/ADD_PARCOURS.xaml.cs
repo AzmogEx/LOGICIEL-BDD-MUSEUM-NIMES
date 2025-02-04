@@ -56,6 +56,7 @@ namespace IHM_BASE {
         }
 
         private void BTN_DeleteImg_Click(object sender,RoutedEventArgs e) {
+            TB_Credits.Text = string.Empty;
             ImagePreview.Source = null;
             BTN_DeleteImg.IsEnabled = false;
         }

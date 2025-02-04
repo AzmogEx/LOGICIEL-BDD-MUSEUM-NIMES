@@ -5,9 +5,10 @@ using System.Windows.Controls;
 
 namespace IHM_BASE {
 
-    public partial class Menu:Window {
+    public partial class Menu :Window {
         private C_BDD BDD = null;
         private List<C_ESPECE> List_Especes;
+        private List<int> Id_Especes;
 
         public Menu() {
             BDD = new();
@@ -17,7 +18,8 @@ namespace IHM_BASE {
 
             if(Etat_Connexion == null) {
                 List_Especes = BDD.Get_All_Especes();
-            } else {
+            }
+            else {
                 MessageBox.Show($"La connexion à la base de données a échoué : {Etat_Connexion}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
             }
 
@@ -65,7 +67,7 @@ namespace IHM_BASE {
                 return;
             }
 
-            BDD.Delete_Espece( Espece_Select.idEspece );
+            BDD.Delete_Espece(Espece_Select.idEspece);
             List_Especes = BDD.Get_All_Especes();
             LB_Especes.ItemsSource = List_Especes;
             LB_Especes.SelectedIndex = 0;
@@ -98,6 +100,14 @@ namespace IHM_BASE {
             List_Especes = BDD.Get_All_Especes();
             LB_Especes.ItemsSource = List_Especes;
             LB_Especes.SelectedIndex = 0;
+        }
+
+        private void SearchBox_Espece_TextChanged(object sender,TextChangedEventArgs e) {
+            // Récupérer les espèces correspondant au texte de recherche
+            var resultatRecherche = BDD.Get_Espece_By_Name(SearchBox_Espece.Text);
+
+            // Mettre à jour la source de la ListBox
+            LB_Especes.ItemsSource = resultatRecherche;
         }
     }
 }

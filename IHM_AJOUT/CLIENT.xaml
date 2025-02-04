@@ -268,7 +268,7 @@
 
         </Border>
         <!--============================================================================-->
-        <Border x:Name="Border_Info" Visibility="Visible" d:Visibility="Visible">
+        <Border x:Name="Border_Info" Visibility="Visible" d:Visibility="hidden">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#FF009EE4" Offset="0"/>
@@ -277,6 +277,8 @@
             </Border.Background>
             <!--Grille d'affichage de l'animal recherché-->
             <Grid x:Name="Grid_Info" Visibility="Hidden" d:Visibility="Visible">
+
+                <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
 
                 <Image Margin="-71,382,1199,-50" Source="RESSOURCES/rond-blanc.png" Stretch="Fill"/>
 
@@ -288,14 +290,13 @@
                 <Label x:Name="Label_Credits" Content="Credits 1" HorizontalContentAlignment="Center" Margin="822,816,822,226" FontStyle="Italic" FontFamily="Arial"/>
 
                 <Image Margin="1276,746,356,59" Source="RESSOURCES/rond.png" Stretch="Fill"/>
-                <Label x:Name="Label_Credits2" Content="Credits 2" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" Margin="1522,67,202,988" FontStyle="Italic" FontFamily="Arial"/>
+                <Label x:Name="Label_Credits2" Content="Credits 2" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" Margin="1494,27,230,1028" FontStyle="Italic" FontFamily="Arial"/>
 
-                <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
                 <Label x:Name="Label_Credits3" Content="Credits 3" HorizontalContentAlignment="Center" Margin="1300,1021,380,32" FontStyle="Italic" FontFamily="Arial"/>
 
                 <Button Background="Red" x:Name="Button_Close" Margin="0,20,20,0" Height="60" Width="142" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Retour" Command="{Binding OpenParcoursCommand}" Click="Button_Close_Click" BorderThickness="1" FontSize="30" BorderBrush="Red">
                     <Button.Template>
-                        <ControlTemplate TargetType="Button">
+                        <ControlTemplate TargetType="{x:Type Button}">
                             <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}" />
                             </Border>

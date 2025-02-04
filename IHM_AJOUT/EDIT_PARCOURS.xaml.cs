@@ -191,38 +191,32 @@ namespace IHM_BASE {
             }
         }
 
-        private void SearchBox_TextChanged(object sender,TextChangedEventArgs e) {
-            var Liste_Animaux_Recuperer = BDD.Get_Espece_By_Name(SearchBox.Text);
-            LB_Animaux.ItemsSource = Liste_Animaux_Recuperer;
+        private void LB_Animaux_SelectionChanged(object sender,SelectionChangedEventArgs e) {
+            if(LB_Animaux.SelectedItems.Count > 5) {
+                foreach(C_ESPECE espece in e.AddedItems) {
+                    LB_Animaux.SelectedItems.Remove(espece);
+                }
 
-            try {
-                LB_Animaux.SelectionChanged -= LB_Animaux_SelectionChanged; // Désactiver temporairement l'événement
-
-                foreach(C_ESPECE espece in LB_Animaux.Items) {
-                    if(espece != null && Id_Especes_Parcours.Contains(espece.idEspece)) {
-                        LB_Animaux.SelectedItems.Add(espece);
+                MessageBox.Show("Vous ne pouvez pas sélectionner plus de 10 espèces.","Limite de sélection",MessageBoxButton.OK,MessageBoxImage.Warning);
+            } else {
+                foreach(C_ESPECE espece in e.AddedItems) {
+                    int especeId = espece.idEspece;
+                    if(!Id_Especes_Parcours.Contains(especeId)) {
+                        Id_Especes_Parcours.Add(especeId);
+                        if(!LB_Animaux_Select.Items.Contains(espece)) {
+                            LB_Animaux_Select.Items.Add(espece);
+                        }
                     }
                 }
-            } catch(Exception ex) {
-                MessageBox.Show($"Une erreur est survenue : {ex.Message}");
-            } finally {
-                LB_Animaux.SelectionChanged += LB_Animaux_SelectionChanged; // Réactiver l'événement
-            }
-        }
 
-        private void LB_Animaux_SelectionChanged(object sender,SelectionChangedEventArgs e) {
-            foreach(C_ESPECE espece in e.AddedItems) {
-                if(!Id_Especes_Parcours.Contains(espece.idEspece)) {
-                    Id_Especes_Parcours.Add(espece.idEspece);
+                foreach(C_ESPECE espece in e.RemovedItems) {
+                    int especeId = espece.idEspece;
+                    if(Id_Especes_Parcours.Contains(especeId)) {
+                        Id_Especes_Parcours.Remove(especeId);
+                        LB_Animaux_Select.Items.Remove(espece);
+                    }
                 }
-                if(!LB_Animaux_Select.Items.Contains(espece)) {
-                    LB_Animaux_Select.Items.Add(espece);
-                }
-            }
-
-            foreach(C_ESPECE espece in e.RemovedItems) {
-                Id_Especes_Parcours.Remove(espece.idEspece);
-                LB_Animaux_Select.Items.Remove(espece);
+                TB_NombreSelect.Text = $"Nombre d'espèces sélectionnées : { LB_Animaux.SelectedItems.Count }";
             }
         }
 

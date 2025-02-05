@@ -27,7 +27,7 @@ namespace IHM_BASE {
 
             // Initialisation du Timer
             _timer = new DispatcherTimer {
-                Interval = TimeSpan.FromSeconds(60) // Définir l'intervalle à 60 secondes
+                Interval = TimeSpan.FromSeconds(30) // Définir l'intervalle à 30 secondes
             };
             _timer.Tick += Timer_Tick;
             _timer.Start();
@@ -57,7 +57,6 @@ namespace IHM_BASE {
 
         private void Timer_Tick(object sender,EventArgs e) {
             _timer.Stop(); // Arrête le Timer
-            MessageBox.Show("Temps écoulé. Redirection vers la page client.");
 
             // Redirection vers la page client
             CLIENT clientPage = new CLIENT();

@@ -80,7 +80,8 @@ namespace IHM_BASE {
                     descParcours = TB_DescParcours.Text,
                     credits = TB_Credits.Text,
                     afficher = Is_Check,
-                    imgPathParcours = Path
+                    imgPathParcours = Path,
+                    colorBg = hexTextBox.Text
                 };
                 if(Nb_Parcours >= 24) {
                     MessageBox.Show("Veuillez supprimer un parcours avant d'en rajouter davantage. (Vous ne pouvez pas créer plus de 24 parcours.)","Échec",MessageBoxButton.OK,MessageBoxImage.Information);

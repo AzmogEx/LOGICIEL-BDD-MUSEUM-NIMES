@@ -9,6 +9,6 @@
     <Grid>
         <!-- ColorPicker contrôle de Xceed -->
         <xctk:ColorPicker Name="colorPicker" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="40" SelectedColorChanged="ColorPicker_SelectedColorChanged"/>
-        <TextBox Name="hexTextBox" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,30" Width="200"/>
+        <TextBox Name="hexTextBox" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="200"/>
     </Grid>
 </Window>

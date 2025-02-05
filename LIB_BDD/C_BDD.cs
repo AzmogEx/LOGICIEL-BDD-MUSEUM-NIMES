@@ -265,14 +265,16 @@ public class C_BDD {
         using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
 
         // Mise à jour des informations du parcours (nom et description)
-        Connexion.Execute("UPDATE Parcours SET nomParcours = @NOMPARCOURS, descParcours = @DESCPARCOURS, imgPathParcours = @IMGPATHPARCOURS, afficher = @AFFICHER " +
+        Connexion.Execute("UPDATE Parcours SET nomParcours = @NOMPARCOURS, descParcours = @DESCPARCOURS, credits = @CREDITS,imgPathParcours = @IMGPATHPARCOURS, afficher = @AFFICHER, colorBg = @COLORBG " +
                           "WHERE idParcours = @IDPARCOURS",
             new {
                 NOMPARCOURS = P_Parcours.nomParcours,
                 DESCPARCOURS = P_Parcours.descParcours,
                 IMGPATHPARCOURS = P_Parcours.imgPathParcours,
                 AFFICHER = P_Parcours.afficher,
-                IDPARCOURS = P_Parcours.idParcours
+                COLORBG = P_Parcours.colorBg,
+                IDPARCOURS = P_Parcours.idParcours,
+                CREDITS = P_Parcours.credits
             });
     }
 
@@ -295,8 +297,8 @@ public class C_BDD {
 
     public void Create_Parcours(C_PARCOURS P_Parcours, List<int> P_Id) {
         using(SqlConnection Connexion = new SqlConnection(Chaine_Connexion)) {
-            Connexion.Execute("INSERT INTO parcours (nomParcours, imgPathParcours, descParcours, afficher) VALUES (@NOMPARCOURS, @IMGPATHPARCOURS, @DESCPARCOURS, @AFFICHER)",
-            new { NOMPARCOURS = P_Parcours.nomParcours,IMGPATHPARCOURS = P_Parcours.imgPathParcours,DESCPARCOURS = P_Parcours.descParcours, AFFICHER = P_Parcours.afficher});
+            Connexion.Execute("INSERT INTO parcours (nomParcours, imgPathParcours, credits, descParcours, afficher, colorBg) VALUES (@NOMPARCOURS, @IMGPATHPARCOURS, @CREDITS, @DESCPARCOURS, @AFFICHER, @COLORBG)",
+            new { NOMPARCOURS = P_Parcours.nomParcours,IMGPATHPARCOURS = P_Parcours.imgPathParcours, CREDITS = P_Parcours.credits, DESCPARCOURS = P_Parcours.descParcours, AFFICHER = P_Parcours.afficher, COLORBG = P_Parcours.colorBg});
             int ID = Connexion.QuerySingle<int>("SELECT TOP 1 idParcours FROM parcours ORDER BY idParcours DESC;");
             Add_Parcours_Especes(ID, P_Id);
         }

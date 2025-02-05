@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:IHM_BASE"
         mc:Ignorable="d"
         Title="Parcours" Height="600" Width="1000"
@@ -55,8 +56,13 @@
                     </Button>
                 </StackPanel>
             </StackPanel>
+            <StackPanel>
+                <xctk:ColorPicker Name="colorPicker" HorizontalAlignment="Right" VerticalAlignment="Center" Width="200" Height="40" SelectedColorChanged="ColorPicker_SelectedColorChanged" Margin="0,20,0,0"/>
+                <TextBox Name="hexTextBox" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="200" IsReadOnly="True"/>
+            </StackPanel>
         </StackPanel>
-        <TextBlock Text="Especes selectionner:" Width="150" TextWrapping="Wrap" Margin="234,425,616,101" />
+
+        <TextBlock Text="Especes selectionnées:" Width="150" TextWrapping="Wrap" Margin="234,425,616,101" />
         
         <CheckBox x:Name="Check_AfficheParcours" Content="Afficher le parcours (Cocher pour afficher)" HorizontalAlignment="Left" Margin="734,478,0,0" VerticalAlignment="Top" Height="22" Width="246"/>
 

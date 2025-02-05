@@ -8,6 +8,7 @@ using IHM_AJOUT;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Media;
 
 namespace IHM_BASE {
     public partial class EDIT_PARCOURS :Window {
@@ -30,7 +31,6 @@ namespace IHM_BASE {
             LB_Animaux.ItemsSource = List_Especes;
             LB_Animaux.DisplayMemberPath = nameof(C_ESPECE.nomCommun);
             LB_Animaux_Select.DisplayMemberPath = nameof(C_ESPECE.nomCommun);
-
             // Charger tous les parcours dans la ListBox
             LoadParcoursList();
             var Parcours_Select = LB_Parcours.SelectedItem as C_PARCOURS;
@@ -58,7 +58,26 @@ namespace IHM_BASE {
             LB_Parcours.ItemsSource = parcoursList;
             LB_Parcours.DisplayMemberPath = nameof(C_PARCOURS.nomParcours);
             LB_Parcours.SelectedIndex = 0;
+
+            // Mettre à jour le ColorPicker
+            UpdateColorPicker();
         }
+
+        private void UpdateColorPicker() {
+            if(LB_Parcours.SelectedItem is C_PARCOURS selectedParcours) {
+                try {
+                    var converter = new BrushConverter();
+                    Brush brush = (Brush)converter.ConvertFromString(selectedParcours.colorBg);
+
+                    if(brush is SolidColorBrush solidColorBrush) {
+                        colorPicker.SelectedColor = solidColorBrush.Color;
+                    }
+                } catch {
+                    colorPicker.SelectedColor = Colors.Transparent; // Valeur par défaut en cas d'erreur
+                }
+            }
+        }
+
 
         // Sélectionner un parcours dans la liste
         private void LB_Parcours_SelectionChanged(object sender,SelectionChangedEventArgs e) {
@@ -88,6 +107,7 @@ namespace IHM_BASE {
                 TB_DescParcours.Text = selectedParcours.descParcours;
                 TB_Credits.Text = selectedParcours.credits;
                 Check_AfficheParcours.IsChecked = selectedParcours.afficher;
+                UpdateColorPicker();
 
                 // Charger l'image si elle existe
                 if(File.Exists(selectedParcours.imgPathParcours)) {
@@ -138,11 +158,17 @@ namespace IHM_BASE {
                 Is_Check = false;
             }
 
+            if(hexTextBox.Text == null) {
+                MessageBox.Show("Veuillez entrer une couleur valide","Erreur");
+                return;
+            }
+
             if(selectedParcours != null) {
                 // Récupérer les nouvelles valeurs depuis les TextBox
                 string newNom = TB_NomParcours.Text;
                 string newDesc = TB_DescParcours.Text;
                 string newCredits = TB_Credits.Text;
+                string newColorBg = hexTextBox.Text;
 
                 // Mettre à jour le chemin de l'image si une nouvelle image est sélectionnée
                 if(!string.IsNullOrEmpty(imagePath)) {
@@ -156,7 +182,8 @@ namespace IHM_BASE {
                     imgPathParcours = selectedParcours.imgPathParcours,
                     credits = newCredits,
                     descParcours = newDesc,
-                    afficher = Is_Check
+                    afficher = Is_Check,
+                    colorBg = newColorBg
                 };
 
                 // Appeler la méthode Edit_Parcours pour mettre à jour le parcours
@@ -228,6 +255,12 @@ namespace IHM_BASE {
             else {
                 return;
             }
+        }
+
+        private void ColorPicker_SelectedColorChanged(object sender,RoutedPropertyChangedEventArgs<Color?> e) {
+            // Récupérer la couleur sélectionnée et la convertir en hexadécimal
+            Color selectedColor = colorPicker.SelectedColor.GetValueOrDefault();
+            hexTextBox.Text = $"#{selectedColor.R:X2}{selectedColor.G:X2}{selectedColor.B:X2}";
         }
     }
 }

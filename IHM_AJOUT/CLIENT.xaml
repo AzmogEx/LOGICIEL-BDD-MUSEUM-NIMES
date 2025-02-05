@@ -14,12 +14,6 @@
     <!--PENSER A RAJOUTER LE RETRAIT DES FONCTIONS ALT F4 ETC... SI DESSUS-->
     <Grid>
         <Border x:Name="Border_Especes" Visibility="Hidden" d:Visibility="Hidden">
-            <Border.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#9AC8EB" Offset="0"/>
-                    <GradientStop Color="#5784BA" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.Background>
 
             <Grid x:Name="Grid_Especes_Parcours" Visibility="Hidden" d:Visibility="Hidden">
 

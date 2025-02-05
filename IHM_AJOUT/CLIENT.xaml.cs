@@ -243,7 +243,12 @@ namespace IHM_BASE {
 
                 if(parcours != null) {
                     int parcoursId = parcours.idParcours;
-
+                    var BackgroundColor = parcours.colorBg;
+                    try {
+                        Border_Especes.Background = (Brush)new BrushConverter().ConvertFromString(BackgroundColor);
+                    } catch {
+                        Border_Especes.Background = Brushes.Transparent; // Valeur par défaut en cas d'erreur
+                    }
                     // Affichage du titre et de la description du parcours
                     Label_Nom_Parcours.Content = $"Parcours {parcours.nomParcours}";
                     Label_Description_Parcours.Content = parcours.descParcours;

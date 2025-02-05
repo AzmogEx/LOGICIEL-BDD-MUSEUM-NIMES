@@ -13,4 +13,5 @@ public class C_PARCOURS {
     public string descParcours { get; set; }
     public string credits { get; set; }
     public bool afficher { get; set; }
+    public string colorBg { get; set; }
 }

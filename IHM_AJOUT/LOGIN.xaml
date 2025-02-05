@@ -10,7 +10,7 @@
         mc:Ignorable="d"
         Title="LOGIN" Height="450" Width="800">
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="400" Width="650">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="400" Width="650">
             <Label x:Name="Label_Titre" Content="Identifiant de connexion:" HorizontalAlignment="Center" VerticalAlignment="Top" Height="79" Width="548" FontSize="48"/>
             <Label x:Name="Label_User" Content="Utilisateur:" HorizontalAlignment="Left" Margin="30, 90,0,0" VerticalAlignment="Bottom" Height="48" Width="123" FontSize="20"/>
             <Label x:Name="Label_Password" Content="Mots de passe:" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Bottom" Height="48" Width="147" FontSize="20"/>

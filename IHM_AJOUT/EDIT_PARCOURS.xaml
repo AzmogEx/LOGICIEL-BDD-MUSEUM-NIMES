@@ -6,7 +6,7 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:IHM_BASE"
         mc:Ignorable="d"
-        Title="Parcours" Height="600" Width="1000"
+        Title="Parcours" Height="664" Width="1000"
         WindowStartupLocation="CenterScreen">
 
     <Grid>
@@ -56,15 +56,28 @@
                     </Button>
                 </StackPanel>
             </StackPanel>
-            <StackPanel>
-                <xctk:ColorPicker Name="colorPicker" HorizontalAlignment="Right" VerticalAlignment="Center" Width="200" Height="40" SelectedColorChanged="ColorPicker_SelectedColorChanged" Margin="0,20,0,0"/>
-                <TextBox Name="hexTextBox" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="200" IsReadOnly="True"/>
+            <StackPanel HorizontalAlignment="Right">
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,20,0,0">
+                    <Label Content="Couleur du fond :"/>
+                    <xctk:ColorPicker Name="colorPicker" HorizontalAlignment="Right" VerticalAlignment="Center" Width="200" Height="40" SelectedColorChanged="ColorPicker_SelectedColorChanged"/>
+                </StackPanel>
+                <TextBox Name="hexTextBox" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="200" IsReadOnly="True"/>
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Label Content="Couleur du texte :"/>
+                    <xctk:ColorPicker Name="colorPickerTexte" HorizontalAlignment="Right" VerticalAlignment="Center" Width="200" Height="40" SelectedColorChanged="ColorPicker_SelectedColorChanged"/>
+                </StackPanel>
+                <TextBox Name="hexTextBoxTexte" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="200" IsReadOnly="True"/>
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Label Content="Couleur des cartes :"/>
+                    <xctk:ColorPicker Name="colorPickerCards" HorizontalAlignment="Right" VerticalAlignment="Center" Width="200" Height="40" SelectedColorChanged="ColorPicker_SelectedColorChanged"/>
+                </StackPanel>
+                <TextBox Name="hexTextBoxCards" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="200" IsReadOnly="True"/>
             </StackPanel>
         </StackPanel>
 
         <TextBlock Text="Especes selectionnées:" Width="150" TextWrapping="Wrap" Margin="234,425,616,101" />
         
-        <CheckBox x:Name="Check_AfficheParcours" Content="Afficher le parcours (Cocher pour afficher)" HorizontalAlignment="Left" Margin="734,478,0,0" VerticalAlignment="Top" Height="22" Width="246"/>
+        <CheckBox x:Name="Check_AfficheParcours" Content="Afficher le parcours (Cocher pour afficher)" HorizontalAlignment="Left" Margin="734,537,0,0" VerticalAlignment="Top" Height="22" Width="246"/>
 
         <!-- Bouton pour enregistrer les modifications -->
         <Button HorizontalAlignment="Right" x:Name="BTN_EDIT_PARCOURS" VerticalAlignment="Bottom" Content="Modifier le parcours" Padding="10" Margin="20" Click="BTN_EDIT_PARCOURS_Click"/>

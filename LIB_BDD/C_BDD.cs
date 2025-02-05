@@ -267,7 +267,7 @@ public class C_BDD {
         using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
 
         // Mise à jour des informations du parcours (nom et description)
-        Connexion.Execute("UPDATE Parcours SET nomParcours = @NOMPARCOURS, descParcours = @DESCPARCOURS, credits = @CREDITS,imgPathParcours = @IMGPATHPARCOURS, afficher = @AFFICHER, colorBg = @COLORBG " +
+        Connexion.Execute("UPDATE Parcours SET nomParcours = @NOMPARCOURS, descParcours = @DESCPARCOURS, credits = @CREDITS,imgPathParcours = @IMGPATHPARCOURS, afficher = @AFFICHER, colorBg = @COLORBG, textColor = @TEXTCOLOR, cardColor = @CARDCOLOR " +
                           "WHERE idParcours = @IDPARCOURS",
             new {
                 NOMPARCOURS = P_Parcours.nomParcours,
@@ -276,7 +276,9 @@ public class C_BDD {
                 AFFICHER = P_Parcours.afficher,
                 COLORBG = P_Parcours.colorBg,
                 IDPARCOURS = P_Parcours.idParcours,
-                CREDITS = P_Parcours.credits
+                CREDITS = P_Parcours.credits,
+                TEXTCOLOR = P_Parcours.textColor,
+                CARDCOLOR = P_Parcours.cardColor
             });
     }
 

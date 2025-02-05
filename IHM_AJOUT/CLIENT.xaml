@@ -45,7 +45,7 @@
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Border Margin="10" Padding="10" Background="#4976ba" CornerRadius="10">
+                            <Border x:Name="Border_Cards" Margin="10" Padding="10" Background="#4976ba" CornerRadius="10">
                                 <StackPanel>
                                     <!-- Image de l'espèce -->
                                     <Image Source="{Binding ImgPath}" Stretch="UniformToFill" Width="150" Height="100" Margin="0,10,0,10">

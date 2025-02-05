@@ -250,6 +250,7 @@ namespace IHM_BASE {
                         Border_Especes.Background = (Brush)new BrushConverter().ConvertFromString(BackgroundColor);
                         Label_Nom_Parcours.Foreground = (Brush)new BrushConverter().ConvertFromString(TextColor);
                         Label_Description_Parcours.Foreground = (Brush)new BrushConverter().ConvertFromString(TextColor);
+                        
                     } catch {
                         Border_Especes.Background = Brushes.Transparent; // Valeur par défaut en cas d'erreur
                         Label_Nom_Parcours.Foreground = Brushes.Transparent;
@@ -277,7 +278,8 @@ namespace IHM_BASE {
                                 NomCommun = espece.nomCommun,
                                 NomScientifique = espece.nomScientifique,
                                 StatutEspece = espece.statutEspece,
-                                ImgPath = image.ImgPath
+                                ImgPath = image.ImgPath,
+                                CardColor = parcours.cardColor
                             });
                         }
                     }
@@ -294,6 +296,7 @@ namespace IHM_BASE {
                 }
             }
         }
+
         private void Btn_Open_Espece_Click(object sender,RoutedEventArgs e) {
             var button = sender as Button; // Récupère le bouton cliqué
             C_ESPECE Espece_Select;

@@ -8,7 +8,7 @@
         WindowState="Maximized"
         xmlns:local="clr-namespace:IHM_BASE"
         mc:Ignorable="d"
-        Title="LOGIN" Height="800" Width="1200">
+        Title="LOGIN" Height="1080" Width="1920">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="400" Width="650">
             <Label x:Name="Label_Titre" Content="Identifiants de connexion:" HorizontalAlignment="Center" Height="79" Width="555" FontSize="48"/>

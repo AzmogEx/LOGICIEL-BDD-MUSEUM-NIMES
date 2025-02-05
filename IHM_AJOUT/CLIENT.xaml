@@ -88,7 +88,7 @@
         <!--============================================================================-->
 
         <!--Grille Parcours -->
-        <Border x:Name="Border_Parcours" Visibility="Visible" d:Visibility="Visible">
+        <Border x:Name="Border_Parcours" Visibility="Visible" d:Visibility="Hidden">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#FF4A90E2" Offset="0"/>
@@ -96,7 +96,7 @@
                 </LinearGradientBrush>
             </Border.Background>
 
-            <Grid x:Name="Grid_Parcours" Visibility="Visible" d:Visibility="Visible">
+            <Grid x:Name="Grid_Parcours" Visibility="Visible" d:Visibility="Hidden">
                 <Image Margin="0,647,1537,0" Source="RESSOURCES/bas-gauche.png" Stretch="Fill"/>
                 <Button x:Name="Btn_Admin" Content="Admin" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Btn_Admin_Click" Height="61" Width="88">
                     <Button.Style>
@@ -262,7 +262,7 @@
 
         </Border>
         <!--============================================================================-->
-        <Border x:Name="Border_Info" Visibility="Visible" d:Visibility="hidden">
+        <Border x:Name="Border_Info" Visibility="Visible" d:Visibility="Visible">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#FF009EE4" Offset="0"/>

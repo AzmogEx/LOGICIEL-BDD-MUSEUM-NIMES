@@ -66,17 +66,20 @@ namespace IHM_BASE {
         private void UpdateColorPicker() {
             if(LB_Parcours.SelectedItem is C_PARCOURS selectedParcours) {
                 try {
-                    var converter = new BrushConverter();
-                    Brush brush = (Brush)converter.ConvertFromString(selectedParcours.colorBg);
-
-                    if(brush is SolidColorBrush solidColorBrush) {
-                        colorPicker.SelectedColor = solidColorBrush.Color;
-                    }
+                    var ColorBg = (Color)ColorConverter.ConvertFromString(selectedParcours.colorBg);
+                    var ColorText = (Color)ColorConverter.ConvertFromString(selectedParcours.textColor);
+                    var ColorCard = (Color)ColorConverter.ConvertFromString(selectedParcours.cardColor);
+                    colorPicker.SelectedColor = ColorBg;
+                    colorPickerTexte.SelectedColor = ColorText;
+                    colorPickerCards.SelectedColor = ColorCard;
                 } catch {
-                    colorPicker.SelectedColor = Colors.Transparent; // Valeur par défaut en cas d'erreur
+                    colorPicker.SelectedColor = Colors.Transparent; // Sécurité en cas d'erreur
+                    colorPickerTexte.SelectedColor = Colors.Transparent;
+                    colorPickerCards.SelectedColor = Colors.Transparent;
                 }
             }
         }
+
 
 
         // Sélectionner un parcours dans la liste

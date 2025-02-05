@@ -14,4 +14,6 @@ public class C_PARCOURS {
     public string credits { get; set; }
     public bool afficher { get; set; }
     public string colorBg { get; set; }
+    public string textColor { get; set; }
+    public string cardColor { get; set; }
 }

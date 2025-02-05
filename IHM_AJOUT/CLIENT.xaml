@@ -285,7 +285,7 @@
 
                 <Label x:Name="Label_Credits2" Content="Credits 2" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" Margin="1494,27,230,1028" FontStyle="Italic" FontFamily="Arial"/>
 
-                <Label x:Name="Label_Credits3" Content="Credits 3" HorizontalContentAlignment="Center" Margin="1090,1021,590,32" FontStyle="Italic" FontFamily="Arial"/>
+                <Label x:Name="Label_Credits3" Content="Credits 3" HorizontalContentAlignment="Center" Margin="1160,1043,520,10" FontStyle="Italic" FontFamily="Arial"/>
 
                 <Button Background="Red" x:Name="Button_Close" Margin="0,20,20,0" Height="60" Width="142" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Retour" Command="{Binding OpenParcoursCommand}" Click="Button_Close_Click" BorderThickness="1" FontSize="30" BorderBrush="Red">
                     <Button.Template>
@@ -413,9 +413,9 @@
 
 
                 </StackPanel>
-                <Image Margin="1066,746,566,59" Source="RESSOURCES/rond.png" Stretch="Fill"/>
+                <Image Margin="1136,768,496,37" Source="RESSOURCES/rond.png" Stretch="Fill"/>
 
-                <Image d:Source="RESSOURCES/axolotl.jpeg" x:Name="Img_Animal_3" Width="324" Height="232" Margin="1048,767,548,81">
+                <Image d:Source="RESSOURCES/axolotl.jpeg" x:Name="Img_Animal_3" Width="324" Height="232" Margin="1118,789,478,59">
                     <Image.OpacityMask>
                         <ImageBrush ImageSource="RESSOURCES/rond.png" Stretch="Uniform" TileMode="None"/>
                     </Image.OpacityMask>

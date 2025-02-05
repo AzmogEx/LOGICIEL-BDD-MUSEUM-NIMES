@@ -108,5 +108,33 @@ namespace IHM_BASE {
             // Mettre à jour la source de la ListBox
             LB_Especes.ItemsSource = resultatRecherche;
         }
+
+        private void MenuItem_Modifier_Click(object sender,RoutedEventArgs e) {
+            C_ESPECE Espece_Select = LB_Especes.SelectedItem as C_ESPECE;
+            var addWindow = new EDIT(Espece_Select);
+            bool? result = addWindow.ShowDialog();
+            List_Especes = BDD.Get_All_Especes();
+            LB_Especes.ItemsSource = List_Especes;
+            LB_Especes.SelectedIndex = 0;
+        }
+
+        private void MenuItem_Supprimer_Click(object sender,RoutedEventArgs e) {
+            C_ESPECE Espece_Select = LB_Especes.SelectedItem as C_ESPECE;
+            var result = MessageBox.Show(
+                    $"Voulez vous vraiment supprimer {Espece_Select.nomCommun}? Cette action est irréversible.",
+                    "Confirmation",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question
+                );
+
+            if(result == MessageBoxResult.No) {
+                return;
+            }
+
+            BDD.Delete_Espece(Espece_Select.idEspece);
+            List_Especes = BDD.Get_All_Especes();
+            LB_Especes.ItemsSource = List_Especes;
+            LB_Especes.SelectedIndex = 0;
+        }
     }
 }

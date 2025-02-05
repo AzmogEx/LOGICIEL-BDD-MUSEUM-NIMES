@@ -29,7 +29,15 @@
         </Border>
 
         <!--SECTION LISTBOX-->
-        <ListBox Width="200" HorizontalAlignment="Left" x:Name="LB_Especes" SelectionChanged="LB_Especes_SelectionChanged" Margin="0,53,0,0"/>
+        <ListBox Width="200" HorizontalAlignment="Left" x:Name="LB_Especes" 
+         SelectionChanged="LB_Especes_SelectionChanged" Margin="0,53,0,0">
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Modifier" Click="MenuItem_Modifier_Click" />
+                    <MenuItem Header="Supprimer" Click="MenuItem_Supprimer_Click" />
+                </ContextMenu>
+            </ListBox.ContextMenu>
+        </ListBox>
         <TextBox VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Height="50" x:Name="SearchBox_Espece" TextChanged="SearchBox_Espece_TextChanged"/>
 
         <!--SECTION BUTTONS-->

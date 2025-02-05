@@ -3,12 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowState="Maximized"
         xmlns:local="clr-namespace:IHM_BASE"
         mc:Ignorable="d"
         Title="LOGIN" Height="450" Width="800">
-    <!--WindowStyle="None"
-        ResizeMode="NoResize"
-        WindowState="Maximized"-->
     <Grid>
         <Label x:Name="Label_User" Content="Utilisateur:" HorizontalAlignment="Left" Margin="96,0,0,0" VerticalAlignment="Center" Height="48" Width="123" FontSize="20"/>
         <Label x:Name="Label_Password" Content="Mots de passe:" HorizontalAlignment="Left" Margin="72,276,0,0" VerticalAlignment="Top" Height="48" Width="147" FontSize="20"/>

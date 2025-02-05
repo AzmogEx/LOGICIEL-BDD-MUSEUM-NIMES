@@ -13,14 +13,24 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
+
 
 namespace IHM_BASE {
     /// <summary>
     /// Logique d'interaction pour LOGIN.xaml
     /// </summary>
     public partial class LOGIN :Window {
+        private DispatcherTimer _timer;
         public LOGIN() {
             InitializeComponent();
+
+            // Initialisation du Timer
+            _timer = new DispatcherTimer {
+                Interval = TimeSpan.FromSeconds(60) // Définir l'intervalle à 60 secondes
+            };
+            _timer.Tick += Timer_Tick;
+            _timer.Start();
         }
 
         private void Button_Connect_Click(object sender,RoutedEventArgs e) {
@@ -29,6 +39,7 @@ namespace IHM_BASE {
             try {
                 var Ok = La_Base.Connexion(Tbx_User.Text,Tbx_Password.Password);
                 if(Ok == true) {
+                    _timer.Stop(); // Arrêter le Timer à la connexion réussie
                     MessageBox.Show("Vous êtes connecté");
                     var deplace = new Menu();
                     deplace.Show();
@@ -44,6 +55,14 @@ namespace IHM_BASE {
             }
         }
 
+        private void Timer_Tick(object sender,EventArgs e) {
+            _timer.Stop(); // Arrête le Timer
+            MessageBox.Show("Temps écoulé. Redirection vers la page client.");
 
+            // Redirection vers la page client
+            CLIENT clientPage = new CLIENT();
+            clientPage.Show();
+            this.Close();
+        }
     }
 }

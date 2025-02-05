@@ -63,5 +63,14 @@ namespace IHM_BASE {
             clientPage.Show();
             this.Close();
         }
+
+        private void Button_Annuler_Click(object sender,RoutedEventArgs e) {
+            _timer.Stop(); // Arrête le Timer
+
+            // Redirection vers la page client
+            CLIENT clientPage = new CLIENT();
+            clientPage.Show();
+            this.Close();
+        }
     }
 }

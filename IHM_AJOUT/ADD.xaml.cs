@@ -145,6 +145,7 @@ namespace IHM_AJOUT {
                                 description = TB_Desc.Text,
                                 descUicn = TB_DescUICN.Text,
                                 descPres = TB_DescPres.Text,
+                                descParcours = TB_DescParcours.Text,
                                 numInventaire = TB_NumInv.Text
                             };
 

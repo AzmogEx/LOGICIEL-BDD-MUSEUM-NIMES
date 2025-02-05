@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IHM_AJOUT"
         mc:Ignorable="d"
-        Title="Ajout d'espèces" Height="650" Width="1200"
+        Title="Ajout d'espèces" Height="700" Width="1300"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
     <Grid>
@@ -94,11 +94,15 @@
         <ComboBox x:Name="CB_PARCOURS" SelectedIndex="0" HorizontalAlignment="Left" Margin="140,538,0,0" VerticalAlignment="Top" Width="120"/>
 
 
-        <Label Content="Info présentation (128)" HorizontalAlignment="Left" Margin="310,377,0,0" VerticalAlignment="Top" Width="130" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_DescPres" TextWrapping="Wrap" MaxLength="128" HorizontalAlignment="Left" Margin="447,381,0,0" VerticalAlignment="Top" Width="225" Height="80"/>
+        <Label Content="Info présentation (128)" HorizontalAlignment="Left" Margin="310,199,0,0" VerticalAlignment="Top" Width="130" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_DescPres" TextWrapping="Wrap" MaxLength="128" HorizontalAlignment="Left" Margin="447,202,0,0" VerticalAlignment="Top" Width="225" Height="80"/>
 
-        <Label Content="Description (UICN) (256)" HorizontalAlignment="Left" Margin="301,470,0,0" VerticalAlignment="Top" Width="138" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="TB_DescUICN" TextWrapping="Wrap" MaxLength="256" HorizontalAlignment="Left" Margin="447,474,0,0" VerticalAlignment="Top" Width="225" Height="80"/>
+        <Label Content="Description (UICN) (256)" HorizontalAlignment="Left" Margin="301,291,0,0" VerticalAlignment="Top" Width="138" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_DescUICN" TextWrapping="Wrap" MaxLength="256" HorizontalAlignment="Left" Margin="447,296,0,0" VerticalAlignment="Top" Width="225" Height="80"/>
+
+        <Label Content="Description (PARCOURS) (256)" HorizontalAlignment="Left" Margin="301,403,0,0" VerticalAlignment="Top" Width="138" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="TB_DescParcours" TextWrapping="Wrap" MaxLength="256" HorizontalAlignment="Left" Margin="447,402,0,0" VerticalAlignment="Top" Width="225" Height="80"/>
+
 
         <Label Content="Description (1200)" HorizontalAlignment="Right" Margin="0,580,168,0" VerticalAlignment="Top" Width="284" HorizontalContentAlignment="Center" FontSize="15"/>
         <TextBox x:Name="TB_Desc" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"  MaxLength="1200" HorizontalAlignment="Right" Margin="0,348,111,0" VerticalAlignment="Top" Width="398" Height="232"/>
@@ -142,7 +146,7 @@
         </StackPanel>
 
         <Button x:Name="BTN_Add" Content="Ajouter" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" Height="41" Width="80" Click="BTN_Add_Click" Background="#FF00FF10"/>
-        <Button x:Name="BTN_Return" Content="Retour" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,100" Height="41" Width="80" Click="BTN_Retour_Click" Background="Red"/>
+        <Button x:Name="BTN_Return" Content="Retour" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,111,10" Height="41" Width="80" Click="BTN_Retour_Click" Background="Red"/>
 
     </Grid>
 </Window>

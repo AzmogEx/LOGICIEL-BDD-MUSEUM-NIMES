@@ -70,6 +70,7 @@ namespace IHM_BASE {
             TB_Desc.Text = Espece.description;
             TB_DescUICN.Text = Espece.descUicn;
             TB_DescPres.Text = Espece.descPres;
+            TB_Desc.Text = Espece.description;
             TB_NumInv.Text = Espece.numInventaire;
 
             foreach(var credit in images) {
@@ -238,6 +239,7 @@ namespace IHM_BASE {
                             description = TB_Desc.Text,
                             descUicn = TB_DescUICN.Text,
                             descPres = TB_DescPres.Text,
+                            descParcours = TB_DescParcours.Text,
                             numInventaire = TB_NumInv.Text,
                             idEspece = IDEspece
                         };

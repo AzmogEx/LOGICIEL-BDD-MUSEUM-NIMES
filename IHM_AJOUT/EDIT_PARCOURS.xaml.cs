@@ -67,16 +67,25 @@ namespace IHM_BASE {
             if(LB_Parcours.SelectedItem is C_PARCOURS selectedParcours) {
                 try {
                     var ColorBg = (Color)ColorConverter.ConvertFromString(selectedParcours.colorBg);
-                    var ColorText = (Color)ColorConverter.ConvertFromString(selectedParcours.textColor);
-                    var ColorCard = (Color)ColorConverter.ConvertFromString(selectedParcours.cardColor);
                     colorPicker.SelectedColor = ColorBg;
+                } catch {
+                    colorPicker.SelectedColor = Colors.White;
+                }
+
+                try {
+                    var ColorText = (Color)ColorConverter.ConvertFromString(selectedParcours.textColor);
                     colorPickerTexte.SelectedColor = ColorText;
+                } catch {
+                    colorPickerTexte.SelectedColor = Colors.White;
+                }
+
+                try {
+                    var ColorCard = (Color)ColorConverter.ConvertFromString(selectedParcours.cardColor);
                     colorPickerCards.SelectedColor = ColorCard;
                 } catch {
-                    colorPicker.SelectedColor = Colors.Transparent; // Sécurité en cas d'erreur
-                    colorPickerTexte.SelectedColor = Colors.Transparent;
-                    colorPickerCards.SelectedColor = Colors.Transparent;
+                    colorPickerCards.SelectedColor = Colors.White;
                 }
+
             }
         }
 
@@ -172,6 +181,8 @@ namespace IHM_BASE {
                 string newDesc = TB_DescParcours.Text;
                 string newCredits = TB_Credits.Text;
                 string newColorBg = hexTextBox.Text;
+                string newColorText = hexTextBoxTexte.Text;
+                string newColorCards = hexTextBoxCards.Text;
 
                 // Mettre à jour le chemin de l'image si une nouvelle image est sélectionnée
                 if(!string.IsNullOrEmpty(imagePath)) {
@@ -186,7 +197,9 @@ namespace IHM_BASE {
                     credits = newCredits,
                     descParcours = newDesc,
                     afficher = Is_Check,
-                    colorBg = newColorBg
+                    colorBg = newColorBg,
+                    cardColor = newColorCards,
+                    textColor = newColorText
                 };
 
                 // Appeler la méthode Edit_Parcours pour mettre à jour le parcours
@@ -262,8 +275,20 @@ namespace IHM_BASE {
 
         private void ColorPicker_SelectedColorChanged(object sender,RoutedPropertyChangedEventArgs<Color?> e) {
             // Récupérer la couleur sélectionnée et la convertir en hexadécimal
-            Color selectedColor = colorPicker.SelectedColor.GetValueOrDefault();
+            Color selectedColor = colorPicker.SelectedColor.Value;
             hexTextBox.Text = $"#{selectedColor.R:X2}{selectedColor.G:X2}{selectedColor.B:X2}";
+        }
+
+        private void ColorPickerText_SelectedColorChanged(object sender,RoutedPropertyChangedEventArgs<Color?> e) {
+            // Récupérer la couleur sélectionnée et la convertir en hexadécimal
+            Color selectedColor = colorPickerTexte.SelectedColor.Value;
+            hexTextBoxTexte.Text = $"#{selectedColor.R:X2}{selectedColor.G:X2}{selectedColor.B:X2}";
+        }
+
+        private void ColorPickerCard_SelectedColorChanged(object sender,RoutedPropertyChangedEventArgs<Color?> e) {
+            // Récupérer la couleur sélectionnée et la convertir en hexadécimal
+            Color selectedColor = colorPickerCards.SelectedColor.Value;
+            hexTextBoxCards.Text = $"#{selectedColor.R:X2}{selectedColor.G:X2}{selectedColor.B:X2}";
         }
     }
 }

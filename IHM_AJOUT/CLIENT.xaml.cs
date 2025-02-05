@@ -150,6 +150,7 @@ namespace IHM_BASE {
             Text_Info_Pratique.Text = Espece_Select.descPres;
             Text_Critere_Menace.Text = Espece_Select.statutEspece;
             Text_UICN.Text = Espece_Select.descUicn;
+            Text_DescParcours.Text = Espece_Select.descParcours;
 
             //Critere de danger d'extinction uicn rectangle de couleur 
             switch(Text_Critere_Menace.Text) {
@@ -355,6 +356,7 @@ namespace IHM_BASE {
                             Text_Info_Pratique.Text = Espece_Select.descPres;
                             Text_Critere_Menace.Text = Espece_Select.statutEspece;
                             Text_UICN.Text = Espece_Select.descUicn;
+                            Text_DescParcours.Text = Espece_Select.descParcours;
 
                             //Critere de danger d'extinction uicn rectangle de couleur 
                             switch(Text_Critere_Menace.Text) {

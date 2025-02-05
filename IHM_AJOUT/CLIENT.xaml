@@ -283,10 +283,9 @@
                 <Image Margin="726,330,730,269" Source="RESSOURCES/rond.png" Stretch="Fill"/>
                 <Label x:Name="Label_Credits" Content="Credits 1" HorizontalContentAlignment="Center" Margin="822,816,822,226" FontStyle="Italic" FontFamily="Arial"/>
 
-                <Image Margin="1276,746,356,59" Source="RESSOURCES/rond.png" Stretch="Fill"/>
                 <Label x:Name="Label_Credits2" Content="Credits 2" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" Margin="1494,27,230,1028" FontStyle="Italic" FontFamily="Arial"/>
 
-                <Label x:Name="Label_Credits3" Content="Credits 3" HorizontalContentAlignment="Center" Margin="1300,1021,380,32" FontStyle="Italic" FontFamily="Arial"/>
+                <Label x:Name="Label_Credits3" Content="Credits 3" HorizontalContentAlignment="Center" Margin="1090,1021,590,32" FontStyle="Italic" FontFamily="Arial"/>
 
                 <Button Background="Red" x:Name="Button_Close" Margin="0,20,20,0" Height="60" Width="142" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Retour" Command="{Binding OpenParcoursCommand}" Click="Button_Close_Click" BorderThickness="1" FontSize="30" BorderBrush="Red">
                     <Button.Template>
@@ -323,7 +322,7 @@
                     <StackPanel Orientation="Horizontal">
                         <TextBlock x:Name="Text_UICN" TextAlignment="Center" HorizontalAlignment="Right" TextWrapping="Wrap" Text="TextBlock" Height="160" Width="300" VerticalAlignment="Top" Foreground="#FFCE1619" Margin="160,10,0,0" FontSize="15"/>
 
-                        <Border Background="White" Margin="350,0,0,0" BorderThickness="3" BorderBrush="Black" CornerRadius="20" Height="127">
+                        <Border Background="White" Margin="150,0,0,0" BorderThickness="3" BorderBrush="Black" CornerRadius="20" Height="126">
                             <StackPanel Orientation="Vertical" Margin="15,0,15,0">
                                 <TextBlock x:Name="Text_Critere_Menace" TextAlignment="Center" Margin="0,10,0,20" TextWrapping="Wrap" Text="TextBlock" Height="58" Width="200" FontSize="20" FontWeight="Bold" Foreground="#FF2C2E87"/>
                                 <StackPanel Orientation="Horizontal">
@@ -414,12 +413,23 @@
 
 
                 </StackPanel>
-                <Image d:Source="RESSOURCES/axolotl.jpeg" x:Name="Img_Animal_3" Width="324" Height="232" Margin="1258,767,338,81">
+                <Image Margin="1066,746,566,59" Source="RESSOURCES/rond.png" Stretch="Fill"/>
+
+                <Image d:Source="RESSOURCES/axolotl.jpeg" x:Name="Img_Animal_3" Width="324" Height="232" Margin="1048,767,548,81">
                     <Image.OpacityMask>
                         <ImageBrush ImageSource="RESSOURCES/rond.png" Stretch="Uniform" TileMode="None"/>
                     </Image.OpacityMask>
                 </Image>
+
+                <Border Background="White" Margin="1450,800,163,128" BorderThickness="3" BorderBrush="Black" CornerRadius="20">
+                    <StackPanel Orientation="Vertical" Margin="-3,0,-3,0">
+                        <Label x:Name="Titre_DescParcours" Margin="0,10,0,20" Content="Titre:" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="32" Width="67" FontSize="20" FontWeight="Bold" Foreground="#FF2C2E87"/>
+                        <TextBlock x:Name="Text_DescParcours" TextAlignment="Center" TextWrapping="Wrap" Text="TextBlock" Height="80" Width="290" FontSize="15" Foreground="#FF2C2E87"/>
+                    </StackPanel>
+                </Border>
+
                 <Image Margin="1595,743,0,0" Source="RESSOURCES/bas-droite.png" Stretch="Fill"/>
+
             </Grid>
         </Border>
     </Grid>

@@ -103,7 +103,6 @@
         <Label Content="Description (PARCOURS) (256)" HorizontalAlignment="Left" Margin="301,403,0,0" VerticalAlignment="Top" Width="138" HorizontalContentAlignment="Right"/>
         <TextBox x:Name="TB_DescParcours" TextWrapping="Wrap" MaxLength="256" HorizontalAlignment="Left" Margin="447,402,0,0" VerticalAlignment="Top" Width="225" Height="80"/>
 
-
         <Label Content="Description (1100)" HorizontalAlignment="Right" Margin="0,580,168,0" VerticalAlignment="Top" Width="284" HorizontalContentAlignment="Center" FontSize="15"/>
         <TextBox x:Name="TB_Desc" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"  MaxLength="1100" HorizontalAlignment="Right" Margin="0,348,111,0" VerticalAlignment="Top" Width="398" Height="232"/>
 

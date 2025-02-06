@@ -48,12 +48,12 @@
                             <Border x:Name="Border_Cards" Margin="10" Padding="10" Background="{Binding CardColor}" CornerRadius="10">
                                 <StackPanel>
                                     <!-- Image de l'espèce -->
-                                    <Image Source="{Binding ImgPath}" Stretch="UniformToFill" Width="150" Height="100" Margin="0,10,0,10">
+                                    <Image Source="{Binding ImgPath}" Stretch="UniformToFill" Width="150" Height="100" Margin="0,10,0,0">
                                         <Image.Clip>
                                             <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,148,98" />
                                         </Image.Clip>
                                     </Image>
-                                    <Label x:Name="Label_Credits" Content="{Binding credits}" HorizontalContentAlignment="Center"/>
+                                    <Label x:Name="Label_Credits" Content="{Binding credits}" HorizontalContentAlignment="Right" HorizontalAlignment="Right"/>
                                     <!-- Nom Commun de l'espèce -->
                                     <TextBlock Text="{Binding NomCommun}" Width="200" FontWeight="Bold" TextAlignment="Center" Foreground="White" FontSize="20" Margin="5" />
 
@@ -140,12 +140,12 @@
                                     <StackPanel HorizontalAlignment="Center">
                                         <StackPanel>
                                             <!-- Image du parcours -->
-                                            <Image Source="{Binding imgPathParcours}" Stretch="UniformToFill" Width="350" Height="225" Margin="0,10,0,10">
+                                            <Image Source="{Binding imgPathParcours}" Stretch="UniformToFill" Width="350" Height="225" Margin="0,10,0,0">
                                                 <Image.Clip>
                                                     <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,348,223" />
                                                 </Image.Clip>
                                             </Image>
-                                            <Label x:Name="Label_Credits" Content="{Binding credits}" HorizontalContentAlignment="Center"/>
+                                            <Label x:Name="Label_Credits" Content="{Binding credits}" HorizontalContentAlignment="Right" HorizontalAlignment="Right"/>
                                             <!-- Nom du parcours -->
                                             <TextBlock Text="{Binding nomParcours}" Width="200" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="20" Margin="0,10,0,10" />
                                             <!-- Bouton pour accéder au parcours -->

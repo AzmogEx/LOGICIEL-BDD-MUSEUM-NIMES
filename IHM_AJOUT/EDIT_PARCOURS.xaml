@@ -61,23 +61,23 @@
                     <Label Content="Couleur du fond :"/>
                     <xctk:ColorPicker Name="colorPicker" HorizontalAlignment="Right" VerticalAlignment="Center" Width="200" Height="40" SelectedColorChanged="ColorPicker_SelectedColorChanged"/>
                 </StackPanel>
-                <TextBox Name="hexTextBox" Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="200" IsReadOnly="True"/>
+                <TextBox Name="hexTextBox" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="200" IsReadOnly="True"/>
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                     <Label Content="Couleur du texte :"/>
                     <xctk:ColorPicker Name="colorPickerTexte" HorizontalAlignment="Right" VerticalAlignment="Center" Width="200" Height="40" SelectedColorChanged="ColorPickerText_SelectedColorChanged"/>
                 </StackPanel>
-                <TextBox Name="hexTextBoxTexte" Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="200" IsReadOnly="True"/>
+                <TextBox Name="hexTextBoxTexte" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="200" IsReadOnly="True"/>
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                     <Label Content="Couleur des cartes :"/>
                     <xctk:ColorPicker Name="colorPickerCards" HorizontalAlignment="Right" VerticalAlignment="Center" Width="200" Height="40" SelectedColorChanged="ColorPickerCard_SelectedColorChanged"/>
                 </StackPanel>
-                <TextBox Name="hexTextBoxCards" Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="200" IsReadOnly="True"/>
+                <TextBox Name="hexTextBoxCards" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="200" IsReadOnly="True"/>
             </StackPanel>
         </StackPanel>
 
         <TextBlock Text="Especes selectionnées:" Width="150" TextWrapping="Wrap" Margin="234,425,616,101" />
         
-        <CheckBox x:Name="Check_AfficheParcours" Content="Afficher le parcours (Cocher pour afficher)" HorizontalAlignment="Left" Margin="734,555,0,0" VerticalAlignment="Top" Height="22" Width="246"/>
+        <CheckBox x:Name="Check_AfficheParcours" Content="Afficher le parcours (Cocher pour afficher)" HorizontalAlignment="Left" Margin="734,534,0,0" VerticalAlignment="Top" Height="22" Width="246"/>
 
         <!-- Bouton pour enregistrer les modifications -->
         <Button HorizontalAlignment="Right" x:Name="BTN_EDIT_PARCOURS" VerticalAlignment="Bottom" Content="Modifier le parcours" Padding="10" Margin="20" Click="BTN_EDIT_PARCOURS_Click"/>

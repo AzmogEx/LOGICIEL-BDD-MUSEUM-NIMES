@@ -53,6 +53,7 @@
                                             <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,148,98" />
                                         </Image.Clip>
                                     </Image>
+                                    <Label x:Name="Label_Credits" Content="{Binding credits}" HorizontalContentAlignment="Center"/>
                                     <!-- Nom Commun de l'espèce -->
                                     <TextBlock Text="{Binding NomCommun}" Width="200" FontWeight="Bold" TextAlignment="Center" Foreground="White" FontSize="20" Margin="5" />
 
@@ -144,6 +145,7 @@
                                                     <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,348,223" />
                                                 </Image.Clip>
                                             </Image>
+                                            <Label x:Name="Label_Credits" Content="{Binding credits}" HorizontalContentAlignment="Center"/>
                                             <!-- Nom du parcours -->
                                             <TextBlock Text="{Binding nomParcours}" Width="200" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="20" Margin="0,10,0,10" />
                                             <!-- Bouton pour accéder au parcours -->
@@ -262,7 +264,7 @@
 
         </Border>
         <!--============================================================================-->
-        <Border x:Name="Border_Info" Visibility="Visible" d:Visibility="Visible">
+        <Border x:Name="Border_Info" Visibility="Visible" d:Visibility="Hidden">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#FF009EE4" Offset="0"/>
@@ -270,7 +272,7 @@
                 </LinearGradientBrush>
             </Border.Background>
             <!--Grille d'affichage de l'animal recherché-->
-            <Grid x:Name="Grid_Info" Visibility="Hidden" d:Visibility="Visible">
+            <Grid x:Name="Grid_Info" Visibility="Hidden" d:Visibility="Hidden">
 
                 <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
 

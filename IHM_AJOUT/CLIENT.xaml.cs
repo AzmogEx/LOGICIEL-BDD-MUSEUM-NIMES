@@ -280,6 +280,8 @@ namespace IHM_BASE {
                                 StatutEspece = espece.statutEspece,
                                 ImgPath = image.ImgPath,
                                 CardColor = parcours.cardColor
+                                ImgPath = image.ImgPath,
+                                credits = image.Credits
                             });
                         }
                     }

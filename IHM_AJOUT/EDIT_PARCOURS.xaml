@@ -76,12 +76,11 @@
         </StackPanel>
 
         <TextBlock Text="Especes selectionnées:" Width="150" TextWrapping="Wrap" Margin="234,425,616,101" />
-        
+
         <CheckBox x:Name="Check_AfficheParcours" Content="Afficher le parcours (Cocher pour afficher)" HorizontalAlignment="Left" Margin="734,534,0,0" VerticalAlignment="Top" Height="22" Width="246"/>
 
         <!-- Bouton pour enregistrer les modifications -->
         <Button HorizontalAlignment="Right" x:Name="BTN_EDIT_PARCOURS" VerticalAlignment="Bottom" Content="Modifier le parcours" Padding="10" Margin="20" Click="BTN_EDIT_PARCOURS_Click"/>
         <Button x:Name="BTN_Return" Content="Retour" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10,10,170,20" Height="41" Width="80" Click="BTN_Retour_Click"/>
     </Grid>
-
 </Window>

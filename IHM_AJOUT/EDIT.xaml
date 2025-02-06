@@ -12,7 +12,7 @@
         <Label Content="Nom commun (20)" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="10,10,0,0" VerticalAlignment="Top" Width="110"/>
         <TextBox x:Name="TB_Nom" MaxLength="20" HorizontalAlignment="Left" Margin="140,14,0,0" VerticalAlignment="Top" Width="120"/>
 
-        <Label Content="Nom scientifique (32)" Margin="0,40,1060,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="131"/>
+        <Label Content="Nom scientifique (32)" Margin="0,40,1167,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="131"/>
         <TextBox x:Name="TB_NomScient" MaxLength="32" HorizontalAlignment="Left" Margin="140,44,0,0" VerticalAlignment="Top" Width="120"/>
 
         <Label Content="Statut (UICN)" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Right"/>

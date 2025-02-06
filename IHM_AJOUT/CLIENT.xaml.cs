@@ -277,7 +277,8 @@ namespace IHM_BASE {
                                 NomCommun = espece.nomCommun,
                                 NomScientifique = espece.nomScientifique,
                                 StatutEspece = espece.statutEspece,
-                                ImgPath = image.ImgPath
+                                ImgPath = image.ImgPath,
+                                credits = image.Credits
                             });
                         }
                     }

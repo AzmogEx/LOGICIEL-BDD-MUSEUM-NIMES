@@ -81,7 +81,9 @@ namespace IHM_BASE {
                     credits = TB_Credits.Text,
                     afficher = Is_Check,
                     imgPathParcours = Path,
-                    colorBg = hexTextBox.Text
+                    colorBg = hexTextBox.Text,
+                   cardColor = hexTextBoxCards.Text,
+                   textColor = hexTextBoxTexte.Text
                 };
                 if(Nb_Parcours >= 24) {
                     MessageBox.Show("Veuillez supprimer un parcours avant d'en rajouter davantage. (Vous ne pouvez pas créer plus de 24 parcours.)","Échec",MessageBoxButton.OK,MessageBoxImage.Information);
@@ -132,6 +134,22 @@ namespace IHM_BASE {
             else {
                 return;
             }
+        }
+
+        private void ColorPicker_SelectedColorChanged(object sender,RoutedPropertyChangedEventArgs<Color?> e) {
+            // Récupérer la couleur sélectionnée et la convertir en hexadécimal
+            Color selectedColor = colorPicker.SelectedColor.Value;
+            hexTextBox.Text = $"#{selectedColor.R:X2}{selectedColor.G:X2}{selectedColor.B:X2}";
+        }
+
+        private void ColorPickerText_SelectedColorChanged(object sender,RoutedPropertyChangedEventArgs<Color?> e) {
+            Color selectedColor = colorPickerTexte.SelectedColor.Value;
+            hexTextBoxTexte.Text = $"#{selectedColor.R:X2}{selectedColor.G:X2}{selectedColor.B:X2}";
+        }
+
+        private void ColorPickerCard_SelectedColorChanged(object sender,RoutedPropertyChangedEventArgs<Color?> e) {
+            Color selectedColor = colorPickerCards.SelectedColor.Value;
+            hexTextBoxCards.Text = $"#{selectedColor.R:X2}{selectedColor.G:X2}{selectedColor.B:X2}";
         }
     }
 }

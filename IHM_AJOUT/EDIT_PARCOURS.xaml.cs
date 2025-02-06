@@ -170,11 +170,6 @@ namespace IHM_BASE {
                 Is_Check = false;
             }
 
-            if(hexTextBox.Text == null) {
-                MessageBox.Show("Veuillez entrer une couleur valide","Erreur");
-                return;
-            }
-
             if(selectedParcours != null) {
                 // Récupérer les nouvelles valeurs depuis les TextBox
                 string newNom = TB_NomParcours.Text;
@@ -280,13 +275,11 @@ namespace IHM_BASE {
         }
 
         private void ColorPickerText_SelectedColorChanged(object sender,RoutedPropertyChangedEventArgs<Color?> e) {
-            // Récupérer la couleur sélectionnée et la convertir en hexadécimal
             Color selectedColor = colorPickerTexte.SelectedColor.Value;
             hexTextBoxTexte.Text = $"#{selectedColor.R:X2}{selectedColor.G:X2}{selectedColor.B:X2}";
         }
 
         private void ColorPickerCard_SelectedColorChanged(object sender,RoutedPropertyChangedEventArgs<Color?> e) {
-            // Récupérer la couleur sélectionnée et la convertir en hexadécimal
             Color selectedColor = colorPickerCards.SelectedColor.Value;
             hexTextBoxCards.Text = $"#{selectedColor.R:X2}{selectedColor.G:X2}{selectedColor.B:X2}";
         }

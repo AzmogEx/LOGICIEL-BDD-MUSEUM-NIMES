@@ -11,5 +11,6 @@ public class C_ESPECES_PARCOURS {
     public string NomScientifique { get; set; }
     public string StatutEspece { get; set; }
     public string ImgPath { get; set; }
+    public string CardColor { get; set; }
     public string credits { get; set; }
 }

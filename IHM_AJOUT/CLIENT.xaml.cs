@@ -279,9 +279,8 @@ namespace IHM_BASE {
                                 NomScientifique = espece.nomScientifique,
                                 StatutEspece = espece.statutEspece,
                                 ImgPath = image.ImgPath,
-                                CardColor = parcours.cardColor
-                                ImgPath = image.ImgPath,
-                                credits = image.Credits
+                                CardColor = parcours.cardColor,
+                                Credits = image.Credits
                             });
                         }
                     }

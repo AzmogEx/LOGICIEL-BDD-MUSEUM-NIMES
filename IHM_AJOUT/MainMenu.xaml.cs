@@ -54,8 +54,10 @@ namespace IHM_BASE {
             if(Espece_Select == null) {
                 BTN_ADD.IsEnabled = false;
                 BTN_SUPPR.IsEnabled = false;
+                BTN_EDIT.IsEnabled = false;
             } else {
                 BTN_ADD.IsEnabled = true;
+                BTN_EDIT.IsEnabled = true;
                 BTN_SUPPR.IsEnabled = true;
             }
         }

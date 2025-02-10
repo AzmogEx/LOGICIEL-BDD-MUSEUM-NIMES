@@ -119,7 +119,7 @@
                 <Label Height="100" Width="1200" VerticalAlignment="Top" Margin="0,15,0,0" Foreground="White" Content="Découvrez les espèces du Muséum" FontSize="64" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
 
                 <Grid HorizontalAlignment="Center">
-                    <ItemsControl x:Name="ParcoursList" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <ItemsControl x:Name="ParcoursList" ItemsSource="{Binding ParcoursCollection}" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <UniformGrid Columns="4" HorizontalAlignment="Center"/>
@@ -136,16 +136,8 @@
                                                 </Image.Clip>
                                             </Image>
                                             <Label Content="{Binding credits}" HorizontalContentAlignment="Right" FontFamily="Arial" FontStyle="Italic" HorizontalAlignment="Right" Height="30"/>
-                                            <TextBlock Text="{Binding nomParcours}" Width="250" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="28" Margin="0,0,0,10" />
-                                            <Button Background="#5784BA" Width="170" Content="Voir le parcours" Command="{Binding OpenParcoursCommand}" Click="Btn_Open_Parcours_Click" Foreground="White" FontSize="18" Height="50" BorderThickness="1" BorderBrush="Black">
-                                                <Button.Template>
-                                                    <ControlTemplate TargetType="{x:Type Button}">
-                                                        <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
-                                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}" />
-                                                        </Border>
-                                                    </ControlTemplate>
-                                                </Button.Template>
-                                            </Button>
+                                            <TextBlock Text="{Binding nomParcours}" Width="250" FontWeight="Bold" TextAlignment="Center" Foreground="White" FontSize="28" Margin="0,0,0,10" />
+                                            <Button Background="#5784BA" Width="170" Content="Voir la carte" Foreground="White" FontSize="18" Height="50" BorderThickness="1" BorderBrush="Black"/>
                                         </StackPanel>
                                     </Border>
                                 </Border>
@@ -153,6 +145,8 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
                 </Grid>
+
+
             </Grid>
         </Border>
         <!--============================================================================-->

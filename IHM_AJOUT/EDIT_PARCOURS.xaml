@@ -42,6 +42,7 @@
             <!-- Bouton pour importer une image -->
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="BTN_Import" Click="ImportImage_Click" Content="Importer une image" Width="130" Height="38" />
+                <Label Content="Images horizontales obligatoires !" HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontSize="20"/>
             </StackPanel>
             <!-- Zone d'aperçu de l'image -->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">

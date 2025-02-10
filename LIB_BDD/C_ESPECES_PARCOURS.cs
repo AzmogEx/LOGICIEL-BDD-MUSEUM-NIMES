@@ -13,4 +13,5 @@ public class C_ESPECES_PARCOURS {
     public string ImgPath { get; set; }
     public string CardColor { get; set; }
     public string Credits { get; set; }
+    public string TextColor { get; set; }
 }

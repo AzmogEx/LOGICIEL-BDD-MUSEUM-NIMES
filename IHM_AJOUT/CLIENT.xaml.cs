@@ -15,6 +15,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
@@ -36,6 +37,9 @@ namespace IHM_BASE {
             List<C_ESPECE> List_Especes = new();
             EspecesParcours = new();
 
+            Loaded += CLIENT_Loaded;
+            Closed += CLIENT_Closed;
+
             InitialiserConnexion();
 
             //Recuperation des especes de la base dans la listbox
@@ -47,6 +51,16 @@ namespace IHM_BASE {
             
             Grid_Parcours.Visibility = Visibility.Visible;
             Border_Parcours.Visibility = Visibility.Visible;
+        }
+
+        private void CLIENT_Loaded(object sender,RoutedEventArgs e) {
+            var windowInteropHelper = new WindowInteropHelper(this);
+            KeyboardHook.DisableSystemShortcuts(windowInteropHelper.Handle);
+        }
+
+        private void CLIENT_Closed(object sender,EventArgs e) {
+            var windowInteropHelper = new WindowInteropHelper(this);
+            KeyboardHook.ReleaseHotKeys(windowInteropHelper.Handle);
         }
 
         private void InitialiserConnexion() {
@@ -237,7 +251,7 @@ namespace IHM_BASE {
         }
 
         private void Btn_Admin_Click(object sender,RoutedEventArgs e) {
-            LOGIN mainMenu = new();
+            Menu mainMenu = new();
             mainMenu.Show();
             Close();
         }

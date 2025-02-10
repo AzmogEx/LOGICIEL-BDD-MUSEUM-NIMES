@@ -34,15 +34,19 @@ namespace LIB_BDD {
         private delegate IntPtr LowLevelKeyboardProc(int nCode,IntPtr wParam,IntPtr lParam);
 
         private static IntPtr HookCallback(int nCode,IntPtr wParam,IntPtr lParam) {
-            if(nCode >= 0 && wParam == (IntPtr)WM_KEYDOWN) {
+            if(nCode >= 0) {
                 int vkCode = Marshal.ReadInt32(lParam);
 
-                // Bloquer les combinaisons interdites
-                if(IsKeyBlocked(vkCode)) {
+                // Interception spécifique pour ALT + F4
+                if((wParam == (IntPtr)WM_KEYDOWN || wParam == (IntPtr)0x104) && vkCode == VK_F4 &&
+                    (GetAsyncKeyState(VK_LALT) < 0 || GetAsyncKeyState(VK_RALT) < 0)) {
                     return (IntPtr)1; // Bloque l'événement clavier
                 }
-            }
 
+                if(wParam == (IntPtr)WM_KEYDOWN && vkCode == VK_ESCAPE) {
+                    return (IntPtr)1;
+                }
+            }
             return CallNextHookEx(_hookID,nCode,wParam,lParam);
         }
 

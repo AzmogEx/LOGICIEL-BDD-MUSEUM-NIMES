@@ -53,6 +53,11 @@ namespace IHM_BASE {
             Border_Parcours.Visibility = Visibility.Visible;
         }
 
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e) {
+            e.Cancel = true; // Bloque la fermeture de la fenêtre
+            base.OnClosing(e);
+        }
+
         private void InitialiserConnexion() {
             var Etat_Connexion = BDD.Test_Connexion();
             if(Etat_Connexion == null) {

@@ -29,6 +29,7 @@ namespace IHM_BASE {
         private string Desc1;
         private string Desc2;
         private List<C_ESPECE> EspecesParcours;
+        private bool canClose = false;
 
         public CLIENT() {
             InitializeComponent();
@@ -53,8 +54,11 @@ namespace IHM_BASE {
             Border_Parcours.Visibility = Visibility.Visible;
         }
 
+
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e) {
-            e.Cancel = true; // Bloque la fermeture de la fenêtre
+            if(!canClose) {
+                e.Cancel = true; // Bloque la fermeture de la fenêtre
+            }
             base.OnClosing(e);
         }
 
@@ -246,9 +250,11 @@ namespace IHM_BASE {
             }
         }
 
+
         private void Btn_Admin_Click(object sender,RoutedEventArgs e) {
-            Menu mainMenu = new();
+            Menu mainMenu = new Menu();
             mainMenu.Show();
+            canClose = true; // Autorise la fermeture
             Close();
         }
 

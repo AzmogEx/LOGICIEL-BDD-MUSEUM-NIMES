@@ -38,7 +38,7 @@
                     <Border BorderBrush="Gray" BorderThickness="1" Width="200" Height="200" AllowDrop="True">
                         <Image x:Name="ImagePreview" Stretch="Uniform" />
                     </Border>
-                    <Label Content="Credits :" Width="129" HorizontalContentAlignment="Center"/>
+                    <Label Content="Credits (30 max):" Width="129" HorizontalContentAlignment="Center"/>
                     <TextBox x:Name="TB_Credits" MaxLength="30" Width="120"/>
                     <Button x:Name="BTN_DeleteImg" IsEnabled="False" Width="38" Height="38" HorizontalAlignment="Center" Margin="0,10,0,0" Click="BTN_DeleteImg_Click">
                         <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text="&#xE74D;" VerticalAlignment="Center" HorizontalAlignment="Center" />
@@ -64,7 +64,7 @@
             </StackPanel>
         </StackPanel>
         <Button HorizontalAlignment="Right" x:Name="BTN_AJOUT" VerticalAlignment="Bottom" Content="Créer un parcours" Padding="10" Margin="20" Click="BTN_AJOUT_Click"/>
-        <Button x:Name="BTN_Return" Content="Retour" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10,10,170,20" Height="41" Width="80" Click="BTN_Retour_Click"/>
+        <Button x:Name="BTN_Return" Content="Annuler" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10,10,170,20" Height="41" Width="80" Click="BTN_Retour_Click"/>
         <CheckBox x:Name="Check_AfficheParcours" Content="Afficher le parcours (Cocher pour afficher)" HorizontalAlignment="Left" Margin="734,529,0,0" VerticalAlignment="Top" IsChecked="True" Height="22" Width="246"/>
     </Grid>
 </Window>

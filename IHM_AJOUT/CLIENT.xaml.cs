@@ -86,6 +86,7 @@ namespace IHM_BASE {
         private void ChargerParcours() {
             try {
                 var List_Parcours = BDD.Get_All_Parcours_Affichable();
+                List_Parcours.Add(new C_PARCOURS() { nomParcours = "Carte",imgPathParcours = "RESSOURCES/axolotl.jpg",credits = "Credits" });
                 ParcoursList.ItemsSource = List_Parcours;
             }
             catch {

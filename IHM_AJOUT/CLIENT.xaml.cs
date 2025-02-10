@@ -37,8 +37,8 @@ namespace IHM_BASE {
             List<C_ESPECE> List_Especes = new();
             EspecesParcours = new();
 
-            Loaded += CLIENT_Loaded;
-            Closed += CLIENT_Closed;
+            KeyboardHook.Start();
+            this.Closing += (s,e) => KeyboardHook.Stop();
 
             InitialiserConnexion();
 
@@ -51,16 +51,6 @@ namespace IHM_BASE {
             
             Grid_Parcours.Visibility = Visibility.Visible;
             Border_Parcours.Visibility = Visibility.Visible;
-        }
-
-        private void CLIENT_Loaded(object sender,RoutedEventArgs e) {
-            var windowInteropHelper = new WindowInteropHelper(this);
-            KeyboardHook.DisableSystemShortcuts(windowInteropHelper.Handle);
-        }
-
-        private void CLIENT_Closed(object sender,EventArgs e) {
-            var windowInteropHelper = new WindowInteropHelper(this);
-            KeyboardHook.ReleaseHotKeys(windowInteropHelper.Handle);
         }
 
         private void InitialiserConnexion() {

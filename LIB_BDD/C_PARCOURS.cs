@@ -16,4 +16,5 @@ public class C_PARCOURS {
     public string colorBg { get; set; }
     public string textColor { get; set; }
     public string cardColor { get; set; }
+    public string TextButton {  get; set; }
 }

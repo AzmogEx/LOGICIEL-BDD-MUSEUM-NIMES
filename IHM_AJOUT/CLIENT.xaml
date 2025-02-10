@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:local="clr-namespace:IHM_BASE"
         mc:Ignorable="d"
         WindowStyle="None"
@@ -118,7 +119,7 @@
                 <Label Height="100" Width="1200" VerticalAlignment="Top" Margin="0,15,0,0" Foreground="White" Content="Découvrez les espèces du Muséum" FontSize="64" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
 
                 <Grid HorizontalAlignment="Center">
-                    <ItemsControl x:Name="ParcoursList" ItemsSource="{Binding ParcoursCollection}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <ItemsControl x:Name="ParcoursList" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <UniformGrid Columns="4" HorizontalAlignment="Center"/>
@@ -135,8 +136,26 @@
                                                 </Image.Clip>
                                             </Image>
                                             <Label Content="{Binding credits}" HorizontalContentAlignment="Right" FontFamily="Arial" FontStyle="Italic" HorizontalAlignment="Right" Height="30"/>
-                                            <TextBlock Text="{Binding nomParcours}" Width="250" FontWeight="Bold" TextAlignment="Center" Foreground="White" FontSize="28" Margin="0,0,0,10" />
-                                            <Button Background="#5784BA" Width="170" Content="Voir la carte" Foreground="White" FontSize="18" Height="50" BorderThickness="1" BorderBrush="Black"/>
+                                            <TextBlock Text="{Binding nomParcours}" Width="250" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="28" Margin="0,0,0,10" />
+                                            <Button Background="#5784BA" Width="170" Command="{Binding OpenParcoursCommand}" Click="Btn_Open_Parcours_Click" Foreground="White" FontSize="18" Height="50" BorderThickness="1" BorderBrush="Black">
+                                                <Button.Style>
+                                                    <Style TargetType="Button">
+                                                        <Setter Property="Content" Value="Voir le parcours"/>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding idParcours}" Value="0">
+                                                                <Setter Property="Content" Value="Voir la carte"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Button.Style>
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="{x:Type Button}">
+                                                        <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}" />
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
                                         </StackPanel>
                                     </Border>
                                 </Border>
@@ -144,23 +163,15 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
                 </Grid>
-
-
             </Grid>
         </Border>
         <!--============================================================================-->
         <Border x:Name="Border_Recherche_Animal" Visibility="Hidden">
-            <Border.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#FF009EE4" Offset="0"/>
-                    <GradientStop Color="#FF005C97" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.Background>
             <!--Grille de recherche d'animal-->
             <Grid x:Name="Grid_Recherche" Visibility="Hidden">
 
                 <!-- Grille principale -->
-                <Grid Margin="10" VerticalAlignment="Stretch" Visibility="Hidden">
+                <Grid Margin="10" VerticalAlignment="Stretch">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1253*" />
                         <!-- Carte -->
@@ -214,8 +225,7 @@
                     </Border>
                 </Grid>
 
-                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Width="250" Visibility="Hidden">
-                    <TextBox x:Name="SearchBox" TextChanged="SearchBox_TextChanged" Width="250" Height="30"/>
+                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Width="250">
                     <ListBox x:Name="Lstbx_Animaux" MouseDoubleClick="Lstbx_Animaux_MouseDoubleClick" Width="250" Height="1050">
                         <ListBox.Resources>
                             <Style TargetType="ListBoxItem">

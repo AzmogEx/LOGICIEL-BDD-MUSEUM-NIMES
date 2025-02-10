@@ -85,7 +85,7 @@ namespace IHM_BASE {
         private void ChargerParcours() {
             try {
                 var List_Parcours = BDD.Get_All_Parcours_Affichable();
-                List_Parcours.Add(new C_PARCOURS() { idParcours = 0, nomParcours = "Carte",imgPathParcours = "RESSOURCES/world.png",credits = "Credits", TextButton = "Voir la carte" });
+                List_Parcours.Add(new C_PARCOURS() { idParcours = 0, nomParcours = "Carte",imgPathParcours = "RESSOURCES/world.png", TextButton = "Voir la carte" });
                 ParcoursList.ItemsSource = List_Parcours;
             }
             catch {
@@ -127,6 +127,13 @@ namespace IHM_BASE {
 
             Grid_Especes_Parcours.Visibility = Visibility.Visible;
             Border_Especes.Visibility = Visibility.Visible;
+        }
+
+        private void Show_Map() {
+            Grid_Parcours.Visibility = Visibility.Hidden;
+            Border_Parcours.Visibility = Visibility.Hidden;
+            Grid_Recherche.Visibility = Visibility.Visible;
+            Border_Recherche_Animal.Visibility = Visibility.Visible;
         }
 
         private void Lstbx_Animaux_MouseDoubleClick(object sender,MouseButtonEventArgs e) {
@@ -241,16 +248,6 @@ namespace IHM_BASE {
             Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
         }
 
-        private void SearchBox_TextChanged(object sender,TextChangedEventArgs e) {
-            var Liste_Animaux_Recuperer = BDD.Get_Espece_By_Name(SearchBox.Text);
-            Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
-
-            if(SearchBox.Text == string.Empty) {
-                Lstbx_Animaux.ItemsSource = new List<string>();
-            }
-        }
-
-
         private void Btn_Admin_Click(object sender,RoutedEventArgs e) {
             Menu mainMenu = new Menu();
             mainMenu.Show();
@@ -264,60 +261,64 @@ namespace IHM_BASE {
             if(button != null) {
                 var parcours = button.DataContext as C_PARCOURS;
 
-                if(parcours != null) {
-                    int parcoursId = parcours.idParcours;
-                    var BackgroundColor = parcours.colorBg;
-                    var TextColor = parcours.textColor;
-                    try {
-                        Border_Especes.Background = (Brush)new BrushConverter().ConvertFromString(BackgroundColor);
-                        Label_Nom_Parcours.Foreground = (Brush)new BrushConverter().ConvertFromString(TextColor);
-                        Label_Description_Parcours.Foreground = (Brush)new BrushConverter().ConvertFromString(TextColor);
-                        
-                    } catch {
-                        Border_Especes.Background = Brushes.Transparent; // Valeur par défaut en cas d'erreur
-                        Label_Nom_Parcours.Foreground = Brushes.Transparent;
-                        Label_Description_Parcours.Foreground = Brushes.Transparent;
-                    }
-                    // Affichage du titre et de la description du parcours
-                    Label_Nom_Parcours.Content = $"Parcours {parcours.nomParcours}";
-                    Label_Description_Parcours.Content = parcours.descParcours;
+                if(parcours.idParcours == 0) {
+                    Show_Map();
+                } else {
+                    if(parcours != null) {
+                        int parcoursId = parcours.idParcours;
+                        var BackgroundColor = parcours.colorBg;
+                        var TextColor = parcours.textColor;
+                        try {
+                            Border_Especes.Background = (Brush)new BrushConverter().ConvertFromString(BackgroundColor);
+                            Label_Nom_Parcours.Foreground = (Brush)new BrushConverter().ConvertFromString(TextColor);
+                            Label_Description_Parcours.Foreground = (Brush)new BrushConverter().ConvertFromString(TextColor);
 
-                    // Récupérer les espèces associées au parcours
-                    var especes = BDD.Get_All_Especes_By_IdParcours(parcoursId);
-
-                    // Créer une liste combinée d'espèces et d'images
-                    List<C_ESPECES_PARCOURS> Especes_Parcours = new();
-
-                    foreach(var espece in especes) {
-                        // Récupérer l'image associée à l'espèce
-                        var image = BDD.Get_Img_By_ID(espece.idEspece)?.FirstOrDefault();
-                        EspecesParcours.Add(espece);
-
-                        if(image != null) {
-                            
-
-                            Especes_Parcours.Add(new C_ESPECES_PARCOURS {
-                                NomCommun = espece.nomCommun,
-                                NomScientifique = espece.nomScientifique,
-                                StatutEspece = espece.statutEspece,
-                                ImgPath = image.ImgPath,
-                                CardColor = parcours.cardColor,
-                                Credits = image.Credits,
-                                TextColor = parcours.textColor
-                            });
+                        } catch {
+                            Border_Especes.Background = Brushes.Transparent; // Valeur par défaut en cas d'erreur
+                            Label_Nom_Parcours.Foreground = Brushes.Transparent;
+                            Label_Description_Parcours.Foreground = Brushes.Transparent;
                         }
+                        // Affichage du titre et de la description du parcours
+                        Label_Nom_Parcours.Content = $"Parcours {parcours.nomParcours}";
+                        Label_Description_Parcours.Content = parcours.descParcours;
+
+                        // Récupérer les espèces associées au parcours
+                        var especes = BDD.Get_All_Especes_By_IdParcours(parcoursId);
+
+                        // Créer une liste combinée d'espèces et d'images
+                        List<C_ESPECES_PARCOURS> Especes_Parcours = new();
+
+                        foreach(var espece in especes) {
+                            // Récupérer l'image associée à l'espèce
+                            var image = BDD.Get_Img_By_ID(espece.idEspece)?.FirstOrDefault();
+                            EspecesParcours.Add(espece);
+
+                            if(image != null) {
+
+
+                                Especes_Parcours.Add(new C_ESPECES_PARCOURS {
+                                    NomCommun = espece.nomCommun,
+                                    NomScientifique = espece.nomScientifique,
+                                    StatutEspece = espece.statutEspece,
+                                    ImgPath = image.ImgPath,
+                                    CardColor = parcours.cardColor,
+                                    Credits = image.Credits,
+                                    TextColor = parcours.textColor
+                                });
+                            }
+                        }
+
+                        // Lier la liste combinée au ItemsControl
+                        EspecesList.ItemsSource = Especes_Parcours;
+
+                        // Basculer l'affichage
+                        Grid_Especes_Parcours.Visibility = Visibility.Visible;
+                        Border_Especes.Visibility = Visibility.Visible;
+
+                        Grid_Parcours.Visibility = Visibility.Hidden;
+                        Border_Parcours.Visibility = Visibility.Hidden;
                     }
-
-                    // Lier la liste combinée au ItemsControl
-                    EspecesList.ItemsSource = Especes_Parcours;
-
-                    // Basculer l'affichage
-                    Grid_Especes_Parcours.Visibility = Visibility.Visible;
-                    Border_Especes.Visibility = Visibility.Visible;
-
-                    Grid_Parcours.Visibility = Visibility.Hidden;
-                    Border_Parcours.Visibility = Visibility.Hidden;
-                }
+                } 
             }
         }
 

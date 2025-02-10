@@ -125,9 +125,14 @@ namespace IHM_BASE {
             //Recuperation des infos de l'animal selectionné
             C_ESPECE Espece_Select = Lstbx_Animaux.SelectedItem as C_ESPECE;
 
-            int splitPoint = Espece_Select.description.IndexOf(' ',Espece_Select.description.Length / 2);
-            Desc1 = Espece_Select.description.Substring(0,splitPoint).Trim();
-            Desc2 = Espece_Select.description.Substring(splitPoint).Trim();
+            if(Espece_Select.description != string.Empty) {
+                int splitPoint = Espece_Select.description.IndexOf(' ',Espece_Select.description.Length / 2);
+                Desc1 = Espece_Select.description.Substring(0,splitPoint).Trim();
+                Desc2 = Espece_Select.description.Substring(splitPoint).Trim();
+            } else {
+                Desc1 = " ";
+                Desc2 = " ";
+            }
 
             //Titre de l'animal
             Label_Nom_Animal.Content = Espece_Select.nomCommun;

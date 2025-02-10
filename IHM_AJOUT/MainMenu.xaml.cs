@@ -50,6 +50,14 @@ namespace IHM_BASE {
         //Changement de l'espèce sélectionnée
         private void LB_Especes_SelectionChanged(object sender,SelectionChangedEventArgs e) {
             C_ESPECE Espece_Select = LB_Especes.SelectedItem as C_ESPECE;
+
+            if(Espece_Select == null) {
+                BTN_ADD.IsEnabled = false;
+                BTN_SUPPR.IsEnabled = false;
+            } else {
+                BTN_ADD.IsEnabled = true;
+                BTN_SUPPR.IsEnabled = true;
+            }
         }
 
         //Button Suppression d'une espèce

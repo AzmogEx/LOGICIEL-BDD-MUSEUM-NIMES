@@ -48,20 +48,20 @@
                             <Border x:Name="Border_Cards" Margin="10" Padding="10" Background="{Binding CardColor}" CornerRadius="10">
                                 <StackPanel>
                                     <!-- Image de l'espèce -->
-                                    <Image Source="{Binding ImgPath}" Stretch="UniformToFill" Width="150" Height="100" Margin="0,10,0,0">
+                                    <Image Source="{Binding ImgPath}" Stretch="UniformToFill" Width="190" Height="120" Margin="0,10,0,0">
                                         <Image.Clip>
-                                            <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,148,98" />
+                                            <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,188,118" />
                                         </Image.Clip>
                                     </Image>
-                                    <Label x:Name="Label_Credits" Content="{Binding credits}" HorizontalContentAlignment="Right" HorizontalAlignment="Right"/>
+                                    <Label x:Name="Label_Credits" Content="{Binding Credits}" FontFamily="Arial" Foreground="{Binding TextColor}" FontStyle="Italic" HorizontalContentAlignment="Right" HorizontalAlignment="Right"/>
                                     <!-- Nom Commun de l'espèce -->
-                                    <TextBlock Text="{Binding NomCommun}" Width="200" FontWeight="Bold" TextAlignment="Center" Foreground="White" FontSize="20" Margin="5" />
+                                    <TextBlock Text="{Binding NomCommun}" Width="200" FontWeight="Bold" TextAlignment="Center" Foreground="{Binding TextColor}" FontSize="20" Margin="5" />
 
                                     <!-- Nom Scientifique -->
-                                    <TextBlock Text="{Binding NomScientifique}" FontStyle="Italic" TextAlignment="Center" Foreground="White" TextWrapping="Wrap" Margin="0,10,0,10" FontFamily="Arial" />
+                                    <TextBlock Text="{Binding NomScientifique}" FontStyle="Italic" TextAlignment="Center" Foreground="{Binding TextColor}" TextWrapping="Wrap" Margin="0,10,0,10" FontFamily="Arial" />
 
                                     <!-- Bouton pour accéder a l'espece -->
-                                    <Button Background="Transparent" x:Name="Btn_Open_Espece" Width="100" Content="Voir l'espece" Command="{Binding OpenEspeceCommand}" Click="Btn_Open_Espece_Click" Foreground="White" Height="30" BorderThickness="1" BorderBrush="Black">
+                                    <Button Background="Transparent" x:Name="Btn_Open_Espece" Width="100" Content="Voir l'espece" Command="{Binding OpenEspeceCommand}" Click="Btn_Open_Espece_Click" Foreground="{Binding TextColor}" Height="30" BorderThickness="1" BorderBrush="Black">
                                         <Button.Template>
                                             <ControlTemplate TargetType="{x:Type Button}">
                                                 <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
@@ -118,39 +118,26 @@
                 <Image HorizontalAlignment="Center" VerticalAlignment="Bottom" Source="RESSOURCES/Logo_Museum_MDN_Noir.png" Height="120"  Width="370" Margin="0,0,0,13"/>
                 <Label Height="100" Width="1200" VerticalAlignment="Top" Margin="0,15,0,0" Foreground="White" Content="Découvrez les espèces du Muséum" FontSize="64" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
 
-                <ItemsControl x:Name="ParcoursList" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel x:Name="WrapPanel">
-                                <WrapPanel.Style>
-                                    <Style TargetType="{x:Type WrapPanel}">
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Items.Count, ElementName=ParcoursList}" Value="20">
-                                                <Setter Property="Orientation" Value="Horizontal"/>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </WrapPanel.Style>
-                            </WrapPanel>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Border CornerRadius="10" BorderThickness="2" Margin="0,13,13,0" BorderBrush="White">
-                                <Border Padding="10" Width="400" Background="#5784BA" CornerRadius="10">
-                                    <StackPanel HorizontalAlignment="Center">
-                                        <StackPanel>
-                                            <!-- Image du parcours -->
+                <Grid HorizontalAlignment="Center">
+                    <ItemsControl x:Name="ParcoursList" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Columns="4" HorizontalAlignment="Center"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border CornerRadius="10" BorderThickness="2" Margin="10" BorderBrush="White">
+                                    <Border Padding="10" Width="400" Background="#5784BA" CornerRadius="10">
+                                        <StackPanel HorizontalAlignment="Center">
                                             <Image Source="{Binding imgPathParcours}" Stretch="UniformToFill" Width="350" Height="225" Margin="0,10,0,0">
                                                 <Image.Clip>
                                                     <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,348,223" />
                                                 </Image.Clip>
                                             </Image>
-                                            <Label x:Name="Label_Credits" Content="{Binding credits}" HorizontalContentAlignment="Right" FontFamily="Arial" FontStyle="Italic" HorizontalAlignment="Right" Height="30"/>
-                                            <!-- Nom du parcours -->
+                                            <Label Content="{Binding credits}" HorizontalContentAlignment="Right" FontFamily="Arial" FontStyle="Italic" HorizontalAlignment="Right" Height="30"/>
                                             <TextBlock Text="{Binding nomParcours}" Width="250" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="28" Margin="0,0,0,10" />
-                                            <!-- Bouton pour accéder au parcours -->
-                                            <Button Background="#5784BA" x:Name="Btn_Open_Parcours" Margin="0,0,0,10" Width="170" Content="Voir le parcours" Command="{Binding OpenParcoursCommand}" Click="Btn_Open_Parcours_Click" Foreground="White" FontSize="18" Height="50" BorderThickness="1" BorderBrush="Black">
+                                            <Button Background="#5784BA" Width="170" Content="Voir le parcours" Command="{Binding OpenParcoursCommand}" Click="Btn_Open_Parcours_Click" Foreground="White" FontSize="18" Height="50" BorderThickness="1" BorderBrush="Black">
                                                 <Button.Template>
                                                     <ControlTemplate TargetType="{x:Type Button}">
                                                         <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
@@ -160,12 +147,12 @@
                                                 </Button.Template>
                                             </Button>
                                         </StackPanel>
-                                    </StackPanel>
+                                    </Border>
                                 </Border>
-                            </Border>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Grid>
             </Grid>
         </Border>
         <!--============================================================================-->
@@ -265,7 +252,7 @@
 
         </Border>
         <!--============================================================================-->
-        <Border x:Name="Border_Info" Visibility="Visible" d:Visibility="Hidden">
+        <Border x:Name="Border_Info" Visibility="Visible" d:Visibility="Visible">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#FF009EE4" Offset="0"/>
@@ -273,7 +260,7 @@
                 </LinearGradientBrush>
             </Border.Background>
             <!--Grille d'affichage de l'animal recherché-->
-            <Grid x:Name="Grid_Info" Visibility="Hidden" d:Visibility="Hidden">
+            <Grid x:Name="Grid_Info" Visibility="Hidden" d:Visibility="Visible">
 
                 <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
 
@@ -325,7 +312,7 @@
                     <StackPanel Orientation="Horizontal">
                         <TextBlock x:Name="Text_UICN" TextAlignment="Center" HorizontalAlignment="Right" TextWrapping="Wrap" Text="TextBlock" Height="160" Width="300" VerticalAlignment="Top" Foreground="#FFCE1619" Margin="160,10,0,0" FontSize="15"/>
 
-                        <Border Background="White" Margin="150,0,0,0" BorderThickness="3" BorderBrush="Black" CornerRadius="20" Height="126">
+                        <Border Background="White" Margin="300,0,0,0" BorderThickness="3" BorderBrush="Black" CornerRadius="20" Height="126">
                             <StackPanel Orientation="Vertical" Margin="15,0,15,0">
                                 <TextBlock x:Name="Text_Critere_Menace" TextAlignment="Center" Margin="0,10,0,20" TextWrapping="Wrap" Text="TextBlock" Height="58" Width="200" FontSize="20" FontWeight="Bold" Foreground="#FF2C2E87"/>
                                 <StackPanel Orientation="Horizontal">

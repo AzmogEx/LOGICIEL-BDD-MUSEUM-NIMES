@@ -81,6 +81,6 @@
 
         <!-- Bouton pour enregistrer les modifications -->
         <Button HorizontalAlignment="Right" x:Name="BTN_EDIT_PARCOURS" VerticalAlignment="Bottom" Content="Modifier le parcours" Padding="10" Margin="20" Click="BTN_EDIT_PARCOURS_Click"/>
-        <Button x:Name="BTN_Return" Content="Retour" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10,10,170,20" Height="41" Width="80" Click="BTN_Retour_Click"/>
+        <Button x:Name="BTN_Return" Content="Annuler" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10,10,170,20" Height="41" Width="80" Click="BTN_Retour_Click"/>
     </Grid>
 </Window>

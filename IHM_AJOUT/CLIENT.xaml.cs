@@ -231,7 +231,7 @@ namespace IHM_BASE {
         }
 
         private void Btn_Admin_Click(object sender,RoutedEventArgs e) {
-            Menu mainMenu = new();
+            LOGIN mainMenu = new();
             mainMenu.Show();
             Close();
         }

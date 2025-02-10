@@ -82,21 +82,22 @@ namespace IHM_BASE {
                     afficher = Is_Check,
                     imgPathParcours = Path,
                     colorBg = hexTextBox.Text,
-                   cardColor = hexTextBoxCards.Text,
-                   textColor = hexTextBoxTexte.Text
+                    cardColor = hexTextBoxCards.Text,
+                    textColor = hexTextBoxTexte.Text
                 };
                 if(Nb_Parcours >= 24) {
                     MessageBox.Show("Veuillez supprimer un parcours avant d'en rajouter davantage. (Vous ne pouvez pas créer plus de 24 parcours.)","Échec",MessageBoxButton.OK,MessageBoxImage.Information);
-                } else {
-                    BDD.Create_Parcours(Parcours, Id_Especes_Parcours);
+                }
+                else {
+                    BDD.Create_Parcours(Parcours,Id_Especes_Parcours);
                     Nb_Parcours++;
                     MessageBox.Show($"Le parcours '{Parcours.nomParcours}' a été ajouté avec succès.","Succès",MessageBoxButton.OK,MessageBoxImage.Information);
                     Close();
-                } 
-            } catch(Exception ex) {
+                }
+            }
+            catch(Exception ex) {
                 MessageBox.Show($"Une erreur est survenue : {ex.Message}\n{ex.StackTrace}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
             }
-            
         }
 
         private void LB_Animaux_SelectionChanged(object sender,SelectionChangedEventArgs e) {

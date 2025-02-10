@@ -145,7 +145,7 @@
         </StackPanel>
 
         <Button x:Name="BTN_Add" Content="Ajouter" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" Height="41" Width="80" Click="BTN_Add_Click" Background="#FF00FF10"/>
-        <Button x:Name="BTN_Return" Content="Retour" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,111,10" Height="41" Width="80" Click="BTN_Retour_Click" Background="Red"/>
+        <Button x:Name="BTN_Return" Content="Annuler" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,111,10" Height="41" Width="80" Click="BTN_Retour_Click" Background="Red"/>
 
     </Grid>
 </Window>

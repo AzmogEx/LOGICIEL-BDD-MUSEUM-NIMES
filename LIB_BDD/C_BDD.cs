@@ -74,7 +74,7 @@ public class C_BDD {
 
     public List<C_ESPECE> Get_Especes_By_Region(string P_Region) {
         using SqlConnection connexion = new SqlConnection(Chaine_Connexion);
-        string query = @"SELECT * FROM especes WHERE idEspece IN (SELECT idEspece FROM region WHERE nomRegion = @Region)";
+        string query = @"SELECT * FROM especes WHERE idEspece IN (SELECT idEspece FROM region WHERE nomRegion = @Region) ORDER BY nomCommun ASC";
 
         return connexion.Query<C_ESPECE>(query,new { Region = P_Region }).ToList();
     }
@@ -114,12 +114,12 @@ public class C_BDD {
     }
 
 
-    public string[] Get_Region_By_ID(int P_ID) {
+    public List<string> Get_Region_By_ID(int P_ID) {
         using SqlConnection connexion = new SqlConnection(Chaine_Connexion);
 
         string query = "SELECT nomRegion FROM region WHERE idEspece = @ID";
 
-        return connexion.Query<string>(query,new { ID = P_ID }).ToArray();
+        return connexion.Query<string>(query,new { ID = P_ID }).ToList();
     }
 
 
@@ -198,7 +198,7 @@ public class C_BDD {
 
     public void Edit_Espece(C_ESPECE P_Espece,List<C_IMAGE> P_ImgPaths,List<string> P_Regions,C_PARCOURS P_Parcours) {
         using SqlConnection Connexion = new SqlConnection(Chaine_Connexion);
-        string[] OldListRegion = Get_Region_By_ID(P_Espece.idEspece);
+        List<string> OldListRegion = Get_Region_By_ID(P_Espece.idEspece);
 
         Connexion.Execute("update especes set nomCommun = @NOMCOMMUN, nomScientifique = @NOMSCIENT, statutEspece = @STATUTESPECE, " +
             "tailleMin = @TAILLEMIN, tailleMax = @TAILLEMAX, uniteTaille = @UNITETAILLE, " +
@@ -235,7 +235,7 @@ public class C_BDD {
 
         Add_Image(P_Espece.idEspece,P_ImgPaths);
 
-        if(OldListRegion != P_Regions.ToArray()) {
+        if(OldListRegion != P_Regions.ToList()) {
             Connexion.Execute("delete from region where region.idEspece = @IDESPECE",new { IDESPECE = P_Espece.idEspece });
             Add_Region(P_Espece.idEspece,P_Regions);
         }

@@ -29,7 +29,7 @@ namespace IHM_BASE {
         private int idImage2;
         private int IDEspece;
         private List<string> Regions;
-        private string[] GetRegions;
+        private List<string> GetRegions;
         private C_ESPECE P_Espece;
 
         public EDIT(C_ESPECE Espece) {

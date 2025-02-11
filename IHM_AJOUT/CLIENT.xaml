@@ -90,7 +90,7 @@
         <!--============================================================================-->
 
         <!--Grille Parcours -->
-        <Border x:Name="Border_Parcours" Visibility="Visible" d:Visibility="Visible">
+        <Border x:Name="Border_Parcours" Visibility="Visible" d:Visibility="Hidden">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#FF4A90E2" Offset="0"/>
@@ -98,7 +98,7 @@
                 </LinearGradientBrush>
             </Border.Background>
 
-            <Grid x:Name="Grid_Parcours" Visibility="Visible" d:Visibility="Visible">
+            <Grid x:Name="Grid_Parcours" Visibility="Visible" d:Visibility="Hidden">
                 <Image Margin="0,647,1537,0" Source="RESSOURCES/bas-gauche.png" Stretch="Fill"/>
                 <Button x:Name="Btn_Admin" Content="Admin" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Btn_Admin_Click" Height="61" Width="88">
                     <Button.Style>
@@ -167,9 +167,9 @@
             </Grid>
         </Border>
         <!--============================================================================-->
-        <Border x:Name="Border_Recherche_Animal" Visibility="Hidden">
+        <Border x:Name="Border_Recherche_Animal" Visibility="Hidden" d:Visibility="Visible">
             <!--Grille de recherche d'animal-->
-            <Grid x:Name="Grid_Recherche" Visibility="Hidden">
+            <Grid x:Name="Grid_Recherche" Visibility="Hidden" d:Visibility="Visible">
 
                 <!-- Grille principale -->
                 <Grid Margin="10" VerticalAlignment="Stretch">
@@ -184,7 +184,7 @@
                     <Border Grid.Column="0" Background="White" Margin="0,12,272,-12" Grid.ColumnSpan="2">
                         <Grid Margin="0,-56,0,0">
                             <!-- Carte du monde -->
-                            <Image Source="RESSOURCES/monde.png" Stretch="Fill" />
+                            <Image Source="RESSOURCES/monde.png" Stretch="Fill" HorizontalAlignment="Left" Width="1598" />
                             <!-- Zones cliquables -->
                             <Canvas>
                                 <!-- AMERIQUE DU NORD -->
@@ -219,15 +219,15 @@
                                 </Button>
 
                                 <!-- Antartique -->
-                                <Button Canvas.Left="470" Canvas.Top="1001" Width="972" Height="100" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Antartique" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="0">
+                                <Button Canvas.Left="470" Canvas.Top="1013" Width="972" Height="100" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Antartique" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0">
                                 </Button>
                             </Canvas>
                         </Grid>
                     </Border>
                 </Grid>
 
-                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Width="250">
-                    <ListBox x:Name="Lstbx_Animaux" MouseDoubleClick="Lstbx_Animaux_MouseDoubleClick" Width="250" Height="1050">
+                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Width="230">
+                    <ListBox x:Name="Lstbx_Animaux" MouseDoubleClick="Lstbx_Animaux_MouseDoubleClick" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Width="230" Height="1080">
                         <ListBox.Resources>
                             <Style TargetType="ListBoxItem">
                                 <Setter Property="Background" Value="Transparent" />
@@ -237,26 +237,18 @@
                         </ListBox.Resources>
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Image x:Name="Img_Animal_1" Width="60" Source="RESSOURCES/axolotl.jpeg" Margin="2" Height="60" Stretch="Fill">
-                                        <Image.OpacityMask>
-                                            <ImageBrush ImageSource="RESSOURCES/rond.png" Stretch="Uniform" TileMode="None" />
-                                        </Image.OpacityMask>
-                                    </Image>
-                                    <Border Height="70" Width="150" Background="White" HorizontalAlignment="Right" CornerRadius="10" Margin="2">
-                                        <TextBlock Text="{Binding nomCommun}" VerticalAlignment="Center" Margin="5" HorizontalAlignment="Center" FontSize="16" FontFamily="Segoe UI Black"/>
-                                    </Border>
-                                </StackPanel>
+                                <Border Height="70" Width="200" Background="Transparent" HorizontalAlignment="Center" CornerRadius="10" Margin="2">
+                                    <TextBlock Text="{Binding nomCommun}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontFamily="Segoe UI Black"/>
+                                </Border>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
                 </StackPanel>
-
             </Grid>
 
         </Border>
         <!--============================================================================-->
-        <Border x:Name="Border_Info" Visibility="Visible" d:Visibility="Visible">
+        <Border x:Name="Border_Info" Visibility="Visible" d:Visibility="Hidden">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#FF009EE4" Offset="0"/>
@@ -264,7 +256,7 @@
                 </LinearGradientBrush>
             </Border.Background>
             <!--Grille d'affichage de l'animal recherché-->
-            <Grid x:Name="Grid_Info" Visibility="Hidden" d:Visibility="Visible">
+            <Grid x:Name="Grid_Info" Visibility="Hidden" d:Visibility="Hidden">
 
                 <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
 

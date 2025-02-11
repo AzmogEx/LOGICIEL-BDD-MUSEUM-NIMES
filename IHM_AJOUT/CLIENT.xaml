@@ -382,13 +382,6 @@
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal">
-                                <Image Stretch="Fill" Height="80" Source="RESSOURCES/ping.png"/>
-                                <Border CornerRadius="10" BorderBrush="Black" BorderThickness="2" Background="White" Margin="20,0,0,0" Width="170" Height="55">
-                                    <Label x:Name="Label_Continent" Content="Continent" Foreground="Black" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
-                                </Border>
-                            </StackPanel>
-
-                            <StackPanel Orientation="Horizontal">
                                 <Image  Source="RESSOURCES/1.png" Stretch="Fill" Height="80"/>
                                 <Border CornerRadius="10" BorderBrush="Black" BorderThickness="2" Background="White" Margin="20,0,0,0" Width="170" Height="55">
                                     <Label x:Name="Label_Taille" Content="Taille" Foreground="Black" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
@@ -421,7 +414,7 @@
                     </Image.OpacityMask>
                 </Image>
 
-                <Border Background="White"  BorderThickness="3" BorderBrush="Black" CornerRadius="20" Margin="1474,835,162,74">
+                <Border Background="White"  BorderThickness="3" BorderBrush="Black" CornerRadius="20" Margin="1494,769,142,140">
                     <StackPanel Orientation="Vertical" Margin="-3,0,-3,0">
                         <TextBlock x:Name="Text_DescParcours" TextAlignment="Center" TextWrapping="Wrap" Text="TextBlock" Height="144" Width="296" FontSize="15" Foreground="#FF2C2E87"/>
                     </StackPanel>

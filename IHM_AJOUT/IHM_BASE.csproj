@@ -39,7 +39,6 @@
     <Resource Include="RESSOURCES\monde.png" />
     <Resource Include="RESSOURCES\rond-blanc.png" />
     <Resource Include="RESSOURCES\rond.png" />
-    <Resource Include="RESSOURCES\world.png" />
   </ItemGroup>
 
 </Project>

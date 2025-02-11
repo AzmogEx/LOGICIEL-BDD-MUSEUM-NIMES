@@ -150,7 +150,6 @@ namespace IHM_BASE {
 
             if(Espece_Select != null) {
                 Images = BDD.Get_Img_By_ID(Espece_Select.idEspece);
-                var La_region = BDD.Get_Region_By_ID(Espece_Select.idEspece);
                 try {
                     foreach(var imagePath in Images) {
                         if(!string.IsNullOrWhiteSpace(imagePath.ImgPath) && File.Exists(imagePath.ImgPath)) {

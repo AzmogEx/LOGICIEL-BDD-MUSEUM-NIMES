@@ -17,7 +17,6 @@
         <Border x:Name="Border_Especes" Visibility="Hidden" d:Visibility="Hidden">
 
             <Grid x:Name="Grid_Especes_Parcours" Visibility="Hidden" d:Visibility="Hidden">
-
                 <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
                 <Button x:Name="Btn_Admin2" Content="Admin" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Btn_Admin_Click" Height="61" Width="88">
                     <Button.Style>
@@ -366,11 +365,18 @@
 
 
                         <!-- Labels superposés -->
-                        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Vertical" Margin="-40,-40,0,0" Grid.ColumnSpan="2">
+                        <StackPanel HorizontalAlignment="Right" Orientation="Vertical" Margin="0,-40,-50,-47" Grid.ColumnSpan="2" Width="350">
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="RESSOURCES/3.png" Stretch="Fill" Height="80"/>
                                 <Border BorderBrush="Black" BorderThickness="2" CornerRadius="10" Background="White" Margin="20,0,0,0" Width="170" Height="55">
                                     <TextBlock x:Name="Label_Habitat" TextAlignment="Center" Text="Habitat" Foreground="Black" FontSize="15" VerticalAlignment="Center" TextWrapping="Wrap" Height="55" FontFamily="Segoe UI Black"/>
+                                </Border>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <Image Stretch="Fill" Height="80" Source="RESSOURCES/ping.png"/>
+                                <Border CornerRadius="10" BorderBrush="Black" BorderThickness="2" Background="White" Margin="20,0,0,0" Width="170" Height="55">
+                                    <Label x:Name="Label_Continent" Content="Continent" Foreground="Black" FontSize="20" HorizontalContentAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
                                 </Border>
                             </StackPanel>
 
@@ -407,7 +413,7 @@
                     </Image.OpacityMask>
                 </Image>
 
-                <Border Background="White" Margin="1450,800,163,128" BorderThickness="3" BorderBrush="Black" CornerRadius="20">
+                <Border Background="White"  BorderThickness="3" BorderBrush="Black" CornerRadius="20" Margin="1474,835,162,74">
                     <StackPanel Orientation="Vertical" Margin="-3,0,-3,0">
                         <TextBlock x:Name="Text_DescParcours" TextAlignment="Center" TextWrapping="Wrap" Text="TextBlock" Height="144" Width="296" FontSize="15" Foreground="#FF2C2E87"/>
                     </StackPanel>

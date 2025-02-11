@@ -366,6 +366,7 @@ namespace IHM_BASE {
                         if(especes.NomScientifique == Espece.nomScientifique) {
                             Espece_Select = Espece;
                             Images = BDD.Get_Img_By_ID(Espece_Select.idEspece);
+                            var La_region = BDD.Get_Region_By_ID(Espece_Select.idEspece);
 
                             try {
                                 foreach(var imagePath in Images) {
@@ -406,6 +407,7 @@ namespace IHM_BASE {
                             Label_Nom_Scientifique_Animal.Content = Espece_Select.nomScientifique;
 
                             //Affichage des informations de l'animal
+                            Label_Continent.Content = $"{La_region}";
                             Label_Taille.Content = $"{Espece_Select.tailleMin} - {Espece_Select.tailleMax} {Espece_Select.uniteTaille}";
                             Label_Poids.Content = $"{Espece_Select.poidsMin} - {Espece_Select.poidsMax} {Espece_Select.unitePoids}";
                             Label_Duree_Vie.Content = $"{Espece_Select.dureeVieMin} - {Espece_Select.dureeVieMax} {Espece_Select.uniteVie}";

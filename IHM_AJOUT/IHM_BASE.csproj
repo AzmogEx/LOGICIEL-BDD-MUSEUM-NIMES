@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="ping.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Extended.Wpf.Toolkit" Version="4.7.25103.5738" />
   </ItemGroup>
 
@@ -17,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="RESSOURCES\ping.png" />
     <Resource Include="RESSOURCES\Logo_Museum_MDN_Noir.png" />
     <Resource Include="RESSOURCES\coucou.png" />
     <Resource Include="RESSOURCES\Bulle_Bd.png" />

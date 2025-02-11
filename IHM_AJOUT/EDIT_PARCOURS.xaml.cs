@@ -172,42 +172,50 @@ namespace IHM_BASE {
                 Is_Check = false;
             }
 
-            if(selectedParcours != null) {
-                // Récupérer les nouvelles valeurs depuis les TextBox
-                string newNom = TB_NomParcours.Text;
-                string newDesc = TB_DescParcours.Text;
-                string newCredits = TB_Credits.Text;
-                string newColorBg = hexTextBox.Text;
-                string newColorText = hexTextBoxTexte.Text;
-                string newColorCards = hexTextBoxCards.Text;
+            var Nombre_Afficher = BDD.Get_All_Parcours_Affichable().Count();
 
-                // Mettre à jour le chemin de l'image si une nouvelle image est sélectionnée
-                if(!string.IsNullOrEmpty(imagePath)) {
-                    selectedParcours.imgPathParcours = imagePath;
-                }
-
-                // Créer un objet C_PARCOURS avec les nouvelles valeurs
-                C_PARCOURS updatedParcours = new C_PARCOURS {
-                    idParcours = selectedParcours.idParcours,
-                    nomParcours = newNom,
-                    imgPathParcours = selectedParcours.imgPathParcours,
-                    credits = newCredits,
-                    descParcours = newDesc,
-                    afficher = Is_Check,
-                    colorBg = newColorBg,
-                    cardColor = newColorCards,
-                    textColor = newColorText
-                };
-
-                // Appeler la méthode Edit_Parcours pour mettre à jour le parcours
-                BDD.Edit_Parcours(updatedParcours);
-                BDD.Edit_Parcours_Especes(updatedParcours.idParcours,Id_Especes_Parcours);
-                MessageBox.Show("Parcours modifié");
-                Close();
+            if(Is_Check == true && Nombre_Afficher >= 7) {
+                MessageBox.Show("Vous ne pouvez pas afficher plus de 7 parcours à la fois.","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
+                return;
             }
             else {
-                MessageBox.Show("Veuillez sélectionner un parcours à modifier");
-            }
+                if(selectedParcours != null) {
+                    // Récupérer les nouvelles valeurs depuis les TextBox
+                    string newNom = TB_NomParcours.Text;
+                    string newDesc = TB_DescParcours.Text;
+                    string newCredits = TB_Credits.Text;
+                    string newColorBg = hexTextBox.Text;
+                    string newColorText = hexTextBoxTexte.Text;
+                    string newColorCards = hexTextBoxCards.Text;
+
+                    // Mettre à jour le chemin de l'image si une nouvelle image est sélectionnée
+                    if(!string.IsNullOrEmpty(imagePath)) {
+                        selectedParcours.imgPathParcours = imagePath;
+                    }
+
+                    // Créer un objet C_PARCOURS avec les nouvelles valeurs
+                    C_PARCOURS updatedParcours = new C_PARCOURS {
+                        idParcours = selectedParcours.idParcours,
+                        nomParcours = newNom,
+                        imgPathParcours = selectedParcours.imgPathParcours,
+                        credits = newCredits,
+                        descParcours = newDesc,
+                        afficher = Is_Check,
+                        colorBg = newColorBg,
+                        cardColor = newColorCards,
+                        textColor = newColorText
+                    };
+
+                    // Appeler la méthode Edit_Parcours pour mettre à jour le parcours
+                    BDD.Edit_Parcours(updatedParcours);
+                    BDD.Edit_Parcours_Especes(updatedParcours.idParcours,Id_Especes_Parcours);
+                    MessageBox.Show("Parcours modifié");
+                    Close();
+                }
+                else {
+                    MessageBox.Show("Veuillez sélectionner un parcours à modifier");
+                }
+            } 
         }
 
         // Supprimer un parcours

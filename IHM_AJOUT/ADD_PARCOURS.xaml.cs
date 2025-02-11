@@ -74,29 +74,37 @@ namespace IHM_BASE {
                 Is_Check = false;
             }
 
-            try {
-                var Parcours = new C_PARCOURS() {
-                    nomParcours = TB_NomParcours.Text,
-                    descParcours = TB_DescParcours.Text,
-                    credits = TB_Credits.Text,
-                    afficher = Is_Check,
-                    imgPathParcours = Path,
-                    colorBg = hexTextBox.Text,
-                    cardColor = hexTextBoxCards.Text,
-                    textColor = hexTextBoxTexte.Text
-                };
-                if(Nb_Parcours >= 24) {
-                    MessageBox.Show("Veuillez supprimer un parcours avant d'en rajouter davantage. (Vous ne pouvez pas créer plus de 24 parcours.)","Échec",MessageBoxButton.OK,MessageBoxImage.Information);
-                }
-                else {
-                    BDD.Create_Parcours(Parcours,Id_Especes_Parcours);
-                    Nb_Parcours++;
-                    MessageBox.Show($"Le parcours '{Parcours.nomParcours}' a été ajouté avec succès.","Succès",MessageBoxButton.OK,MessageBoxImage.Information);
-                    Close();
-                }
+            var Nombre_Afficher = BDD.Get_All_Parcours_Affichable().Count();
+
+            if (Is_Check == true && Nombre_Afficher >= 7) {
+                MessageBox.Show("Vous ne pouvez pas afficher plus de 7 parcours à la fois.","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
+                return;
             }
-            catch(Exception ex) {
-                MessageBox.Show($"Une erreur est survenue : {ex.Message}\n{ex.StackTrace}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
+            else {
+                try {
+                    var Parcours = new C_PARCOURS() {
+                        nomParcours = TB_NomParcours.Text,
+                        descParcours = TB_DescParcours.Text,
+                        credits = TB_Credits.Text,
+                        afficher = Is_Check,
+                        imgPathParcours = Path,
+                        colorBg = hexTextBox.Text,
+                        cardColor = hexTextBoxCards.Text,
+                        textColor = hexTextBoxTexte.Text
+                    };
+                    if(Nb_Parcours >= 24) {
+                        MessageBox.Show("Veuillez supprimer un parcours avant d'en rajouter davantage. (Vous ne pouvez pas créer plus de 24 parcours.)","Échec",MessageBoxButton.OK,MessageBoxImage.Information);
+                    }
+                    else {
+                        BDD.Create_Parcours(Parcours,Id_Especes_Parcours);
+                        Nb_Parcours++;
+                        MessageBox.Show($"Le parcours '{Parcours.nomParcours}' a été ajouté avec succès.","Succès",MessageBoxButton.OK,MessageBoxImage.Information);
+                        Close();
+                    }
+                }
+                catch(Exception ex) {
+                    MessageBox.Show($"Une erreur est survenue : {ex.Message}\n{ex.StackTrace}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
+                }
             }
         }
 

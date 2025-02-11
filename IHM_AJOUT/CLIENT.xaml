@@ -166,9 +166,15 @@
             </Grid>
         </Border>
         <!--============================================================================-->
-        <Border x:Name="Border_Recherche_Animal" Visibility="Hidden" d:Visibility="Hidden">
+        <Border x:Name="Border_Recherche_Animal" Visibility="Hidden" d:Visibility="Visible">
             <!--Grille de recherche d'animal-->
-            <Grid x:Name="Grid_Recherche" Visibility="Hidden" d:Visibility="Hidden">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#FF4A90E2" Offset="0"/>
+                    <GradientStop Color="#FF174387" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid x:Name="Grid_Recherche" Visibility="Hidden" d:Visibility="VIsible">
                 <Button Background="Red" x:Name="Button_Back_Parcours" Height="60" Width="142" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Retour" Command="{Binding OpenParcoursCommand}" Click="Button_Close2_Click" BorderThickness="1" FontSize="30" BorderBrush="Red" Margin="0,10,10,0">
                     <Button.Template>
                         <ControlTemplate TargetType="{x:Type Button}">
@@ -191,7 +197,7 @@
 
 
                     <!-- Carte du monde -->
-                    <Border Grid.Column="0" Background="White" Margin="0,12,272,-12" Grid.ColumnSpan="2">
+                    <Border Grid.Column="0" Background="Transparent" Margin="0,12,272,-12" Grid.ColumnSpan="2">
                         <Grid Margin="0,-56,0,0">
                             <!-- Carte du monde -->
                             <Image Source="RESSOURCES/monde.png" Stretch="Fill" HorizontalAlignment="Left" Width="1598" />
@@ -236,29 +242,31 @@
                     </Border>
                 </Grid>
 
-                <StackPanel HorizontalAlignment="Right" Width="230" Margin="0,65,0,0">
-                    <ListBox x:Name="Lstbx_Animaux" MouseDoubleClick="Lstbx_Animaux_MouseDoubleClick" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Width="230" Height="1019" BorderThickness="0" Background="Transparent">
-                        <ListBox.Resources>
-                            <Style TargetType="ListBoxItem">
-                                <Setter Property="Background" Value="Transparent"/>
-                                <Setter Property="BorderBrush" Value="Transparent"/>
-                                <Setter Property="BorderThickness" Value="0"/>
-                            </Style>
-                        </ListBox.Resources>
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <Border Height="70" Width="200" Background="Transparent" HorizontalAlignment="Center" CornerRadius="10" Margin="2">
-                                    <TextBlock Text="{Binding nomCommun}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontFamily="Segoe UI Black"/>
-                                </Border>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
+                <StackPanel HorizontalAlignment="Right" Height="1000" Width="230" Margin="0,94,0,-14">
+                    <Border CornerRadius="10" BorderThickness="2" Background="#5784BA" Margin="-10" BorderBrush="White">
+                        <ListBox x:Name="Lstbx_Animaux" MouseDoubleClick="Lstbx_Animaux_MouseDoubleClick" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Width="230" Height="1000" BorderThickness="0" Background="Transparent">
+                            <ListBox.Resources>
+                                <Style TargetType="ListBoxItem">
+                                    <Setter Property="Background" Value="Transparent"/>
+                                    <Setter Property="BorderBrush" Value="Transparent"/>
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                </Style>
+                            </ListBox.Resources>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Height="70" Width="200" Background="Transparent" HorizontalAlignment="Center" CornerRadius="10" Margin="2">
+                                        <TextBlock Text="{Binding nomCommun}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Foreground="White" FontFamily="Segoe UI Black"/>
+                                    </Border>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Border>
                 </StackPanel>
             </Grid>
 
         </Border>
         <!--============================================================================-->
-        <Border x:Name="Border_Info" Visibility="Visible" d:Visibility="Visible">
+        <Border x:Name="Border_Info" Visibility="Visible" d:Visibility="Hidden">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#FF009EE4" Offset="0"/>
@@ -266,7 +274,7 @@
                 </LinearGradientBrush>
             </Border.Background>
             <!--Grille d'affichage de l'animal recherché-->
-            <Grid x:Name="Grid_Info" Visibility="Hidden" d:Visibility="Visible">
+            <Grid x:Name="Grid_Info" Visibility="Hidden" d:Visibility="Hidden">
 
                 <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
 

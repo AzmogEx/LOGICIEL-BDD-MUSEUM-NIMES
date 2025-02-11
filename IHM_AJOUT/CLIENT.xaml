@@ -166,9 +166,18 @@
             </Grid>
         </Border>
         <!--============================================================================-->
-        <Border x:Name="Border_Recherche_Animal" Visibility="Hidden" d:Visibility="Visible">
+        <Border x:Name="Border_Recherche_Animal" Visibility="Hidden" d:Visibility="Hidden">
             <!--Grille de recherche d'animal-->
-            <Grid x:Name="Grid_Recherche" Visibility="Hidden" d:Visibility="Visible">
+            <Grid x:Name="Grid_Recherche" Visibility="Hidden" d:Visibility="Hidden">
+                <Button Background="Red" x:Name="Button_Back_Parcours" Height="60" Width="142" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Retour" Command="{Binding OpenParcoursCommand}" Click="Button_Close2_Click" BorderThickness="1" FontSize="30" BorderBrush="Red" Margin="0,10,10,0">
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
 
                 <!-- Grille principale -->
                 <Grid Margin="10" VerticalAlignment="Stretch">
@@ -178,6 +187,8 @@
                         <ColumnDefinition Width="647*" />
                         <!-- Résultats -->
                     </Grid.ColumnDefinitions>
+
+
 
                     <!-- Carte du monde -->
                     <Border Grid.Column="0" Background="White" Margin="0,12,272,-12" Grid.ColumnSpan="2">
@@ -225,13 +236,13 @@
                     </Border>
                 </Grid>
 
-                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Width="230">
-                    <ListBox x:Name="Lstbx_Animaux" MouseDoubleClick="Lstbx_Animaux_MouseDoubleClick" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Width="230" Height="1080">
+                <StackPanel HorizontalAlignment="Right" Width="230" Margin="0,65,0,0">
+                    <ListBox x:Name="Lstbx_Animaux" MouseDoubleClick="Lstbx_Animaux_MouseDoubleClick" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Width="230" Height="1019" BorderThickness="0" Background="Transparent">
                         <ListBox.Resources>
                             <Style TargetType="ListBoxItem">
-                                <Setter Property="Background" Value="Transparent" />
-                                <Setter Property="BorderBrush" Value="Transparent" />
-                                <Setter Property="BorderThickness" Value="0" />
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="BorderThickness" Value="0"/>
                             </Style>
                         </ListBox.Resources>
                         <ListBox.ItemTemplate>
@@ -247,7 +258,7 @@
 
         </Border>
         <!--============================================================================-->
-        <Border x:Name="Border_Info" Visibility="Visible" d:Visibility="Hidden">
+        <Border x:Name="Border_Info" Visibility="Visible" d:Visibility="Visible">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#FF009EE4" Offset="0"/>
@@ -255,7 +266,7 @@
                 </LinearGradientBrush>
             </Border.Background>
             <!--Grille d'affichage de l'animal recherché-->
-            <Grid x:Name="Grid_Info" Visibility="Hidden" d:Visibility="Hidden">
+            <Grid x:Name="Grid_Info" Visibility="Hidden" d:Visibility="Visible">
 
                 <Image Margin="1529,0,0,647" Source="RESSOURCES/haut-droite.png" Stretch="Fill"/>
 
@@ -270,9 +281,18 @@
 
                 <Label x:Name="Label_Credits2" Content="Credits 2" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" Margin="1494,27,230,1028" FontStyle="Italic" FontFamily="Arial"/>
 
-                <Label x:Name="Label_Credits3" Content="Credits 3" HorizontalContentAlignment="Center" Margin="1160,1043,520,10" FontStyle="Italic" FontFamily="Arial"/>
+                <Label x:Name="Label_Credits3" Content="Credits 3" HorizontalContentAlignment="Center" Margin="1248,1043,432,10" FontStyle="Italic" FontFamily="Arial"/>
 
-                <Button Background="Red" x:Name="Button_Close" Margin="0,20,20,0" Height="60" Width="142" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Retour" Command="{Binding OpenParcoursCommand}" Click="Button_Close_Click" BorderThickness="1" FontSize="30" BorderBrush="Red">
+                <Button Background="Red" x:Name="Button_Close" Visibility="Collapsed" Margin="0,20,20,0" Height="60" Width="142" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Retour" Command="{Binding OpenParcoursCommand}" Click="Button_Close_Click" BorderThickness="1" FontSize="30" BorderBrush="Red">
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button Background="Red" x:Name="Button_Back_Carte" Visibility="Collapsed" Margin="0,20,20,0" Height="60" Width="142" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Retour" Command="{Binding OpenParcoursCommand}" BorderThickness="1" FontSize="30" BorderBrush="Red" Click="Button_Back_Carte_Click">
                     <Button.Template>
                         <ControlTemplate TargetType="{x:Type Button}">
                             <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
@@ -398,15 +418,15 @@
 
 
                 </StackPanel>
-                <Image Margin="1136,768,496,37" Source="RESSOURCES/rond.png" Stretch="Fill"/>
+                <Image Margin="1224,768,408,37" Source="RESSOURCES/rond.png" Stretch="Fill"/>
 
-                <Image d:Source="RESSOURCES/axolotl.jpeg" x:Name="Img_Animal_3" Width="324" Height="232" Margin="1118,789,478,59">
+                <Image d:Source="RESSOURCES/axolotl.jpeg" x:Name="Img_Animal_3" Width="324" Height="232" Margin="1206,789,390,59">
                     <Image.OpacityMask>
                         <ImageBrush ImageSource="RESSOURCES/rond.png" Stretch="Uniform" TileMode="None"/>
                     </Image.OpacityMask>
                 </Image>
 
-                <Border Background="White"  BorderThickness="3" BorderBrush="Black" CornerRadius="20" Margin="1494,769,142,140">
+                <Border x:Name="BorderDescParcours" Background="White"  BorderThickness="3" BorderBrush="Black" CornerRadius="20" Margin="1536,737,100,172">
                     <StackPanel Orientation="Vertical" Margin="-3,0,-3,0">
                         <TextBlock x:Name="Text_DescParcours" TextAlignment="Center" TextWrapping="Wrap" Text="TextBlock" Height="144" Width="296" FontSize="15" Foreground="#FF2C2E87"/>
                     </StackPanel>

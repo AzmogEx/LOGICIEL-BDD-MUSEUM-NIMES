@@ -94,6 +94,7 @@ namespace IHM_BASE {
         private void Button_Close_Click(object sender,RoutedEventArgs e) {
             Grid_Info.Visibility = Visibility.Hidden;
             Border_Info.Visibility = Visibility.Hidden;
+            Button_Close.Visibility = Visibility.Collapsed;
 
             Txt_UICN_Black.Width = 20;
             Txt_UICN_Black.Height = 10;
@@ -137,9 +138,11 @@ namespace IHM_BASE {
         private void Lstbx_Animaux_MouseDoubleClick(object sender,MouseButtonEventArgs e) {
             Grid_Recherche.Visibility = Visibility.Hidden;
             Border_Recherche_Animal.Visibility = Visibility.Hidden;
+            BorderDescParcours.Visibility = Visibility.Hidden;
 
             Grid_Info.Visibility = Visibility.Visible;
             Border_Info.Visibility = Visibility.Visible;
+            Button_Back_Carte.Visibility = Visibility.Visible;
 
             // Récupération des infos de l'animal sélectionné
             C_ESPECE Espece_Select = Lstbx_Animaux.SelectedItem as C_ESPECE;
@@ -451,6 +454,7 @@ namespace IHM_BASE {
                             }
                             Grid_Info.Visibility = Visibility.Visible;
                             Border_Info.Visibility = Visibility.Visible;
+                            Button_Close.Visibility = Visibility.Visible;
 
                             Grid_Especes_Parcours.Visibility = Visibility.Hidden;
                             Border_Especes.Visibility = Visibility.Hidden;
@@ -465,9 +469,49 @@ namespace IHM_BASE {
         private void Button_Close2_Click(object sender,RoutedEventArgs e) {
             Grid_Especes_Parcours.Visibility = Visibility.Hidden;
             Border_Especes.Visibility = Visibility.Hidden;
+            Border_Recherche_Animal.Visibility = Visibility.Hidden;
+            Grid_Recherche.Visibility = Visibility.Hidden;
 
             Grid_Parcours.Visibility = Visibility.Visible;
             Border_Parcours.Visibility = Visibility.Visible;
+        }
+
+        private void Button_Back_Carte_Click(object sender,RoutedEventArgs e) {
+            Border_Info.Visibility = Visibility.Hidden;
+            Grid_Info.Visibility = Visibility.Hidden;
+            Button_Back_Carte.Visibility = Visibility.Collapsed;
+
+            Txt_UICN_Black.Width = 20;
+            Txt_UICN_Black.Height = 10;
+
+            Txt_UICN_Red.Width = 20;
+            Txt_UICN_Red.Height = 10;
+
+            Txt_UICN_Orange.Width = 20;
+            Txt_UICN_Orange.Height = 10;
+
+            Txt_UICN_Yellow.Width = 20;
+            Txt_UICN_Yellow.Height = 10;
+
+            Txt_UICN_LawnGreen.Width = 20;
+            Txt_UICN_LawnGreen.Height = 10;
+
+            Txt_UICN_YellowGreen.Width = 20;
+            Txt_UICN_YellowGreen.Height = 10;
+
+            Txt_UICN_Green.Width = 20;
+            Txt_UICN_Green.Height = 10;
+            Img_Animal_1.Source = null;
+            Img_Animal_2.Source = null;
+            Img_Animal_3.Source = null;
+
+            Label_Credits.Content = string.Empty;
+            Label_Credits2.Content = string.Empty;
+            Label_Credits3.Content = string.Empty;
+
+            Border_Recherche_Animal.Visibility = Visibility.Visible;
+            Grid_Recherche.Visibility = Visibility.Visible;
+            BorderDescParcours.Visibility = Visibility.Visible;
         }
     }
 }

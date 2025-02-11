@@ -19,7 +19,6 @@ namespace IHM_BASE {
         private List<int> Id_Especes_Parcours;
         private string imagePath;
         private string Path;
-        private List<C_PARCOURS> List_Parcours;
 
 
 

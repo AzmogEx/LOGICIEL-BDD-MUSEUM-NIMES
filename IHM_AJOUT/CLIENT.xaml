@@ -262,7 +262,7 @@
                         </ListBox>
                     </Border>
                 </StackPanel>
-                <Label x:Name="Label_Region" Content="Region" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="1682,1030,0,0" FontSize="30" VerticalAlignment="Top" Width="245"/>
+                <Label x:Name="Label_Region" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="1682,1030,0,0" FontSize="20" VerticalAlignment="Top" Width="245"/>
             </Grid>
 
         </Border>

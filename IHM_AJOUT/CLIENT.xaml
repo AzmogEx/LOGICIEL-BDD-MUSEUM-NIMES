@@ -246,7 +246,7 @@
                     <Border CornerRadius="10" BorderThickness="2" Background="#5784BA" Margin="-10" BorderBrush="White">
                         <ListBox x:Name="Lstbx_Animaux" MouseDoubleClick="Lstbx_Animaux_MouseDoubleClick" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Width="230" Height="1000" BorderThickness="0" Background="Transparent">
                             <ListBox.Resources>
-                                <Style TargetType="ListBoxItem">
+                                <Style TargetType="{x:Type ListBoxItem}">
                                     <Setter Property="Background" Value="Transparent"/>
                                     <Setter Property="BorderBrush" Value="Transparent"/>
                                     <Setter Property="BorderThickness" Value="0"/>
@@ -265,6 +265,7 @@
                         </ListBox>
                     </Border>
                 </StackPanel>
+                <Label x:Name="Label_Region" Content="Region" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="1682,1030,0,0" FontSize="30" VerticalAlignment="Top" Width="245"/>
             </Grid>
 
         </Border>

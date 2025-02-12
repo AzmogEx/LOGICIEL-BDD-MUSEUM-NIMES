@@ -30,10 +30,8 @@
         </StackPanel>
 
         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,20,0">
-            <StackPanel Orientation="Horizontal">
-                <Button x:Name="BTN_Import" Click="ImportImage_Click" Content="Importer une image" Width="130" Height="38" />
-                <Label Content="Images horizontales obligatoires !" HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontSize="20"/>
-            </StackPanel>
+            <Button x:Name="BTN_Import" Click="ImportImage_Click" Content="Importer une image" Width="130" Height="38" />
+            <Label Content="Format paysage recommandé*" FontStyle="Italic" HorizontalContentAlignment="Center"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                     <Border BorderBrush="Gray" BorderThickness="1" Width="200" Height="200" AllowDrop="True">

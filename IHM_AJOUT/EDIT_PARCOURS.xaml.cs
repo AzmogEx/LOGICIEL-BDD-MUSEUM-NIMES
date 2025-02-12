@@ -98,7 +98,6 @@ namespace IHM_BASE {
             } else {
                 selectedParcours = null;
             }
-
             // Réinitialisation de la sélection
             LB_Animaux.SelectedItems.Clear();
             Id_Especes_Parcours.Clear();

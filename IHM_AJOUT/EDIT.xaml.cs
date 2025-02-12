@@ -165,7 +165,12 @@ namespace IHM_BASE {
         }
 
         private void BTN_Edit_Click(object sender,RoutedEventArgs e) {
-
+            C_PARCOURS Selected_Parcours = CB_PARCOURS.SelectedItem as C_PARCOURS;
+            var Nb_Espece_Parcours = BDD.Get_All_Especes_By_IdParcours(Selected_Parcours.idParcours);
+            if(Nb_Espece_Parcours.Count > 10) {
+                MessageBox.Show("Vous ne pouvez pas ajouter une espèce supplémentaire dans le parcours sélectionné (limite maximum : 10)","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
+                return;
+            }
             //Vérifications que les champs ne contiennent pas de valeurs inappropriées 
             if(string.IsNullOrEmpty(TB_Nom.Text) || string.IsNullOrEmpty(TB_NomScient.Text)) {
                 MessageBox.Show("Le nom commun et le nom scientifique sont obligatoires.","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);

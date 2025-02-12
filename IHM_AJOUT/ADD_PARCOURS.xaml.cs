@@ -23,6 +23,7 @@ namespace IHM_BASE {
         private string Path;
         private int Nb_Parcours;
         private List<int> Id_Especes_Parcours;
+        private bool Afficher;
 
         public ADD_PARCOURS() {
             BDD = new C_BDD();
@@ -50,8 +51,7 @@ namespace IHM_BASE {
                         Path = imagePath;
                     }
                 }
-            }
-            catch(Exception ex) {
+            } catch(Exception ex) {
                 MessageBox.Show($"Une erreur est survenue : {ex.Message}\n{ex.StackTrace}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
             }
         }
@@ -63,50 +63,30 @@ namespace IHM_BASE {
         }
 
         private void BTN_AJOUT_Click(object sender,RoutedEventArgs e) {
-
-            //Verification de si cocher ou non pour l'affichage du parcours
-            bool Is_Check;
-
-            if(Check_AfficheParcours.IsChecked == true) {
-                Is_Check = true;
-            }
-            else {
-                Is_Check = false;
-            }
-
-            var Nombre_Afficher = BDD.Get_All_Parcours_Affichable().Count();
-
-            if (Is_Check == true && Nombre_Afficher >= 7) {
-                MessageBox.Show("Vous ne pouvez pas afficher plus de 7 parcours à la fois.","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
-                return;
-            }
-            else {
-                try {
-                    var Parcours = new C_PARCOURS() {
-                        nomParcours = TB_NomParcours.Text,
-                        descParcours = TB_DescParcours.Text,
-                        credits = TB_Credits.Text,
-                        afficher = Is_Check,
-                        imgPathParcours = Path,
-                        colorBg = hexTextBox.Text,
-                        cardColor = hexTextBoxCards.Text,
-                        textColor = hexTextBoxTexte.Text
-                    };
-                    if(Nb_Parcours >= 24) {
-                        MessageBox.Show("Veuillez supprimer un parcours avant d'en rajouter davantage. (Vous ne pouvez pas créer plus de 24 parcours.)","Échec",MessageBoxButton.OK,MessageBoxImage.Information);
-                    }
-                    else {
-                        BDD.Create_Parcours(Parcours,Id_Especes_Parcours);
-                        Nb_Parcours++;
-                        MessageBox.Show($"Le parcours '{Parcours.nomParcours}' a été ajouté avec succès.","Succès",MessageBoxButton.OK,MessageBoxImage.Information);
-                        Close();
-                    }
+            try {
+                var Parcours = new C_PARCOURS() {
+                    nomParcours = TB_NomParcours.Text,
+                    descParcours = TB_DescParcours.Text,
+                    credits = TB_Credits.Text,
+                    afficher = Afficher,
+                    imgPathParcours = Path,
+                    colorBg = hexTextBox.Text,
+                    cardColor = hexTextBoxCards.Text,
+                    textColor = hexTextBoxTexte.Text
+                };
+                if(Nb_Parcours >= 24) {
+                    MessageBox.Show("Veuillez supprimer un parcours avant d'en rajouter davantage. (Vous ne pouvez pas créer plus de 24 parcours.)","Échec",MessageBoxButton.OK,MessageBoxImage.Information);
+                } else {
+                    BDD.Create_Parcours(Parcours,Id_Especes_Parcours);
+                    Nb_Parcours++;
+                    MessageBox.Show($"Le parcours '{Parcours.nomParcours}' a été ajouté avec succès.","Succès",MessageBoxButton.OK,MessageBoxImage.Information);
+                    Close();
                 }
-                catch(Exception ex) {
-                    MessageBox.Show($"Une erreur est survenue : {ex.Message}\n{ex.StackTrace}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
-                }
+            } catch(Exception ex) {
+                MessageBox.Show($"Une erreur est survenue : {ex.Message}\n{ex.StackTrace}","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
             }
         }
+
 
         private void LB_Animaux_SelectionChanged(object sender,SelectionChangedEventArgs e) {
             if(LB_Animaux.SelectedItems.Count > 10) {
@@ -139,8 +119,7 @@ namespace IHM_BASE {
             var result = MessageBox.Show("Voulez-vous annuler ?","Confirmation",MessageBoxButton.YesNo,MessageBoxImage.Question);
             if(result == MessageBoxResult.Yes) {
                 Close();
-            }
-            else {
+            } else {
                 return;
             }
         }
@@ -159,6 +138,18 @@ namespace IHM_BASE {
         private void ColorPickerCard_SelectedColorChanged(object sender,RoutedPropertyChangedEventArgs<Color?> e) {
             Color selectedColor = colorPickerCards.SelectedColor.Value;
             hexTextBoxCards.Text = $"#{selectedColor.R:X2}{selectedColor.G:X2}{selectedColor.B:X2}";
+        }
+
+        private void Check_AfficheParcours_Click(object sender,RoutedEventArgs e) {
+            //Verification de si cocher ou non pour l'affichage du parcours
+            var Nombre_Afficher = BDD.Get_All_Parcours_Affichable().Count;
+
+            if(Nombre_Afficher >= 7) {
+                MessageBox.Show("Vous ne pouvez pas afficher plus de 7 parcours à la fois.","Erreur",MessageBoxButton.OK,MessageBoxImage.Error);
+                Afficher = false;
+                Check_AfficheParcours.IsChecked = false;
+                return;
+            } else { Afficher = true; }
         }
     }
 }

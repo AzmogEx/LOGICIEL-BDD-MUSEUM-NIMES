@@ -89,8 +89,6 @@ namespace IHM_BASE {
             }
         }
 
-
-
         // Sélectionner un parcours dans la liste
         private void LB_Parcours_SelectionChanged(object sender,SelectionChangedEventArgs e) {
             if(LB_Parcours.SelectedItem is C_PARCOURS parcours) {

@@ -241,37 +241,50 @@ namespace IHM_BASE {
         private void Zone_Click_Amerique_Nord(object sender,RoutedEventArgs e) {
             var Liste_Animaux_Recuperer = BDD.Get_Especes_By_Region("Amérique du Nord");
             Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
+
+            Label_Region.Content = "Amérique du Nord";
         }
 
         private void Zone_Click_Amerique_Sud(object sender,RoutedEventArgs e) {
             var Liste_Animaux_Recuperer = BDD.Get_Especes_By_Region("Amérique du Sud");
             Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
+
+            Label_Region.Content = "Amérique du Sud";
         }
 
         private void Zone_Click_Afrique(object sender,RoutedEventArgs e) {
             var Liste_Animaux_Recuperer = BDD.Get_Especes_By_Region("Afrique");
             Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
+
+            Label_Region.Content = "Afrique";
         }
 
         private void Zone_Click_Europe(object sender,RoutedEventArgs e) {
             var Liste_Animaux_Recuperer = BDD.Get_Especes_By_Region("Europe");
             Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
+
+            Label_Region.Content = "Europe";
         }
 
         private void Zone_Click_Asie(object sender,RoutedEventArgs e) {
             var Liste_Animaux_Recuperer = BDD.Get_Especes_By_Region("Asie");
             Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
 
+            Label_Region.Content = "Asie";
         }
 
         private void Zone_Click_Oceanie(object sender,RoutedEventArgs e) {
             var Liste_Animaux_Recuperer = BDD.Get_Especes_By_Region("Océanie");
             Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
+
+            Label_Region.Content = "Océanie";
         }
 
         private void Zone_Click_Antartique(object sender,RoutedEventArgs e) {
             var Liste_Animaux_Recuperer = BDD.Get_Especes_By_Region("Antarctique");
             Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
+
+            Label_Region.Content = "Antarctique";
         }
 
         private void Btn_Admin_Click(object sender,RoutedEventArgs e) {

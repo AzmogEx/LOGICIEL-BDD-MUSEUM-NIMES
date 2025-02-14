@@ -242,49 +242,49 @@ namespace IHM_BASE {
             var Liste_Animaux_Recuperer = BDD.Get_Especes_By_Region("Amérique du Nord");
             Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
 
-            Label_Region.Content = "Amérique du Nord";
+            Label_Region.Text = "Amérique du Nord";
         }
 
         private void Zone_Click_Amerique_Sud(object sender,RoutedEventArgs e) {
             var Liste_Animaux_Recuperer = BDD.Get_Especes_By_Region("Amérique du Sud");
             Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
 
-            Label_Region.Content = "Amérique du Sud";
+            Label_Region.Text = "Amérique du Sud";
         }
 
         private void Zone_Click_Afrique(object sender,RoutedEventArgs e) {
             var Liste_Animaux_Recuperer = BDD.Get_Especes_By_Region("Afrique");
             Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
 
-            Label_Region.Content = "Afrique";
+            Label_Region.Text = "Afrique";
         }
 
         private void Zone_Click_Europe(object sender,RoutedEventArgs e) {
             var Liste_Animaux_Recuperer = BDD.Get_Especes_By_Region("Europe");
             Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
 
-            Label_Region.Content = "Europe";
+            Label_Region.Text = "Europe";
         }
 
         private void Zone_Click_Asie(object sender,RoutedEventArgs e) {
             var Liste_Animaux_Recuperer = BDD.Get_Especes_By_Region("Asie");
             Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
 
-            Label_Region.Content = "Asie";
+            Label_Region.Text = "Asie";
         }
 
         private void Zone_Click_Oceanie(object sender,RoutedEventArgs e) {
             var Liste_Animaux_Recuperer = BDD.Get_Especes_By_Region("Océanie");
             Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
 
-            Label_Region.Content = "Océanie";
+            Label_Region.Text = "Océanie";
         }
 
         private void Zone_Click_Antartique(object sender,RoutedEventArgs e) {
             var Liste_Animaux_Recuperer = BDD.Get_Especes_By_Region("Antarctique");
             Lstbx_Animaux.ItemsSource = Liste_Animaux_Recuperer;
 
-            Label_Region.Content = "Antarctique";
+            Label_Region.Text = "Antarctique";
         }
 
         private void Btn_Admin_Click(object sender,RoutedEventArgs e) {

@@ -174,7 +174,7 @@
                     <GradientStop Color="#FF174387" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
-            <Grid x:Name="Grid_Recherche" Visibility="Hidden" d:Visibility="VIsible">
+            <Grid x:Name="Grid_Recherche" Visibility="Hidden" d:Visibility="Visible">
                 <Button Background="Red" x:Name="Button_Back_Parcours" Height="60" Width="142" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Retour" Command="{Binding OpenParcoursCommand}" Click="Button_Close2_Click" BorderThickness="1" FontSize="30" BorderBrush="Red" Margin="0,10,10,0">
                     <Button.Template>
                         <ControlTemplate TargetType="{x:Type Button}">
@@ -201,50 +201,79 @@
                         <Grid Margin="0,-56,0,0">
                             <!-- Carte du monde -->
                             <Image Source="RESSOURCES/monde.png" Stretch="Fill" HorizontalAlignment="Left" Width="1598" />
+
                             <!-- Zones cliquables -->
                             <Canvas>
                                 <!-- AMERIQUE DU NORD -->
-                                <Button Canvas.Left="10" Canvas.Top="40" Width="660" Height="601" Background="Transparent" BorderBrush="Transparent" 
-                    Click="Zone_Click_Amerique_Nord" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0"/>
 
                                 <!-- AMERIQUE DU SUD -->
-                                <Button Canvas.Left="388" Canvas.Top="618" Width="220" Height="403" Background="Transparent" BorderBrush="Transparent"
-                                    Click="Zone_Click_Amerique_Sud" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="0">
-                                </Button>
 
                                 <!-- AFRIQUE -->
-                                <Button Canvas.Left="686" Canvas.Top="479" Width="240" Height="443" Background="Transparent" BorderBrush="Transparent"
-                                Click="Zone_Click_Afrique" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0">
-                                </Button>
-                                <Button Canvas.Left="931" Canvas.Top="637" Width="139" Height="265" Background="Transparent" BorderBrush="Transparent"
-                                Click="Zone_Click_Afrique" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0">
-                                </Button>
 
                                 <!-- Europe -->
-                                <Button Canvas.Left="675" Width="256" Height="387" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Europe" HorizontalAlignment="Left" VerticalAlignment="Center" Content="@" Canvas.Top="92" Opacity="0"/>
-                                <Button Canvas.Left="936" Width="98" Height="336" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Europe" HorizontalAlignment="Center" VerticalAlignment="Top" Content="@" Canvas.Top="67" Opacity="0"/>
 
                                 <!-- Asie -->
-                                <Button Canvas.Left="1039" Canvas.Top="67" Width="589" Height="616" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Asie" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0" FontFamily="Segoe UI Black">
-                                </Button>
-                                <Button Canvas.Left="931" Canvas.Top="408" Width="103" Height="200" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Asie" HorizontalAlignment="Left" VerticalAlignment="Center" Opacity="0" FontFamily="Segoe UI Black">
-                                </Button>
 
                                 <!-- Oceanie -->
-                                <Button Canvas.Left="1274" Canvas.Top="688" Width="312" Height="264" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Oceanie" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="0">
-                                </Button>
 
                                 <!-- Antartique -->
-                                <Button Canvas.Left="470" Canvas.Top="1013" Width="972" Height="100" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Antartique" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0">
-                                </Button>
+                                <Button Canvas.Left="10" Canvas.Top="40" Width="660" Height="601" Background="Transparent" BorderBrush="Transparent" 
+                                Click="Zone_Click_Amerique_Nord" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0"/>
+                                <Button Canvas.Left="388" Canvas.Top="618" Width="220" Height="403" Background="Transparent" BorderBrush="Transparent"
+                                Click="Zone_Click_Amerique_Sud" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="0"/>
+                                <Button Canvas.Left="470" Canvas.Top="1013" Width="972" Height="100" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Antartique" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0"/>
+                                <Button Canvas.Left="1274" Canvas.Top="688" Width="312" Height="264" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Oceanie" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="0"/>
+                                <Button Canvas.Left="686" Canvas.Top="479" Width="240" Height="443" Background="Transparent" BorderBrush="Transparent"
+                                Click="Zone_Click_Afrique" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0"/>
+                                <Button Canvas.Left="1039" Canvas.Top="67" Width="589" Height="616" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Asie" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0" FontFamily="Segoe UI Black"/>
+                                <Button Canvas.Left="936" Width="98" Height="336" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Europe" HorizontalAlignment="Center" VerticalAlignment="Top" Content="@" Canvas.Top="67" Opacity="0"/>
+                                <Button Canvas.Left="931" Canvas.Top="408" Width="103" Height="200" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Asie" HorizontalAlignment="Left" VerticalAlignment="Center" Opacity="0" FontFamily="Segoe UI Black"/>
+                                <Button Canvas.Left="675" Width="256" Height="387" Background="Transparent" BorderBrush="Transparent" Click="Zone_Click_Europe" HorizontalAlignment="Left" VerticalAlignment="Center" Content="@" Canvas.Top="92" Opacity="0"/>
+                                <Button Canvas.Left="931" Canvas.Top="637" Width="139" Height="265" Background="Transparent" BorderBrush="Transparent"
+                                Click="Zone_Click_Afrique" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0"/>
                             </Canvas>
+                            <Label Content="Asie" IsHitTestVisible="False" Height="150" Width="300" FontSize="50" Margin="1099,315,229,651" RenderTransformOrigin="0.5,0.5">
+                            </Label>
+                            <Label Content="Europe" IsHitTestVisible="False" Height="150" Width="300" FontSize="50" Margin="785,315,543,651" RenderTransformOrigin="0.5,0.5">
+                                <Label.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="-16.712"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Label.RenderTransform>
+                            </Label>
+                            <Label Content="Océanie" IsHitTestVisible="False" Height="150" Width="300" FontSize="50" Margin="1234,808,94,158" RenderTransformOrigin="0.5,0.5">
+                                <Label.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="14.092"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Label.RenderTransform>
+                            </Label>
+                            <Label Content="Afrique" IsHitTestVisible="False" Height="150" Width="300" FontSize="50" Margin="722,607,606,359" RenderTransformOrigin="0.5,0.5">
+                                <Label.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="21.058"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Label.RenderTransform>
+                            </Label>
+                            <TextBlock Text="Amérique du Nord" IsHitTestVisible="False" TextAlignment="Center" TextWrapping="Wrap" Height="150" Width="300" FontSize="50" Margin="165,345,1163,621" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock Text="Amérique du Sud" IsHitTestVisible="False" TextAlignment="Center" TextWrapping="Wrap" Height="150" Width="300" FontSize="50" Margin="351,730,977,236" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock Text="Antarctique" IsHitTestVisible="False" TextAlignment="Center" TextWrapping="Wrap" Height="150" FontSize="50" Margin="799,1036,356,-70" RenderTransformOrigin="0.5,0.5"/>
                         </Grid>
                     </Border>
                 </Grid>
 
                 <StackPanel HorizontalAlignment="Right" Height="1000" Width="230" Margin="0,94,0,-14">
                     <Border CornerRadius="10" BorderThickness="2" Height="1000" Background="#5784BA" Margin="-10" BorderBrush="White">
-                        <ListBox x:Name="Lstbx_Animaux" MouseDoubleClick="Lstbx_Animaux_MouseDoubleClick" HorizontalContentAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Right" Width="230" Height="930" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent">
+                        <ListBox x:Name="Lstbx_Animaux" MouseDoubleClick="Lstbx_Animaux_MouseDoubleClick" HorizontalContentAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Right" Width="230" Height="914" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent">
                             <ListBox.Resources>
                                 <Style TargetType="{x:Type ListBoxItem}">
                                     <Setter Property="Background" Value="Transparent"/>
@@ -259,13 +288,13 @@
                                             <TextBlock Text="{Binding nomCommun}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Foreground="White" FontFamily="Segoe UI Black"/>
                                             <TextBlock Text="{Binding nomScientifique}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="12" FontStyle="Italic" Foreground="White" FontFamily="Arial"/>
                                         </StackPanel>
-                                         </Border>
+                                    </Border>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
                     </Border>
                 </StackPanel>
-                <Label x:Name="Label_Region" HorizontalAlignment="Left" d:Content="Region" HorizontalContentAlignment="Center" Margin="1682,1030,0,0" FontSize="20" VerticalAlignment="Top" Width="245"/>
+                <TextBlock x:Name="Label_Region" HorizontalAlignment="Left" d:Text="Region" TextAlignment="Center" TextWrapping="Wrap" Margin="1682,1002,0,0" FontSize="30" VerticalAlignment="Top" Width="245" Height="78"/>
             </Grid>
 
         </Border>
@@ -401,7 +430,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="RESSOURCES/3.png" Stretch="Fill" Height="80"/>
                                 <Border BorderBrush="Black" BorderThickness="2" CornerRadius="10" Background="White" Margin="20,0,0,0" Width="170" Height="55">
-                                    <TextBlock x:Name="Label_Habitat" TextAlignment="Center" Text="Habitat" Foreground="Black" FontSize="15" VerticalAlignment="Center" TextWrapping="Wrap" Height="55" FontFamily="Segoe UI Black"/>
+                                    <TextBlock x:Name="Label_Habitat" TextAlignment="Center" Text="Habitat" Foreground="Black" FontSize="15" VerticalAlignment="Top" TextWrapping="Wrap" Height="55" FontFamily="Segoe UI Black" Margin="0,8,0,0"/>
                                 </Border>
                             </StackPanel>
 

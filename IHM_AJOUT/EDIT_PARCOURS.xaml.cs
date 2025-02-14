@@ -85,7 +85,6 @@ namespace IHM_BASE {
                 } catch {
                     colorPickerCards.SelectedColor = Colors.White;
                 }
-
             }
         }
 

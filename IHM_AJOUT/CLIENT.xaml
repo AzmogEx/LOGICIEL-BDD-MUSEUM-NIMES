@@ -232,41 +232,17 @@
                                 <Button Canvas.Left="931" Canvas.Top="637" Width="139" Height="265" Background="Transparent" BorderBrush="Transparent"
                                 Click="Zone_Click_Afrique" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0"/>
                             </Canvas>
-                            <Label Content="Asie" IsHitTestVisible="False" Height="150" Width="300" FontSize="50" Margin="1099,315,229,651" RenderTransformOrigin="0.5,0.5">
+                            <Label Content="Asie" Foreground="White" IsHitTestVisible="False" Height="150" Width="300" FontSize="50" Margin="1099,315,229,651" RenderTransformOrigin="0.5,0.5">
                             </Label>
-                            <Label Content="Europe" IsHitTestVisible="False" Height="150" Width="300" FontSize="50" Margin="785,315,543,651" RenderTransformOrigin="0.5,0.5">
-                                <Label.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform/>
-                                        <SkewTransform/>
-                                        <RotateTransform Angle="-16.712"/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </Label.RenderTransform>
+                            <Label Content="Europe" Foreground="White" IsHitTestVisible="False" Height="150" Width="300" FontSize="50" Margin="777,339,551,627" RenderTransformOrigin="0.5,0.5">
                             </Label>
-                            <Label Content="Océanie" IsHitTestVisible="False" Height="150" Width="300" FontSize="50" Margin="1234,808,94,158" RenderTransformOrigin="0.5,0.5">
-                                <Label.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform/>
-                                        <SkewTransform/>
-                                        <RotateTransform Angle="14.092"/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </Label.RenderTransform>
+                            <Label Content="Océanie" Foreground="White" IsHitTestVisible="False" Height="150" Width="300" FontSize="50" Margin="1258,796,70,170" RenderTransformOrigin="0.5,0.5">
                             </Label>
-                            <Label Content="Afrique" IsHitTestVisible="False" Height="150" Width="300" FontSize="50" Margin="722,607,606,359" RenderTransformOrigin="0.5,0.5">
-                                <Label.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform/>
-                                        <SkewTransform/>
-                                        <RotateTransform Angle="21.058"/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </Label.RenderTransform>
+                            <Label Content="Afrique" Foreground="White" IsHitTestVisible="False" Height="150" Width="300" FontSize="50" Margin="703,565,625,401" RenderTransformOrigin="0.5,0.5">
                             </Label>
-                            <TextBlock Text="Amérique du Nord" IsHitTestVisible="False" TextAlignment="Center" TextWrapping="Wrap" Height="150" Width="300" FontSize="50" Margin="165,345,1163,621" RenderTransformOrigin="0.5,0.5"/>
-                            <TextBlock Text="Amérique du Sud" IsHitTestVisible="False" TextAlignment="Center" TextWrapping="Wrap" Height="150" Width="300" FontSize="50" Margin="351,730,977,236" RenderTransformOrigin="0.5,0.5"/>
-                            <TextBlock Text="Antarctique" IsHitTestVisible="False" TextAlignment="Center" TextWrapping="Wrap" Height="150" FontSize="50" Margin="799,1036,356,-70" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock Text="Amérique du Nord" Foreground="White" IsHitTestVisible="False" TextAlignment="Center" TextWrapping="Wrap" Height="150" Width="300" FontSize="50" Margin="165,345,1163,621" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock Text="Amérique du Sud" Foreground="White" IsHitTestVisible="False" TextAlignment="Center" TextWrapping="Wrap" Height="150" Width="300" FontSize="50" Margin="351,730,977,236" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock Text="Antarctique" Foreground="White" IsHitTestVisible="False" TextAlignment="Center" TextWrapping="Wrap" Height="150" FontSize="50" Margin="799,1036,356,-70" RenderTransformOrigin="0.5,0.5"/>
                         </Grid>
                     </Border>
                 </Grid>
@@ -294,7 +270,7 @@
                         </ListBox>
                     </Border>
                 </StackPanel>
-                <TextBlock x:Name="Label_Region" HorizontalAlignment="Left" d:Text="Region" TextAlignment="Center" TextWrapping="Wrap" Margin="1682,1002,0,0" FontSize="30" VerticalAlignment="Top" Width="245" Height="78"/>
+                <TextBlock x:Name="Label_Region" Foreground="White" HorizontalAlignment="Left" d:Text="Region" TextAlignment="Center" TextWrapping="Wrap" Margin="1682,1002,0,0" FontSize="30" VerticalAlignment="Top" Width="245" Height="78"/>
             </Grid>
 
         </Border>

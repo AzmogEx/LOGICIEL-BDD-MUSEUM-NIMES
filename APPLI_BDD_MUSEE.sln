@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IHM_BASE", "IHM_AJOUT\IHM_BASE.csproj", "{44F2721C-3519-4DE8-AE54-EF80F358E080}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LIB_BDD", "LIB_BDD\LIB_BDD.csproj", "{5221DDC5-B4DC-4C6E-9F61-F97F5A57D437}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44F2721C-3519-4DE8-AE54-EF80F358E080}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44F2721C-3519-4DE8-AE54-EF80F358E080}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44F2721C-3519-4DE8-AE54-EF80F358E080}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44F2721C-3519-4DE8-AE54-EF80F358E080}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5221DDC5-B4DC-4C6E-9F61-F97F5A57D437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5221DDC5-B4DC-4C6E-9F61-F97F5A57D437}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5221DDC5-B4DC-4C6E-9F61-F97F5A57D437}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5221DDC5-B4DC-4C6E-9F61-F97F5A57D437}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {96412B33-4B0D-4BA8-93C2-E282F2C6F33C}
+	EndGlobalSection
+EndGlobal

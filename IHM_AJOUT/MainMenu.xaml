@@ -1,0 +1,28 @@
+﻿<Window x:Class="IHM_BASE.Menu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IHM_BASE"
+        mc:Ignorable="d"
+        Title="Menu" Height="600" Width="1000"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <!--SECTION BUTTON CRUD-->
+        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="200,10">
+            <Button x:Name="BTN_ADD" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Ajouter" Padding="10" Click="BTN_ADD_Click" Width="80"/>
+            <Button x:Name="BTN_SUPPR" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Supprimer" Padding="10" Width="80" Click="BTN_SUPPR_Click"/>
+            <Button x:Name="BTN_EDIT" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Modifier espèce" Padding="10" Click="BTN_EDIT_Click" Width="120" Margin="0,0,0,20"  />
+            <Button x:Name="BTN_PARCOURS" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content=" Ajouter Parcours" Padding="10" Width="120" Click="BTN_PARCOURS_Click"/>
+            <Button x:Name="BTN_EDIT_PARCOURS" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Modifier parcours" Padding="10" Click="BTN_EDIT_PARCOURS_Click" Width="120" />
+        </StackPanel>
+
+        <!--SECTION LISTBOX-->
+        <ListBox Width="200" HorizontalAlignment="Left" x:Name="LB_Especes" SelectionChanged="LB_Especes_SelectionChanged"/>
+        
+        <!--SECTION BUTTONS-->
+        <Button x:Name="BTN_CREATE_USER" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" FontSize="12" Content="Créer un compte" Padding="10" Width="auto" Click="BTN_CREATE_USER_Click" />
+        <Button x:Name="BTN_CLIENT" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="12" Content="Page Client" Padding="10" Width="auto" Click="BTN_COUCOU_CLICK" />
+    </Grid>
+</Window>

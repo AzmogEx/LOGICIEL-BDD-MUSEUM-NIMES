@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="IMAGES\**" />
+    <EmbeddedResource Remove="IMAGES\**" />
+    <None Remove="IMAGES\**" />
+    <Page Remove="IMAGES\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LIB_BDD\LIB_BDD.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="RESSOURCES\coucou.png" />
+    <Resource Include="RESSOURCES\Bulle_Bd.png" />
+    <Resource Include="RESSOURCES\1.png" />
+    <Resource Include="RESSOURCES\3.png" />
+    <Resource Include="RESSOURCES\4.png" />
+    <Resource Include="RESSOURCES\5.png" />
+    <Resource Include="RESSOURCES\axolotl.jpeg" />
+    <Resource Include="RESSOURCES\bas-droite.png" />
+    <Resource Include="RESSOURCES\bas-gauche.png" />
+    <Resource Include="RESSOURCES\carte.png" />
+    <Resource Include="RESSOURCES\contour-gauche.png" />
+    <Resource Include="RESSOURCES\haut-droite.png" />
+    <Resource Include="RESSOURCES\haut-gauche.png" />
+    <Resource Include="RESSOURCES\monde.png" />
+    <Resource Include="RESSOURCES\rond-blanc.png" />
+    <Resource Include="RESSOURCES\rond.png" />
+    <Resource Include="RESSOURCES\world.png" />
+  </ItemGroup>
+
+</Project>

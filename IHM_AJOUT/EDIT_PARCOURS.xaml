@@ -1,0 +1,80 @@
+﻿<Window x:Class="IHM_BASE.EDIT_PARCOURS"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IHM_BASE"
+        mc:Ignorable="d"
+        Title="Parcours" Height="600" Width="1000"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <!-- ListBox pour afficher les parcours disponibles -->
+        <ListBox Width="200" HorizontalAlignment="Left" x:Name="LB_Parcours" SelectionChanged="LB_Parcours_SelectionChanged"/>
+
+        <!-- Bouton pour supprimer un parcours -->
+        <Button x:Name="BTN_SUPPR" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Supprimer" Padding="10" Width="80" Click="BTN_SUPPR_Click" Margin="200,0,0,0" />
+
+        <!-- Formulaire de modification du parcours -->
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Vertical" Margin="234,3,0,0">
+            <!-- Champ pour le nom du parcours -->
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,20">
+                <Label Content="Nom du parcours" HorizontalContentAlignment="Right" Width="150" Margin="0,0,10,0"/>
+                <TextBox x:Name="TB_NomParcours" Width="200" MaxLength="32"/>
+            </StackPanel>
+            <!-- Champ pour la description du parcours -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                <Label Content="Description du parcours" HorizontalContentAlignment="Right" Width="150" Margin="0,0,10,0"/>
+                <TextBox x:Name="TB_DescParcours" Width="200" Height="200" MaxLength="256"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Width="360">
+                <StackPanel Orientation="Vertical">
+                    <Grid Width="160" Height="30">
+                        <TextBox x:Name="SearchBox" TextChanged="SearchBox_TextChanged" />
+                        <!-- Placeholder -->
+                        <TextBlock Text="Cherchez une espèce..." Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" IsHitTestVisible="False">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                    <Style.Triggers>
+                                        <!-- Trigger pour afficher le placeholder lorsque le TextBox est vide -->
+                                        <DataTrigger Binding="{Binding Text, ElementName=SearchBox}" Value="">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Grid>
+
+                    <!-- Texte explicatif -->
+                    <TextBlock Text="Les espèces sélectionnées seront ajoutées au parcours" Width="150" TextWrapping="Wrap" Margin="0,10,10,0" />
+                </StackPanel>
+                <ListBox Name="LB_Animaux" HorizontalAlignment="Right" VerticalAlignment="Top" Width="200" Height="150" SelectionMode="Multiple" SelectionChanged="LB_Animaux_SelectionChanged"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Partie pour gérer l'image -->
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,20,0">
+            <!-- Bouton pour importer une image -->
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="BTN_Import" Click="ImportImage_Click" Content="Importer une image" Width="130" Height="38" />
+            </StackPanel>
+            <!-- Zone d'aperçu de l'image -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Border BorderBrush="Gray" BorderThickness="1" Width="200" Height="200" AllowDrop="True">
+                        <Image x:Name="ImagePreview" Stretch="Uniform" />
+                    </Border>
+                    <Button x:Name="BTN_DeleteImg" IsEnabled="False" Width="38" Height="38" HorizontalAlignment="Right" Click="BTN_DeleteImg_Click">
+                        <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text="&#xE74D;" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Bouton pour enregistrer les modifications -->
+        <Button HorizontalAlignment="Right" x:Name="BTN_EDIT_PARCOURS" VerticalAlignment="Bottom" Content="Modifier le parcours" Padding="10" Margin="20" Click="BTN_EDIT_PARCOURS_Click"/>
+    </Grid>
+
+</Window>

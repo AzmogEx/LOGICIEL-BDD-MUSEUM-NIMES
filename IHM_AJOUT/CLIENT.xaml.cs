@@ -38,8 +38,8 @@ namespace IHM_BASE {
             List<C_ESPECE> List_Especes = new();
             EspecesParcours = new();
 
-            KeyboardHook.Start();
-            this.Closing += (s,e) => KeyboardHook.Stop();
+            //KeyboardHook.Start();
+            //this.Closing += (s,e) => KeyboardHook.Stop();
 
             InitialiserConnexion();
 

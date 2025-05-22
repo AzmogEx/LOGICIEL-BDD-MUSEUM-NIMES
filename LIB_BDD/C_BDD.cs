@@ -15,7 +15,7 @@ public class C_BDD {
 
     //------------------------------ connection base de donnnées --------------------------------------
 
-    const string Chaine_Connexion = "Server=tcp:service.adam-marzuk.fr;Initial Catalog=animaux;Persist Security Info=False;User ID=stage;Password=Museum123.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;";
+    const string Chaine_Connexion = "Server=tcp:services.adam-marzuk.fr;Initial Catalog=animaux;Persist Security Info=False;User ID=stage;Password=Tank9-Amulet3-Duty3-Shelving3-Glove2;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=10;";
     List<C_ESPECE> Les_Especes = new List<C_ESPECE>();
     List<C_PARCOURS> Les_Parcours = new List<C_PARCOURS>();
 

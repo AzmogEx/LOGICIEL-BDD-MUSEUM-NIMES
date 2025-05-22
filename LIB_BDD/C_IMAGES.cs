@@ -12,4 +12,5 @@ public class C_IMAGE {
     public int IdEspece { get; set; }  
     public string ImgPath { get; set; }  
     public byte[] ImgData { get; set; }  
+    public string Credits { get; set; } 
 }

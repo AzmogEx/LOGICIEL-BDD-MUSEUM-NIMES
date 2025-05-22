@@ -1,0 +1,25 @@
+C:\Users\Skeyr\OneDrive\Bureau\APP Musée\APPLI_BDD_MUSEE\LIB_BDD\bin\Debug\net8.0\LIB_BDD.deps.json
+C:\Users\Skeyr\OneDrive\Bureau\APP Musée\APPLI_BDD_MUSEE\LIB_BDD\bin\Debug\net8.0\LIB_BDD.dll
+C:\Users\Skeyr\OneDrive\Bureau\APP Musée\APPLI_BDD_MUSEE\LIB_BDD\bin\Debug\net8.0\LIB_BDD.pdb
+C:\Users\Skeyr\OneDrive\Bureau\APP Musée\APPLI_BDD_MUSEE\LIB_BDD\obj\Debug\net8.0\LIB_BDD.csproj.AssemblyReference.cache
+C:\Users\Skeyr\OneDrive\Bureau\APP Musée\APPLI_BDD_MUSEE\LIB_BDD\obj\Debug\net8.0\LIB_BDD.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Skeyr\OneDrive\Bureau\APP Musée\APPLI_BDD_MUSEE\LIB_BDD\obj\Debug\net8.0\LIB_BDD.AssemblyInfoInputs.cache
+C:\Users\Skeyr\OneDrive\Bureau\APP Musée\APPLI_BDD_MUSEE\LIB_BDD\obj\Debug\net8.0\LIB_BDD.AssemblyInfo.cs
+C:\Users\Skeyr\OneDrive\Bureau\APP Musée\APPLI_BDD_MUSEE\LIB_BDD\obj\Debug\net8.0\LIB_BDD.csproj.CoreCompileInputs.cache
+C:\Users\Skeyr\OneDrive\Bureau\APP Musée\APPLI_BDD_MUSEE\LIB_BDD\obj\Debug\net8.0\LIB_BDD.dll
+C:\Users\Skeyr\OneDrive\Bureau\APP Musée\APPLI_BDD_MUSEE\LIB_BDD\obj\Debug\net8.0\refint\LIB_BDD.dll
+C:\Users\Skeyr\OneDrive\Bureau\APP Musée\APPLI_BDD_MUSEE\LIB_BDD\obj\Debug\net8.0\LIB_BDD.pdb
+C:\Users\Skeyr\OneDrive\Bureau\APP Musée\APPLI_BDD_MUSEE\LIB_BDD\obj\Debug\net8.0\ref\LIB_BDD.dll
+C:\Users\skeyw\source\repos\APPLI_BDD_MUSEE\LIB_BDD\bin\Debug\net8.0\LIB_BDD.deps.json
+C:\Users\skeyw\source\repos\APPLI_BDD_MUSEE\LIB_BDD\bin\Debug\net8.0\LIB_BDD.dll
+C:\Users\skeyw\source\repos\APPLI_BDD_MUSEE\LIB_BDD\bin\Debug\net8.0\LIB_BDD.pdb
+C:\Users\skeyw\source\repos\APPLI_BDD_MUSEE\LIB_BDD\obj\Debug\net8.0\LIB_BDD.csproj.AssemblyReference.cache
+C:\Users\skeyw\source\repos\APPLI_BDD_MUSEE\LIB_BDD\obj\Debug\net8.0\LIB_BDD.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\skeyw\source\repos\APPLI_BDD_MUSEE\LIB_BDD\obj\Debug\net8.0\LIB_BDD.AssemblyInfoInputs.cache
+C:\Users\skeyw\source\repos\APPLI_BDD_MUSEE\LIB_BDD\obj\Debug\net8.0\LIB_BDD.AssemblyInfo.cs
+C:\Users\skeyw\source\repos\APPLI_BDD_MUSEE\LIB_BDD\obj\Debug\net8.0\LIB_BDD.csproj.CoreCompileInputs.cache
+C:\Users\skeyw\source\repos\APPLI_BDD_MUSEE\LIB_BDD\obj\Debug\net8.0\LIB_BDD.sourcelink.json
+C:\Users\skeyw\source\repos\APPLI_BDD_MUSEE\LIB_BDD\obj\Debug\net8.0\LIB_BDD.dll
+C:\Users\skeyw\source\repos\APPLI_BDD_MUSEE\LIB_BDD\obj\Debug\net8.0\refint\LIB_BDD.dll
+C:\Users\skeyw\source\repos\APPLI_BDD_MUSEE\LIB_BDD\obj\Debug\net8.0\LIB_BDD.pdb
+C:\Users\skeyw\source\repos\APPLI_BDD_MUSEE\LIB_BDD\obj\Debug\net8.0\ref\LIB_BDD.dll
